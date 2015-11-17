@@ -7,6 +7,7 @@ require 'capybara/poltergeist'
 #require 'fixtures/marc_records/marc_856_fixtures'
 #require 'fixtures/marc_records/marc_metadata_fixtures'
 require 'fixtures/mods_records/mods_fixtures'
+require 'fixtures/annotation_records/annotation_fixtures'
 
 Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(app, {timeout: 60})
