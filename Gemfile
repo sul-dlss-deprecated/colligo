@@ -35,6 +35,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'rspec-rails', '< 2.99'
+  gem 'capybara'
+  gem 'poltergeist'
 end
 
 group :development do
@@ -53,3 +56,5 @@ gem 'rsolr', '~> 1.0.6'
 gem 'devise'
 gem 'devise-guests', '~> 0.3'
 gem 'blacklight-marc', '~> 5.0'
+gem "mods_display", "0.3.4"
+gem "coderay"
