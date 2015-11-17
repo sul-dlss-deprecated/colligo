@@ -2,6 +2,7 @@
 class SolrDocument 
 
   include ModsData
+  include AnnotationData
   include Blacklight::Solr::Document    
   
   def initialize(*args)
