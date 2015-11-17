@@ -48,10 +48,10 @@ describe AnnotationData::Reader do
       expect(lambda{AnnotationData::Record.new.from_file('/fake/file')}).to raise_error
     end
     it "should have the keys @context, @id, @type and resources" do
-      expect(@doc_from_url.keys).to eq(["@context", "@id", "@type", "resources"])
+      expect(@doc_from_file.keys).to eq(["@context", "@id", "@type", "resources"])
     end
     it "should have an array of resources" do
-      expect(@doc_from_url["resources"]).to be_a Array
+      expect(@doc_from_file["resources"]).to be_a Array
     end
   end
 
