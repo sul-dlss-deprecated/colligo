@@ -13,6 +13,11 @@ module ModsData
     return nil unless self[:modsxml]
     @mods ||= render_mods_display(self)
   end
+  def mods_raw
+    return nil unless self[:modsxml]
+    @mods_data = Stanford::Mods::Record.new
+    @mods_data.from_str(self[:modsxml])
+  end
   def prettified_mods
     return nil unless self["modsxml"]
     @prettified_mods ||= CodeRay::Duo[:xml, :div].highlight(self["modsxml"]).html_safe
