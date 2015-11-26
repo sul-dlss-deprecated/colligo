@@ -1,19 +1,19 @@
 require "spec_helper"
 
-class AnnotationDataReaderTestClass
-  include AnnotationData
+class JsonReaderTestClass
+  include JsonReader
 end
 
-describe AnnotationData::Reader do
+describe JsonReader::Reader do
   include AnnotationFixtures
   before(:all) do
     @example_str = annotation_001
     @example_url = 'http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f8r.json'
     @fixture_dir =  Rails.root.join "spec/fixtures"
     @fixture_annotation_file = File.join(@fixture_dir, 'annotation_records/annotation-001.json')
-    @doc_from_str = AnnotationData::Reader.new.from_str(@example_str)
-    @doc_from_url = AnnotationData::Reader.new.from_url(@example_url)
-    @doc_from_file = AnnotationData::Reader.new.from_file(@fixture_annotation_file)
+    @doc_from_str = JsonReader::Reader.new.from_str(@example_str)
+    @doc_from_url = JsonReader::Reader.new.from_url(@example_url)
+    @doc_from_file = JsonReader::Reader.new.from_file(@fixture_annotation_file)
   end
    
   context "from_str" do
@@ -45,7 +45,7 @@ describe AnnotationData::Reader do
       expect(@doc_from_file).to be_a Hash
     end
     it "should give a meaningful error if passed a bad file" do
-      expect(lambda{AnnotationData::Record.new.from_file('/fake/file')}).to raise_error
+      expect(lambda{JsonReader::Record.new.from_file('/fake/file')}).to raise_error
     end
     it "should have the keys @context, @id, @type and resources" do
       expect(@doc_from_file.keys).to eq(["@context", "@id", "@type", "resources"])
