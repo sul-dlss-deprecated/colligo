@@ -3,6 +3,8 @@ class SolrDocument
 
   include ModsData
   include Blacklight::Solr::Document    
+
+  attr_accessor :id, :purl, :collection, :manifest
   
   def initialize(*args)
     super
