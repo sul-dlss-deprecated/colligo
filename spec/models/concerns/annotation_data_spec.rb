@@ -114,6 +114,14 @@ describe AnnotationData do
     it "should have the keys id, motivation, target_type, target_url, body_type, body_format, body_chars and body_language, model" do
       expect(document.map_annotation(annotation_001).keys).to eq(['id', 'target_type', 'motivation', 'target_url', 'body_type', 'body_format', 'body_chars', 'body_language', 'model'])
     end
+
+    it "should be human language and not iso code" do
+      expect(document.map_annotation(annotation_001)['body_language']).to eq 'Latin'
+    end
+
+    it "should be iso code for language if not in list" do
+      expect(document.map_annotation(annotation_002)['body_language']).to eq 'fle'
+    end
   end
 
   describe "#annotation_to_solr" do
