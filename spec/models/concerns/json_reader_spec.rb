@@ -7,7 +7,7 @@ end
 describe JsonReader::Reader do
   include AnnotationFixtures
   before(:all) do
-    @example_str = annotation_001
+    @example_str = annotation_list_001
     @example_url = 'http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f8r.json'
     @fixture_dir =  Rails.root.join "spec/fixtures"
     @fixture_annotation_file = File.join(@fixture_dir, 'annotation_records/annotation-001.json')
