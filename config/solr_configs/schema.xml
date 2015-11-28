@@ -234,7 +234,7 @@
   <!-- unstemmed search fields -->
   <copyField source="abstract_search" dest="abstract_unstem_search" />
   <copyField source="access_condition_search" dest="access_condition_unstem_search" />
-  <copyField source="genre_search" dest="title_genre_search" />
+  <copyField source="genre_search" dest="genre_unstem_search" />
   <copyField source="type_of_resource_search" dest="type_of_resource_unstem_search" />
   <copyField source="corporate_authors_search" dest="corporate_authors_unstem_search" />
   <copyField source="personal_authors_search" dest="personal_authors_unstem_search" />
