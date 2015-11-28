@@ -27,3 +27,6 @@ config/solr.yml
 config/redis.yml
 config/secrets.yml
 
+#Ignore all data files
+data/*
+!data/.keep
