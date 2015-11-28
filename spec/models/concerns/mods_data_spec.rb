@@ -7,7 +7,11 @@ end
 describe ModsData do
   include ModsFixtures
   let(:document) { SolrDocument.new(modsxml: dms_mods_001) }
-  let(:document_with_id) { SolrDocument.new(modsxml: dms_mods_001, id: "absdefg") }
+  let(:document_with_id) { SolrDocument.new(modsxml: dms_mods_001, 
+                                            druid: "fh878gz0315",
+                                            collection: "Parker collection",
+                                            iiif_manifest: "http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/manifest.json",
+                                            mods_url: "https://purl.stanford.edu/fh878gz0315.mods") }
 
   describe "#mods" do
     it "should be nil if no modsxml" do
@@ -73,12 +77,38 @@ describe ModsData do
       expect(data_with_id).to_not eq({})
     end
 
+    it "should have an id" do
+      expect(data_with_id).to have_key("id")
+      expect(data_with_id["id"]).to eq("fh878gz0315")
+    end
+
+    it "should have an druid" do
+      expect(data_with_id).to have_key("druid")
+      expect(data_with_id["druid"]).to eq("fh878gz0315")
+    end
+
     it "should have a title" do
       expect(data_with_id).to have_key("title_search")
-      #expect(data["title_search"]).to eq("Old English Homilies, mostly by Ælfric")
+      expect(data_with_id["title_search"]).to eq("Old English Homilies, mostly by Ælfric")
     end
+
     it "should have a topic" do
       expect(data_with_id).to have_key("topic_search")
+    end
+
+    it "should belong to the parker collection" do
+      expect(data_with_id).to have_key("collection")
+      expect(data_with_id["collection"]).to eq("Parker collection")
+    end
+
+    it "should have manifest url" do
+      expect(data_with_id).to have_key("manifest_urls")
+      expect(data_with_id["manifest_urls"]).to eq("http://dms-data.stanford.edu/data/manifests/Parker/fh878gz0315/manifest.json")
+    end
+
+    it "should have url" do
+      expect(data_with_id).to have_key("url_sfx")
+      expect(data_with_id["url_sfx"]).to eq("https://purl.stanford.edu/fh878gz0315.mods")
     end
   end
 end
