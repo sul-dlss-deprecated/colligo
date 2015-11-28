@@ -39,6 +39,30 @@ describe AnnotationData do
     end
   end
 
+  describe "#motivation_for_annotations" do
+    it "should be a String" do
+      expect(document.motivation_for_annotations).to be_a String
+      expect(SolrDocument.new().motivation_for_annotations).to be_a String
+    end
+
+    it "should be equal to oa:commenting" do
+      expect(document.motivation_for_annotations).to eq "oa:commenting"
+      expect(SolrDocument.new().motivation_for_annotations).to eq "oa:commenting"
+    end
+  end
+
+  describe "#motivation_for_transcriptions" do
+    it "should be a String" do
+      expect(document.motivation_for_transcriptions).to be_a String
+      expect(SolrDocument.new().motivation_for_transcriptions).to be_a String
+    end
+
+    it "should be equal to sc:painting" do
+      expect(document.motivation_for_transcriptions).to eq "sc:painting"
+      expect(SolrDocument.new().motivation_for_transcriptions).to eq "sc:painting"
+    end
+  end
+
   describe "#annotations" do
     it "should be an Array" do
       expect(document.annotations(annotation_list)).to be_a Array
@@ -87,8 +111,8 @@ describe AnnotationData do
       expect(document.map_annotation(annotation_001)).not_to be_empty
     end
 
-    it "should have the keys id, motivation, target_type, target_url, body_type, body_format, body_chars and body_language" do
-      expect(document.map_annotation(annotation_001).keys).to eq(['id', 'target_type', 'motivation', 'target_url', 'body_type', 'body_format', 'body_chars', 'body_language'])
+    it "should have the keys id, motivation, target_type, target_url, body_type, body_format, body_chars and body_language, model" do
+      expect(document.map_annotation(annotation_001).keys).to eq(['id', 'target_type', 'motivation', 'target_url', 'body_type', 'body_format', 'body_chars', 'body_language', 'model'])
     end
   end
 
@@ -152,6 +176,11 @@ describe AnnotationData do
     it "should have folio" do
       expect(solr_doc_all).to have_key("folio")
       expect(solr_doc_all["folio"]).to eq("f. 8r")
+    end
+
+    it "should have model Transcription" do
+      expect(solr_doc_all).to have_key("model")
+      expect(solr_doc_all["model"]).to eq("Transcription")
     end
   end
 end
