@@ -9,15 +9,17 @@ namespace :colligo do
       @url = row[0]
       # get iiif manifest
       @manifest = read_manifest
-      # initialize solr document model
-      @modsxml =  @manifest.get_modsxml
-      @doc = SolrDocument.new(modsxml: @modsxml, druid: @manifest.druid, 
-        collection: args.collection, iiif_manifest: @url, mods_url: @manifest.mods_url)
-      # index mods xml
-      index_mods
-      # index annotations
-      @annotation_lists = @manifest.annotation_lists
-      index_annotations
+      unless @manifest.title.blank? || @manifest.druid.blank?
+        # initialize solr document model
+        @modsxml =  @manifest.get_modsxml
+        @doc = SolrDocument.new(modsxml: @modsxml, druid: @manifest.druid,
+          collection: args.collection, iiif_manifest: @url, mods_url: @manifest.mods_url)
+        # index mods xml
+        index_mods
+        # index annotations
+        @annotation_lists = @manifest.annotation_lists
+        index_annotations
+      end
     end
     @conn.commit
   end
