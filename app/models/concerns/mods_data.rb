@@ -67,7 +67,9 @@ module ModsData
     #solr_doc["relateditem_title_search"] = data.relateditem_title
     solr_doc["pub_date"] = data.pub_dates
     #solr_doc["pub_date_t"] = data.pub_date_facet #This does not give a ISO fomrat date
-    solr_doc["pub_year_t"] = data.pub_year
+    if data.pub_year.is_a? Integer
+      solr_doc["pub_year_t"] = data.pub_year
+    end
     #solr_doc["publishers_search"] = data.publishers
     solr_doc["place_search"] = data.place
     solr_doc["topic_search"] = data.topic_search
