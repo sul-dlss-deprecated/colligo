@@ -110,5 +110,10 @@ describe ModsData do
       expect(data_with_id).to have_key("url_sfx")
       expect(data_with_id["url_sfx"]).to eq("https://purl.stanford.edu/fh878gz0315.mods")
     end
+
+    it "should have model Manuscript" do
+      expect(data_with_id).to have_key("model")
+      expect(data_with_id["model"]).to eq("Manuscript")
+    end
   end
 end
