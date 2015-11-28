@@ -13,6 +13,6 @@ module IiifManifestFixtures
   end
 
   def manifest_url_004
-    'http://dms-data.stanford.edu/data/manifests/Parker/ft757ht3699/manifest.json'
+    'https://purl.stanford.edu/bb389yg4719/iiif/manifest.json'
   end
 end

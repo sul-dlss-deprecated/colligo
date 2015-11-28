@@ -17,10 +17,11 @@ module IiifManifestData
   end
 
   def druid
+    #druid is a 11 digit alphanumeric sring
     return nil unless self.manifest_url
     self.read_manifest unless self.manifest 
-    return nil unless self.manifest  
-    self.manifest["@id"].split("/")[-2]
+    return nil unless self.manifest
+    self.manifest["@id"].match( /\/([a-zA-Z0-9]{11})\// ).to_s.gsub('/', '')
   end
 
   def mods_url
@@ -29,6 +30,8 @@ module IiifManifestData
     return nil unless self.manifest
     return nil unless self.manifest.has_key?("seeAlso")
     if self.manifest["seeAlso"]["dcterms:format"] == "application/mods+xml"
+      return self.manifest["seeAlso"]["@id"]
+    elsif self.manifest["seeAlso"]["format"] == "application/mods+xml"
       return self.manifest["seeAlso"]["@id"]
     end
     return nil
