@@ -6,7 +6,12 @@ module JsonReader
     
     def from_url(url, encoding = nil)
       require 'open-uri'
-      JSON.parse(open(url).read)
+      begin
+        JSON.parse(open(url).read)
+      rescue OpenURI::HTTPError => the_error
+        puts "\nOpen URI error for #{url}\n\t#{the_error.message}" #TODO: Add to log
+        return nil
+      end
     end
 
     # Read in the contents of a JSON record from a file.
