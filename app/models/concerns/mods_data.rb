@@ -66,7 +66,7 @@ module ModsData
     #solr_doc["relateditem_location_url_display"] = data.relateditem_location_url
     #solr_doc["relateditem_title_search"] = data.relateditem_title
     solr_doc["pub_date"] = data.pub_dates
-    solr_doc["pub_date_t"] = data.pub_date_facet
+    #solr_doc["pub_date_t"] = data.pub_date_facet #This does not give a ISO fomrat date
     solr_doc["pub_year_t"] = data.pub_year
     #solr_doc["publishers_search"] = data.publishers
     solr_doc["place_search"] = data.place
