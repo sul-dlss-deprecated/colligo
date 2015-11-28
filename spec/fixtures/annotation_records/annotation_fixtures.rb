@@ -1,6 +1,10 @@
 # encoding: UTF-8
 module AnnotationFixtures
-  def annotation_001
+  def annotation_url_001
+    "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f8r.json"
+  end
+  
+  def annotation_list_001
     '
     {
     "@context": "http://www.shared-canvas.org/ns/context.json", 
@@ -258,5 +262,47 @@ module AnnotationFixtures
 }
 '
   end
+  
+  def annotation_001
+    { 
+      "@id" => "_:N43deaea09a5345379218db8cb72600c3",
+      "@type" => "oa:Annotation",
+      "motivation" => "sc:painting",
+      "resource" => 
+      {
+        "@id" => "7377e5fe51c46454bb01b62a817a4d42",
+        "@type" => "cnt:ContentAsText",
+        "format" => "text/plain",
+        "chars" => "Erant aut[em] qui manducaverant",
+        "language" => "lat"
+      },
+      "on" => "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/canvas/canvas-3#xywh=600,450,1017,166"
+    }
+  end
+  
+  def solr_data_all
+    {
+      "annotation" => annotation_001, 
+      "manuscript" => "Manuscript fragment of the Gospels and Canonical Epistles, glossed", 
+      "folio" => "f. 8r", 
+      "url" => "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f8r.json"
+    }
+  end
 
+  def solr_data_no_id
+    {
+      "annotation" => annotation_001.except('@id'), 
+      "manuscript" => "Manuscript fragment of the Gospels and Canonical Epistles, glossed", 
+      "folio" => "f. 8r", 
+      "url" => "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f8r.json"
+    }
+  end
+  
+  def solr_data_no_anno
+    {
+      "manuscript" => "Manuscript fragment of the Gospels and Canonical Epistles, glossed", 
+      "folio" => "f. 8r", 
+      "url" => "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f8r.json"
+    }
+  end
 end
