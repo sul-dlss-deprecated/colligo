@@ -10,6 +10,14 @@ module AnnotationData
     #self[:annotation_list] = JsonReader::Reader.new.from_str(self[:annotation_url])
   end
 
+  def motivation_for_annotations
+    "oa:commenting"
+  end
+
+  def motivation_for_transcriptions
+    "sc:painting"
+  end
+
   def annotations(annotation_list=nil)
     # the motivation for annotations will be: "oa:commenting"
     #return [] unless self[:annotation_url]
@@ -17,7 +25,7 @@ module AnnotationData
     #return [] unless self[:annotation_list]
     #return self[:annotation_list][:resources].select {|anno| anno["motivation"] == "oa:commenting" }
     return [] unless annotation_list
-    return annotation_list["resources"].select {|anno| anno["motivation"] == "oa:commenting" }
+    return annotation_list["resources"].select {|anno| anno["motivation"] == self.motivation_for_annotations }
   end
 
   def transcriptions(annotation_list=nil)
@@ -27,7 +35,7 @@ module AnnotationData
     #return [] unless self[:annotation_list]
     #return self[:annotation_list][:resources].select {|anno| anno["motivation"] == "sc:painting" }
     return [] unless annotation_list
-    return annotation_list["resources"].select {|anno| anno["motivation"] == "sc:painting" }
+    return annotation_list["resources"].select {|anno| anno["motivation"] == self.motivation_for_transcriptions }
   end
 
   def map_annotation(annotation=nil)
@@ -43,6 +51,8 @@ module AnnotationData
     anno['body_chars'] = annotation["resource"]["chars"]
     #TODO: Get the language word from code
     anno['body_language'] = annotation["resource"]["language"]
+    anno['model'] = "Transcription" if annotation["motivation"] == self.motivation_for_transcriptions
+    anno['model'] = "Annotation" if annotation["motivation"] == self.motivation_for_annotations
     anno
   end
 
@@ -59,7 +69,7 @@ module AnnotationData
     solr_doc["collection"] = self["collection"]
     solr_doc["folio"] = data["folio"]
     solr_doc["manuscript_search"] = data["manuscript"]
-    solr_doc["model"] = anno["motivation"]
+    solr_doc["model"] = anno["model"]
     solr_doc["motivation"] = anno["motivation"]
     solr_doc["target_url"] = anno["target_url"]
     solr_doc["target_type"] = anno["target_type"]
@@ -69,5 +79,4 @@ module AnnotationData
     solr_doc["language"] = anno["body_language"]
     solr_doc
   end
-  
 end
