@@ -555,8 +555,8 @@
         <str name="f.pub_date_t.facet.method">enum</str>
       <str name="facet.field">druid</str>
         <str name="f.druid.facet.method">enum</str>
-      <str name="facet.field">manuscript</str>
-        <str name="f.manuscript.facet.method">enum</str>
+      <str name="facet.field">manuscript_facet</str>
+        <str name="f.manuscript_facet.facet.method">enum</str>
 
       <str name="spellcheck">true</str>
       <str name="spellcheck.dictionary">subject</str>
