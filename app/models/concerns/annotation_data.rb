@@ -49,8 +49,11 @@ module AnnotationData
     #TODO Convert format to human form?
     anno['body_format'] = annotation["resource"]["format"]
     anno['body_chars'] = annotation["resource"]["chars"]
-    #TODO: Get the language word from code
-    anno['body_language'] = annotation["resource"]["language"]
+    if SEARCHWORKS_LANGUAGES.has_key?(annotation["resource"]["language"])
+      anno['body_language'] = SEARCHWORKS_LANGUAGES[annotation["resource"]["language"]]
+    else
+      anno['body_language'] = annotation["resource"]["language"]
+    end
     anno['model'] = "Transcription" if annotation["motivation"] == self.motivation_for_transcriptions
     anno['model'] = "Annotation" if annotation["motivation"] == self.motivation_for_annotations
     anno

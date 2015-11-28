@@ -280,6 +280,23 @@ module AnnotationFixtures
     }
   end
   
+  def annotation_002
+    {
+      "@id" => "_:N43deaea09a5345379218db8cb72600c3",
+      "@type" => "oa:Annotation",
+      "motivation" => "sc:painting",
+      "resource" =>
+      {
+        "@id" => "7377e5fe51c46454bb01b62a817a4d42",
+        "@type" => "cnt:ContentAsText",
+        "format" => "text/plain",
+        "chars" => "Erant aut[em] qui manducaverant",
+        "language" => "fle"
+      },
+      "on" => "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/canvas/canvas-3#xywh=600,450,1017,166"
+    }
+  end
+
   def solr_data_all
     {
       "annotation" => annotation_001, 
