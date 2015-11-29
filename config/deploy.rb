@@ -23,7 +23,6 @@ set :log_level, :info
 # set :pty, true
 
 # Default value for :linked_files is []
-# TODO: Add config/solr.yml to staging and producition
 set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml', 'public/robots.txt')
 
 # Default value for linked_dirs is []
