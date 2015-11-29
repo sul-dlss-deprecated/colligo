@@ -2,6 +2,8 @@ set :deploy_host, ask("Server", 'e.g. hostname with no ".stanford.edu" or server
 set :bundle_without, %w{sqlite development test}.join(' ')
 set :deploy_to, "/opt/app/#{fetch(:user)}/#{fetch(:application)}"
 
+set :linked_files, fetch(:linked_files, []).push('config/solr.yml')
+
 server_extensions = ['a', 'b', 'c']
 
 server_extensions.each do |extension|
