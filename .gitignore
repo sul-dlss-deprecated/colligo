@@ -26,6 +26,7 @@ config/blacklight.yml
 config/solr.yml
 config/redis.yml
 config/secrets.yml
+config/jetty.yml
 
 #Ignore all data files
 data/*
