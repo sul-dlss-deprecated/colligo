@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema name="Colligo" version="1.5">
+  <uniqueKey>id</uniqueKey>
+
+  <fields>
+    <!-- needed by some of Solr 4.0 functionality like transaction log or partial documents update -->
+    <field name="_version_" type="long" indexed="true" stored="true"/>
+
+    <field name="id" type="string_punct_stop" indexed="true" stored="true" required="true" />
+    <field name="created" type="date" indexed="true" stored="true" default="NOW/SECOND" />
+    <field name="last_updated" type="date" indexed="true" stored="true" default="NOW/SECOND" />
+
+    <!-- the catch-all field for all text -->
+    <field name="all_search" type="text" indexed="true" stored="false" />
+    <field name="all_unstem_search" type="textNoStem" indexed="true" stored="false" />
+    
+    <!-- Abstract -->
+    <field name="abstract_search" type="text" indexed="true" stored="false" />
+    <field name="abstract_unstem_search" type="textNoStem" indexed="true" stored="false" />
+    <field name="abstract_display" type="string" indexed="false" stored="true" />
+    
+    <!-- Access condition -->
+    <field name="access_condition_search" type="text" indexed="true" stored="false" />
+    <field name="access_condition_unstem_search" type="textNoStem" indexed="true" stored="false" />
+    <field name="access_condition_display" type="string" indexed="false" stored="true" />
+    
+    <!-- Genre -->
+    <field name="genre_search" type="text" indexed="true" stored="false" multiValued="true" />
+    <field name="genre_unstem_search" type="textNoStem" indexed="true" stored="false" multiValued="true" />
+    <field name="genre_display" type="string" indexed="false" stored="true" multiValued="true" />
+    <field name="genre_facet" type="string" indexed="true" stored="false" multiValued="true" />
+    
+    <!-- Type of resource -->
+    <field name="type_of_resource_search" type="text" indexed="true" stored="false" multiValued="true" />
+    <field name="type_of_resource_unstem_search" type="textNoStem" indexed="true" stored="false" multiValued="true" />
+    <field name="type_of_resource_display" type="string" indexed="false" stored="true" multiValued="true" />
+    <field name="type_of_resource_facet" type="string" indexed="true" stored="false" multiValued="true" />
+    
+    <!-- Author: corporate, personal  -->
+    <!-- Author: corporate  -->
+    <field name="corporate_authors_search" type="text" indexed="true" stored="false"  multiValued="true" />
+    <field name="corporate_authors_unstem_search" type="textNoStem" indexed="true" stored="false"  multiValued="true" />
+    <field name="corporate_authors_display" type="string" indexed="false" stored="true"  multiValued="true" />
+    <field name="corporate_authors_facet" type="string" indexed="true" stored="false"  multiValued="true" />
+    <!-- Author: personal  -->
+    <field name="personal_authors_search" type="text" indexed="true" stored="false"  multiValued="true" />
+    <field name="personal_authors_unstem_search" type="textNoStem" indexed="true" stored="false"  multiValued="true" />
+    <field name="personal_authors_display" type="string" indexed="false" stored="true"  multiValued="true" />
+    <field name="personal_authors_facet" type="string" indexed="true" stored="false"  multiValued="true" />
+    <!-- Author: all  -->
+    <field name="authors_all_search" type="text" indexed="true" stored="false"  multiValued="true" />
+    <field name="authors_all_unstem_search" type="textNoStem" indexed="true" stored="false"  multiValued="true" />
+    <field name="authors_all_display" type="string" indexed="false" stored="true"  multiValued="true" />
+    <field name="authors_all_facet" type="string" indexed="true" stored="false"  multiValued="true" />
+
+    <!-- Title fields: title, title variant, subtitle -->
+    <!-- Title fields: title -->
+    <field name="title_exact_search" type="text_anchored" indexed="true" stored="false" />
+    <field name="title_search" type="text" indexed="true" stored="false" />
+    <field name="title_unstem_search" type="textNoStem" indexed="true" stored="false" />
+    <field name="title_display" type="string" indexed="false" stored="true" />
+    <field name="title_sort" type="alphaSort" indexed="true" stored="true" />
+    <!-- Title fields: title variant -->
+    <field name="title_alternate_search" type="text" indexed="true" stored="false" multiValued="true" />
+    <field name="title_alternate_unstem_search" type="textNoStem" indexed="true" stored="false" multiValued="true" />
+    <field name="title_alternate_display" type="string" indexed="false" stored="true" multiValued="true" />
+    <!-- Title fields: title other -->
+    <field name="title_other_search" type="text" indexed="true" stored="false" multiValued="true" />
+    <field name="title_other_unstem_search" type="textNoStem" indexed="true" stored="false" multiValued="true" />
+    <field name="title_other_display" type="string" indexed="false" stored="true" multiValued="true" />
+    <!-- Title fields: subtitle -->
+    <field name="subtitle_search" type="text" indexed="true" stored="false" />
+    <field name="subtitle_unstem_search" type="textNoStem" indexed="true" stored="false" />
+    <field name="subtitle_display" type="string" indexed="false" stored="true" />
+
+    <!-- Language -->
+    <field name="language" type="string" indexed="true" stored="true" multiValued="true" />
+    
+    <!-- Physical description fields: extent, form, media_type -->
+    <!-- Physical description fields: extent -->
+    <field name="physical_description_extent_display" type="string" indexed="false" stored="true" multiValued="true" />
+    <!-- Physical description fields: form -->
+    <field name="physical_description_form_search" type="text" indexed="true" stored="false" multiValued="true" />
+    <field name="physical_description_form_display" type="string" indexed="false" stored="true" multiValued="true" />
+    <field name="physical_description_form_facet" type="string" indexed="true" stored="false" multiValued="true" />
+    <!-- Physical description fields: media_type -->
+    <field name="physical_description_media_type_search" type="text" indexed="true" stored="false" multiValued="true" />
+    <field name="physical_description_media_type_display" type="string" indexed="false" stored="true" multiValued="true" />
+    <field name="physical_description_media_type_facet" type="string" indexed="true" stored="false" multiValued="true" />
+    
+    <!-- locations fields: physical location, location url -->
+    <field name="physical_location_display" type="string" indexed="false" stored="true" multiValued="true" />
+    <field name="location_url_display" type="string" indexed="false" stored="true" multiValued="true" />
+
+    <!-- related item fields: title, location url -->
+    <field name="relateditem_location_url_display" type="string" indexed="false" stored="true" multiValued="true" />
+    <field name="relateditem_title_search" type="text" indexed="true" stored="false" multiValued="true" />
+    <field name="relateditem_title_display" type="string" indexed="false" stored="true" multiValued="true" />
+
+    <!-- origin info fields: date_issued, place_terms, publishers -->
+    <!-- Note: Date in source data is not always an ISO valid date, but contains text -->
+    <!-- origin info fields: create_start_date -->
+    <!-- origin info fields: pub_date -->
+    <field name="pub_date" type="string" indexed="true" stored="true" multiValued="true" />
+    <field name="pub_date_t" type="tdate" indexed="true" stored="false" multiValued="true" />
+    <field name="pub_year_t" type="tint" indexed="true" stored="false" multiValued="true" />
+    <!-- origin info fields: place -->
+    <field name="place_search" type="text" indexed="true" stored="false" multiValued="true" />
+    <field name="place_display" type="string" indexed="false" stored="true" multiValued="true" />
+    <!-- origin info fields: publishers -->
+    <field name="publishers_search" type="text" indexed="true" stored="false" multiValued="true" />
+    <field name="publishers_display" type="string" indexed="false" stored="true" multiValued="true" />
+
+    <!--  Subject Search Fields: topic, geographic, other -->
+    <!--  Subject Search Fields: topic -->
+    <field name="topic_search" type="text" indexed="true" stored="false" multiValued="true" />
+    <field name="topic_unstem_search" type="textNoStem" indexed="true" stored="false" multiValued="true" />
+    <field name="topic_display" type="string" indexed="false" stored="true" multiValued="true" />
+    <field name="topic_facet" type="string" indexed="true" stored="false" multiValued="true" />
+    <!--  Subject Search Fields: geographic -->
+    <field name="geographic_search" type="text" indexed="true" stored="false" multiValued="true" />
+    <field name="geographic_unstem_search" type="textNoStem" indexed="true" stored="false" multiValued="true" />
+    <field name="geographic_display" type="string" indexed="false" stored="true" multiValued="true" />
+    <field name="geographic_facet" type="string" indexed="true" stored="false" multiValued="true" />
+    <!--  Subject Search Fields: era -->
+    <field name="era_search" type="text" indexed="true" stored="false" multiValued="true" />
+    <field name="era_unstem_search" type="textNoStem" indexed="true" stored="false" multiValued="true" />
+    <field name="era_display" type="string" indexed="false" stored="true" multiValued="true" />
+    <field name="era_facet" type="string" indexed="true" stored="false" multiValued="true" />
+    <!--  Subject Search Fields: other -->
+    <field name="subject_other_search" type="text" indexed="true" stored="false" multiValued="true" />
+    <field name="subject_other_unstem_search" type="textNoStem" indexed="true" stored="false" multiValued="true" />
+    <field name="subject_other_display" type="string" indexed="false" stored="true" multiValued="true" />
+    <!--  Subject Search Fields: all -->
+    <field name="subject_all_search" type="text" indexed="true" stored="false" multiValued="true" />
+    <field name="subject_all_unstem_search" type="textNoStem" indexed="true" stored="false" multiValued="true" />
+    <field name="subject_all_display" type="string" indexed="false" stored="true" multiValued="true" />
+    <field name="subject_all_facet" type="string" indexed="true" stored="false" multiValued="true" />    
+   
+    <!-- Format Field: facet and display -->
+    <field name="format" type="string" indexed="true" stored="true" multiValued="true" />
+
+    <!-- model: facet and display -->
+    <field name="model" type="string" indexed="true" stored="true" multiValued="true" />
+
+    <!-- URL Fields -->
+    <field name="url_sfx" type="string" indexed="false" stored="true" multiValued="true" />
+    <field name="url_restricted" type="string" indexed="false" stored="true" multiValued="true" />
+    <field name="managed_purl_urls" type="string" indexed="false" stored="true" multiValued="true" />
+    <field name="manifest_urls" type="string" indexed="false" stored="true" multiValued="true" />
+
+    <!-- note  -->
+    <field name="note_display" type="string" indexed="false" stored="true" multiValued="true" />
+
+    <!-- *************** additional fields for DOR objects  ****************** -->
+    <field name="druid" type="string" indexed="true" stored="true" />
+    <field name="modsxml" type="string" indexed="false" stored="true" />
+    <!-- collection (facet and display): "sirsi" or, for DOR items, the id of their parent coll -->
+    <field name="collection" type="string" indexed="true" stored="true" multiValued="true" omitNorms="true" />
+    <!-- collection_search: allow searching within collections for aggr. colls -->
+    <field name="collection_search" type="string_punct_stop" indexed="true" stored="false" multiValued="true" omitNorms="true" />
+    <!-- display_type is used by UI code, e.g. for Hydrus objects -->
+    <field name="display_type" type="string" indexed="true" stored="true" multiValued="true" omitNorms="true" />
+    <!--  used to determine when something is a digital collection -->
+    <field name="collection_type" type="string" indexed="true" stored="true" multiValued="true" />
+    <!--  easy way to indicate collection's parent in UI (may be deprecated in future) -->
+    <field name="collection_with_title" type="string" indexed="false" stored="true" multiValued="true" />
+    <field name="img_info" type="string" indexed="false" stored="true" multiValued="true"/>
+    <field name="file_id" type="string" indexed="false" stored="true" multiValued="true"/>
+    
+    <!-- *************** additional fields for annotation objects  ****************** -->
+    <!-- annotated_at - time of annotation -->
+    <field name="annotated_at" type="string" stored="true" indexed="true" />
+    <field name="annotated_at_tdate" type="tdate" stored="false" indexed="true" />
+    <!-- annotated_by - author of annotation (use author_all) -->
+    <!-- 
+    <field name="annotated_by_search" type="text" indexed="true" stored="false"  multiValued="true" />
+    <field name="annotated_by_unstem_search" type="textNoStem" indexed="true" stored="false"  multiValued="true" />
+    <field name="annotated_by_display" type="string" indexed="false" stored="true"  multiValued="true" />
+    <field name="annotated_by_facet" type="string" indexed="true" stored="false"  multiValued="true" />
+    -->
+    <!-- motivation: facet and display -->
+    <field name="motivation" type="string" stored="true" indexed="true" multiValued="true"/>
+    <!-- target_url: facet and display -->
+    <field name="target_url" type="string" stored="true" indexed="true" multiValued="true"/>
+    <!-- target_type: facet and display -->
+    <field name="target_type" type="string" stored="true" indexed="true" multiValued="true"/>
+    <!-- bofy_url: facet and display -->
+    <field name="body_url" type="string" stored="true" indexed="true" multiValued="true"/>
+    <!-- body_type: facet and display -->
+    <field name="body_type" type="string" stored="true" indexed="true" multiValued="true"/>
+    <!-- body -->
+    <field name="body_chars_exact_search" type="text_anchored" indexed="true" stored="false" />
+    <field name="body_chars_search" type="text" indexed="true" stored="false" />
+    <field name="body_chars_unstem_search" type="textNoStem" indexed="true" stored="false" />
+    <field name="body_chars_display" type="string" indexed="false" stored="true" />
+    <field name="body_chars_sort" type="alphaSort" indexed="true" stored="true" />
+    <!-- manuscript -->
+    <field name="manuscript_search" type="text" indexed="true" stored="false" />
+    <field name="manuscript_display" type="string" indexed="false" stored="true" />
+    <field name="manuscript_facet" type="string" indexed="true" stored="false" />
+    <!-- folio: facet and display -->
+    <field name="folio" type="string" stored="true" indexed="true" multiValued="true"/>
+    
+    <!-- *************** dynamic field types  ****************** -->
+    <!--
+    <dynamicField name="*_unstem_search" type="textNoStem" stored="false" indexed="true" multiValued="true" />
+    <dynamicField name="*_search" type="text" stored="false" indexed="true" multiValued="true" />
+    <dynamicField name="*_facet" type="string" stored="false" indexed="true" multiValued="true" />
+    <dynamicField name="*_display" type="string" stored="true" indexed="false" multiValued="true"/>
+    <dynamicField name="*_sort" type="alphaSort" stored="false" indexed="true"/>
+    -->
+    <dynamicField name="*_si" type="string" stored="false" indexed="true" multiValued="false" omitNorms="true" />
+    <dynamicField name="*_sim" type="string" stored="false" indexed="true" multiValued="true" omitNorms="true" />
+    <dynamicField name="*_ss" type="string" stored="true" indexed="false" multiValued="false" omitNorms="true" />
+    <dynamicField name="*_ssm" type="string" stored="true" indexed="false" multiValued="true" omitNorms="true" />
+    <dynamicField name="*_ssi" type="string" stored="true" indexed="true" multiValued="false" omitNorms="true" />
+    <dynamicField name="*_ssim" type="string" stored="true" indexed="true" multiValued="true" omitNorms="true" />
+    <dynamicField name="*_isi" type="tint" stored="true" indexed="true" omitNorms="true" />
+    <dynamicField name="*_isim" type="tint" stored="true" indexed="true" multiValued="true" omitNorms="true" />
+    <dynamicField name="*_sort" type="alphaSort" stored="false" indexed="true"/>
+    <dynamicField name="*_xml" type="string" stored="true" indexed="false" omitNorms="true" />
+    <dynamicField name="cjk_*" type="text" stored="false" indexed="true" multiValued="true" />
+    <dynamicField name="*_hsim" type="string_hierarch" stored="false" indexed="true" multiValued="true" />
+  </fields>
+
+  <!-- copy fields -->
+  <copyField source="collection" dest="collection_search" />
+  <!-- anchored and sort search fields -->
+  <copyField source="title_search" dest="title_exact_search" />
+  <copyField source="title_search" dest="title_sort" />
+  <copyField source="body_chars_search" dest="body_chars_exact_search" />
+  <copyField source="body_chars_search" dest="body_chars_sort" />
+  <!-- unstemmed search fields -->
+  <copyField source="abstract_search" dest="abstract_unstem_search" />
+  <copyField source="access_condition_search" dest="access_condition_unstem_search" />
+  <copyField source="genre_search" dest="genre_unstem_search" />
+  <copyField source="type_of_resource_search" dest="type_of_resource_unstem_search" />
+  <copyField source="corporate_authors_search" dest="corporate_authors_unstem_search" />
+  <copyField source="personal_authors_search" dest="personal_authors_unstem_search" />
+  <copyField source="authors_all_search" dest="authors_all_unstem_search" />
+  <copyField source="title_search" dest="title_unstem_search" />
+  <copyField source="title_alternate_search" dest="title_alternate_unstem_search" />
+  <copyField source="title_other_search" dest="title_other_unstem_search" />
+  <copyField source="subtitle_search" dest="subtitle_unstem_search" />
+  <copyField source="topic_search" dest="topic_unstem_search" />
+  <copyField source="geographic_search" dest="geographic_unstem_search" />
+  <copyField source="era_search" dest="era_unstem_search" />
+  <copyField source="subject_other_search" dest="subject_other_unstem_search" />
+  <copyField source="subject_all_search" dest="subject_all_unstem_search" />
+  <copyField source="body_chars_search" dest="body_chars_unstem_search" />
+  <!-- display fields -->
+  <copyField source="abstract_search" dest="abstract_display" />
+  <copyField source="access_condition_search" dest="access_condition_display" />
+  <copyField source="genre_search" dest="genre_display" />
+  <copyField source="type_of_resource_search" dest="type_of_resource_display" />
+  <copyField source="corporate_authors_search" dest="corporate_authors_display" />
+  <copyField source="personal_authors_search" dest="personal_authors_display" />
+  <copyField source="authors_all_search" dest="authors_all_display" />
+  <copyField source="title_search" dest="title_display" />
+  <copyField source="title_alternate_search" dest="title_alternate_display" />
+  <copyField source="title_other_search" dest="title_other_display" />
+  <copyField source="subtitle_search" dest="subtitle_display" />
+  <copyField source="physical_description_form_search" dest="physical_description_form_display" />
+  <copyField source="physical_description_media_type_search" dest="physical_description_media_type_display" />
+  <copyField source="relateditem_title_search" dest="relateditem_title_display" />
+  <copyField source="place_search" dest="place_display" />
+  <copyField source="publishers_search" dest="publishers_display" />
+  <copyField source="topic_search" dest="topic_display" />
+  <copyField source="geographic_search" dest="geographic_display" />
+  <copyField source="era_search" dest="era_display" />
+  <copyField source="subject_other_search" dest="subject_other_display" />
+  <copyField source="subject_all_search" dest="subject_all_display" />
+  <copyField source="body_chars_search" dest="body_chars_display" />
+  <copyField source="manuscript_search" dest="manuscript_display" />
+  <!-- facet fields -->
+  <copyField source="genre_search" dest="genre_facet" />
+  <copyField source="type_of_resource_search" dest="type_of_resource_facet" />
+  <copyField source="corporate_authors_search" dest="corporate_authors_facet" />
+  <copyField source="personal_authors_search" dest="personal_authors_facet" />
+  <copyField source="authors_all_search" dest="authors_all_facet" />
+  <copyField source="physical_description_form_search" dest="physical_description_form_facet" />
+  <copyField source="physical_description_media_type_search" dest="physical_description_media_type_facet" />
+  <copyField source="topic_search" dest="topic_facet" />
+  <copyField source="geographic_search" dest="geographic_facet" />
+  <copyField source="era_search" dest="era_facet" />
+  <copyField source="subject_all_search" dest="subject_all_facet" /> 
+  <copyField source="manuscript_search" dest="manuscript_facet" />
+
+  <types>
+    <fieldType name="string" class="solr.StrField" sortMissingLast="true" />
+    <fieldtype name="boolean" class="solr.BoolField" sortMissingLast="true" />
+    <fieldtype name="binary" class="solr.BinaryField"/>
+    <fieldType name="int" class="solr.TrieIntField" precisionStep="0" positionIncrementGap="0"/>
+    <fieldType name="float" class="solr.TrieFloatField" precisionStep="0" positionIncrementGap="0"/>
+    <fieldType name="long" class="solr.TrieLongField" precisionStep="0" positionIncrementGap="0"/>
+    <fieldType name="double" class="solr.TrieDoubleField" precisionStep="0" positionIncrementGap="0"/>
+    <fieldType name="date" class="solr.TrieDateField" precisionStep="0" positionIncrementGap="0"/>
+    <!-- t fields are for accelerating range queries -->
+    <fieldType name="tint" class="solr.TrieIntField" precisionStep="4" positionIncrementGap="0"/>
+    <fieldType name="tfloat" class="solr.TrieFloatField" precisionStep="8" positionIncrementGap="0"/>
+    <fieldType name="tlong" class="solr.TrieLongField" precisionStep="8" positionIncrementGap="0"/>
+    <fieldType name="tdouble" class="solr.TrieDoubleField" precisionStep="8" positionIncrementGap="0"/>
+    <fieldType name="tdate" class="solr.TrieDateField" precisionStep="6" positionIncrementGap="0"/>
+    <fieldType name="random" class="solr.RandomSortField" indexed="true" />
+
+    <!-- Analyzed Text, general case -->
+    <fieldtype name="text" class="solr.TextField" positionIncrementGap="10000" autoGeneratePhraseQueries="true">
+      <analyzer>
+        <tokenizer class="solr.WhitespaceTokenizerFactory" />
+        <filter class="solr.ICUFoldingFilterFactory"/>  <!-- NFKC, case folding, diacritics removed -->
+        <filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="false"/>
+        <filter class="solr.WordDelimiterFilterFactory"
+          splitOnCaseChange="1" generateWordParts="1" catenateWords="1"
+          splitOnNumerics="0" generateNumberParts="1" catenateNumbers="1"
+          catenateAll="0" preserveOriginal="0" stemEnglishPossessive="1" />
+        <filter class="solr.SnowballPorterFilterFactory" language="English"/>
+        <filter class="solr.RemoveDuplicatesTokenFilterFactory" />
+      </analyzer>
+    </fieldtype>
+
+    <!-- Analyzed Text, no Stemming -->
+    <fieldtype name="textNoStem" class="solr.TextField" positionIncrementGap="10000" autoGeneratePhraseQueries="true">
+      <analyzer>
+        <tokenizer class="solr.WhitespaceTokenizerFactory" />
+        <filter class="solr.ICUFoldingFilterFactory"/>  <!-- NFKC, case folding, diacritics removed -->
+        <filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="false"/>
+        <filter class="solr.WordDelimiterFilterFactory"
+          splitOnCaseChange="1" generateWordParts="1" catenateWords="1"
+          splitOnNumerics="0" generateNumberParts="1" catenateNumbers="1"
+          catenateAll="0" preserveOriginal="0" stemEnglishPossessive="0" />
+      </analyzer>
+    </fieldtype>
+
+    <!-- Left and Right Anchored Analyzed Text, no Stemming -->
+    <fieldtype name="text_anchored" class="solr.TextField" positionIncrementGap="10000" autoGeneratePhraseQueries="true">
+      <analyzer>
+        <!-- put beginning and ending anchors on field value, removing trailing chars -->
+        <!-- watch out for query time whitespace separated chars that will be processed as their own token stream, e.g. in 'felines : warm and fuzzy' -->
+        <charFilter class="solr.PatternReplaceCharFilterFactory" pattern="^\s*(.*[\S&amp;&amp;[^\.\,:;/=&lt;&gt;\(\)\[\]\&amp;\|]])[\s\.\,:;/=&lt;&gt;\(\)\[\]\&amp;\|]*$" replacement="aaaaaa$1zzzzzz"/>
+        <tokenizer class="solr.WhitespaceTokenizerFactory" />
+        <filter class="solr.ICUFoldingFilterFactory"/>  <!-- NFKC, case folding, diacritics removed -->
+        <filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="false"/>
+        <filter class="solr.WordDelimiterFilterFactory"
+          splitOnCaseChange="1" generateWordParts="1" catenateWords="1"
+          splitOnNumerics="0" generateNumberParts="1" catenateNumbers="1"
+          catenateAll="0" preserveOriginal="0" stemEnglishPossessive="1" />
+      </analyzer>
+    </fieldtype>
+
+    <!-- single token analyzed text, for sorting.  Punctuation is significant. -->
+    <fieldtype name="alphaSort" class="solr.TextField" sortMissingLast="true" omitNorms="true">
+      <analyzer>
+        <tokenizer class="solr.KeywordTokenizerFactory" />
+        <filter class="solr.ICUFoldingFilterFactory"/>
+        <filter class="solr.TrimFilterFactory" />
+      </analyzer>
+    </fieldtype>
+
+    <!-- single token with punctuation terms removed so dismax doesn't look for punctuation terms in these fields -->
+    <!-- On client side, Lucene query parser breaks things up by whitespace *before* field analysis for dismax -->
+    <!-- so punctuation terms (& : ;) are stopwords to allow results from other fields when these chars are surrounded by spaces in query -->
+    <!--  do not lowercase -->
+    <fieldType name="string_punct_stop" class="solr.TextField" omitNorms="true">
+      <analyzer type="index">
+        <tokenizer class="solr.KeywordTokenizerFactory" />
+        <filter class="solr.ICUNormalizer2FilterFactory" name="nfkc" mode="compose" />
+      </analyzer>
+      <analyzer type="query">
+        <tokenizer class="solr.KeywordTokenizerFactory" />
+        <filter class="solr.ICUNormalizer2FilterFactory" name="nfkc" mode="compose" />
+      </analyzer>
+    </fieldType>
+
+    <!-- field designed for LC call number searching -->
+    <fieldType name="callnum_ws" class="solr.TextField" omitNorms="true" positionIncrementGap="100" autoGeneratePhraseQueries="true">
+      <analyzer type="index">
+        <!-- LC: no space between class letters and digits; normalize to " ." before first cutter, no leading space -->
+        <charFilter class="solr.PatternReplaceCharFilterFactory" pattern="^ *([A-Za-z]{1,3}) ?(\d{1,4}(\.\d+)?) ?\.?([A-Za-z]\d+)" replacement="$1$2 .$4"/>
+        <!-- LC: add space between first cutter letter and its digits to allow matching on first cutter letter only -->
+        <charFilter class="solr.PatternReplaceCharFilterFactory" pattern="^([A-Za-z]{1,3}\d{1,4}(\.\d+)? \.([A-Za-z]))(\d+)" replacement="$1 $4"/>
+        <!-- prepend yyyy to string so searches can be left anchored -->
+        <charFilter class="solr.PatternReplaceCharFilterFactory" pattern="^\s*(\S{1})" replacement="yyyy$1"/>
+        <tokenizer class="solr.WhitespaceTokenizerFactory" />
+        <filter class="solr.LowerCaseFilterFactory" />
+      </analyzer>
+      <!-- Note that the query string could be a partial call number, so we can't combine all patterns -->
+      <analyzer type="query">
+        <!-- LC: no space between class letters and digits, no leading space -->
+        <charFilter class="solr.PatternReplaceCharFilterFactory" pattern="^ *([A-Za-z]{1,3}) *(\d{1,4})" replacement="$1$2" />
+        <!-- LC: normalize to " ." before first cutter or first letter of cutter (could be preceded by " ." "." " " or nothing) -->
+        <charFilter class="solr.PatternReplaceCharFilterFactory" pattern="^([A-Za-z]{1,3}\d{1,4}(\.\d+)?) *\.?([A-Za-z](\d+)?)" replacement="$1 .$3" />
+        <!-- LC: add space between first cutter letter and its digits to allow matching on first cutter letter only -->
+        <charFilter class="solr.PatternReplaceCharFilterFactory" pattern="^([A-Za-z]{1,3}\d{1,4}(\.\d+)? \.([A-Za-z]))([^ ])" replacement="$1 $4"/>
+        <!-- prepend yyyy to string so searches can be left anchored -->
+        <charFilter class="solr.PatternReplaceCharFilterFactory" pattern="^\s*(\S{1})" replacement="yyyy$1"/>
+        <tokenizer class="solr.WhitespaceTokenizerFactory" />
+	      <filter class="solr.LowerCaseFilterFactory" />
+      </analyzer>
+    </fieldType>
+
+    <fieldType name="string_hierarch" class="solr.TextField" positionIncrementGap="100">
+      <analyzer type="index">
+        <tokenizer class="solr.PathHierarchyTokenizerFactory" delimiter="|" />
+      </analyzer>
+      <analyzer type="query">
+        <tokenizer class="solr.KeywordTokenizerFactory" />
+      </analyzer>
+    </fieldType>
+
+  </types>
+
+</schema>
