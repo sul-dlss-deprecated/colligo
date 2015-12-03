@@ -1,6 +1,6 @@
 set :stage, :testing
 set :repo_url, 'https://github.com/anusharanganathan/colligo.git'
-set :branch, "master"
+set :branch, "dev"
 set :deploy_host, ask("Server", 'e.g. server.stanford.edu')
 set :linked_files, fetch(:linked_files, []).push('config/blacklight.yml', 'config/jetty.yml')
 set :linked_dirs, fetch(:linked_dirs, []).push('db', 'jetty')
