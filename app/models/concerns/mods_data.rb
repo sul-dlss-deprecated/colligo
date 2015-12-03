@@ -120,9 +120,9 @@ module ModsData
   def display_date(input_dates)
     return "" if input_dates.blank?
     if input_dates.length <= 2
-      return input_dates.map {|dt| dt.to_i}.join(" to ")
+      return input_dates.map {|dt| dt.to_s}.join(" to ")
     else
-      return input_dates.map {|dt| dt.to_i}.join(", ")
+      return input_dates.map {|dt| dt.to_s}.join(", ")
     end
   end
 

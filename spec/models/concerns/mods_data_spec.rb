@@ -214,4 +214,39 @@ describe ModsData do
       expect(dates9[:sort]).to eq(1287)
     end
   end
+
+  describe "#display date" do
+    let(:date1) { document.send(:display_date, nil) }
+    let(:date2) { document.send(:display_date, ["1389"]) }
+    let(:date3) { document.send(:display_date, ["850","1499"]) }
+    let(:date4) { document.send(:display_date, ["Ca. 1580 CE"]) }
+    let(:date5) { document.send(:display_date, ["1500 CE"]) }
+    let(:date6) { document.send(:display_date, ["14uu"]) }
+    let(:date7) { document.send(:display_date, ["February 6, 1486"]) }
+    let(:date8) { document.send(:display_date, ["June 1781"]) }
+    let(:date9) { document.send(:display_date, ["s. XIII^^ex [ca. 1275-1300]"]) }
+    it "should be a string" do
+      expect(date1).to be_a String
+      expect(date2).to be_a String
+      expect(date3).to be_a String
+      expect(date4).to be_a String
+      expect(date5).to be_a String
+      expect(date6).to be_a String
+      expect(date7).to be_a String
+      expect(date8).to be_a String
+      expect(date9).to be_a String
+    end
+
+    it "should be the combined years for display" do
+      expect(date1).to eq("")
+      expect(date2).to eq("1389")
+      expect(date3).to eq("850 to 1499")
+      expect(date4).to eq("Ca. 1580 CE")
+      expect(date5).to eq("1500 CE")
+      expect(date6).to eq("14uu")
+      expect(date7).to eq("February 6, 1486")
+      expect(date8).to eq("June 1781")
+      expect(date9).to eq("s. XIII^^ex [ca. 1275-1300]")
+    end
+  end
 end
