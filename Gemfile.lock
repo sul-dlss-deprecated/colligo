@@ -68,7 +68,11 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.10.0)
+    config (1.0.0)
+      activesupport (>= 3.0)
+      deep_merge (~> 1.0.0)
     debug_inspector (0.0.2)
+    deep_merge (1.0.1)
     deprecation (0.2.2)
       activesupport
     devise (3.5.2)
@@ -200,6 +204,7 @@ DEPENDENCIES
   blacklight-marc (~> 5.0)
   byebug
   coffee-rails (~> 4.1.0)
+  config (~> 1.0.0.beta3)
   devise
   devise-guests (~> 0.3)
   jbuilder (~> 2.0)

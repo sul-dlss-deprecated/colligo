@@ -45,7 +45,6 @@ group :development do
   gem 'spring'
 end
 
-
 gem 'blacklight', '>= 5.3.0'
 gem 'jettywrapper', '>= 2.0'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
@@ -53,3 +52,4 @@ gem 'rsolr', '~> 1.0.6'
 gem 'devise'
 gem 'devise-guests', '~> 0.3'
 gem 'blacklight-marc', '~> 5.0'
+gem 'config', '~> 1.0.0.beta3'
