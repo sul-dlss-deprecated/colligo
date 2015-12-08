@@ -1,6 +1,6 @@
 development:
   startup_wait: 15
-  jetty_port: 8983
+  jetty_port: 8984
   java_version: ">= 1.7"
 test:
   startup_wait: 60
