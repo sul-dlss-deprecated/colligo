@@ -204,121 +204,6 @@
         collection_search^2
         all_search^2
       </str>
-
-      <str name="qf_title">
-        title_exact_search^350              body_chars_exact_search^350
-        title_unstem_search^100             body_chars_unstem_search^100
-        title_search^75                     body_chars_search^75
-        subtitle_unstem_search^75
-        subtitle_search^50
-        title_alternate_unstem_search^50
-        title_alternate_search^20
-        title_other_unstem_search^20
-        title_other_search^10
-      </str>
-      <str name="pf_title"> <!-- (phrase) -->
-        title_exact_search^1750             body_chars_exact_search^1750
-        title_unstem_search^500             body_chars_unstem_search^500
-        title_search^375                    body_chars_search^375
-        subtitle_unstem_search^375
-        subtitle_search^250
-        title_alternate_unstem_search^250
-        title_alternate_search^100
-        title_other_unstem_search^100
-        title_other_search^50
-      </str>
-      <str name="pf3_title"> <!-- (token trigrams) -->
-        title_search^300                body_chars_search^300
-        subtitle_search^225
-        title_alternate_search^150
-        title_other_search^60
-      </str>
-      <str name="pf2_title"> <!-- (token bigrams) -->
-        title_search^200            body_chars_search^200
-        subtitle_search^150
-        title_alternate_search^100
-        title_other_search^40
-      </str>
-
-      <str name="qf_author">
-        personal_authors_unstem_search^20
-        personal_authors_search^5
-        corporate_authors_unstem_search^10
-        corporate_authors_search^2
-        authors_all_unstem_search^2
-        authors_all_search
-      </str>
-      <str name="pf_author"> <!-- (phrase) -->
-        personal_authors_search^100
-        corporate_authors_search^50
-        authors_all_search^10
-      </str>
-      <str name="pf3_author"> <!-- (token trigrams) -->
-        personal_authors_search^60
-        corporate_authors_search^30
-        authors_all_search^5
-      </str>
-      <str name="pf2_author"> <!-- (token bigrams) -->
-        personal_authors_search^40
-        corporate_authors_search^20
-        authors_all_search^2
-      </str>
-
-      <str name="qf_subject">
-        topic_unstem_search^50
-        topic_search^30
-        geographic_unstem_search^30
-        geographic_search^20
-        era_unstem_search^20
-        era_search^10 
-        subject_other_unstem_search^10
-        subject_other_search^5
-        subject_all_unstem_search^2
-        subject_all_search
-      </str>
-      <str name="pf_subject"> <!-- (phrase) -->
-        topic_unstem_search^250
-        topic_search^150
-        geographic_unstem_search^150
-        geographic_search^100
-        era_unstem_search^100
-        era_search^50
-        subject_other_unstem_search^25
-        subject_other_search^25
-        subject_all_unstem_search^10
-        subject_all_search^5
-      </str>
-      <str name="pf3_subject"> <!-- (token trigrams) -->
-        topic_search^150
-        subject_all_search^75
-      </str>
-      <str name="pf2_subject"> <!-- (token bigrams) -->
-        topic_search^100
-        subject_all_search^50
-      </str>
-
-      <!-- for advanced search number text box -->
-      <str name="qf_number">
-        id
-        druid
-      </str>
-
-      <!-- for advanced search summary text box -->
-      <str name="qf_summary">
-        abstract_unstem_search^10
-        abstract_search
-      </str>
-      <str name="pf_summary">
-        abstract_unstem_search^20
-        abstract_search^5
-      </str>
-      <str name="pf3_summary">
-        abstract_search^3
-      </str>
-      <str name="pf2_summary">
-        abstract_search^2
-      </str>
-
       <bool name="facet">true</bool>
       <int name="facet.mincount">1</int>
       <int name="facet.limit">21</int>
@@ -415,78 +300,181 @@
       <int name="facet.mincount">1</int>
     </lst>
   </requestHandler>
-
-  <!--  For Advanced Search  -->
-  <requestHandler name="advanced" class="solr.SearchHandler" >
+  
+  <requestHandler name="descriptions" class="solr.SearchHandler">
     <lst name="defaults">
-      <str name="defType">lucene</str>
+      <str name="defType">edismax</str>
       <str name="echoParams">explicit</str>
-      <str name="sort">score desc, title_sort asc</str>
-      <str name="df">text</str>
-      <str name="q.op">AND</str>
-      <str name="qs">1</str>
-
-      <!-- used for dismax query parser -->
-      <str name="mm">1</str>
-      <str name="ps">3</str>
+      <!-- <str name="sort">score desc, pub_date desc, title_sort asc</str> -->
+      <str name="sort">score desc, pub_date_sort desc, title_sort asc</str>
+      <int name="rows">20</int>
+      <str name="q.alt">*:*</str>
+      <str name="mm">6&lt;-1 6&lt;90%</str>
+      <int name="qs">1</int>
+      <int name="ps">0</int>
       <float name="tie">0.01</float>
+      <bool name="lowercaseOperators">false</bool>
+      <!-- in case lucene query parser -->
+      <str name="df">all_search</str>
+      <str name="q.op">AND</str>
 
-      <!-- for user query terms in author text box -->
-      <str name="qf_author">
-        personal_authors_unstem_search^200
+      <str name="qf">
+        title_exact_search^1000     body_chars_exact_search^1000
+        title_unstem_search^500     body_chars_unstem_search^500
+        title_search^75             body_chars_search^75
+        subtitle_unstem_search^75
+        subtitle_search^75
+        title_alternate_unstem_search^50
+        title_alternate_search^20
+        title_other_search^20
+        title_other_unstem_search^20
+        
+        personal_authors_unstem_search^25
+        personal_authors_search^20
+        corporate_authors_unstem_search^20
+        corporate_authors_search^10
+        authors_all_unstem_search^10
+        authors_all_search^5
+
+        topic_unstem_search^50
+        topic_search^20
+        geographic_unstem_search^20
+        geographic_search^15
+        era_unstem_search^15
+        era_search^10
+        subject_other_unstem_search^10
+        subject_other_search^5
+        subject_all_unstem_search^5
+        subject_all_search^2
+
+        manuscript_unstem_search^5
+        manuscript_search^2
+        abstract_unstem_search^5
+        abstract_search^2
+
+        pub_date^2
+        id
+        collection_search
+        all_unstem_search^5
+        all_search
+      </str>
+      <str name="pf"> <!-- (phrase boost within result set) -->
+        title_exact_search^5000         body_chars_exact_search^5000
+        title_unstem_search^2500        body_chars_unstem_search^2500
+        title_search^375                body_chars_search^375
+        subtitle_unstem_search^375
+        subtitle_search^250
+        title_alternate_unstem_search^250
+        title_alternate_search^100
+        title_other_unstem_search^100
+        title_other_search^75
+
+        personal_authors_unstem_search^125
+        personal_authors_search^100
         corporate_authors_unstem_search^100
+        corporate_authors_search^50
         authors_all_unstem_search^50
+        authors_all_search^25
+
+        topic_unstem_search^250
+        topic_search^150
+        geographic_unstem_search^150
+        geographic_search^100
+        era_unstem_search^100
+        era_search^50
+        subject_other_unstem_search^50
+        subject_other_search^25
+        subject_all_unstem_search^25
+        subject_all_search^10
+
+        manuscript_unstem_search^25
+        manuscript_search^10
+        abstract_unstem_search^25
+        abstract_search^10
+
+        pub_date^10
+        collection_search^5
+        all_unstem_search^25
+        all_search^5
+      </str>
+      <str name="pf3">  <!-- (token trigrams boost within result set) -->
+        title_search^1500           body_chars_search^1500
+        subtitle_search^225
+        title_alternate_search^150
+        title_other_search^60
+
+        personal_authors_search^75
+        corporate_authors_search^60
+        authors_all_search^30
+
+        topic_search^150
+        geographic_search^60
+        era_search^50
+        subject_other_search^30
+        subject_all_search^15
+
+        manuscript_search^7.5
+        abstract_search^7.5
+        collection_search^3
+        all_search^3
+      </str>
+      <str name="pf2"> <!--(token bigrams boost within result set) -->
+        title_search^1000           body_chars_search^1000
+        subtitle_search^150
+        title_alternate_search^100
+        title_other_search^40
+
+        personal_authors_search^50
+        corporate_authors_search^40
         authors_all_search^20
-      </str>
-      <str name="pf_author">
-        personal_authors_unstem_search^2000
-        corporate_authors_unstem_search^500
-        authors_all_unstem_search^300
-        authors_all_search^200
-      </str>
 
-      <!-- for user query terms in title text box -->
-      <str name="qf_title">
-        title_unstem_search^50000       body_chars_unstem_search^50000
-        subtitle_unstem_search^25000
-        title_alternate_unstem_search^10000
-        title_other_unstem_search^5000
-        title_search^2500
-      </str>
-      <str name="pf_title">
-        title_unstem_search^500000      body_chars_unstem_search^50000
-        subtitle_unstem_search^250000
-        title_alternate_unstem_search^100000
-        title_other_unstem_search^50000
-        title_search^25000
-      </str>
+        topic_search^100
+        geographic_search^40
+        era_search^30
+        subject_other_search^20
+        subject_all_search^10
 
-      <!-- for user query terms in subject text box -->
-      <str name="qf_subject">
-        topic_unstem_search^200
-        geographic_unstem_search^125
-        era_unstem_search^125
-        subject_all_unstem_search^100
-        topic_facet^100
+        manuscript_search^5
+        abstract_search^5
+        collection_search^2
+        all_search^2
       </str>
-      <str name="pf_subject">
-        topic_unstem_search^2000
-        geographic_unstem_search^1250
-        era_unstem_search^1000
-        subject_all_unstem_search^750
-        topic_facet^500
-        subject_all_facet^100
-      </str>
+      <bool name="facet">true</bool>
+      <int name="facet.mincount">1</int>
+      <int name="facet.limit">21</int>
+      <str name="facet.field">genre_facet</str>
+        <str name="f.genre_facet.facet.method">enum</str>
+      <str name="facet.field">type_of_resource_facet</str>
+      <str name="facet.field">personal_authors_facet</str>
+      <str name="facet.field">corporate_authors_facet</str>
+      <str name="facet.field">authors_all_facet</str>
+      <str name="facet.field">physical_description_form_facet</str>
+      <str name="facet.field">physical_description_media_type_facet</str>
+      <str name="facet.field">physical_location_display</str>
+      <str name="facet.field">language</str>
+        <str name="f.language.facet.method">enum</str>
+      <str name="facet.field">folio</str>
+        <str name="f.folio.facet.method">enum</str>
+      <str name="facet.field">topic_facet</str>
+      <str name="facet.field">geographic_facet</str>
+      <str name="facet.field">era_facet</str>
+      <str name="facet.field">subject_all_facet</str>
+      <str name="facet.field">format</str>
+      <str name="facet.field">model</str>      
+      <str name="facet.field">collection</str>
+        <str name="f.collection.facet.method">enum</str>
+      <str name="facet.field">format</str>
+        <int name="f.format.facet.limit">20</int>
+        <str name="f.format.facet.method">enum</str>
+      <str name="facet.field">pub_date_t</str>
+        <str name="f.pub_date_t.facet.method">enum</str>
+      <str name="facet.field">druid</str>
+        <str name="f.druid.facet.method">enum</str>
+      <str name="facet.field">manuscript_facet</str>
+        <str name="f.manuscript_facet.facet.method">enum</str>
 
-      <!-- for user query terms in number text box -->
-      <str name="qf_number">droid</str>
-
-      <!-- for user query terms in keyword text box -->
-      <str name="qf_keyword">text</str>
-      <str name="pf_keyword">text^10</str>
-
-      <!-- NOT using marc_display because it is large and will slow things down for search results -->
       <str name="fl">
+        score,
         id,
         abstract_display,
         access_condition_display,
@@ -525,10 +513,155 @@
         manuscript_display,
         folio
       </str>
+    </lst>
+    <lst name="appends">
+      <str name="fq">model:Manuscript</str>
+    </lst>
+  </requestHandler>
 
-      <str name="facet">true</str>
-      <str name="facet.mincount">1</str>
-      <str name="facet.limit">10</str>
+  <requestHandler name="annotations" class="solr.SearchHandler">
+    <lst name="defaults">
+      <str name="defType">edismax</str>
+      <str name="echoParams">explicit</str>
+      <!-- <str name="sort">score desc, pub_date desc, title_sort asc</str> -->
+      <str name="sort">score desc, pub_date_sort desc, title_sort asc</str>
+      <int name="rows">20</int>
+      <str name="q.alt">*:*</str>
+      <str name="mm">6&lt;-1 6&lt;90%</str>
+      <int name="qs">1</int>
+      <int name="ps">0</int>
+      <float name="tie">0.01</float>
+      <bool name="lowercaseOperators">false</bool>
+      <!-- in case lucene query parser -->
+      <str name="df">all_search</str>
+      <str name="q.op">AND</str>
+
+      <str name="qf">
+        title_exact_search^1000     body_chars_exact_search^1000
+        title_unstem_search^500     body_chars_unstem_search^500
+        title_search^75             body_chars_search^75
+        subtitle_unstem_search^75
+        subtitle_search^75
+        title_alternate_unstem_search^50
+        title_alternate_search^20
+        title_other_search^20
+        title_other_unstem_search^20
+        
+        personal_authors_unstem_search^25
+        personal_authors_search^20
+        corporate_authors_unstem_search^20
+        corporate_authors_search^10
+        authors_all_unstem_search^10
+        authors_all_search^5
+
+        topic_unstem_search^50
+        topic_search^20
+        geographic_unstem_search^20
+        geographic_search^15
+        era_unstem_search^15
+        era_search^10
+        subject_other_unstem_search^10
+        subject_other_search^5
+        subject_all_unstem_search^5
+        subject_all_search^2
+
+        manuscript_unstem_search^5
+        manuscript_search^2
+        abstract_unstem_search^5
+        abstract_search^2
+
+        pub_date^2
+        id
+        collection_search
+        all_unstem_search^5
+        all_search
+      </str>
+      <str name="pf"> <!-- (phrase boost within result set) -->
+        title_exact_search^5000         body_chars_exact_search^5000
+        title_unstem_search^2500        body_chars_unstem_search^2500
+        title_search^375                body_chars_search^375
+        subtitle_unstem_search^375
+        subtitle_search^250
+        title_alternate_unstem_search^250
+        title_alternate_search^100
+        title_other_unstem_search^100
+        title_other_search^75
+
+        personal_authors_unstem_search^125
+        personal_authors_search^100
+        corporate_authors_unstem_search^100
+        corporate_authors_search^50
+        authors_all_unstem_search^50
+        authors_all_search^25
+
+        topic_unstem_search^250
+        topic_search^150
+        geographic_unstem_search^150
+        geographic_search^100
+        era_unstem_search^100
+        era_search^50
+        subject_other_unstem_search^50
+        subject_other_search^25
+        subject_all_unstem_search^25
+        subject_all_search^10
+
+        manuscript_unstem_search^25
+        manuscript_search^10
+        abstract_unstem_search^25
+        abstract_search^10
+
+        pub_date^10
+        collection_search^5
+        all_unstem_search^25
+        all_search^5
+      </str>
+      <str name="pf3">  <!-- (token trigrams boost within result set) -->
+        title_search^1500           body_chars_search^1500
+        subtitle_search^225
+        title_alternate_search^150
+        title_other_search^60
+
+        personal_authors_search^75
+        corporate_authors_search^60
+        authors_all_search^30
+
+        topic_search^150
+        geographic_search^60
+        era_search^50
+        subject_other_search^30
+        subject_all_search^15
+
+        manuscript_search^7.5
+        abstract_search^7.5
+        collection_search^3
+        all_search^3
+      </str>
+      <str name="pf2"> <!--(token bigrams boost within result set) -->
+        title_search^1000           body_chars_search^1000
+        subtitle_search^150
+        title_alternate_search^100
+        title_other_search^40
+
+        personal_authors_search^50
+        corporate_authors_search^40
+        authors_all_search^20
+
+        topic_search^100
+        geographic_search^40
+        era_search^30
+        subject_other_search^20
+        subject_all_search^10
+
+        manuscript_search^5
+        abstract_search^5
+        collection_search^2
+        all_search^2
+      </str>
+      <bool name="facet">true</bool>
+      <int name="facet.mincount">1</int>
+      <int name="facet.limit">21</int>
+      <str name="facet.field">genre_facet</str>
+        <str name="f.genre_facet.facet.method">enum</str>
       <str name="facet.field">type_of_resource_facet</str>
       <str name="facet.field">personal_authors_facet</str>
       <str name="facet.field">corporate_authors_facet</str>
@@ -558,16 +691,268 @@
       <str name="facet.field">manuscript_facet</str>
         <str name="f.manuscript_facet.facet.method">enum</str>
 
-      <str name="spellcheck">true</str>
-      <str name="spellcheck.dictionary">subject</str>
-      <str name="spellcheck.onlyMorePopular">true</str>
-      <str name="spellcheck.extendedResults">true</str>
-      <str name="spellcheck.collate">false</str>
-      <str name="spellcheck.count">5</str>
+      <str name="fl">
+        score,
+        id,
+        abstract_display,
+        access_condition_display,
+        type_of_resource_display,
+        personal_authors_display,
+        corporate_authors_display,
+        authors_all_display,
+        title_display,
+        subtitle_display,
+        title_alternate_display,
+        title_other_display,
+        language,
+        physical_description_extent_display,
+        physical_description_form_display,
+        physical_description_media_type_display,
+        physical_location_display,
+        relateditem_title_display,
+        pub_date_display,
+        topic_display,
+        geographic_display,
+        era_display,
+        subject_other_display,
+        subject_all_display,
+        format,
+        model,
+        url_sfx,
+        manifest_urls,
+        collection,
+        druid,
+        img_info,
+        target_url,
+        target_type,
+        body_url,
+        body_type,
+        body_chars_display,
+        manuscript_display,
+        folio
+      </str>
     </lst>
-    <arr name="last-components">
-      <str>spellcheck</str>
-    </arr>
+    <lst name="appends">
+      <str name="fq">model:Annotation</str>
+    </lst>
+  </requestHandler>
+
+  <requestHandler name="transcriptions" class="solr.SearchHandler">
+    <lst name="defaults">
+      <str name="defType">edismax</str>
+      <str name="echoParams">explicit</str>
+      <!-- <str name="sort">score desc, pub_date desc, title_sort asc</str> -->
+      <str name="sort">score desc, pub_date_sort desc, title_sort asc</str>
+      <int name="rows">20</int>
+      <str name="q.alt">*:*</str>
+      <str name="mm">6&lt;-1 6&lt;90%</str>
+      <int name="qs">1</int>
+      <int name="ps">0</int>
+      <float name="tie">0.01</float>
+      <bool name="lowercaseOperators">false</bool>
+      <!-- in case lucene query parser -->
+      <str name="df">all_search</str>
+      <str name="q.op">AND</str>
+
+      <str name="qf">
+        title_exact_search^1000     body_chars_exact_search^1000
+        title_unstem_search^500     body_chars_unstem_search^500
+        title_search^75             body_chars_search^75
+        subtitle_unstem_search^75
+        subtitle_search^75
+        title_alternate_unstem_search^50
+        title_alternate_search^20
+        title_other_search^20
+        title_other_unstem_search^20
+        
+        personal_authors_unstem_search^25
+        personal_authors_search^20
+        corporate_authors_unstem_search^20
+        corporate_authors_search^10
+        authors_all_unstem_search^10
+        authors_all_search^5
+
+        topic_unstem_search^50
+        topic_search^20
+        geographic_unstem_search^20
+        geographic_search^15
+        era_unstem_search^15
+        era_search^10
+        subject_other_unstem_search^10
+        subject_other_search^5
+        subject_all_unstem_search^5
+        subject_all_search^2
+
+        manuscript_unstem_search^5
+        manuscript_search^2
+        abstract_unstem_search^5
+        abstract_search^2
+
+        pub_date^2
+        id
+        collection_search
+        all_unstem_search^5
+        all_search
+      </str>
+      <str name="pf"> <!-- (phrase boost within result set) -->
+        title_exact_search^5000         body_chars_exact_search^5000
+        title_unstem_search^2500        body_chars_unstem_search^2500
+        title_search^375                body_chars_search^375
+        subtitle_unstem_search^375
+        subtitle_search^250
+        title_alternate_unstem_search^250
+        title_alternate_search^100
+        title_other_unstem_search^100
+        title_other_search^75
+
+        personal_authors_unstem_search^125
+        personal_authors_search^100
+        corporate_authors_unstem_search^100
+        corporate_authors_search^50
+        authors_all_unstem_search^50
+        authors_all_search^25
+
+        topic_unstem_search^250
+        topic_search^150
+        geographic_unstem_search^150
+        geographic_search^100
+        era_unstem_search^100
+        era_search^50
+        subject_other_unstem_search^50
+        subject_other_search^25
+        subject_all_unstem_search^25
+        subject_all_search^10
+
+        manuscript_unstem_search^25
+        manuscript_search^10
+        abstract_unstem_search^25
+        abstract_search^10
+
+        pub_date^10
+        collection_search^5
+        all_unstem_search^25
+        all_search^5
+      </str>
+      <str name="pf3">  <!-- (token trigrams boost within result set) -->
+        title_search^1500           body_chars_search^1500
+        subtitle_search^225
+        title_alternate_search^150
+        title_other_search^60
+
+        personal_authors_search^75
+        corporate_authors_search^60
+        authors_all_search^30
+
+        topic_search^150
+        geographic_search^60
+        era_search^50
+        subject_other_search^30
+        subject_all_search^15
+
+        manuscript_search^7.5
+        abstract_search^7.5
+        collection_search^3
+        all_search^3
+      </str>
+      <str name="pf2"> <!--(token bigrams boost within result set) -->
+        title_search^1000           body_chars_search^1000
+        subtitle_search^150
+        title_alternate_search^100
+        title_other_search^40
+
+        personal_authors_search^50
+        corporate_authors_search^40
+        authors_all_search^20
+
+        topic_search^100
+        geographic_search^40
+        era_search^30
+        subject_other_search^20
+        subject_all_search^10
+
+        manuscript_search^5
+        abstract_search^5
+        collection_search^2
+        all_search^2
+      </str>
+      <bool name="facet">true</bool>
+      <int name="facet.mincount">1</int>
+      <int name="facet.limit">21</int>
+      <str name="facet.field">genre_facet</str>
+        <str name="f.genre_facet.facet.method">enum</str>
+      <str name="facet.field">type_of_resource_facet</str>
+      <str name="facet.field">personal_authors_facet</str>
+      <str name="facet.field">corporate_authors_facet</str>
+      <str name="facet.field">authors_all_facet</str>
+      <str name="facet.field">physical_description_form_facet</str>
+      <str name="facet.field">physical_description_media_type_facet</str>
+      <str name="facet.field">physical_location_display</str>
+      <str name="facet.field">language</str>
+        <str name="f.language.facet.method">enum</str>
+      <str name="facet.field">folio</str>
+        <str name="f.folio.facet.method">enum</str>
+      <str name="facet.field">topic_facet</str>
+      <str name="facet.field">geographic_facet</str>
+      <str name="facet.field">era_facet</str>
+      <str name="facet.field">subject_all_facet</str>
+      <str name="facet.field">format</str>
+      <str name="facet.field">model</str>      
+      <str name="facet.field">collection</str>
+        <str name="f.collection.facet.method">enum</str>
+      <str name="facet.field">format</str>
+        <int name="f.format.facet.limit">20</int>
+        <str name="f.format.facet.method">enum</str>
+      <str name="facet.field">pub_date_t</str>
+        <str name="f.pub_date_t.facet.method">enum</str>
+      <str name="facet.field">druid</str>
+        <str name="f.druid.facet.method">enum</str>
+      <str name="facet.field">manuscript_facet</str>
+        <str name="f.manuscript_facet.facet.method">enum</str>
+
+      <str name="fl">
+        score,
+        id,
+        abstract_display,
+        access_condition_display,
+        type_of_resource_display,
+        personal_authors_display,
+        corporate_authors_display,
+        authors_all_display,
+        title_display,
+        subtitle_display,
+        title_alternate_display,
+        title_other_display,
+        language,
+        physical_description_extent_display,
+        physical_description_form_display,
+        physical_description_media_type_display,
+        physical_location_display,
+        relateditem_title_display,
+        pub_date_display,
+        topic_display,
+        geographic_display,
+        era_display,
+        subject_other_display,
+        subject_all_display,
+        format,
+        model,
+        url_sfx,
+        manifest_urls,
+        collection,
+        druid,
+        img_info,
+        target_url,
+        target_type,
+        body_url,
+        body_type,
+        body_chars_display,
+        manuscript_display,
+        folio
+      </str>
+    </lst>
+    <lst name="appends">
+      <str name="fq">model:Transcription</str>
+    </lst>
   </requestHandler>
 
 <!-- Spell Check
