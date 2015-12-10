@@ -22,9 +22,6 @@ module Colligo
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     # config.active_record.raise_in_transactional_callbacks = true
-    require 'search_behaviours'
 
-    # load all search behaviours
-    config.autoload_paths += %W(#{config.root}/lib/search_behaviours)
   end
 end
