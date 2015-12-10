@@ -1,0 +1,23 @@
+<div class="panel panel-content">
+  <div class="panel-body">
+    <h3>by repository</h3>
+      <% @response['facet_counts']['facet_fields']['collection'].each_with_index do |r, i| %>
+        <% if i.even? %>
+          <% case %>
+          <% when r.include?('Stanford') %>
+            <% fname = 'stanford.png' %>
+          <% when r.include?('Parker') %>
+            <% fname = 'parker.png' %>
+          <% else %>
+            <% fname = 'walter.png' %>
+          <% end %>
+          <a href="<%=path_for_facet('collection', r)%>" class="btn btn-secondary">
+            <%= image_tag(fname) %>
+            <%= r %>
+          </a>
+        <% end %>
+      <% end %>
+
+    <%#= @response['facet_counts']['facet_fields']['collection'] %>
+  </div>
+</div>

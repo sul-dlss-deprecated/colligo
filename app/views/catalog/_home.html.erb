@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-8">
+    <%= render :partial=>'home_text' %>
+  </div><!--paragraph ends -->
+  <div class="col-md-4">
+  </div>
+</div>
+<div class="search row">
+  <div class="col-md-8">
+    <h2>Search</h2>
+    <%= render :partial=>'home_search_form' %>
+  </div><!--paragraph ends -->
+  <div class="col-md-4">
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8">
+    <h2>Browse manuscripts</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <%= render :partial=>'repository' %>
+        <%= render :partial=>'language' %>
+      </div>
+      <div class="col-md-6">
+        <%= render :partial=>'century' %>
+      </div>
+    </div>
+  </div><!-- browse manuscripts ends -->
+  <div class="col-md-4">
+    <h2>& annotations</h2>
+    <div class="row">
+      <%= render :partial=>'annotations_recent' %>
+    </div>
+    <div class="row">
+      <%= render :partial=>'annotations_author' %>
+    </div>
+  </div><!-- annotations ends -->
+</div>
