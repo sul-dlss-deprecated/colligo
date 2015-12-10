@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use sqlite3 as the database for Active Record
@@ -62,6 +63,7 @@ gem 'blacklight-marc', '~> 5.0'
 gem 'config', '~> 1.0.0.beta3'
 gem 'mods_display', '0.3.4'
 gem 'coderay'
+gem 'blacklight_range_limit'
 
 group :deployment do
   gem 'capistrano', '~> 3.0'
