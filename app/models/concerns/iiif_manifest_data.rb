@@ -24,6 +24,14 @@ module IiifManifestData
     manifest['@id'].match(%r{/([a-zA-Z0-9]{11})/}).to_s.delete('/')
   end
 
+  def thumbnail
+    return nil unless manifest_url
+    read_manifest unless manifest
+    return nil unless manifest
+    return nil unless manifest.key?('thumbnail')
+    manifest['thumbnail']['@id']
+  end
+
   def mods_url
     return nil unless manifest_url
     read_manifest unless manifest
