@@ -2,7 +2,7 @@ module IiifManifestData
   include JsonReader
   extend ActiveSupport::Concern
 
-  attr_accessor :manifest_url, :manifest, :modsxml
+  attr_accessor :manifest_url, :manifest, :modsxml, :thumbnail
 
   def read_manifest
     return nil unless self.manifest_url
@@ -22,6 +22,14 @@ module IiifManifestData
     self.read_manifest unless self.manifest 
     return nil unless self.manifest
     self.manifest["@id"].match( /\/([a-zA-Z0-9]{11})\// ).to_s.gsub('/', '')
+  end
+
+  def thumbnail
+    return nil unless self.manifest_url
+    self.read_manifest unless self.manifest
+    return nil unless self.manifest
+    return nil unless self.manifest.has_key?("thumbnail")
+    self.manifest["thumbnail"]["@id"]
   end
 
   def mods_url
