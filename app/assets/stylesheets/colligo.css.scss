@@ -12,6 +12,25 @@
     font-size: 2.5em;
 }
 
+/* application search */
+.searchbar {
+  display: block;
+  float: left;
+}
+
+.search_field {
+  height: 33px;
+  margin: 0px;
+}
+
+.search_q {
+  margin-left: -7px;
+}
+.search-btn {
+  height: 34px;
+  margin-left: -5px;
+}
+
 /* Home page search */
 .navbar-form .nav-tabs {
   border-bottom: 0px;
