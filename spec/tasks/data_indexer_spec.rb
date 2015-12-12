@@ -3,7 +3,7 @@ require 'data_indexer'
 
 describe 'DataIndexer' do
   include IiifManifestFixtures
-  #WebMock.disable_net_connect!(:allow => [/127.0.0.1/, /localhost/] )
+  # WebMock.disable_net_connect!(:allow => [/127.0.0.1/, /localhost/] )
   before(:all) do
     @stub_solr = Blacklight.default_index.connection
     # @stub_solr = double('solr')
@@ -113,6 +113,9 @@ describe 'DataIndexer' do
     it 'should have a mods url' do
       expect(@di.instance_variable_get('@doc')[:mods_url]).to eq('http://purl.stanford.edu/kq131cs7229.mods')
     end
+    it 'should have a thumbnail' do
+      expect(@di.instance_variable_get('@doc')[:thumbnail]).to eq('https://stacks.stanford.edu/image/iiif/kq131cs7229%2Fsulmss_misc305_008r_SM/full/!400,400/0/default.jpg')
+    end
     it 'should have a mods xml' do
       expect(@di.instance_variable_get('@doc')[:modsxml]).to eq(@response2)
     end
@@ -196,7 +199,6 @@ describe 'DataIndexer' do
       # @d2.index_csv #TODO: connection is being refused by solr
     end
     it 'is a pending test'
-    # TODO this is the same as index and index_csv, depending on params. It also commits after indexing
+    # TODO: this is the same as index and index_csv, depending on params. It also commits after indexing
   end
-
 end

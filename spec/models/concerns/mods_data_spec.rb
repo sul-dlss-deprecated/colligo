@@ -16,26 +16,31 @@ describe ModsData do
   end
   let(:document_with_id2) do
     SolrDocument.new(modsxml: dms_mods_002,
-                     druid: 'kq131cs7229')
+                     druid: 'kq131cs7229',
+                     thumbnail: 'https://stacks.stanford.edu/image/iiif/kq131cs7229%2Fsulmss_misc305_008r_SM/full/!400,400/0/default.jpg')
   end
   let(:document_with_id4) do
     SolrDocument.new(modsxml: dms_mods_004,
-                     druid: 'mr892jv0716')
+                     druid: 'mr892jv0716',
+                     thumbnail: 'https://stacks.stanford.edu/image/iiif/mr892jv0716%2Fmr892jv0716_05_0001/full/!400,400/0/default.jpg')
   end
   let(:document_with_id5) do
     SolrDocument.new(modsxml: dms_mods_005,
                      druid: 'kh686yw0435',
                      collection: 'Stanford University Libraries',
                      iiif_manifest: 'http://dms-data.stanford.edu/data/manifests/Stanford/kh686yw0435/manifest.json',
-                     mods_url: 'https://purl.stanford.edu/kh686yw0435.mods')
+                     mods_url: 'https://purl.stanford.edu/kh686yw0435.mods',
+                     thumbnail: 'https://stacks.stanford.edu/image/iiif/kh686yw0435%2Fkh686yw0435_0001/full/!400,400/0/default.jpg')
   end
   let(:document_with_id8) do
     SolrDocument.new(modsxml: dms_mods_008,
-                     druid: 'tw490xj0071')
+                     druid: 'tw490xj0071',
+                     thumbnail: 'https://stacks.stanford.edu/image/iiif/tw490xj0071%2Ftw490xj0071_05_0001/full/!400,400/0/default.jpg')
   end
   let(:document_with_id11) do
     SolrDocument.new(modsxml: dms_mods_011,
-                     druid: 'rc145sy7436')
+                     druid: 'rc145sy7436',
+                     thumbnail: 'https://stacks.stanford.edu/image/iiif/rc145sy7436%2F1019926/full/!400,400/0/default.jpg')
   end
 
   describe '#mods' do
@@ -358,7 +363,7 @@ describe ModsData do
       expect(data_with_id4['geographic_search']).to be_nil
       expect(data_with_id5['geographic_search']).to be_nil
       expect(data_with_id8['geographic_search']).to be_nil
-      # expect(data_with_id11["geographic_search"]).to eq([""])
+      expect(data_with_id11['geographic_search']).to be_nil
     end
 
     it 'should have era' do
@@ -368,7 +373,7 @@ describe ModsData do
       expect(data_with_id4['era_search']).to be_nil
       expect(data_with_id5['era_search']).to be_nil
       expect(data_with_id8['era_search']).to be_nil
-      # expect(data_with_id11["era_search"]).to eq([""])
+      expect(data_with_id11['era_search']).to be_nil
     end
 
     it 'should have other subjects' do
@@ -378,7 +383,7 @@ describe ModsData do
       expect(data_with_id4['subject_other_search']).to be_nil
       expect(data_with_id5['subject_other_search']).to be_nil
       expect(data_with_id8['subject_other_search']).to eq(['Aristotle'])
-      # expect(data_with_id11["subject_other_search"]).to eq([""])
+      expect(data_with_id11['subject_other_search']).to be_nil
     end
 
     it 'should have all subjects' do
@@ -390,10 +395,11 @@ describe ModsData do
       expect(data_with_id5['subject_all_search']).to be_nil
       expect(data_with_id8['subject_all_search']).to eq(['Manuscripts, Latin (Medieval and modern)-England.',
                                                          'Senses and sensation', 'Aristotle', 'Early works to 1800'])
-      # expect(data_with_id11["subject_all_search"]).to eq([""])
+      expect(data_with_id11['subject_all_search']).to eq(['Illuminated manuscripts', 'Miniatures (Illuminations)',
+                                                          'Illustrations', 'Historiated initials', 'Hand coloring'])
     end
 
-    it 'should belong to the parker collection' do
+    it 'should have a collection' do
       expect(data_with_id).to have_key('collection')
       expect(data_with_id['collection']).to eq('Parker collection')
       expect(data_with_id5).to have_key('collection')
@@ -418,6 +424,21 @@ describe ModsData do
       expect(data_with_id).to have_key('model')
       expect(data_with_id['model']).to eq('Manuscript')
       expect(data_with_id5['model']).to eq('Manuscript')
+    end
+
+    it 'should have a img_info' do
+      expect(data_with_id).to have_key('img_info')
+      expect(data_with_id2).to have_key('img_info')
+      expect(data_with_id4).to have_key('img_info')
+      expect(data_with_id5).to have_key('img_info')
+      expect(data_with_id8).to have_key('img_info')
+      expect(data_with_id11).to have_key('img_info')
+      expect(data_with_id['img_info']).to be_nil
+      expect(data_with_id2['img_info']).to eq('https://stacks.stanford.edu/image/iiif/kq131cs7229%2Fsulmss_misc305_008r_SM/full/!400,400/0/default.jpg')
+      expect(data_with_id4['img_info']).to eq('https://stacks.stanford.edu/image/iiif/mr892jv0716%2Fmr892jv0716_05_0001/full/!400,400/0/default.jpg')
+      expect(data_with_id5['img_info']).to eq('https://stacks.stanford.edu/image/iiif/kh686yw0435%2Fkh686yw0435_0001/full/!400,400/0/default.jpg')
+      expect(data_with_id8['img_info']).to eq('https://stacks.stanford.edu/image/iiif/tw490xj0071%2Ftw490xj0071_05_0001/full/!400,400/0/default.jpg')
+      expect(data_with_id11['img_info']).to eq('https://stacks.stanford.edu/image/iiif/rc145sy7436%2F1019926/full/!400,400/0/default.jpg')
     end
   end
 

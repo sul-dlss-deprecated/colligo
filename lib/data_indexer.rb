@@ -1,14 +1,13 @@
 require 'csv'
 class DataIndexer
-
   # Index mods and annotations data from a list of manifest urls or each url
-  # Params:  
+  # Params:
   # +collection+:: Name of collection the manifest(s) belong to
-  # +csv_file+:: string containing the path to the csv file. 
+  # +csv_file+:: string containing the path to the csv file.
   #    File to have one url per line and no header
   # +manifest_url+:: url to the mnaifest file
-  # Usage: 
-  #   DataIndexer.new('collection_name', 'file_path').run 
+  # Usage:
+  #   DataIndexer.new('collection_name', 'file_path').run
   #      to index csv file
   #   DataIndexer.new('collection_name', nil, 'url').run
   #      to index one manifest at url
@@ -22,9 +21,9 @@ class DataIndexer
     @solr = Blacklight.default_index.connection
   end
 
-  # Index and commit mods and annotations data either 
+  # Index and commit mods and annotations data either
   # from a list of manifest urls or each url
-  # depending on the options 
+  # depending on the options
   def run
     if !@csv_file.blank? && File.exist?(@csv_file)
       index_csv
@@ -73,6 +72,7 @@ class DataIndexer
       @doc[:druid] = @manifest.druid
       @doc[:iiif_manifest] = @url
       @doc[:mods_url] = @manifest.mods_url
+      @doc[:thumbnail] = @manifest.thumbnail
       @doc[:modsxml] = @manifest.fetch_modsxml
       return true
     end
@@ -96,17 +96,16 @@ class DataIndexer
     @manifest.annotation_lists.each do |al|
       annotation_list = @doc.read_annotation(al['@id'])
       @doc.resources(annotation_list).each do |a|
-        data = { "annotation" => a, "manuscript" => @title, "folio" => al['label'], "url" => al['@id'] }
+        data = { 'annotation' => a, 'manuscript' => @title, 'folio' => al['label'], 'url' => al['@id'] }
         solr_doc = @doc.annotation_to_solr(data)
         unless solr_doc.blank?
           @solr.add solr_doc
           add_count += 1
         end
         doc_count += 1
-      end 
+      end
       list_count += 1
     end
     [list_count, doc_count, add_count]
   end
-
 end
