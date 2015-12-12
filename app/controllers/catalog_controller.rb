@@ -118,11 +118,12 @@ class CatalogController < ApplicationController
   end
 
   def index
-    super
     if on_home_page
       manuscripts
       plot_data
       render 'homepage'
+    else
+      super
     end
   end
 
@@ -130,7 +131,7 @@ class CatalogController < ApplicationController
 
   def manuscripts
     self.search_params_logic += [:add_manuscript_filter]
-    (@response, @document_list) = get_search_results
+    (@response_m, @document_list_m) = get_search_results
   end
 
   def resolve_layout
@@ -168,9 +169,9 @@ class CatalogController < ApplicationController
   end 
 
   def solr_range_queries_to_a(solr_field)
-    return [] unless @response["facet_counts"] && @response["facet_counts"]["facet_queries"]
+    return [] unless @response_m["facet_counts"] && @response_m["facet_counts"]["facet_queries"]
     array = []
-    @response["facet_counts"]["facet_queries"].each_pair do |query, count|
+    @response_m["facet_counts"]["facet_queries"].each_pair do |query, count|
       if query =~ /#{solr_field}: *\[ *(\d+) *TO *(\d+) *\]/
         array << {:from => $1.to_i, :to => $2.to_i, :count => count.to_i}
       end
