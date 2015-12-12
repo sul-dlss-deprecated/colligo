@@ -111,6 +111,9 @@ describe 'DataIndexer' do
     it 'should have a mods url' do
       expect(@di.instance_variable_get('@doc')[:mods_url]).to eq('http://purl.stanford.edu/kq131cs7229.mods')
     end
+    it 'should have a thumbnail' do
+      expect(@di.instance_variable_get('@doc')[:thumbnail]).to eq('https://stacks.stanford.edu/image/iiif/kq131cs7229%2Fsulmss_misc305_008r_SM/full/!400,400/0/default.jpg')
+    end
     it 'should have a mods xml' do
       expect(@di.instance_variable_get('@doc')[:modsxml]).to eq(@response2)
     end

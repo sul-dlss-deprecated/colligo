@@ -9,7 +9,18 @@
         "@id": "http://purl.stanford.edu/kq131cs7229.mods", 
         "dcterms:format": "application/mods+xml"
     }, 
-    "within": "http://dms-data.stanford.edu/data/manifests/Stanford/", 
+    "within": "http://dms-data.stanford.edu/data/manifests/Stanford/",
+    "thumbnail": {
+        "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%2Fsulmss_misc305_008r_SM/full/!400,400/0/default.jpg",
+        "@type": "dcterms:Image",
+        "format": "image/jpeg",
+        "service":
+        {
+            "@context": "http://iiif.io/api/image/2/context.json",
+            "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%2Fkq131cs7229_05_0001",
+            "profile": "http://iiif.io/api/image/2/level1.json"
+        }
+    },
     "sequences": [
         {
             "@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/normal", 
