@@ -98,3 +98,49 @@ h2, h3  {
   position: relative;
   padding-right: 0px;
 }
+
+.simple-query > .constraint-value > .filterName{
+  font-weight: bold;
+}
+
+.simple-query > .constraint-value > .filterValue{
+  font-weight: bold;
+}
+
+.btn-link {
+  background:none!important;
+  border: none; 
+  padding: 0!important;
+  font: inherit;
+  cursor: pointer;
+}
+
+.tabbed {
+  padding: 0px 0px 10px 10px;
+}
+
+.panel-results-summary {
+  margin: 0px 20px 20px 0px;
+  border: 1px solid #cccccc; 
+}
+
+.inline-headers h2, .inline-headers h4 {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+.search-panel {
+  margin-bottom: 10px;
+  border: 1px solid #cccccc;
+}
+
+.search-panel-auto {
+  width: auto;
+  display: block;
+  float: left;
+  margin-right: 20px;
+}
+
+.search-panel > .panel-body {
+  padding: 5px;
+}

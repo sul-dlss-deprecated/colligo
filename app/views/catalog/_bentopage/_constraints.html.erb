@@ -1,0 +1,6 @@
+<% q_params = @response_all['responseHeader']['params'] %>
+<% q_params['search_field'] = params['search_field'] %>
+<% if query_has_constraints?(q_params) %>
+  <span class="constraints-label"><%= t('blacklight.search.simple_filters.title') %></span>
+  <%= render_simple_constraints(q_params) %>
+<% end %>

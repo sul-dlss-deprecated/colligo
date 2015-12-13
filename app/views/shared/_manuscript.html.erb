@@ -1,0 +1,22 @@
+<div class="panel panel-content search-panel">
+<div class="panel-body">
+  <div class="row">
+    <div class="col-md-3" style="max-width: 75px;">
+      <% unless document['img_info'].blank? %>
+        <%= image_tag(document['img_info'].first, width: "64px") %>
+      <% end %>
+    </div>
+    <div class="col-md-9">
+      <p><a href="/manuscript/<%=document['druid']%>"><%= document['title_display'] %></a></p>
+      <% unless document['authors_all_display'].blank? %>
+        <p><strong><%= raw document['authors_all_display'].join("<br/>") %></strong></p>
+      <% end %>
+      <% unless document['abstract_display'].blank? %>
+        <p><%= truncate(document['abstract_display'], length: 150) %></p>
+      <% end %>
+        
+    </div>
+  </div>
+</div>
+</div>
+

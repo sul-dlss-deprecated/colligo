@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 class CatalogController < ApplicationController
+
   include Blacklight::Catalog
+
   layout :resolve_layout
 
   configure_blacklight do |config|
@@ -83,15 +85,12 @@ class CatalogController < ApplicationController
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
     config.add_search_field 'all_fields', label: 'All Fields'
-
     config.add_search_field('descriptions') do |field|
       field.qt = 'descriptions'
     end
-
     config.add_search_field('transcriptions') do |field|
       field.qt = 'transcriptions'
     end
-
     config.add_search_field('annotations') do |field|
       field.qt = 'annotations'
     end
@@ -120,6 +119,12 @@ class CatalogController < ApplicationController
       annotations
       plot_data
       render 'homepage'
+    elsif on_bento_page
+      all_results
+      manuscripts
+      annotations
+      transcriptions
+      render 'bentopage'
     else
       super
     end
@@ -133,6 +138,12 @@ class CatalogController < ApplicationController
     else
       'blacklight'
     end
+  end
+
+  def all_results
+    self.search_params_logic += [:all_search_filter]
+    self.search_params_logic -= [:add_manuscript_filter, :add_annotation_filter, :add_transcription_filter]
+    (@response_all, @document_list_all) = get_search_results
   end
 
   def manuscripts
@@ -190,4 +201,5 @@ class CatalogController < ApplicationController
     array = array.sort_by { |hash| hash[:from].to_i }
     array
   end
+
 end

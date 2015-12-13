@@ -3,3 +3,6 @@ en:
     application_name: 'Colligo'
     range_limit:
       submit_limit: 'Apply range'
+    search:
+      simple_filters:
+        title: 'You searched'
