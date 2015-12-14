@@ -59,7 +59,7 @@
     <field name="title_search" type="text" indexed="true" stored="false" />
     <field name="title_unstem_search" type="textNoStem" indexed="true" stored="false" />
     <field name="title_display" type="string" indexed="false" stored="true" />
-    <field name="title_sort" type="alphaSort" indexed="true" stored="true" />
+    <field name="title_sort" type="alphaSort" indexed="true" stored="false" />
     <!-- Title fields: title variant -->
     <field name="title_alternate_search" type="text" indexed="true" stored="false" multiValued="true" />
     <field name="title_alternate_unstem_search" type="textNoStem" indexed="true" stored="false" multiValued="true" />
@@ -158,7 +158,7 @@
     <field name="druid" type="string" indexed="true" stored="true" />
     <field name="modsxml" type="string" indexed="false" stored="true" />
     <!-- collection (facet and display): "sirsi" or, for DOR items, the id of their parent coll -->
-    <field name="collection" type="string" indexed="true" stored="true" multiValued="true" omitNorms="true" />
+    <field name="collection" type="string" indexed="true" stored="true" omitNorms="true" />
     <!-- collection_search: allow searching within collections for aggr. colls -->
     <field name="collection_search" type="string_punct_stop" indexed="true" stored="false" multiValued="true" omitNorms="true" />
     <!-- display_type is used by UI code, e.g. for Hydrus objects -->
@@ -196,13 +196,15 @@
     <field name="body_chars_search" type="text" indexed="true" stored="false" />
     <field name="body_chars_unstem_search" type="textNoStem" indexed="true" stored="false" />
     <field name="body_chars_display" type="string" indexed="false" stored="true" />
-    <field name="body_chars_sort" type="alphaSort" indexed="true" stored="true" />
+    <field name="body_chars_sort" type="alphaSort" indexed="true" stored="false" />
     <!-- manuscript -->
     <field name="manuscript_search" type="text" indexed="true" stored="false" />
     <field name="manuscript_display" type="string" indexed="false" stored="true" />
     <field name="manuscript_facet" type="string" indexed="true" stored="false" />
+    <field name="manuscript_sort" type="alphaSort" indexed="true" stored="false" />
     <!-- folio: facet and display -->
-    <field name="folio" type="string" stored="true" indexed="true" multiValued="true"/>
+    <field name="folio" type="string" stored="true" indexed="true" />
+    <field name="folio_sort" type="alphaSort" stored="false" indexed="true" />
     
     <!-- *************** dynamic field types  ****************** -->
     <!--
@@ -249,6 +251,8 @@
   <copyField source="title_search" dest="title_sort" />
   <copyField source="body_chars_search" dest="body_chars_exact_search" />
   <copyField source="body_chars_search" dest="body_chars_sort" />
+  <copyField source="manuscript_search" dest="manuscript_sort" />
+  <copyField source="folio" dest="folio_sort" />
   <!-- unstemmed search fields -->
   <copyField source="all_search" dest="all_unstem_search" />
   <copyField source="abstract_search" dest="abstract_unstem_search" />
