@@ -4,7 +4,7 @@
  
   <% @response['facet_counts']['facet_fields']['language'].each_with_index do |r, i| %>
     <% if i.even? && i < 9 %>
-      <a href="<%=path_for_facet('language', r)%>" class="btn btn-primary">
+      <a href="<%="#{path_for_facet('language', r)}&search_field=descriptions"%>" class="btn btn-primary">
         <%= r %>
       </a>
     <% end %>
