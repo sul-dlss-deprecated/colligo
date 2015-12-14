@@ -4,5 +4,21 @@ en:
     range_limit:
       submit_limit: 'Apply range'
     search:
-      simple_filters:
+      simple_queries:
         title: 'You searched'
+      simple_filters:
+        title: 'You selected'
+      sort:
+        label: 'Sorted by'
+      bookmarks:
+        present: "bookmarked"
+        absent: "bookmark"
+      pagination_info:
+        pages:
+          one: '<strong>%{start_num}</strong>-<strong>%{end_num}</strong> of<br/><strong>%{total_num}</strong> results'
+          other: '<strong>%{start_num}</strong> - <strong>%{end_num}</strong> of<br/><strong>%{total_num}</strong> results'
+    bookmarks:
+      add:
+        button: "bookmark"
+      remove:
+        button: "bookmarked"

@@ -1,3 +1,5 @@
+require 'blacklight/search_state'
+require 'blacklight/parameters'
 # All methods in here are 'api' that may be over-ridden by plugins and local
 # code, so method signatures and semantics should not be changed casually.
 # implementations can be of course.
@@ -7,13 +9,32 @@
 module Colligo::RenderSimpleConstraintsHelperBehavior
 
   ##
+  # Check if the query has any search constraints defined
+  # 
+  # @param [Hash] query parameters
+  # @return [Boolean]
+  def query_has_search_constraints?(localized_params = params)
+    !(localized_params[:q].blank?)
+  end
+
+  ##
+  # Check if the query has any facet constraints defined
+  # 
+  # @param [Hash] query parameters
+  # @return [Boolean]
+  def query_has_facet_constraints?(localized_params = params)
+    !(localized_params[:f].blank?)
+  end
+
+
+  ##
   # Render the actual constraints, not including header or footer
   # info. 
   # 
   # @param [Hash] query parameters
   # @return [String]
   def render_simple_constraints(localized_params = params)
-    render_simple_constraints_query(localized_params) #+ render_constraints_filters(localized_params)
+    render_simple_constraints_query(localized_params) + render_simple_constraints_filters(localized_params)
   end
   
   ##
@@ -35,16 +56,16 @@ module Colligo::RenderSimpleConstraintsHelperBehavior
   # Render the facet constraints
   # @param [Hash] localized_params query parameters
   # @return [String]
-  #def render_constraints_filters(localized_params = params)
-  #   return "".html_safe unless localized_params[:f]
-  #   path = Blacklight::SearchState.new(localized_params, blacklight_config)
-  #   content = []
-  #   localized_params[:f].each_pair do |facet,values|
-  #     content << render_filter_element(facet, values, path)
-  #   end
+  def render_simple_constraints_filters(localized_params = params)
+     return "".html_safe unless localized_params[:f]
+     path = Blacklight::SearchState.new(localized_params, blacklight_config)
+     content = []
+     localized_params[:f].each_pair do |facet,values|
+       content << render_simple_filter_element(facet, values, path)
+     end
 
-  #   safe_join(content.flatten, "\n")
-  #end
+     safe_join(content.flatten, "\n")
+  end
 
   ##
   # Render a single facet's constraint
@@ -52,17 +73,17 @@ module Colligo::RenderSimpleConstraintsHelperBehavior
   # @param [Array<String>] values selected facet values
   # @param [Blacklight::SearchState] path query parameters
   # @return [String]
-  #def render_filter_element(facet, values, path)
-  #  facet_config = facet_configuration_for_field(facet)
+  def render_simple_filter_element(facet, values, path)
+    facet_config = facet_configuration_for_field(facet)
 
-  #  safe_join(values.map do |val|
-  #    next if val.blank? # skip empty string
-  #    render_constraint_element( facet_field_label(facet_config.key), facet_display_value(facet, val),
-  #                remove: search_action_path(path.remove_facet_params(facet, val)),
-  #                classes: ["filter", "filter-" + facet.parameterize]
-  #              )
-  #  end, "\n")
-  #end
+    safe_join(values.map do |val|
+      next if val.blank? # skip empty string
+      render_simple_constraint_element( facet_field_label(facet_config.key), facet_display_value(facet, val),
+                  remove: search_action_path(path.remove_facet_params(facet, val)),
+                  classes: ["filter", "simple-filter", "filter-" + facet.parameterize]
+                )
+    end, "\n")
+  end
 
   # Render a label/value constraint on the screen. Can be called
   # by plugins and such to get application-defined rendering.
@@ -79,7 +100,7 @@ module Colligo::RenderSimpleConstraintsHelperBehavior
   # @option options [Array<String>] :classes an array of classes to add to container span for constraint.
   # @return [String]
   def render_simple_constraint_element(label, value, options = {})
-    render(:partial => "catalog/simple_constraints_element", :locals => {:label => label, :value => value, :options => options})    
+    render(:partial => "shared/simple_constraints_element", :locals => {:label => label, :value => value, :options => options})    
   end
 
   def simple_constraint_query_label(localized_params = params)

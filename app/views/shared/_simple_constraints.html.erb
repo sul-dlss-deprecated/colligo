@@ -1,0 +1,14 @@
+<% if query_has_constraints?(params) %>
+  <% if query_has_search_constraints?(params) %>
+    <div>
+      <span class="constraints-label"><%= t('blacklight.search.simple_queries.title') %></span>
+      <%= render_simple_constraints_query(params) %>
+    </div>
+  <% end %>
+  <% if query_has_facet_constraints?(params) %>
+    <div>
+      <span class="constraints-label"><%= t('blacklight.search.simple_filters.title') %></span>
+      <%=render_simple_constraints_filters(params) %>
+    </div> 
+  <% end %>
+<% end %>

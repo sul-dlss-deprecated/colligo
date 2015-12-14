@@ -1,4 +1,5 @@
 # -*- encoding : utf-8 -*-
+require 'blacklight/search_state'
 class CatalogController < ApplicationController
 
   include Blacklight::Catalog
@@ -88,9 +89,11 @@ class CatalogController < ApplicationController
     config.add_search_field('descriptions') do |field|
       field.qt = 'descriptions'
     end
+
     config.add_search_field('transcriptions') do |field|
       field.qt = 'transcriptions'
     end
+
     config.add_search_field('annotations') do |field|
       field.qt = 'annotations'
     end
@@ -100,8 +103,13 @@ class CatalogController < ApplicationController
     # whether the sort is ascending or descending (it must be asc or desc
     # except in the relevancy case).
     config.add_sort_field 'score desc, title_sort asc', label: 'relevance'
-    config.add_sort_field 'authors_all_facet asc, title_sort asc', label: 'author'
-    config.add_sort_field 'pub_date_sort asc, title_sort asc', label: 'date'
+    # config.add_sort_field 'authors_all_facet asc, title_sort asc', label: 'author'
+    # config.add_sort_field 'pub_date_sort asc, title_sort asc', label: 'date'
+    # config.add_sort_field 'collection asc, title_sort asc', label: 'repository'
+    # config.add_sort_field 'manuscript_sort asc, folio_sort asc', label: 'manuscript'
+    # config.add_sort_field 'folio_sort asc, manuscript_sort asc', label: 'folio'
+    # config.add_sort_field 'last_updated desc', label: 'most recent'
+
 
     # If there are more than this many search results, no spelling ("did you
     # mean") suggestion is offered.
@@ -120,11 +128,22 @@ class CatalogController < ApplicationController
       plot_data
       render 'homepage'
     elsif on_bento_page
-      all_results
       manuscripts
+      @search_state ||= Blacklight::SearchState.new(params, blacklight_config)
       annotations
       transcriptions
       render 'bentopage'
+    elsif on_manuscripts_page
+      blacklight_config.add_sort_field 'title_sort asc, pub_date_sort asc', label: 'title'
+      blacklight_config.add_sort_field 'pub_date_sort asc, title_sort asc', label: 'century'
+      blacklight_config.add_sort_field 'collection asc, title_sort asc', label: 'repository'
+      manuscripts
+      related_annotations
+      related_transcriptions
+      @search_state ||= Blacklight::SearchState.new(params, blacklight_config)
+      annotations
+      transcriptions
+      render 'manuscript_results'
     else
       super
     end
@@ -152,6 +171,28 @@ class CatalogController < ApplicationController
     (@response_m, @document_list_m) = get_search_results
   end
 
+  def related_annotations
+    @related_annotations = {}
+    @document_list_m.each do |doc|
+      qparams = {q: "manuscript_search:\"#{doc['title_display']}", rows: 0}
+      self.search_params_logic += [:add_annotation_filter]
+      self.search_params_logic -= [:all_search_filter, :add_manuscript_filter, :add_transcription_filter]
+      (resp, doc_list) = get_search_results(qparams)
+      @related_annotations[doc['title_display']] = resp['response']['numFound']
+    end
+  end
+
+  def related_transcriptions
+    @related_transcriptions = {}
+    @document_list_m.each do |doc|
+      qparams = {q: "manuscript_search:\"#{doc['title_display']}", rows: 0}
+      self.search_params_logic += [:add_transcription_filter]
+      self.search_params_logic -= [:all_search_filter, :add_manuscript_filter, :add_annotation_filter]
+      (resp, doc_list) = get_search_results(qparams)
+      @related_transcriptions[doc['title_display']] = resp['response']['numFound']
+    end
+  end
+
   def annotations
     self.search_params_logic += [:add_annotation_filter]
     self.search_params_logic -= [:all_search_filter, :add_manuscript_filter, :add_transcription_filter]
@@ -163,6 +204,7 @@ class CatalogController < ApplicationController
     self.search_params_logic -= [:all_search_filter, :add_manuscript_filter, :add_annotation_filter]
     (@response_t, @document_list_t) = get_search_results
   end
+
 
   def plot_data
     data = solr_range_queries_to_a('pub_date_t')
