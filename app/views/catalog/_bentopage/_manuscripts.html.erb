@@ -13,4 +13,4 @@
   <% end %>
 </div>
 
-<%= render partial: 'shared/manuscript', collection: @document_list_m[0, 4], as: :document %>
+<%= render partial: 'shared/manuscript', collection: @document_list_m[0, 4], as: :document, locals: {show_manifest: false, show_footer: false} %>
