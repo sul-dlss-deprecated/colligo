@@ -67,7 +67,13 @@ module IiifManifestData
     uri = URI.parse(url)
     uri.scheme = "https"
     require 'open-uri'
-    self.modsxml = open(uri.to_s).read
+    begin
+      self.modsxml = open(uri.to_s).read
+    rescue Timeout::Error, Errno::EINVAL, Errno::ECONNRESET, Errno::ETIMEDOUT, EOFError,
+       Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError, Net::ProtocolError, OpenURI::HTTPError => the_error
+      puts "\nOpen URI error for #{uri.to_s}\n\t#{the_error.message}" #TODO: Add to log
+      return nil
+    end
   end
 
 end
