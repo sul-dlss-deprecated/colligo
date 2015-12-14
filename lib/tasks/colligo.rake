@@ -34,7 +34,11 @@ end
 def index_mods
   # index mods data in solr
   solr_doc = @doc.mods_to_solr
-  @conn.add solr_doc
+  @title = nil
+  unless solr_doc.blank?
+    @title = solr_doc['title_search']
+    @conn.add solr_doc
+  end
 end
 
 def index_annotations
@@ -43,9 +47,9 @@ def index_annotations
   # method to index each annotation
   @annotation_lists.each do |al|
     annotation_list = @doc.read_annotation(al['@id'])
-    if annotation_list.has_key("resources")
+    if annotation_list.has_key?("resources")
       annotation_list["resources"].each do |a|
-        data = { "annotation" => a, "manuscript" => @doc.title, "folio" => al['label'], "url" => al['@id'] }
+        data = { "annotation" => a, "manuscript" => @title, "folio" => al['label'], "url" => al['@id'] }
         solr_doc = @doc.annotation_to_solr(data)
         @conn.add solr_doc
       end
