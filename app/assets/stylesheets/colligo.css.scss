@@ -347,8 +347,12 @@ a.noresult {
 
 }
 
-/* transcription results page */
+/* annotation results page */
+.annotation-result .media-body {
+  width: auto;
+}
 
+/* transcription results page */
 .transcription-result .media-body {
   width: auto;
 }

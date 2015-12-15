@@ -1,31 +1,31 @@
-<div class="panel panel-content search-panel">
-<div class="panel-body">
-  <div class="row">
-    <div class="col-md-3" style="max-width: 75px;">
-      <% unless document['img_info'].blank? %>
-        <%= image_tag(document['img_info'].first, width: "64px") %>
-      <% end %>
-    </div>
-    <div class="col-md-9">
-      <% unless document['body_chars_display'].blank? %>
-        <p><a href="/transcriptions/<%=document['id']%>"><%= truncate(document['body_chars_display'], length: 150) %></a></p>
-      <% else %>
-        <p><a href="/transcriptions/<%=document['id']%>"><%= document['id'] %></a></p>
-      <% end %>
-      <% unless document['authors_all_display'].blank? %>
-        <p><strong><%= raw document['authors_all_display'].join("<br/>") %></strong></p>
-      <% end %>
-      <% unless document['body_format_display'].blank? %>
-        <p><%= document['body_format_display'] %></p>
-      <% end %>
-      <% unless document['folio'].blank? %>
-        <p><%= document['folio'] %></p>
-      <% end %>
-      <% unless document['manuscript_display'].blank? %>
-        <p><%= document['manuscript_display'] %></p>
-      <% end %>
+<div class="panel panel-content search-panel search-panel-auto">
+  <div class="panel-body annotation-result">
+    <div class="media">
+      <div class="media-left">
+        <% unless document['img_info'].blank? %>
+          <%= image_tag(document['img_info'].first, class: 'media-object results-thumbnail') %>
+        <% end %>&nbsp;
+      </div>
+      <div class="media-body">
+        <% unless document['body_chars_display'].blank? %>
+          <h4 class="media-heading"><a href="/annotations/<%=document['id']%>"><%= truncate(document['body_chars_display'], length: 150) %></a></h4>
+        <% else %>
+          <h4 class="media-heading"><a href="/annotations/<%=document['id']%>"><%= document['id'] %></a></h4>
+        <% end %>
+        <% unless document['authors_all_display'].blank? %>
+          <p><strong><%= raw document['authors_all_display'].join("<br/>") %></strong></p>
+        <% end %>
+        <% unless document['body_format_display'].blank? %>
+          <p><%= document['body_format_display'] %></p>
+        <% end %>
+        <% unless document['folio'].blank? %>
+          <p><%= document['folio'] %></p>
+        <% end %>
+        <% unless document['manuscript_display'].blank? %>
+          <p><%= document['manuscript_display'] %></p>
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
 </div>
 
