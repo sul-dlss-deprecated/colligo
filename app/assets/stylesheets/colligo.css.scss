@@ -1,15 +1,30 @@
 #header-navbar .navbar-brand {
-    width: 300px;
-    height: 50px;
-    background: transparent none no-repeat scroll left top;
-    display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    padding-right: 0px;
-    margin-right: 20px;
-    padding-left: 5px;
-    text-indent: 50px;
-    font-size: 2.5em;
+  width: 300px;
+  height: 50px;
+  background: transparent none no-repeat scroll left top;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  padding-right: 0px;
+  margin-right: 20px;
+  padding-left: 5px;
+  text-indent: 50px;
+  font-size: 2.5em;
+  color: #fff;
+}
+
+#header-navbar .navbar-brand:hover {
+  color: #000;
+}
+
+.navbar-inverse {
+  background-color: #fff;
+  border-color: #fff;
+}
+
+#header-navbar .container {
+  background-color: #666;
+  border-color: #090909;
 }
 
 /* application search */
