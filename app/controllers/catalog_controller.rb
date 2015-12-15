@@ -1,7 +1,6 @@
 # -*- encoding : utf-8 -*-
 require 'blacklight/search_state'
 class CatalogController < ApplicationController
-
   include Blacklight::Catalog
 
   layout :resolve_layout
@@ -104,14 +103,8 @@ class CatalogController < ApplicationController
     # except in the relevancy case).
     config.add_sort_field 'score desc, title_sort asc', label: 'relevance'
     # config.add_sort_field 'authors_all_facet asc, title_sort asc', label: 'author'
-    # config.add_sort_field 'pub_date_sort asc, title_sort asc', label: 'date'
-    # config.add_sort_field 'collection asc, title_sort asc', label: 'repository'
-    # config.add_sort_field 'manuscript_sort asc, folio_sort asc', label: 'manuscript'
-    # config.add_sort_field 'folio_sort asc, manuscript_sort asc', label: 'folio'
-    # config.add_sort_field 'last_updated desc', label: 'most recent'
 
-
-    # If there are more than this many search results, no spelling ("did you
+    # If there are more than this many search results, no spelling ("did you 
     # mean") suggestion is offered.
     config.spell_max = 5
   end
@@ -141,9 +134,14 @@ class CatalogController < ApplicationController
       related_annotations
       related_transcriptions
       @search_state ||= Blacklight::SearchState.new(params, blacklight_config)
-      annotations
-      transcriptions
       render 'manuscript_results'
+    elsif on_transcriptions_page
+      blacklight_config.add_sort_field 'folio_sort asc, manuscript_sort asc', label: 'folio'
+      blacklight_config.add_sort_field 'manuscript_sort asc, folio_sort asc', label: 'manuscript'
+      blacklight_config.add_sort_field 'last_updated desc', label: 'most recent'
+      transcriptions
+      @search_state ||= Blacklight::SearchState.new(params, blacklight_config)
+      render 'transcription_results'
     else
       super
     end
@@ -204,7 +202,6 @@ class CatalogController < ApplicationController
     self.search_params_logic -= [:all_search_filter, :add_manuscript_filter, :add_annotation_filter]
     (@response_t, @document_list_t) = get_search_results
   end
-
 
   def plot_data
     data = solr_range_queries_to_a('pub_date_t')

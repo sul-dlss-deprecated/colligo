@@ -1,4 +1,4 @@
-<h2 class="top-content-title"><%= @response_m['response']['numFound'] %> Manuscripts</h2>
+<h2 class="top-content-title"><%= @response_t['response']['numFound'] %> Transcriptions</h2>
 
 <% @page_title = t('blacklight.search.page_title.title', :constraints => render_search_to_page_title(params), :application_name => application_name) %>
 
@@ -14,12 +14,13 @@
 
 <h2 class="sr-only"><%= t('blacklight.search.search_results') %></h2>
 
-<%- if @response_m.empty? %>
+<%- if @response_t.empty? %>
   <%= render "zero_results" %>
 <%- else %>
-  <%#= @response_m['facet_counts']['facet_fields'] %>
-  <%= render partial: 'shared/manuscript', collection: @document_list_m, as: :document, locals: {show_manifest: true, show_footer: true} %>
+  <div class="row">
+    <%= render partial: 'shared/transcription', collection: @document_list_t, as: :document %>
+  </div>
   <%= render partial: 'shared/results_footer' %>
-  <%#= render 'results_pagination' %>
 <%- end %>
 
+<%#= render 'results_pagination' %>

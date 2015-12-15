@@ -2,7 +2,7 @@
 </div>
 <div class="row">
   <div class="col-md-12">
-    <%= render :partial => "/shared/paginate_compact", :object => @response_m if show_pagination? %>
+    <%= render :partial => "/shared/paginate_compact", :object => @response if show_pagination? %>
     <div class="pull-right footer-top"><%= render :partial => '/shared/top' %> </div>
     <div class="pull-right footer-per-page">
       <%= render :partial => '/shared/per_page_widget' %>
