@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/mods/v3" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+  <titleInfo>
+    <title>Commentary on the 'De Sensu et Sensato' : manuscript fragment</title>
+  </titleInfo>
+  <name type="personal">
+    <namePart>Aristotle.</namePart>
+    <role>
+      <roleTerm authority="marcrelator" type="text">creator</roleTerm>
+    </role>
+  </name>
+  <typeOfResource>text</typeOfResource>
+  <genre authority="lcsh">Manuscripts, Latin (Medieval and modern)-England.</genre>
+  <originInfo>
+    <place>
+      <placeTerm type="code" authority="marccountry">enk</placeTerm>
+    </place>
+    <place>
+      <placeTerm type="text">[England</placeTerm>
+    </place>
+    <publisher>s.n.</publisher>
+    <dateIssued>14--?]</dateIssued>
+    <dateIssued encoding="marc" keyDate="yes">14uu</dateIssued>
+    <issuance>monographic</issuance>
+  </originInfo>
+  <language>
+    <languageTerm authority="iso639-2b" type="code">lat</languageTerm>
+  </language>
+  <physicalDescription>
+    <form authority="marcform">print</form>
+    <extent>1 bifolium, 73 x 335 mm.</extent>
+  </physicalDescription>
+  <abstract>From a university text book. The manuscript frequently cites Aristotle and "sensus et sensibilis" (the little treatise of Aristotle is sometimes called "De sensu et Sensibili). Besides sensation the fragment mentions motion, form, intellect, and odour. [dealer description]</abstract>
+  <note>Script: each leaf written in double columns in a cursive anglicana script, remains of 16/17 lines, brown ink, outer boundaries of columns ruled with ink, defective from use in a binding but entirely legible</note>
+  <note>Purchased from Bernard Quaritch (catalog 1396, number 5), 2010. Accession 2010-156.</note>
+  <note>In Latin.</note>
+  <subject authority="lcsh">
+    <name type="personal">
+      <namePart>Aristotle</namePart>
+    </name>
+  </subject>
+  <subject authority="lcsh">
+    <topic>Senses and sensation</topic>
+    <genre>Early works to 1800</genre>
+  </subject>
+  <location>
+    <physicalLocation>Department of Special Collections, Stanford University Libraries, Stanford, CA 94305</physicalLocation>
+  </location>
+  <recordInfo>
+    <descriptionStandard>amremm</descriptionStandard>
+    <recordContentSource authority="marcorg">CSt</recordContentSource>
+    <recordCreationDate encoding="marc">100723</recordCreationDate>
+    <recordIdentifier source="SIRSI">a8657985</recordIdentifier>
+  </recordInfo>
+  <relatedItem type="host">
+    <titleInfo>
+      <title>Stanford University Libraries Special Collections, Manuscripts Division</title>
+    </titleInfo>
+    <identifier type="uri">http://purl.stanford.edu/sk373nx0013</identifier>
+    <typeOfResource collection="yes"/>
+  </relatedItem>
+  <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+</mods>

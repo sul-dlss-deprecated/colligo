@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/mods/v3" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3      http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+  <titleInfo>
+    <title>Acquittance</title>
+  </titleInfo>
+  <titleInfo type="alternative">
+    <title>Stanford University Libraries, M0299</title>
+    <partNumber>Box  3, Folder  2, Item  082</partNumber>
+  </titleInfo>
+  <abstract>Acquittance for a thousand livres tournois for the despense de l'hostel du Roy notre sire.</abstract>
+  <physicalDescription>
+    <digitalOrigin>reformatted digital</digitalOrigin>
+    <reformattingQuality>access</reformattingQuality>
+    <internetMediaType>image/jpeg</internetMediaType>
+  </physicalDescription>
+  <originInfo>
+    <place>
+      <placeTerm type="text">France</placeTerm>
+    </place>
+    <dateCreated keydate="yes">1389</dateCreated>
+    <issuance>monographic</issuance>
+  </originInfo>
+  <note displayLabel="Acquisition">Fragments in this collection were purchased in 1969 and 1978.</note>
+  <relatedItem type="isReferencedBy">
+    <note type="citation/reference">Reported to: Bibliotheque Nationale pre-1600 manuscript census.</note>
+  </relatedItem>
+  <location>
+    <physicalLocation type="repository">Stanford University. Libraries. Department of Special Collections and University Archives</physicalLocation>
+    <physicalLocation>M0299. Box  3, Folder  2, Item  082</physicalLocation>
+  </location>
+  <identifier type="local" displayLabel="Collection call number">M0299</identifier>
+  <note displayLabel="Box number">3</note>
+  <note displayLabel="Folder number">2</note>
+  <note displayLabel="Item number">82</note>
+  <typeOfResource>mixed material</typeOfResource>
+  <recordInfo>
+    <languageOfCataloging>
+      <languageTerm authority="iso639-2b">eng</languageTerm>
+    </languageOfCataloging>
+    <recordOrigin>Description based on EAD of finding aid. Custom transform of EAD to MODS used.</recordOrigin>
+  </recordInfo>
+  <identifier type="local" displayLabel="SourceID">sulair:M0299_3_2_82</identifier>
+  <relatedItem type="host">
+    <titleInfo>
+      <title>Medieval fragments study collection, 11th-16th cent</title>
+    </titleInfo>
+    <identifier type="uri">http://purl.stanford.edu/bd001pp3337</identifier>
+    <typeOfResource collection="yes"/>
+  </relatedItem>
+  <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+</mods>

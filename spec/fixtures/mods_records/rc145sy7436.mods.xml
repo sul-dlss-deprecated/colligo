@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+  <titleInfo>
+    <title>Yale University, Beinecke Rare Book and Manuscript Library, MS 229 - Arthurian Romances</title>
+  </titleInfo>
+  <abstract>Lavishly illuminated manuscript consisting of 77 large column miniatures, 51
+            smaller miniatures, and 36 historiated initials. Miniatures and historiated initials by
+            at least two artists, the scale and quality of whose work distinguish the manuscript
+            from contemporary and most fourteenth-century Arthurian manuscripts.</abstract>
+  <classification>Beinecke MS 229</classification>
+  <genre>Illuminated manuscripts</genre>
+  <genre>Miniatures (Illuminations)</genre>
+  <genre>Illustrations</genre>
+  <genre>Historiated initials</genre>
+  <genre>Hand coloring</genre>
+  <language>
+    <languageTerm>French</languageTerm>
+  </language>
+  <location>
+    <physicalLocation>General Collection, Beinecke Rare Book and Manuscript Library, Yale
+                University</physicalLocation>
+    <url>http://beinecke.library.yale.edu/dl_crosscollex/brbldl_getrec.asp?fld=bib&amp;id=2004282</url>
+  </location>
+  <note>Teaching resource: Barbara A. Shailor, Medieval Studies.</note>
+  <originInfo>
+    <dateCaptured>6/19/2003 3:01:38 PM</dateCaptured>
+    <dateCreated>s. XIII^^ex [ca. 1275-1300]</dateCreated>
+    <dateModified>1/20/2012 9:03:00 PM</dateModified>
+    <place>
+      <placeTerm>France</placeTerm>
+    </place>
+  </originInfo>
+  <physicalDescription>
+    <extent>1 vol.</extent>
+    <extent>color illustrations</extent>
+  </physicalDescription>
+  <recordInfo>
+    <recordContentSource>BRBL</recordContentSource>
+    <recordIdentifier>2004282</recordIdentifier>
+  </recordInfo>
+  <typeOfResource>text</typeOfResource>
+  <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+</mods>
