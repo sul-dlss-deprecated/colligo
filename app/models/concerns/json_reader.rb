@@ -1,12 +1,12 @@
 module JsonReader
   class Reader
     def from_str(str)
-      @annotation = JSON.parse(str)
+      JSON.parse(str)
     end
     
     def from_url(url, encoding = nil)
       require 'open-uri'
-      @annotation = JSON.parse(open(url).read)
+      JSON.parse(open(url).read)
     end
 
     # Read in the contents of a JSON record from a file.
@@ -16,7 +16,7 @@ module JsonReader
     #   foo = AnnotationData::Reader.new.from_file('/path/to/annotation/file.json')
     def from_file(filename, encoding = nil)
       file = File.read(filename)
-      @annotation = JSON.parse(file)
+      JSON.parse(file)
     end
     
   end
