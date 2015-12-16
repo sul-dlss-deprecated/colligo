@@ -5,7 +5,7 @@ class SolrDocument
   include AnnotationData
   include Blacklight::Solr::Document
 
-  attr_accessor :druid, :iiif_manifest, :collection, :mods_url, :manuscript
+  attr_accessor :druid, :iiif_manifest, :collection, :mods_url, :manuscript, :thumbnail
   
   def initialize(*args)
     super

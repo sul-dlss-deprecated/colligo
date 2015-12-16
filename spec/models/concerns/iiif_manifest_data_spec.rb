@@ -63,6 +63,23 @@ describe IiifManifestData do
     end
   end
   
+  describe "#thumbnail" do
+    it "should be nil if no manifest url" do
+      expect(@document_empty.thumbnail).to be_nil
+    end
+
+    it "should be nil if no thumbnail" do
+      expect(@document.thumbnail).to be_nil
+    end
+
+    it "should be a string" do
+      expect(@document2.thumbnail).to be_a String
+    end
+
+    it "should be a url string" do
+      expect(@document2.thumbnail).to eq("https://stacks.stanford.edu/image/iiif/bb389yg4719%2Fbb389yg4719_05_0001/full/!400,400/0/default.jpg")
+    end
+  end
   describe "#mods_url" do
     it "should be nil if no manifest url" do
       expect(@document_empty.mods_url).to be_nil
