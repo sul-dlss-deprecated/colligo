@@ -43,6 +43,7 @@ module ModsData
     solr_doc["manifest_urls"] = self["iiif_manifest"]
     solr_doc["collection"] = self["collection"]
     solr_doc["model"] = "Manuscript"
+    solr_doc["img_info"] = self["thumbnail"]
     solr_doc["abstract_search"] = data.abstract.text
     solr_doc["access_condition_search"] = data.accessCondition.text
     solr_doc["genre_search"] = data.sw_genre
