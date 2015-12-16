@@ -65,11 +65,17 @@ module ModsData
     #solr_doc["location_url_display"] = data.location_url
     #solr_doc["relateditem_location_url_display"] = data.relateditem_location_url
     #solr_doc["relateditem_title_search"] = data.relateditem_title
-    solr_doc["pub_date"] = data.pub_dates
-    #solr_doc["pub_date_t"] = data.pub_date_facet #This does not give a ISO fomrat date
-    if data.pub_year.is_a? Integer
-      solr_doc["pub_year_t"] = data.pub_year
-    end
+    # All of the pub dates
+    solr_doc["pub_dates"] = data.pub_dates
+    dates = parse_dates(data.pub_dates)
+    # All the pub dates in int years
+    solr_doc["pub_date"] = dates[:all_int]
+    # All the pub dates in int years
+    solr_doc["pub_date_t"] = dates[:all_int]
+    # average of pub dates for sort
+    solr_doc["pub_date_sort"] = dates[:sort]
+    # pub date for display
+    solr_doc["pub_date_display"] = display_date(data.pub_dates)
     #solr_doc["publishers_search"] = data.publishers
     solr_doc["place_search"] = data.place
     solr_doc["topic_search"] = data.topic_search
@@ -79,6 +85,45 @@ module ModsData
     solr_doc["subject_all_search"] = data.subject_all_search
     solr_doc["format"] = data.format
     solr_doc
+  end
+  protected
+
+  def parse_dates(input_dates)
+    #1. Year                            ["1389"]                        (eg: mr892jv0716)
+    #2. Start and end years             ["850","1499"]                  (eg: kh686yw0435)
+    #3. Approximate year                ["Ca. 1580 CE"]                 (eg: gs755tr2814)
+    #4. Approximate year                ["1500 CE"]                     (eg: hp976mx6580)
+    #5. Approximate century             ["14uu"]                        (eg: tw490xj0071)
+    #6. Full date                       ["February 6, 1486"]            (eg: ss222gr9703)
+    #7. Partial date                    ["June 1781"]                   (eg: zq824dz1346)
+    #8. Approximate start and end years ["s. XIII^^ex [ca. 1275-1300]"] (eg: rc145sy7436)
+    dates = {:all_int => [], :sort => ""}
+    return dates if input_dates.blank?
+    all_int = []
+    sort = nil
+    input_dates.each do |dt|
+      dates[:all_int] << dt.to_s.scan( /[0-9]{3,4}/ )
+      centuries = dt.to_s.scan( /([0-9]{2})[uU]{2}/ )
+      unless centuries.blank?
+        dates[:all_int] << centuries[0].map {|c| (c.to_i*100).to_s}
+        dates[:all_int] << centuries[0].map {|c| (c.to_i*100+99).to_s}
+      end
+    end
+    dates[:all_int].flatten!
+    unless dates[:all_int].blank?
+      dates[:all_int] = dates[:all_int].map {|i| i.to_i}
+      dates[:sort] = (dates[:all_int].inject{|sum,x| sum + x }) / dates[:all_int].length
+    end
+    dates
+  end
+
+  def display_date(input_dates)
+    return "" if input_dates.blank?
+    if input_dates.length <= 2
+      return input_dates.map {|dt| dt.to_i}.join(" to ")
+    else
+      return input_dates.map {|dt| dt.to_i}.join(", ")
+    end
   end
 
 end

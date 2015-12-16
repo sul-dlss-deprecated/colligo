@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/mods/v3" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3      http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+  <titleInfo>
+    <title>Stanford University Libraries, M1814</title>
+    <partNumber>Half Box 1, Folder 06</partNumber>
+  </titleInfo>
+  <abstract>Part of an artificial collection created by the dealer, Bernard M. Rosenthal. Handwritten dealer notes by Rosenthal are included with the document when they include more information than written on each folder.</abstract>
+  <physicalDescription>
+    <digitalOrigin>reformatted digital</digitalOrigin>
+    <reformattingQuality>access</reformattingQuality>
+    <internetMediaType>image/jpeg</internetMediaType>
+  </physicalDescription>
+  <originInfo>
+    <dateCreated keydate="yes">February 6, 1486</dateCreated>
+    <issuance>monographic</issuance>
+  </originInfo>
+  <note displayLabel="Acquisition">Purchased, 2011.</note>
+  <location>
+    <physicalLocation type="repository">Stanford University. Libraries. Department of Special Collections and University Archives</physicalLocation>
+    <physicalLocation>M1814 Half Box 1, Folder 06</physicalLocation>
+  </location>
+  <identifier type="local" displayLabel="Collection call number">M1814</identifier>
+  <note displayLabel="Box number">1</note>
+  <note displayLabel="Folder number">6</note>
+  <note displayLabel="Item number">-</note>
+  <typeOfResource>mixed material</typeOfResource>
+  <recordInfo>
+    <languageOfCataloging>
+      <languageTerm authority="iso639-2b">eng</languageTerm>
+    </languageOfCataloging>
+    <recordOrigin>Description based on EAD of finding aid. Custom transform of EAD to MODS used.</recordOrigin>
+  </recordInfo>
+  <identifier type="local" displayLabel="SourceID">sulair:M1814_1_6</identifier>
+  <relatedItem type="host">
+    <titleInfo>
+      <title>Diplomatic manuscript documents, 1404-1781</title>
+    </titleInfo>
+    <identifier type="uri">http://purl.stanford.edu/nd057tw6238</identifier>
+    <typeOfResource collection="yes"/>
+  </relatedItem>
+  <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+</mods>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/mods/v3" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3      http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+  <titleInfo>
+    <title>Fragment from a Beneventan Psalter</title>
+  </titleInfo>
+  <titleInfo type="alternative">
+    <title>Stanford University Libraries, M0389</title>
+    <partNumber>Box 1, Folder 05</partNumber>
+  </titleInfo>
+  <abstract>Fragment from a Beneventan psalter, containing most of Psalm 36: verses 1-29. For an early printed edition of this text in its relation to other versions of the psalter, see Jacques Lefevre d'Etaples's Quincuplex Psalterium, 1513. </abstract>
+  <language>
+    <languageTerm>Latin</languageTerm>
+  </language>
+  <physicalDescription>
+    <form type="material">parchment</form>
+    <note displayLabel="Foliation Statement">Foliation: 1 Bifolium</note>
+    <note displayLabel="Dimensions">295 mm x 210 mm.</note>
+    <note displayLabel="Layout: Columns">1</note>
+    <note displayLabel="Layout: Ruled Lines">18</note>
+    <note displayLabel="Layout: Notes">Single column of 18 lines. Ruling in dry point on the hair side. Double bounding lines for each column. Cut down from original size for use in a later binding. Hair follicles visible. Margins and one line of text have been lost as a result of trimming, any prickings or quire marks also lost. Water damage and plentiful wormholes apparent along left side of the recto. Fragment likely used as endleaf in a later book.</note>
+    <note displayLabel="Hand Note">Large Beneventan script. Initials show elements of uncial and rustic captial letter forms.</note>
+    <digitalOrigin>reformatted digital</digitalOrigin>
+    <reformattingQuality>access</reformattingQuality>
+    <internetMediaType>image/jpeg</internetMediaType>
+  </physicalDescription>
+  <note displayLabel="Decoration Note">Psalm begins with an initial drawn in pen with interlaced design, partially colored in red and yellow. Versals are set in the left margin and written in red, filled with yellow.</note>
+  <originInfo>
+    <place>
+      <placeTerm type="text">Southern Italy</placeTerm>
+    </place>
+    <dateCreated point="start" qualifier="approximate" keyDate="yes">850</dateCreated>
+    <dateCreated point="end" qualifier="approximate">1499</dateCreated>
+    <issuance>monographic</issuance>
+  </originInfo>
+  <language>
+    <languageTerm authority="iso639-2b" type="code">lat</languageTerm>
+  </language>
+  <note displayLabel="Date Note">late 11th c. or early 12th c.</note>
+  <note displayLabel="Provenance">Oxford antiquary Philip Bliss (1787-1857) was one of the first collectors to recognize the historical and cultural importance of medieval manuscript fragments. These books survived intact in England until ca. 1520-70 at which time, particularly in Oxford and Cambridge, they were taken to pieces for use by binders as pastedowns, wrappers, fly leaves, and reinforcing strips.</note>
+  <note displayLabel="Acquisition">Fragments in this collection were purchased by Stanford in 1984 and 1985.</note>
+  <relatedItem type="isReferencedBy">
+    <note type="citation/reference">Reported to: Bibliotheque Nationale pre-1600 manuscript census.</note>
+  </relatedItem>
+  <relatedItem type="isReferencedBy">
+    <note type="citation/reference">Student research papers on this piece are available.</note>
+  </relatedItem>
+  <location>
+    <physicalLocation type="repository">Stanford University. Libraries. Department of Special Collections and University Archives</physicalLocation>
+    <physicalLocation>M0389. Box 1, Folder 05</physicalLocation>
+  </location>
+  <identifier type="local" displayLabel="Collection call number">M0389</identifier>
+  <note displayLabel="Box number">1</note>
+  <note displayLabel="Folder number">5</note>
+  <note displayLabel="Item number">-</note>
+  <typeOfResource>mixed material</typeOfResource>
+  <recordInfo>
+    <languageOfCataloging>
+      <languageTerm authority="iso639-2b">eng</languageTerm>
+    </languageOfCataloging>
+    <recordOrigin>Description based on EAD of finding aid, and enriched by Stanford University Libraries curatorial staff, Stanford students, and researchers. Custom transform of EAD to MODS used.</recordOrigin>
+  </recordInfo>
+  <identifier type="local" displayLabel="SourceID">sulair:M0389_1_5</identifier>
+  <relatedItem type="host">
+    <titleInfo>
+      <title>Medieval manuscript fragments, ca. 850-1499</title>
+    </titleInfo>
+    <identifier type="uri">http://purl.stanford.edu/dt056jp2574</identifier>
+    <typeOfResource collection="yes"/>
+  </relatedItem>
+  <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+</mods>

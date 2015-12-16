@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+  <titleInfo>
+    <title>Walters Ms. W.478, Treatise on cosmetics</title>
+  </titleInfo>
+  <typeOfResource manuscript="yes">mixed material</typeOfResource>
+  <originInfo>
+    <place>
+      <placeTerm type="text">Italy</placeTerm>
+    </place>
+    <dateIssued>1500 CE</dateIssued>
+    <issuance>monographic</issuance>
+  </originInfo>
+  <language>
+    <languageTerm authority="iso639-2b" type="code">ita</languageTerm>
+  </language>
+  <physicalDescription>
+    <extent>Foliation: 42</extent>
+  </physicalDescription>
+  <abstract>These are images of Walters Ms. W.478, Treatise on cosmetics, on parchment, Ca. 1500. For full description, see http://www.thedigitalwalters.org/Data/WaltersManuscripts/html/W478/description.html [NOTE: Cataloging in process]</abstract>
+  <location>
+    <physicalLocation>The Walters Art Museum, 600 North Charles Street, Baltimore MD 21201.</physicalLocation>
+  </location>
+  <relatedItem type="host">
+    <titleInfo>
+      <title>Walters Manuscripts</title>
+    </titleInfo>
+    <identifier type="uri">http://purl.stanford.edu/ww121ss5000</identifier>
+    <typeOfResource collection="yes"/>
+  </relatedItem>
+  <accessCondition type="useAndReproduction">Licensed for use under Creative Commons Attribution-ShareAlike 3.0 Unported Access Rights, http://creativecommons.org/licenses/by-sa/3.0/legalcode. Images are free for any use, provided you follow the terms of this license. You do not need to apply to the Walters prior to using the images. We ask only that you cite the source of the images as the Walters Art Museum (see citation style at http://www.thedigitalwalters.org/03_ReadMe.html). Additionally, we request that a copy of any work created using these materials be sent to the Curator of Manuscripts and Rare Books at the Walters Art Museum, 600 N. Charles Street, Baltimore, MD 21201, mss-curator@thewalters.org.</accessCondition>
+  <accessCondition type="copyright">All Walters manuscript images and descriptions provided here are copyrighted © The Walters Art Museum.</accessCondition>
+  <accessCondition type="license">CC by-sa: Attribution-ShareAlike 3.0 Unported</accessCondition>
+</mods>
