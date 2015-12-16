@@ -50,21 +50,21 @@ module ModsData
     data.typeOfResource.attributes.each do |t|
         type_of_resource << t.keys[0] if t.keys and t.keys[0]
     end
-    solr_doc["type_of_resource_search"] = type_of_resource
+    data.typeOfResource.each do |t|
+        type_of_resource << t.text if t.text
+    end
+    solr_doc["type_of_resource_search"] = type_of_resource.uniq
     solr_doc["corporate_authors_search"] = (data.sw_corporate_authors).uniq
     solr_doc["personal_authors_search"] = (data.sw_person_authors).uniq
+    solr_doc["authors_all_search"] = (data.sw_person_authors + data.sw_impersonal_authors).uniq
     solr_doc["title_search"] = data.sort_title
     solr_doc["title_alternate_search"] = data.alternative_titles
     solr_doc["title_other_search"] = data.full_titles - [data.sort_title] - data.alternative_titles
-    #solr_doc["subtitle_search"] = data.subtitle
     solr_doc["language"] = data.languages
-    #solr_doc["physical_description_extent_display"] = data.physical_description_extent
-    #solr_doc["physical_description_form_search"] = data.physical_description_form
-    #solr_doc["physical_description_media_type_search"] = data.physical_description_media_type
-    solr_doc["physical_location_display"] = data.location.physicalLocation.text
-    #solr_doc["location_url_display"] = data.location_url
-    #solr_doc["relateditem_location_url_display"] = data.relateditem_location_url
-    #solr_doc["relateditem_title_search"] = data.relateditem_title
+    solr_doc["physical_location_display"] = []
+    data.location.physicalLocation.each do |p|
+      solr_doc["physical_location_display"] << p.text
+    end
     # All of the pub dates
     solr_doc["pub_dates"] = data.pub_dates
     dates = parse_dates(data.pub_dates)
@@ -76,7 +76,6 @@ module ModsData
     solr_doc["pub_date_sort"] = dates[:sort]
     # pub date for display
     solr_doc["pub_date_display"] = display_date(data.pub_dates)
-    #solr_doc["publishers_search"] = data.publishers
     solr_doc["place_search"] = data.place
     solr_doc["topic_search"] = data.topic_search
     solr_doc["geographic_search"] = data.geographic_facet
@@ -84,6 +83,15 @@ module ModsData
     solr_doc["subject_other_search"] = data.subject_other_search
     solr_doc["subject_all_search"] = data.subject_all_search
     solr_doc["format"] = data.format
+    #TODO May need to extract the following data from MODS
+    #solr_doc["subtitle_search"] = data.subtitle
+    #solr_doc["physical_description_extent_display"] = data.physical_description_extent
+    #solr_doc["physical_description_form_search"] = data.physical_description_form
+    #solr_doc["physical_description_media_type_search"] = data.physical_description_media_type
+    #solr_doc["location_url_display"] = data.location_url
+    #solr_doc["relateditem_location_url_display"] = data.relateditem_location_url
+    #solr_doc["relateditem_title_search"] = data.relateditem_title
+    #solr_doc["publishers_search"] = data.publishers
     solr_doc
   end
   protected
