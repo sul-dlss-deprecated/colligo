@@ -37,6 +37,7 @@ group :development, :test do
   gem 'rspec-rails', '< 2.99'
   gem 'capybara'
   gem 'poltergeist'
+  gem 'coveralls', require: false
 end
 
 group :development do

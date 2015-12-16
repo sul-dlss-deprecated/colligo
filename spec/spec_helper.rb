@@ -17,15 +17,8 @@ Capybara.javascript_driver = :poltergeist
 
 Capybara.default_max_wait_time = 10
 
-if ENV['COVERAGE'] || ENV['CI']
-  require 'simplecov'
-  require 'coveralls' if ENV['CI']
-
-  SimpleCov.formatter = Coveralls::SimpleCov::Formatter if ENV['CI']
-  SimpleCov.start do
-    add_filter '/spec/'
-  end
-end
+require 'coveralls'
+Coveralls.wear!('rails')
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
