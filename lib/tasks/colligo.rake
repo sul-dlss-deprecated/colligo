@@ -12,8 +12,8 @@ namespace :colligo do
       unless @manifest.title.blank? || @manifest.druid.blank?
         # initialize solr document model
         @modsxml =  @manifest.get_modsxml
-        @doc = SolrDocument.new(modsxml: @modsxml, druid: @manifest.druid,
-          collection: args.collection, iiif_manifest: @url, mods_url: @manifest.mods_url)
+        @doc = SolrDocument.new(modsxml: @modsxml, druid: @manifest.druid, iiif_manifest: @url, 
+          collection: args.collection, mods_url: @manifest.mods_url, thumbnail: @manifest.thumbnail)
         # index mods xml
         index_mods
         # index annotations
