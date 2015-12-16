@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mods xmlns="http://www.loc.gov/mods/v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/standards/mods/v3/mods-3-4.xsd">
+  <titleInfo authority="BNF Catalog" type="alternative">
+    <title>BNF NAF 6221</title>
+  </titleInfo>
+  <titleInfo>
+    <title>Paris, Bibliothèque Nationale de France, NAF 6221</title>
+  </titleInfo>
+  <abstract displayLabel="Summary">Mélanges. II Recueil de 154 lais, ballades, rondeaux et serventois, dont 71 au moins sont d'Eustache DESCHAMPS</abstract>
+  <typeOfResource manuscript="yes">text</typeOfResource>
+  <physicalDescription>
+    <reformattingQuality>preservation</reformattingQuality>
+    <internetMediaType>image/jp2</internetMediaType>
+    <digitalOrigin>reformatted digital</digitalOrigin>
+  </physicalDescription>
+  <subject authority="lcsh">
+    <topic>Manuscripts</topic>
+    <geographic>France</geographic>
+  </subject>
+  <location>
+    <url/>
+  </location>
+  <relatedItem displayLabel="Bibliography" type="host">
+    <titleInfo>
+      <title/>
+    </titleInfo>
+    <recordInfo>
+      <recordIdentifier source="Gallica ARK"/>
+    </recordInfo>
+    <typeOfResource>text</typeOfResource>
+  </relatedItem>
+  <identifier type="local">6221</identifier>
+  <location>
+    <physicalLocation>NAF, Bibliothèque nationale de France, Paris, France</physicalLocation>
+  </location>
+  <recordInfo>
+    <recordContentSource>TEI Description</recordContentSource>
+    <recordCreationDate encoding="w3cdtf">2012-12-18</recordCreationDate>
+    <recordIdentifier source="BNF 6221"/>
+    <recordOrigin/>
+    <languageOfCataloging>
+      <languageTerm authority="iso639-2b">fra</languageTerm>
+    </languageOfCataloging>
+  </recordInfo>
+  <relatedItem type="host">
+    <titleInfo>
+      <title>Medieval Manuscripts from the Bibliothèque nationale de France</title>
+    </titleInfo>
+    <identifier type="uri">http://purl.stanford.edu/gj309bn0813</identifier>
+    <typeOfResource collection="yes"/>
+  </relatedItem>
+</mods>
