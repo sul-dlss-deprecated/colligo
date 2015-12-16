@@ -27,6 +27,11 @@
 #config/redis.yml
 #config/secrets.yml
 
+# Ignore local settings
 config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml
+
+#Ignore all data files
+data/*
+!data/.keep
