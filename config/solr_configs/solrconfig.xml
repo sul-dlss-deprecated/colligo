@@ -71,7 +71,7 @@
       <str name="defType">edismax</str>
       <str name="echoParams">explicit</str>
       <!-- <str name="sort">score desc, pub_date desc, title_sort asc</str> -->
-      <str name="sort">score desc, title_sort asc</str>
+      <str name="sort">score desc, pub_date_sort desc, title_sort asc</str>
       <int name="rows">20</int>
       <str name="q.alt">*:*</str>
       <str name="mm">6&lt;-1 6&lt;90%</str>
@@ -372,7 +372,7 @@
         physical_description_media_type_display,
         physical_location_display,
         relateditem_title_display,
-        pub_date,
+        pub_date_display,
         topic_display,
         geographic_display,
         era_display,
@@ -504,7 +504,7 @@
         physical_description_media_type_display,
         physical_location_display,
         relateditem_title_display,
-        pub_date,
+        pub_date_display,
         topic_display,
         geographic_display,
         era_display,
