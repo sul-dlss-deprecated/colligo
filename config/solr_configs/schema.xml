@@ -102,7 +102,7 @@
     <!-- origin info fields: create_start_date -->
     <!-- origin info fields: pub_date -->
     <field name="pub_dates" type="string" indexed="true" stored="true" multiValued="true"/>
-    <field name="pub_date" type="string" indexed="true" stored="false" multivalued="true" />
+    <field name="pub_date" type="string" indexed="true" stored="true" multiValued="true" />
     <field name="pub_date_t" type="tint" indexed="true" stored="false" multiValued="true" />
     <field name="pub_date_sort" type="int" indexed="true" stored="false" />
     <field name="pub_date_display" type="string" indexed="false" stored="true"/>
@@ -228,12 +228,29 @@
 
   <!-- copy fields -->
   <copyField source="collection" dest="collection_search" />
+  <!-- all search -->
+  <copyField source="abstract_search" dest="all_search" />
+  <copyField source="access_condition_search" dest="all_search" />
+  <copyField source="genre_search" dest="all_search" />
+  <copyField source="type_of_resource_search" dest="all_search" />
+  <copyField source="authors_all_search" dest="all_search" />
+  <copyField source="title_search" dest="all_search" />
+  <copyField source="title_alternate_search" dest="all_search" />
+  <copyField source="title_other_search" dest="all_search" />
+  <copyField source="subtitle_search" dest="all_search" />
+  <copyField source="physical_description_form_search" dest="all_search" />
+  <copyField source="physical_description_media_type_search" dest="all_search" />
+  <copyField source="place_search" dest="all_search" />
+  <copyField source="publishers_search" dest="all_search" />
+  <copyField source="subject_all_search" dest="all_search" />
+  <copyField source="body_chars_search" dest="all_search" />
   <!-- anchored and sort search fields -->
   <copyField source="title_search" dest="title_exact_search" />
   <copyField source="title_search" dest="title_sort" />
   <copyField source="body_chars_search" dest="body_chars_exact_search" />
   <copyField source="body_chars_search" dest="body_chars_sort" />
   <!-- unstemmed search fields -->
+  <copyField source="all_search" dest="all_unstem_search" />
   <copyField source="abstract_search" dest="abstract_unstem_search" />
   <copyField source="access_condition_search" dest="access_condition_unstem_search" />
   <copyField source="genre_search" dest="genre_unstem_search" />
