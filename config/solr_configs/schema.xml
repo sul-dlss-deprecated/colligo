@@ -101,9 +101,11 @@
     <!-- Note: Date in source data is not always an ISO valid date, but contains text -->
     <!-- origin info fields: create_start_date -->
     <!-- origin info fields: pub_date -->
-    <field name="pub_date" type="string" indexed="true" stored="true" multiValued="true" />
-    <field name="pub_date_t" type="tdate" indexed="true" stored="false" multiValued="true" />
-    <field name="pub_year_t" type="tint" indexed="true" stored="false" multiValued="true" />
+    <field name="pub_dates" type="string" indexed="true" stored="true" multiValued="true"/>
+    <field name="pub_date" type="string" indexed="true" stored="false" multivalued="true" />
+    <field name="pub_date_t" type="tint" indexed="true" stored="false" multiValued="true" />
+    <field name="pub_date_sort" type="int" indexed="true" stored="false" />
+    <field name="pub_date_display" type="string" indexed="false" stored="true"/>
     <!-- origin info fields: place -->
     <field name="place_search" type="text" indexed="true" stored="false" multiValued="true" />
     <field name="place_display" type="string" indexed="false" stored="true" multiValued="true" />
