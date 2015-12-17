@@ -10,10 +10,11 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ * Used by blacklight_range_limit
+ *= require  'blacklight_range_limit'
+ *
  *= require_tree .
  *= require_self
  *
- * Used by blacklight_range_limit
- *= require  'blacklight_range_limit'
  *
 */
