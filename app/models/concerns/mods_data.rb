@@ -108,8 +108,6 @@ module ModsData
     # 8. Approximate start and end years ["s. XIII^^ex [ca. 1275-1300]"] (eg: rc145sy7436)
     dates = { all_int: [], sort: '' }
     return dates if input_dates.blank?
-    all_int = []
-    sort = nil
     input_dates.each do |dt|
       dates[:all_int] << dt.to_s.scan(/[0-9]{3,4}/)
       centuries = dt.to_s.scan(/([0-9]{2})[uU]{2}/)
@@ -129,9 +127,9 @@ module ModsData
   def display_date(input_dates)
     return '' if input_dates.blank?
     if input_dates.length <= 2
-      return input_dates.map(&:to_s).join(' to ')
+      input_dates.map(&:to_s).join(' to ')
     else
-      return input_dates.map(&:to_s).join(', ')
+      input_dates.map(&:to_s).join(', ')
     end
   end
 end

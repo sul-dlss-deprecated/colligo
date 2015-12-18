@@ -23,7 +23,7 @@ describe JsonReader::Reader do
       expect(@doc_from_str).to be_a Hash
     end
     it 'should have the keys @context, @id, @type and resources' do
-      expect(@doc_from_str.keys).to eq(['@context', '@id', '@type', 'resources'])
+      expect(@doc_from_str.keys).to eq(%w(@context @id @type resources))
     end
     it 'should have an array of resources' do
       expect(@doc_from_str['resources']).to be_a Array
@@ -38,7 +38,7 @@ describe JsonReader::Reader do
       expect(@doc_from_url).to be_a Hash
     end
     it 'should have the keys @context, @id, @type and resources' do
-      expect(@doc_from_url.keys).to eq(['@context', '@id', '@type', 'resources'])
+      expect(@doc_from_url.keys).to eq(%w(@context @id @type resources))
     end
     it 'should have an array of resources' do
       expect(@doc_from_url['resources']).to be_a Array
@@ -53,7 +53,7 @@ describe JsonReader::Reader do
       expect(-> { JsonReader::Record.new.from_file('/fake/file') }).to raise_error
     end
     it 'should have the keys @context, @id, @type and resources' do
-      expect(@doc_from_file.keys).to eq(['@context', '@id', '@type', 'resources'])
+      expect(@doc_from_file.keys).to eq(%w(@context @id @type resources))
     end
     it 'should have an array of resources' do
       expect(@doc_from_file['resources']).to be_a Array

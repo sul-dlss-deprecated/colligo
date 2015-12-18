@@ -167,10 +167,10 @@ describe ModsData do
       expect(data_with_id4['abstract_search']).to eq("Acquittance for a thousand livres tournois for the despense de l'hostel du Roy notre sire.")
       expect(data_with_id5['abstract_search']).to eq("Fragment from a Beneventan psalter, containing most of Psalm 36: verses 1-29. For an early printed edition of this text in its relation to other versions of the psalter, see Jacques Lefevre d'Etaples's Quincuplex Psalterium, 1513. ")
       expect(data_with_id8['abstract_search']).to eq("From a university text book. The manuscript frequently cites Aristotle and \"sensus et sensibilis\" (the little treatise of Aristotle is sometimes called \"De sensu et Sensibili). Besides sensation the fragment mentions motion, form, intellect, and odour. [dealer description]")
-      expect(data_with_id11['abstract_search']).to eq("Lavishly illuminated manuscript consisting of 77 large column miniatures, 51
+      expect(data_with_id11['abstract_search']).to eq('Lavishly illuminated manuscript consisting of 77 large column miniatures, 51
             smaller miniatures, and 36 historiated initials. Miniatures and historiated initials by
             at least two artists, the scale and quality of whose work distinguish the manuscript
-            from contemporary and most fourteenth-century Arthurian manuscripts.")
+            from contemporary and most fourteenth-century Arthurian manuscripts.')
     end
 
     it 'should have an access condition' do
@@ -290,8 +290,8 @@ describe ModsData do
       expect(data_with_id5['physical_location_display']).to eq(['Stanford University. Libraries. Department of Special Collections and University Archives',
                                                                 'M0389. Box 1, Folder 05'])
       expect(data_with_id8['physical_location_display']).to eq(['Department of Special Collections, Stanford University Libraries, Stanford, CA 94305'])
-      expect(data_with_id11['physical_location_display']).to eq(["General Collection, Beinecke Rare Book and Manuscript Library, Yale
-                University"])
+      expect(data_with_id11['physical_location_display']).to eq(['General Collection, Beinecke Rare Book and Manuscript Library, Yale
+                University'])
     end
 
     it 'is a pending field - physical location url'

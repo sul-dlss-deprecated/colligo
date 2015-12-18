@@ -100,11 +100,11 @@ describe IiifManifestData do
     end
 
     it 'should be an array of hashes' do
-      expect(@document.annotation_lists.any? { |hash| hash.keys == ['@id', '@type', 'label'] }).to be_true
+      expect(@document.annotation_lists.any? { |hash| hash.keys == %w(@id @type label) }).to be_true
     end
   end
 
-  describe '#get_modsxml' do
+  describe '#fetch_modsxml' do
     before(:all) do
       @document.fetch_modsxml
       @document2.fetch_modsxml

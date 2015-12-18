@@ -25,7 +25,7 @@ describe AnnotationData do
     end
 
     it 'should have the keys @context, @id, @type and resources' do
-      expect(annotation_list.keys).to eq(['@context', '@id', '@type', 'resources'])
+      expect(annotation_list.keys).to eq(%w(@context @id @type resources))
     end
 
     it 'should have an array of resources' do
