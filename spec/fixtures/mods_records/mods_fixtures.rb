@@ -51,5 +51,4 @@ module ModsFixtures
     # Approximate start and end years ["s. XIII^^ex [ca. 1275-1300]"]
     File.read('spec/fixtures/mods_records/rc145sy7436.mods.xml')
   end
-
 end

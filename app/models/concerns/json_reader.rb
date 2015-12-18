@@ -3,13 +3,13 @@ module JsonReader
     def from_str(str)
       JSON.parse(str)
     end
-    
-    def from_url(url, encoding = nil)
+
+    def from_url(url, _encoding = nil)
       require 'open-uri'
       begin
         JSON.parse(open(url).read)
       rescue OpenURI::HTTPError => the_error
-        puts "\nOpen URI error for #{url}\n\t#{the_error.message}" #TODO: Add to log
+        puts "\nOpen URI error for #{url}\n\t#{the_error.message}" # TODO: Add to log
         return nil
       end
     end
@@ -19,10 +19,9 @@ module JsonReader
     # @return Hash
     # @example
     #   foo = AnnotationData::Reader.new.from_file('/path/to/annotation/file.json')
-    def from_file(filename, encoding = nil)
+    def from_file(filename, _encoding = nil)
       file = File.read(filename)
       JSON.parse(file)
     end
-    
   end
 end

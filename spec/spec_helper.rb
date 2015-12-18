@@ -1,43 +1,41 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
-ENV["RAILS_ENV"] ||= 'test'
-require File.expand_path("../../config/environment", __FILE__)
+ENV['RAILS_ENV'] ||= 'test'
+require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/poltergeist'
-#require 'fixtures/marc_records/marc_856_fixtures'
-#require 'fixtures/marc_records/marc_metadata_fixtures'
+# require 'fixtures/marc_records/marc_856_fixtures'
+# require 'fixtures/marc_records/marc_metadata_fixtures'
 require 'fixtures/mods_records/mods_fixtures'
 require 'fixtures/annotation_records/annotation_fixtures'
 require 'fixtures/iiif_manifest_records/iiif_manifest_fixtures'
 
 Capybara.register_driver :poltergeist do |app|
-  Capybara::Poltergeist::Driver.new(app, {timeout: 60})
+  Capybara::Poltergeist::Driver.new(app, { timeout: 60 })
 end
 Capybara.javascript_driver = :poltergeist
 
 Capybara.default_max_wait_time = 10
 
-if ENV["COVERAGE"] or ENV["CI"]
+if ENV['COVERAGE'] || ENV['CI']
   require 'simplecov'
-  require 'coveralls' if ENV["CI"]
+  require 'coveralls' if ENV['CI']
 
-  SimpleCov.formatter = Coveralls::SimpleCov::Formatter if ENV["CI"]
+  SimpleCov.formatter = Coveralls::SimpleCov::Formatter if ENV['CI']
   SimpleCov.start do
-    add_filter "/spec/"
+    add_filter '/spec/'
   end
 end
 
-
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
-Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 # Checks for pending migrations before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
-
   config.include Capybara::DSL
 
   # ## Mock Framework
@@ -65,39 +63,39 @@ RSpec.configure do |config|
   # order dependency and want to debug it, you can fix the order by providing
   # the seed, which is printed after each run.
   #     --seed 1234
-  config.order = "random"
+  config.order = 'random'
 end
 
-#def total_results
+# def total_results
 #  page.find("h2", text: number_pattern).text.gsub(/\D+/, '').to_i
-#end
+# end
 #
-#def results_all_on_page ids
+# def results_all_on_page ids
 #  ids.all? do |id|
 #    result_on_page id
 #  end
-#end
+# end
 #
-#def result_on_page id
+# def result_on_page id
 #  !all_docs_on_page.index(id).nil?
-#end
+# end
 #
-#def document_index id
+# def document_index id
 #  all_docs_on_page.index(id)
-#end
+# end
 #
-#def all_docs_on_page
+# def all_docs_on_page
 #  page.all(:xpath, "//form[@data-doc-id]").map{|e| e["data-doc-id"]}
-#end
+# end
 #
-#def facet_index(options)
+# def facet_index(options)
 #  all_facets_by_name(options[:facet_name]).index(options[:value])
-#end
+# end
 #
-#def all_facets_by_name(facet_name)
+# def all_facets_by_name(facet_name)
 #  page.all("##{facet_name} a.facet_select").map(&:text)
-#end
+# end
 #
-#def number_pattern
+# def number_pattern
 #  /[1-9](?:\d{0,2})(?:,\d{3})*(?:\.\d*[1-9])?|0?\.\d*[1-9]|0/
-#end
+# end
