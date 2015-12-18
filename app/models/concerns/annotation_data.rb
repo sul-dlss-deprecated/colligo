@@ -2,12 +2,9 @@ module AnnotationData
   include JsonReader
   extend ActiveSupport::Concern
 
-  # attr_accessor :annotation_url, :annotation_list
-
   def read_annotation(url = nil)
     return nil unless url # self[:annotation_url]
     @annotation_list = JsonReader::Reader.new.from_url(url)
-    # self[:annotation_list] = JsonReader::Reader.new.from_str(self[:annotation_url])
   end
 
   def motivation_for_annotations
@@ -18,14 +15,21 @@ module AnnotationData
     'sc:painting'
   end
 
+  def resources(annotation_list = nil)
+    return [] unless annotation_list
+    return [] unless annotation_list.key? 'resources'
+    annotation_list['resources']
+  end
+
   def annotations(annotation_list = nil)
     # the motivation for annotations will be: "oa:commenting"
     # return [] unless self[:annotation_url]
     # self.read_annotation unless self[:annotation_list]
     # return [] unless self[:annotation_list]
     # return self[:annotation_list][:resources].select {|anno| anno["motivation"] == "oa:commenting" }
-    return [] unless annotation_list
-    annotation_list['resources'].select { |anno| anno['motivation'] == motivation_for_annotations }
+    al = resources(annotation_list)
+    return [] unless al
+    al.select { |anno| anno['motivation'] == motivation_for_annotations }
   end
 
   def transcriptions(annotation_list = nil)
@@ -34,8 +38,9 @@ module AnnotationData
     # self.read_annotation unless self[:annotation_list]
     # return [] unless self[:annotation_list]
     # return self[:annotation_list][:resources].select {|anno| anno["motivation"] == "sc:painting" }
-    return [] unless annotation_list
-    annotation_list['resources'].select { |anno| anno['motivation'] == motivation_for_transcriptions }
+    al = resources(annotation_list)
+    return [] unless al
+    al.select { |anno| anno['motivation'] == motivation_for_transcriptions }
   end
 
   def map_annotation(annotation = nil)
@@ -61,17 +66,17 @@ module AnnotationData
 
   def annotation_to_solr(data = {})
     # data.keys = [:annotation, :manuscript, :folio, :url]
-    return {} unless data['annotation']
+    return {} unless data.key?('annotation') || data['annotation']
     anno = map_annotation(data['annotation'])
     return {} unless anno['id']
     solr_doc = {}
     solr_doc['id'] = anno['id']
     solr_doc['druid'] = self['druid']
-    solr_doc['url_sfx'] = data['url']
     solr_doc['manifest_urls'] = self['iiif_manifest']
     solr_doc['collection'] = self['collection']
-    solr_doc['folio'] = data['folio']
-    solr_doc['manuscript_search'] = data['manuscript']
+    solr_doc['url_sfx'] = data['url'] if data.key?('url')
+    solr_doc['folio'] = data['folio'] if data.key?('folio')
+    solr_doc['manuscript_search'] = data['manuscript'] if data.key?('manuscript')
     solr_doc['model'] = anno['model']
     solr_doc['motivation'] = anno['motivation']
     solr_doc['target_url'] = anno['target_url']
