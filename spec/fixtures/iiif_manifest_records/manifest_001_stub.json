@@ -1,0 +1,88 @@
+{
+    "@context": "http://www.shared-canvas.org/ns/context.json", 
+    "@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/manifest.json", 
+    "@type": "sc:Manifest", 
+    "label": "Manuscript fragment of the Gospels and Canonical Epistles, glossed", 
+    "description": "From a manuscript which comprised the third and fourth Gospels and The Canonical Epistles, glossed, in 105 leaves. The Gloss on St. John was composed in the eleventh century by Anselm of Laon (d. 1117) and the Gloss on the Canonical Epistles probably dates from about 1100 and may be the work of Anselm or his brother Ralph (d. 1133).\", \"Purchased, 1985.", 
+    "attribution": "Provided by the Stanford University Libraries", 
+    "seeAlso": {
+        "@id": "http://purl.stanford.edu/kq131cs7229.mods", 
+        "dcterms:format": "application/mods+xml"
+    }, 
+    "within": "http://dms-data.stanford.edu/data/manifests/Stanford/", 
+    "sequences": [
+        {
+            "@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/normal", 
+            "@type": "sc:Sequence", 
+            "label": "Current page order", 
+            "canvases": [ 
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-3", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 8r", 
+                    "height": "4502", 
+                    "width": "3016", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-3", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/sulmss_misc305_008r_SM", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "4502", 
+                                "width": "3016", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fsulmss_misc305_008r_SM", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-3"
+                        }
+                    ],
+					"otherContent": [
+						{
+						"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f8r.json", 
+						"@type": "sc:AnnotationList"
+						}
+					]
+                }, 
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-36", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 104v", 
+                    "height": "5515", 
+                    "width": "3931", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-36", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0016", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "5515", 
+                                "width": "3931", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fkq131cs7229_05_0016", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-36"
+                        }
+	                    ],
+						"otherContent": [
+							{
+							"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f104v.json", 
+							"@type": "sc:AnnotationList"
+							}
+						]
+                }
+            ]
+        }
+    ]
+}

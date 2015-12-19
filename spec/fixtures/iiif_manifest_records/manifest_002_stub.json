@@ -1,0 +1,114 @@
+{
+    "@context": "http://www.shared-canvas.org/ns/context.json", 
+    "@id": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/manifest.json", 
+    "@type": "sc:Manifest", 
+    "label": "Biblioth\u00e8que nationale de France, NAF 6221", 
+    "description": "displayLabelSummarycontentM\u00e9langes. II Recueil de 154 lais, ballades, rondeaux et serventois, dont 71 au moins sont d'Eustache DESCHAMPS", 
+    "attribution": "Provided by the Stanford University Libraries", 
+    "seeAlso": {
+        "@id": "http://purl.stanford.edu/jr903ng8662.mods", 
+        "dcterms:format": "application/mods+xml"
+    }, 
+    "sequences": [
+        {
+            "@id": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/normal", 
+            "@type": "sc:Sequence", 
+            "label": "Current page order", 
+            "canvases": [
+                {
+                    "@id": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-1", 
+                    "@type": "sc:Canvas", 
+                    "label": "plat sup\u00e9rieur", 
+                    "height": "4899", 
+                    "width": "3979", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/imageanno/anno-1", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/jr903ng8662/T0000001", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "4899", 
+                                "width": "3979", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/jr903ng8662%252FT0000001", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+"profile": "http://library.stanford.edu/iiif/image-api/1.1/conformance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-1"
+                        }
+                    ]
+                }, 
+                {
+                    "@id": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-7", 
+                    "@type": "sc:Canvas", 
+                    "label": "Ar", 
+                    "height": "4785", 
+                    "width": "3760", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/imageanno/anno-7", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/jr903ng8662/T0000007", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "4785", 
+                                "width": "3760", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/jr903ng8662%252FT0000007", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+"profile": "http://library.stanford.edu/iiif/image-api/1.1/conformance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-7"
+                        }
+                    ],
+                    "otherContent": [
+                      {
+                        "@id": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/list/text-Ar.json", 
+                        "@type": "sc:AnnotationList"
+                        }
+                    ]
+                }, 
+                {
+                    "@id": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-8", 
+                    "@type": "sc:Canvas", 
+                    "label": "Av", 
+                    "height": "4838", 
+                    "width": "3769", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/imageanno/anno-8", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/jr903ng8662/T0000008", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "4838", 
+                                "width": "3769", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/jr903ng8662%252FT0000008", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+"profile": "http://library.stanford.edu/iiif/image-api/1.1/conformance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-8"
+                        }
+                    ],
+                    "otherContent": [
+                      {
+                        "@id": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/list/text-Av.json", 
+                        "@type": "sc:AnnotationList"
+                        }
+                    ]
+                } 
+            ]
+        }
+    ]
+}
