@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mods xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.loc.gov/mods/v3" version="3.3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd">
+  <titleInfo>
+    <title>Manuscript fragment of the Gospels and Canonical Epistles, glossed</title>
+  </titleInfo>
+  <titleInfo type="uniform">
+    <title>Bible</title>
+    <partName>N.T. Gospels</partName>
+  </titleInfo>
+  <typeOfResource/>
+  <originInfo>
+    <place>
+      <placeTerm type="code" authority="marccountry">cau</placeTerm>
+    </place>
+    <place>
+      <placeTerm type="text">[Paris?</placeTerm>
+    </place>
+    <dateIssued>ca. 1135]</dateIssued>
+    <dateIssued encoding="marc" keyDate="yes">1135</dateIssued>
+    <issuance>monographic</issuance>
+  </originInfo>
+  <language>
+    <languageTerm authority="iso639-2b" type="code">lat</languageTerm>
+  </language>
+  <physicalDescription>
+    <extent>18 leaves, detached.</extent>
+  </physicalDescription>
+  <note>From a manuscript which comprised the third and fourth Gospels and The Canonical Epistles, glossed, in 105 leaves. The Gloss on St. John was composed in the eleventh century by Anselm of Laon (d. 1117) and the Gloss on the Canonical Epistles probably dates from about 1100 and may be the work of Anselm or his brother Ralph (d. 1133).</note>
+  <note>Purchased, 1985.</note>
+  <subject authority="lcsh">
+    <name type="personal">
+      <namePart type="termsOfAddress">of Laon</namePart>
+      <namePart>Anselm</namePart>
+      <namePart type="date">d.1117</namePart>
+    </name>
+  </subject>
+  <subject authority="lcsh">
+    <name type="personal">
+      <namePart type="termsOfAddress">of Laon</namePart>
+      <namePart>Ralph</namePart>
+      <namePart type="date">d.1133</namePart>
+    </name>
+  </subject>
+  <subject authority="lcsh">
+    <topic>Bible</topic>
+    <topic>History</topic>
+    <genre>Sources</genre>
+  </subject>
+  <subject authority="lcsh">
+    <topic>Manuscripts, Latin</topic>
+  </subject>
+  <subject authority="lcsh">
+    <geographic>France</geographic>
+    <topic>Church history</topic>
+    <temporal>Middle Ages, 987-1515</temporal>
+  </subject>
+  <location>
+    <physicalLocation>Department of Special Collections, Stanford University Libraries, Stanford, CA 94305</physicalLocation>
+  </location>
+  <recordInfo>
+    <descriptionStandard>appm</descriptionStandard>
+    <recordContentSource authority="marcorg">CSt</recordContentSource>
+    <recordCreationDate encoding="marc">860403</recordCreationDate>
+    <recordChangeDate encoding="iso8601">19990219151953.0</recordChangeDate>
+    <recordIdentifier source="CStRLIN">a4083458</recordIdentifier>
+  </recordInfo>
+  <relatedItem type="host">
+    <titleInfo>
+      <title>Stanford University Libraries Special Collections, Manuscripts Division</title>
+    </titleInfo>
+    <identifier type="uri">http://purl.stanford.edu/sk373nx0013</identifier>
+    <typeOfResource collection="yes"/>
+  </relatedItem>
+  <accessCondition type="useAndReproduction">Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.</accessCondition>
+</mods>

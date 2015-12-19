@@ -9,9 +9,17 @@ describe IiifManifestData do
   before(:all) do
     @document_empty = IiifManifest.new
     @document_empty.read_manifest
-    @document = IiifManifest.new(manifest_url = manifest_url_001)
+    response1 = File.open("#{::Rails.root}/spec/fixtures/iiif_manifest_records/manifest_001.json").read
+    stub_request(:get, manifest_url_001)
+      .with(headers: { 'Accept' => '*/*', 'User-Agent' => 'Ruby' })
+      .to_return(status: 200, body: response1, headers: {})
+    @document = IiifManifest.new(manifest_url_001)
     @document.read_manifest
-    @document2 = IiifManifest.new(manifest_url = manifest_url_004)
+    response2 = File.open("#{::Rails.root}/spec/fixtures/iiif_manifest_records/manifest_004.json").read
+    stub_request(:get, manifest_url_004)
+      .with(headers: { 'Accept' => '*/*', 'User-Agent' => 'Ruby' })
+      .to_return(status: 200, body: response2, headers: {})
+    @document2 = IiifManifest.new(manifest_url_004)
     @document2.read_manifest
   end
 
@@ -105,7 +113,17 @@ describe IiifManifestData do
   end
 
   describe '#fetch_modsxml' do
-    before(:all) do
+    before do
+      response_mods1 = File.open("#{::Rails.root}/spec/fixtures/iiif_manifest_records/mods_001.xml").read
+      # Note mods_url converted to https by fetch
+      stub_request(:get, 'https://purl.stanford.edu/kq131cs7229.mods')
+        .with(headers: { 'Accept' => '*/*', 'User-Agent' => 'Ruby' })
+        .to_return(status: 200, body: response_mods1, headers: {})
+      response_mods2 = File.open("#{::Rails.root}/spec/fixtures/iiif_manifest_records/mods_004.xml").read
+      stub_request(:get, 'https://purl.stanford.edu/bb389yg4719.mods')
+        .with(headers: { 'Accept' => '*/*', 'User-Agent' => 'Ruby' })
+        .to_return(status: 200, body: response_mods2, headers: {})
+      @document_empty.fetch_modsxml
       @document.fetch_modsxml
       @document2.fetch_modsxml
     end

@@ -6,13 +6,17 @@ end
 
 describe AnnotationData do
   include AnnotationFixtures
-  let(:document) { SolrDocument.new }
-  let(:annotation_list) { document.read_annotation(annotation_url_001) }
-  let(:document_with_id) do
-    SolrDocument.new(druid: 'kq131cs7229',
-                     collection: 'Parker collection',
-                     iiif_manifest: 'http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/manifest.json',
-                     mods_url: 'https://purl.stanford.edu/kq131cs7229.mods')
+  before(:all) do
+    @document = SolrDocument.new
+    response1 = File.open("#{::Rails.root}/spec/fixtures/annotation_records/annotation_001.json").read
+    stub_request(:get, annotation_url_001)
+      .with(headers: { 'Accept' => '*/*', 'User-Agent' => 'Ruby' })
+      .to_return(status: 200, body: response1, headers: {})
+    @annotation_list = @document.read_annotation(annotation_url_001)
+    @document_with_id = SolrDocument.new(druid: 'kq131cs7229',
+                                         collection: 'Parker collection',
+                                         iiif_manifest: 'http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/manifest.json',
+                                         mods_url: 'https://purl.stanford.edu/kq131cs7229.mods')
   end
 
   describe '#read_annotation' do
@@ -21,53 +25,53 @@ describe AnnotationData do
     end
 
     it 'should be a Hash' do
-      expect(annotation_list).to be_a Hash
+      expect(@annotation_list).to be_a Hash
     end
 
     it 'should have the keys @context, @id, @type and resources' do
-      expect(annotation_list.keys).to eq(%w(@context @id @type resources))
+      expect(@annotation_list.keys).to eq(%w(@context @id @type resources))
     end
 
     it 'should have an array of resources' do
-      expect(annotation_list['resources']).to be_a Array
+      expect(@annotation_list['resources']).to be_a Array
     end
 
     it 'should have 19 annotations' do
-      expect(annotation_list['resources'].length).to eq 19
+      expect(@annotation_list['resources'].length).to eq 19
     end
 
     it 'should have the first annotation equal annotation_001' do
-      expect(annotation_list['resources'].first).to eq(annotation_001)
+      expect(@annotation_list['resources'].first).to eq(annotation_001)
     end
   end
 
   describe '#motivation_for_annotations' do
     it 'should be a String' do
-      expect(document.motivation_for_annotations).to be_a String
+      expect(@document.motivation_for_annotations).to be_a String
       expect(SolrDocument.new.motivation_for_annotations).to be_a String
     end
 
     it 'should be equal to oa:commenting' do
-      expect(document.motivation_for_annotations).to eq 'oa:commenting'
+      expect(@document.motivation_for_annotations).to eq 'oa:commenting'
       expect(SolrDocument.new.motivation_for_annotations).to eq 'oa:commenting'
     end
   end
 
   describe '#motivation_for_transcriptions' do
     it 'should be a String' do
-      expect(document.motivation_for_transcriptions).to be_a String
+      expect(@document.motivation_for_transcriptions).to be_a String
       expect(SolrDocument.new.motivation_for_transcriptions).to be_a String
     end
 
     it 'should be equal to sc:painting' do
-      expect(document.motivation_for_transcriptions).to eq 'sc:painting'
+      expect(@document.motivation_for_transcriptions).to eq 'sc:painting'
       expect(SolrDocument.new.motivation_for_transcriptions).to eq 'sc:painting'
     end
   end
 
   describe '#resources' do
     it 'should be an Array' do
-      expect(document.resources(annotation_list)).to be_a Array
+      expect(@document.resources(@annotation_list)).to be_a Array
       expect(SolrDocument.new.resources).to be_a Array
     end
 
@@ -76,13 +80,13 @@ describe AnnotationData do
     end
 
     it 'should have 19 resources' do
-      expect(document.resources(annotation_list).length).to eq 19
+      expect(@document.resources(@annotation_list).length).to eq 19
     end
   end
 
   describe '#annotations' do
     it 'should be an Array' do
-      expect(document.annotations(annotation_list)).to be_a Array
+      expect(@document.annotations(@annotation_list)).to be_a Array
       expect(SolrDocument.new.annotations).to be_a Array
     end
 
@@ -91,13 +95,13 @@ describe AnnotationData do
     end
 
     it 'should have no annotations' do
-      expect(document.annotations(annotation_list).length).to eq 0
+      expect(@document.annotations(@annotation_list).length).to eq 0
     end
   end
 
   describe '#transcriptions' do
     it 'should be an Array' do
-      expect(document.transcriptions(annotation_list)).to be_a Array
+      expect(@document.transcriptions(@annotation_list)).to be_a Array
       expect(SolrDocument.new.transcriptions).to be_a Array
     end
 
@@ -106,17 +110,17 @@ describe AnnotationData do
     end
 
     it 'should have 19 transcriptions' do
-      expect(document.transcriptions(annotation_list).length).to eq 19
+      expect(@document.transcriptions(@annotation_list).length).to eq 19
     end
 
     it 'should have the first transcription equal annotation_001' do
-      expect(document.transcriptions(annotation_list).first).to eq(annotation_001)
+      expect(@document.transcriptions(@annotation_list).first).to eq(annotation_001)
     end
   end
 
   describe '#map_annotation' do
-    let(:anno_doc_1) { document.map_annotation(annotation_001) }
-    let(:anno_doc_2) { document.map_annotation(annotation_002) }
+    let(:anno_doc_1) { @document.map_annotation(annotation_001) }
+    let(:anno_doc_2) { @document.map_annotation(annotation_002) }
     it 'should be an Hash' do
       expect(anno_doc_1).to be_a Hash
       expect(SolrDocument.new.map_annotation).to be_a Hash
@@ -144,10 +148,10 @@ describe AnnotationData do
   end
 
   describe '#annotation_to_solr' do
-    let(:solr_doc_all) { document_with_id.annotation_to_solr(solr_data_all) }
-    let(:solr_doc_anno) { document_with_id.annotation_to_solr(solr_data_anno) }
-    let(:solr_doc_no_id) { document.annotation_to_solr(solr_data_no_id) }
-    let(:solr_doc_no_anno) { document.annotation_to_solr(solr_data_no_anno) }
+    let(:solr_doc_all) { @document_with_id.annotation_to_solr(solr_data_all) }
+    let(:solr_doc_anno) { @document_with_id.annotation_to_solr(solr_data_anno) }
+    let(:solr_doc_no_id) { @document.annotation_to_solr(solr_data_no_id) }
+    let(:solr_doc_no_anno) { @document.annotation_to_solr(solr_data_no_anno) }
 
     it 'should be a empty hash if no annotation url' do
       expect(SolrDocument.new.annotation_to_solr).to eq({})
