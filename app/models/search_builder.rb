@@ -12,4 +12,8 @@ class SearchBuilder < Blacklight::SearchBuilder
   def add_transcription_filter(solr_parameters)
     solr_parameters[:qt] = 'transcriptions'
   end
+
+  def all_search_filter(solr_parameters)
+    solr_parameters[:qt] = 'search'
+  end
 end
