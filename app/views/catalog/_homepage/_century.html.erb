@@ -2,8 +2,8 @@
   field_config = range_config('pub_date_t')  
   label = facet_field_label('pub_date_t')
   
-  input_label_range_begin = field_config[:input_label_range_begin] || t("blacklight.range_limit.range_begin", field_label: label)
-  input_label_range_end   = field_config[:input_label_range_end] || t("blacklight.range_limit.range_end", field_label: label)
+  input_label_range_begin = field_config[:input_label_range_begin] || t('blacklight.range_limit.range_begin', field_label: label)
+  input_label_range_end   = field_config[:input_label_range_end] || t('blacklight.range_limit.range_end', field_label: label)
 -%>
 
 <div class="row" id="century">
@@ -16,7 +16,7 @@
     </div>
   <% end %>
 
-  <%= form_tag catalog_index_path, :method => :get, :class=>"range_limit subsection range_pub_date_t form-inline" do %>
+  <%= form_tag catalog_index_path, :method => :get, :class=> 'range_limit subsection range_pub_date_t form-inline' do %>
     <%= hidden_field_tag("search_field", "descriptions", id: 'search_all_fields_century') %>
     <%#= hidden_field_tag("q", "*") %>
     <%= render_range_input( 'pub_date_t', :begin, input_label_range_begin) %> – <%= render_range_input('pub_date_t', :end, input_label_range_end) %>
@@ -24,4 +24,3 @@
   <% end %>
 
 </div>
-

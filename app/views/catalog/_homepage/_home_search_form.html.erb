@@ -17,8 +17,8 @@
     <%= hidden_field_tag :search_field, search_fields.first.last, id: 'main_serach_field' %>
   <% end %>
   <div class="input-group">
-    <%= text_field_tag :q, params[:q], placeholder: t('blacklight.search.form.search.placeholder'), 
-      class: "form-control", id: "q", autofocus: should_autofocus_on_search_box?, style: "width:100%" %>
+    <%= text_field_tag :q, params[:q], placeholder: t('blacklight.search.form.search.placeholder'),
+                       class: 'form-control', id: 'q', autofocus: should_autofocus_on_search_box?, style: 'width:100%' %>
       <%#, data: { autocomplete_enabled: autocomplete_enabled?, autocomplete_path: blacklight.suggest_index_path }  %>
     <!-- <label for="q" class="sr-only"><%#= t('blacklight.search.form.search.label') %></label> -->
     <div class="input-group-btn">

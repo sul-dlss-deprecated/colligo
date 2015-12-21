@@ -10,8 +10,8 @@
     <% end %>
   <% end %>
 
-  <% unless paginator.last_page? || params[:action] == "facet" %>
+  <% unless paginator.last_page? || params[:action] == 'facet' %>
     <%= link_to t("more_#{field_name}_html", scope: 'blacklight.search.facets', default: :more_html, field_name: facet_field.label), 
-      search_facet_url(id: field_name), class: "btn btn-primary-outline more_facets_link" %>
+      search_facet_url(id: field_name), class: 'btn btn-primary-outline more_facets_link' %>
   <% end %>
  </ul>
