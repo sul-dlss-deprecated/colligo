@@ -1,7 +1,5 @@
 # -*- encoding : utf-8 -*-
 class CatalogController < ApplicationController
-  include Blacklight::Marc::Catalog
-
   include Blacklight::Catalog
   layout :resolve_layout
 
@@ -28,7 +26,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'model', label: 'Type'
     config.add_facet_field 'folio', label: 'Folio'
     config.add_facet_field 'collection', label: 'Repository'
-    config.add_facet_field 'example_pivot_field', label: 'Pivot Field', pivot: %w(format language)
+    # config.add_facet_field 'example_pivot_field', label: 'Pivot Field', pivot: %w(format language)
     config.add_facet_field 'date_range', label: 'Century', query: {
       years_21: { label: '21st', fq: 'pub_date_t:[2000 TO *]' },
       years_20: { label: '20th', fq: 'pub_date_t:[1900 TO 1999]' },
@@ -51,11 +49,6 @@ class CatalogController < ApplicationController
       years_3: { label: '3rd', fq: 'pub_date_t:[200 TO 299]' },
       years_2: { label: '2nd', fq: 'pub_date_t:[100 TO 199]' },
       years_1: { label: '1st', fq: 'pub_date_t:[0 TO 99]' }
-    }
-    config.add_facet_field 'pub_date_t', label: 'Publication Year', range: {
-      num_segments: 21,
-      assumed_boundaries: [0, 2999],
-      segments: true
     }
 
     # Have BL send all facet field names to Solr, which has been the default
@@ -118,7 +111,13 @@ class CatalogController < ApplicationController
 
   def index
     if on_home_page
+      blacklight_config.add_facet_field 'pub_date_t', label: 'Publication Year', range: {
+        num_segments: 21,
+        assumed_boundaries: [0, 2999],
+        segments: true
+      }
       manuscripts
+      annotations
       plot_data
       render 'homepage'
     else
@@ -128,11 +127,6 @@ class CatalogController < ApplicationController
 
   private
 
-  def manuscripts
-    self.search_params_logic += [:add_manuscript_filter]
-    (@response_m, @document_list_m) = get_search_results
-  end
-
   def resolve_layout
     if on_home_page
       'homepage'
@@ -141,14 +135,31 @@ class CatalogController < ApplicationController
     end
   end
 
+  def manuscripts
+    self.search_params_logic += [:add_manuscript_filter]
+    self.search_params_logic -= [:all_search_filter, :add_annotation_filter, :add_transcription_filter]
+    (@response_m, @document_list_m) = get_search_results
+  end
+
+  def annotations
+    self.search_params_logic += [:add_annotation_filter]
+    self.search_params_logic -= [:all_search_filter, :add_manuscript_filter, :add_transcription_filter]
+    (@response_a, @document_list_a) = get_search_results
+  end
+
+  def transcriptions
+    self.search_params_logic += [:add_transcription_filter]
+    self.search_params_logic -= [:all_search_filter, :add_manuscript_filter, :add_annotation_filter]
+    (@response_t, @document_list_t) = get_search_results
+  end
+
   def plot_data
     data = solr_range_queries_to_a('pub_date_t')
     @data_array = []
     @data_ticks = []
     @pointer_lookup = []
     @slider_ticks = []
-    @slider_positions = []
-    @slider_labels = []
+    # @slider_labels = []
     data.each do |val|
       @data_array << [val[:count], val[:from]]
       if val[:from] == 0
@@ -161,10 +172,11 @@ class CatalogController < ApplicationController
         label = "#{((val[:from] / 100) + 1)}th"
       end
       @data_ticks << [val[:from], label]
-      @slider_labels << label
+      @slider_ticks << val[:from]
+      # @slider_labels << label
       @pointer_lookup << { 'from': val[:from], 'to': val[:to], 'count': val[:count], 'label': "#{val[:from]} to #{val[:to]}" }
     end
-    @boundaries = [@data_array.first.last, @data_array.last.last + 99]
+    @boundaries = [@data_array.first.last, @data_array.last.last]
   end
 
   def solr_range_queries_to_a(solr_field)
