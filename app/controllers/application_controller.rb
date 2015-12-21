@@ -16,5 +16,4 @@ class ApplicationController < ActionController::Base
   def request_path
     Rails.application.routes.recognize_path(request.path)
   end
-
 end
