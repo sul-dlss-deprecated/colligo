@@ -3,11 +3,10 @@ require 'data_indexer'
 
 describe 'DataIndexer' do
   include IiifManifestFixtures
-  # WebMock.disable_net_connect!(:allow => [/127.0.0.1/, /localhost/] )
-  before(:all) do
+  # let(:stub_solr) { double('solr') }
+  before do
     @stub_solr = Blacklight.default_index.connection
-    # @stub_solr = double('solr')
-    # expect(@stub_solr).to receive(:solr).at_least(1).times.and_return(@stub_solr)
+    # expect(Blacklight).to receive(:solr).at_least(1).times.and_return(stub_solr)
   end
   before(:each) do
     @response = File.open("#{::Rails.root}/spec/fixtures/iiif_manifest_records/manifest_001_stub.json").read
@@ -126,11 +125,17 @@ describe 'DataIndexer' do
       @di = DataIndexer.new('test collection', nil, 'http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/stub/manifest.json')
       @di.send(:fetch_manifest)
       @di.send(:define_doc)
-      # @di.send(:index_mods) #TODO: connection is being refused by solr
+      # @di.send(:index_mods)
     end
     it 'is a pending test'
     # it 'should have received an add' do
-    #   expect(@stub_solr).to receive(:solr).at_least(1).times.and_return(@stub_solr) #TODO: How do I test solr received an add
+    #   #TODO: How do I test solr received an add
+    #   expect(stub_solr).to receive(:add).at_least(1).times.and_return(true)
+    #   expect(stub_solr).to receive(:add).at_least(1).times.and_return(arg) |do|
+    #     expect(arg).to have_key 'responseHeader'
+    #     expect(arg['responseHeader']).to have_key 'status'
+    #     expect(arg['responseHeader']['status']).to eq 0
+    #   end
     # end
   end
 
@@ -139,12 +144,13 @@ describe 'DataIndexer' do
       @di = DataIndexer.new('test collection', nil, 'http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/stub/manifest.json')
       @di.send(:fetch_manifest)
       @di.send(:define_doc)
-      # @di.send(:index_mods) #TODO: connection is being refused by solr
-      # @ans = @di.send(:index_annotations) #TODO: connection is being refused by solr
+      # @di.send(:index_mods)
+      # @ans = @di.send(:index_annotations)
     end
     it 'is a pending test'
-    # it 'should have received 3 adds' do
-    #   expect(@stub_solr).to receive(:solr).at_least(44).times.and_return(@stub_solr) #TODO: How do I test solr received 44 adds (1  + 19 + 1 + 23)
+    # TODO: How do I test solr received 44 adds (1  + 19 + 1 + 23)
+    # it 'should have received 44 adds' do
+    #   expect(stub_solr).to receive(:add).at_least(44).times.and_return(true)
     # end
     # it 'should have counted 2 lists do'
     #   expect(@ans[0]).to eq(2)
@@ -158,47 +164,48 @@ describe 'DataIndexer' do
   describe '#index' do
     before do
       @di = DataIndexer.new('test collection', nil, 'http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/stub/manifest.json')
-      # @di.index #TODO: connection is being refused by solr
+      # @di.index
     end
     it 'is a pending test'
-    # it 'should have received 3 adds' do
-    #   expect(@stub_solr).to receive(:solr).at_least(44).times.and_return(@stub_solr) #TODO: How do I test solr received 44 adds (1  + 19 + 1 + 23)
-    # end
-    # it 'should have counted 2 lists do'
-    #   expect(@ans[0]).to eq(2)
-    # end
-    # it 'should have counted 44 resources do'
-    #   expect(@ans[1]).to eq(44)
-    #   expect(@ans[2]).to eq(44)
+    # TODO: How do I test solr received 45 adds (1 + 1  + 19 + 1 + 23)
+    # it 'should have received 45 adds' do
+    #   expect(stub_solr).to receive(:add).at_least(45).times.and_return(true)
     # end
   end
 
   describe '#index_csv' do
     before do
       @di = DataIndexer.new('test collection', manifest_csv_file, nil)
-      # @di.index_csv #TODO: connection is being refused by solr
+      # @di.index_csv
     end
     it 'is a pending test'
-    # it 'should have received 3 adds' do
-    #   expect(@stub_solr).to receive(:solr).at_least(44).times.and_return(@stub_solr) #TODO: How do I test solr received 44 adds (1  + 19 + 1 + 23)
-    # end
-    # it 'should have counted 2 lists do'
-    #   expect(@ans[0]).to eq(2)
-    # end
-    # it 'should have counted 44 resources do'
-    #   expect(@ans[1]).to eq(44)
-    #   expect(@ans[2]).to eq(44)
+    # TODO: How do I test solr received lots of adds
+    # it 'should have received adds' do
+    #   expect(stub_solr).to receive(:add).at_least(50).times.and_return(true)
     # end
   end
 
-  describe '#run' do
+  describe '#run index' do
     before do
-      @d1 = DataIndexer.new('test collection', nil, 'http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/stub/manifest.json')
-      # @d1.index #TODO: connection is being refused by solr
-      @d2 = DataIndexer.new('test collection', manifest_csv_file, nil)
-      # @d2.index_csv #TODO: connection is being refused by solr
+      @di = DataIndexer.new('test collection', nil, 'http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/stub/manifest.json')
+      @di.run
     end
     it 'is a pending test'
-    # TODO: this is the same as index and index_csv, depending on params. It also commits after indexing
+    # it 'should have received adds' do
+    #   expect(stub_solr).to receive(:add).at_least(45).times.and_return(true)
+    #   expect(stub_solr).to receive(:commit).once_and_return(true)
+    # end
+  end
+
+  describe '#run index_csv' do
+    before do
+      @di = DataIndexer.new('test collection', manifest_csv_file, nil)
+      @di.run
+    end
+    it 'is a pending test'
+    # it 'should have received adds' do
+    #   expect(stub_solr).to receive(:add).at_least(50).times.and_return(true)
+    #   expect(stub_solr).to receive(:commit).once_and_return(true)
+    # end
   end
 end
