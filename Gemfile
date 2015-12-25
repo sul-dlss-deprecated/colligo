@@ -48,9 +48,7 @@ group :development do
   gem 'spring'
 end
 
-group :test do
-  gem 'webmock'
-end
+gem 'webmock', group: :test
 
 gem 'blacklight', '>= 5.3.0'
 gem 'jettywrapper', '>= 2.0'
