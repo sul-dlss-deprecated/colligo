@@ -4,6 +4,7 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/poltergeist'
+require 'support/capybara'
 require 'fixtures/mods_records/mods_fixtures'
 require 'fixtures/annotation_records/annotation_fixtures'
 require 'fixtures/iiif_manifest_records/iiif_manifest_fixtures'
@@ -28,7 +29,7 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
-WebMock.disable_net_connect!(:allow => [/127.0.0.1/, /localhost/] )
+WebMock.disable_net_connect!(allow: [/127.0.0.1/, /localhost/])
 
 RSpec.configure do |config|
   config.include Capybara::DSL

@@ -58,7 +58,6 @@ window.onload = function () {
     var form = $("#century").find("form.range_limit");
     var begin_el = form.find("input.range_begin");
     var end_el = form.find("input.range_end");
-    //var century_slider = $("#century_slider");
     // Plot the graph
     plot = $.plot(browse_century, dataSet, options);
     var find_segment_for = function_for_find_segment(pointer_lookup);
@@ -105,9 +104,6 @@ window.onload = function () {
       if ( plot.getSelection() == null) {
         var segment = find_segment_for(pos.y);
         plot.setSelection( normalized_selection(segment.from, segment.to));
-        //var form = $("#century").find("form.range_limit");
-        // form.find("input.range_begin").val(segment.from);
-        // form.find("input.range_end").val(segment.to);
         begin_el.val(segment.from);
         end_el.val(segment.to);
         var slider_placeholder = century_slider.find("[data-slider-placeholder]");
@@ -121,9 +117,6 @@ window.onload = function () {
       if (ranges != null ) {
         var from = Math.floor(ranges.yaxis.from);
         var to = Math.floor(ranges.yaxis.to);
-        // var form = $("#century").find("form.range_limit");
-        // form.find("input.range_begin").val(from);
-        // form.find("input.range_end").val(to);
         begin_el.val(from);
         end_el.val(to);
         var slider_placeholder = century_slider.find("[data-slider-placeholder]");
@@ -133,7 +126,6 @@ window.onload = function () {
       }
     });
     // on form input fields value change
-    //var form = $("#browse_century").find("form.range_limit");
     form.find("input.range_begin, input.range_end").change(function () {
       plot.setSelection( form_selection(form, min, max) , true );
     });
@@ -157,22 +149,10 @@ window.onload = function () {
       values[1] = val;
       placeholder_input.slider("setValue", values);
     });
-    // on slide
-    /*
-    century_slider.find(".profile .range").on("slide", function(event, ui) {
-      var values = $(event.target).data("slider").getValue();
-      // form.find("input.range_begin").val(values[0]);
-      // form.find("input.range_end").val(values[1]);
-      begin_el.val(values[0]);
-      end_el.val(values[1]);
-      plot.setSelection( normalized_selection(values[0], Math.max(values[0], values[1]-1)), true);
-    });
-    */
+    // on slider value change
     var slider_placeholder = century_slider.find("[data-slider-placeholder]");
-    slider_placeholder.on("slide", function(event) {
+    slider_placeholder.on("change", function(event) {
       var values = $(event.target).data("slider").getValue();
-      // form.find("input.range_begin").val(values[0]);
-      // form.find("input.range_end").val(values[1]);
       begin_el.val(values[0]);
       end_el.val(values[1]);
       plot.setSelection( normalized_selection(values[0], Math.max(values[0], values[1]-1)), true);
