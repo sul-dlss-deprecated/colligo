@@ -237,7 +237,5 @@ describe 'DataIndexer' do
       expect(@stub_solr).to receive(:commit).once.and_return(true)
       @di.run
     end
-
   end
-
 end
