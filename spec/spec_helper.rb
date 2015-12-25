@@ -4,6 +4,7 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/poltergeist'
+require 'support/capybara'
 require 'fixtures/mods_records/mods_fixtures'
 require 'fixtures/annotation_records/annotation_fixtures'
 require 'fixtures/iiif_manifest_records/iiif_manifest_fixtures'
