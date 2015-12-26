@@ -32,27 +32,21 @@ describe RenderConstraintsHelper do
   end
 
   describe '#query_has_facet_constraints?' do
-    let(:ans1) { helper.query_has_facet_constraints?(f: { 'type' => [], 'model' => [], 'collection' => nil }) }
-    let(:ans2) { helper.query_has_facet_constraints?(f: { 'type' => [], 'model' => [''], 'collection' => nil }) }
-    let(:ans3) { helper.query_has_facet_constraints?(f: { 'type' => [''], 'model' => [], 'collection' => '' }) }
-    let(:ans4) { helper.query_has_facet_constraints?(f: { 'type' => [], 'model' => [], 'collection' => 'test' }) }
-    let(:ans5) { helper.query_has_facet_constraints?(f: { 'type' => [''], 'model' => [], 'collection' => 'test' }) }
-    let(:ans6) { helper.query_has_facet_constraints?(f: { 'type' => ['foo'], 'model' => [''], 'collection' => '' }) }
-    let(:ans7) { helper.query_has_facet_constraints?(f: { 'type' => ['foo'], 'model' => ['bar'], 'collection' => 'test' }) }
-    let(:ans8) { helper.query_has_facet_constraints?(q: 'foobar') }
+    let(:ans1) { helper.query_has_facet_constraints?(f: { 'type' => [], 'model' => [] }) }
+    let(:ans2) { helper.query_has_facet_constraints?(f: { 'type' => [], 'model' => [''] }) }
+    let(:ans3) { helper.query_has_facet_constraints?(f: { 'type' => ['foo'], 'model' => [''] }) }
+    let(:ans4) { helper.query_has_facet_constraints?(f: { 'type' => ['foo'], 'model' => ['bar'] }) }
+    let(:ans5) { helper.query_has_facet_constraints?(q: 'foobar') }
     it 'should render false for empty facets' do
       expect(ans1).to be_false
       expect(ans2).to be_false
-      expect(ans3).to be_false
     end
     it 'should render true for facets' do
+      expect(ans3).to be_true
       expect(ans4).to be_true
-      expect(ans5).to be_true
-      expect(ans6).to be_true
-      expect(ans7).to be_true
     end
     it 'should render false for no facets' do
-      expect(ans8).to be_false
+      expect(ans5).to be_false
     end
   end
 

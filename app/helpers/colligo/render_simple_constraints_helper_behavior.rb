@@ -20,17 +20,8 @@ module Colligo::RenderSimpleConstraintsHelperBehavior
   def query_has_facet_constraints?(localized_params = params)
     return false unless localized_params.key?(:f)
     return false if localized_params[:f].blank?
-    facetvals = {}
-    localized_params[:f].each do |k, v|
-      if v.is_a?(Array)
-        facetvals[k] = v.reject(&:blank?)
-      elsif !v.blank?
-        facetvals[k] = [v]
-      else
-        facetvals[k] = [nil]
-      end
-    end
-    facetvals.any? { |_k, v| !v.blank? && v.any? if v.is_a?(Array) }
+    facetvals = localized_params[:f].each { |_k, v| v.reject!(&:blank?) }
+    facetvals.any? { |_k, v| !v.blank? && v.any? }
   end
 
   ##
