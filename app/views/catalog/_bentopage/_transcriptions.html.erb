@@ -3,8 +3,8 @@
   <% if @response_t['response']['numFound'] > 0 %>
     <h4><span class="glyphicon glyphicon-forward tabbed" aria-hidden="true"></span>
     <%= form_tag search_action_url, method: :get, class: 'pull-right', role: 'search' do %>
-      <%= hidden_field_tag :search_field, "transcriptions", id: "search_field_transcriptions" %>
-      <%= hidden_field_tag :q, params[:q] %>
+      <%= hidden_field_tag :search_field, 'transcriptions', id: 'search_field_transcriptions' %>
+      <%= hidden_field_tag :q, params[:q], id: 'q_transcriptions' %>
       <button type="submit" class="btn-link">See all <%= @response_t['response']['numFound'] %></button>
     <% end %>
     </h4>

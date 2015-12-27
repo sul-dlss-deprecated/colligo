@@ -13,10 +13,10 @@
           <h4 class="media-heading"><a href="/annotations/<%=document['id']%>"><%= document['id'] %></a></h4>
         <% end %>
         <% unless document['authors_all_display'].blank? %>
-          <p><strong><%= raw document['authors_all_display'].join("<br/>") %></strong></p>
+          <p><strong><%= raw document['authors_all_display'].join('<br/>') %></strong></p>
         <% end %>
-        <% unless document['body_format_display'].blank? %>
-          <p><%= document['body_format_display'] %></p>
+        <% unless document['body_type'].blank? %>
+          <p><%= raw document['body_type'].join('<br/>') %></p>
         <% end %>
         <% unless document['folio'].blank? %>
           <p><%= document['folio'] %></p>

@@ -5,8 +5,8 @@
     <!-- manuscript results -->
     <% if @response_m['response']['numFound'] > 0 %>
       <%= form_tag search_action_url, method: :get, class: '', role: 'search' do %>
-        <%= hidden_field_tag :search_field, "descriptions", id: "search_field_descriptions_1" %>
-        <%= hidden_field_tag :q, params[:q] %>
+        <%= hidden_field_tag :search_field, 'descriptions', id: 'search_field_descriptions_1' %>
+        <%= hidden_field_tag :q, params[:q], id: 'q_descriptions_1' %>
         <button type="submit" class="btn-link"><%= @response_m['response']['numFound'] %> Manuscripts</button>
       <% end %>
     <% else %>
@@ -16,8 +16,8 @@
     <!-- transcription results -->
     <% if @response_t['response']['numFound'] > 0 %>
       <%= form_tag search_action_url, method: :get, class: '', role: 'search' do %>
-        <%= hidden_field_tag :search_field, "transcriptions", id: "search_field_transcriptions_1" %>
-        <%= hidden_field_tag :q, params[:q] %>
+        <%= hidden_field_tag :search_field, 'transcriptions', id: 'search_field_transcriptions_1' %>
+        <%= hidden_field_tag :q, params[:q], id: 'q_transcriptions_1' %>
         <button type="submit" class="btn-link"><%= @response_t['response']['numFound'] %> Transcriptions</button>
       <% end %>
     <% else %>
@@ -27,30 +27,13 @@
     <!-- annotation results -->
     <% if @response_a['response']['numFound'] > 0 %>
       <%= form_tag search_action_url, method: :get, class: '', role: 'search' do %>
-        <%= hidden_field_tag :search_field, "annotations", id: "search_field_annotations_1" %>
-        <%= hidden_field_tag :q, params[:q] %>
+        <%= hidden_field_tag :search_field, 'annotations', id: 'search_field_annotations_1' %>
+        <%= hidden_field_tag :q, params[:q], id: 'q_annotations_1' %>
         <button type="submit" class="btn-link"><%= @response_a['response']['numFound'] %> Annotations</button>
       <% end %>
     <% else %>
       <div><%= @response_a['response']['numFound'] %> Annotations</div>
     <% end %>
     <div class="tabbed">Searched annotation content.</div> 
-    <!-- all results -->
-    <!--
-    <%# if @response_all['response']['numFound'] > 0 %>
-      <%#= form_tag search_action_url, method: :get, class: '', role: 'search' do %>
-        <%#= hidden_field_tag :search_field, "all_fields", id: "search_field_all_1" %>
-        <%#= hidden_field_tag :q, params[:q] %>
-        <button type="submit" class="btn-link"><%#= @response_a['response']['numFound'] %> All fields</button>
-      <%# end %>
-    <%# else %>
-      <div><%#= @response_all['response']['numFound'] %> in all</div>
-    <%# end %>
-    <div class="tabbed">Searched all content.</div> 
-    -->
-
   </div>
 </div>
-
-
-

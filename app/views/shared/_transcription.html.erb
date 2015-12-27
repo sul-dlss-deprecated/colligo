@@ -15,8 +15,11 @@
         <% unless document['authors_all_display'].blank? %>
           <p><strong><%= raw document['authors_all_display'].join("<br/>") %></strong></p>
         <% end %>
-        <% unless document['body_format_display'].blank? %>
-          <p><%= document['body_format_display'] %></p>
+        <% unless document['language'].blank? %>
+            <p><%= document['language'] %></p>
+        <% end %>
+        <% unless document['body_type'].blank? %>
+          <p><%= document['body_type'] %></p>
         <% end %>
         <% unless document['folio'].blank? %>
           <p><%= document['folio'] %></p>
