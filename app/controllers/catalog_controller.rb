@@ -182,7 +182,7 @@ class CatalogController < ApplicationController
       qparams = { q: "manuscript_search:\"#{doc['title_display']}", rows: 0 }
       self.search_params_logic += [:add_annotation_filter]
       self.search_params_logic -= [:all_search_filter, :add_manuscript_filter, :add_transcription_filter]
-      (resp, doc_list) = get_search_results(qparams)
+      (resp, _doc_list) = get_search_results(qparams)
       @related_annotations[doc['title_display']] = resp['response']['numFound']
     end
   end
@@ -193,7 +193,7 @@ class CatalogController < ApplicationController
       qparams = { q: "manuscript_search:\"#{doc['title_display']}", rows: 0 }
       self.search_params_logic += [:add_transcription_filter]
       self.search_params_logic -= [:all_search_filter, :add_manuscript_filter, :add_annotation_filter]
-      (resp, doc_list) = get_search_results(qparams)
+      (resp, _doc_list) = get_search_results(qparams)
       @related_transcriptions[doc['title_display']] = resp['response']['numFound']
     end
   end

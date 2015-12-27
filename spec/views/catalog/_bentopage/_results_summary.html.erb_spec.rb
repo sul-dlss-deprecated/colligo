@@ -42,11 +42,17 @@ describe 'catalog/_bentopage/_results_summary.html.erb' do
       @response_t = {'response' => {'numFound' => 234}}
       @response_a = {'response' => {'numFound' => 0}}
     end
+    before(:each) do
+      stub_template 'catalog/_bentopage/_constraints.html.erb' => 'Constraints'
+      allow(view).to receive(:search_action_url).and_return('/')
+      allow(view).to receive(:params).and_return({q: 'foobar'})
+      render
+    end
     it 'should render links to manuscripts and transcriptions' do
       expect(rendered).to have_css('form', count: 2)
       expect(rendered).to have_css('form button', count: 2)
     end
-    it 'should render links to annotations' do
+    it 'should not render links to annotations' do
       expect(rendered).not_to have_css('form button', text: '0 Annotations')
       expect(rendered).not_to have_css('input#q_annotations_1[value=foobar]')
       expect(rendered).not_to have_css('input#search_field_annotations_1[value=annotations]')
