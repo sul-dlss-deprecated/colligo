@@ -10,7 +10,7 @@ describe '/catalog/_bentopage/_manuscripts.html.erb' do
     before(:each) do
       stub_template 'shared/_manuscript.html.erb' => '<span>Each manuscript</span>'
       allow(view).to receive(:search_action_url).and_return('/')
-      allow(view).to receive(:params).and_return({q: 'gospel'})
+      allow(view).to receive(:params).and_return(q: 'gospel')
       render
     end
     it 'should render headings' do
@@ -36,7 +36,7 @@ describe '/catalog/_bentopage/_manuscripts.html.erb' do
     before(:each) do
       stub_template 'shared/_manuscript.html.erb' => '<span>Each manuscript</span>'
       allow(view).to receive(:search_action_url).and_return('/')
-      allow(view).to receive(:params).and_return({q: 'foobar'})
+      allow(view).to receive(:params).and_return(q: 'foobar')
       render
     end
     it 'should render headings' do

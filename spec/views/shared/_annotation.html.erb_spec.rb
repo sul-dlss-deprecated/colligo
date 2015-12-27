@@ -71,4 +71,3 @@ describe '/shared/_annotation.html.erb' do
     end
   end
 end
-

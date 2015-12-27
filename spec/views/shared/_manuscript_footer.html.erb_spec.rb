@@ -14,11 +14,11 @@ describe 'shared/_manuscript_footer.html.erb' do
     render
     expect(rendered).to have_css('a.result[href="/&search_field=annotations"]')
     expect(rendered).to have_css('a.result span.glyphicon-tag')
-    expect(rendered).to have_css('a.result', text: 'Annotations', count:1)
+    expect(rendered).to have_css('a.result', text: 'Annotations', count: 1)
     expect(rendered).to have_css('a.noresult[href="/&search_field=transcriptions"]')
     expect(rendered).to have_css('a.noresult span.glyphicon-pencil')
-    expect(rendered).to have_css('a.noresult', text: 'Transcriptions', count:1)
-    expect(rendered).to have_css('div.pull-right span', text: 'Bookmark control', count:1)
+    expect(rendered).to have_css('a.noresult', text: 'Transcriptions', count: 1)
+    expect(rendered).to have_css('div.pull-right span', text: 'Bookmark control', count: 1)
   end
   it 'should render the footer with transcriptions' do
     stub_template 'shared/_bookmark_control.html.erb' => '<span>Bookmark control</span>'
@@ -28,11 +28,11 @@ describe 'shared/_manuscript_footer.html.erb' do
     render
     expect(rendered).to have_css('a.noresult[href="/&search_field=annotations"]')
     expect(rendered).to have_css('a.noresult span.glyphicon-tag')
-    expect(rendered).to have_css('a.noresult', text: 'Annotations', count:1)
+    expect(rendered).to have_css('a.noresult', text: 'Annotations', count: 1)
     expect(rendered).to have_css('a.result[href="/&search_field=transcriptions"]')
     expect(rendered).to have_css('a.result span.glyphicon-pencil')
-    expect(rendered).to have_css('a.result', text: 'Transcriptions', count:1)
-    expect(rendered).to have_css('div.pull-right span', text: 'Bookmark control', count:1)
+    expect(rendered).to have_css('a.result', text: 'Transcriptions', count: 1)
+    expect(rendered).to have_css('div.pull-right span', text: 'Bookmark control', count: 1)
   end
   it 'should render the footer with transcriptions and annotations' do
     stub_template 'shared/_bookmark_control.html.erb' => '<span>Bookmark control</span>'
@@ -42,11 +42,11 @@ describe 'shared/_manuscript_footer.html.erb' do
     render
     expect(rendered).to have_css('a.result[href="/&search_field=annotations"]')
     expect(rendered).to have_css('a.result span.glyphicon-tag')
-    expect(rendered).to have_css('a.result', text: 'Annotations', count:1)
+    expect(rendered).to have_css('a.result', text: 'Annotations', count: 1)
     expect(rendered).to have_css('a.result[href="/&search_field=transcriptions"]')
     expect(rendered).to have_css('a.result span.glyphicon-pencil')
-    expect(rendered).to have_css('a.result', text: 'Transcriptions', count:1)
-    expect(rendered).to have_css('div.pull-right span', text: 'Bookmark control', count:1)
+    expect(rendered).to have_css('a.result', text: 'Transcriptions', count: 1)
+    expect(rendered).to have_css('div.pull-right span', text: 'Bookmark control', count: 1)
   end
   it 'should render the footer with no transcriptions and no annotations' do
     stub_template 'shared/_bookmark_control.html.erb' => '<span>Bookmark control</span>'
@@ -56,10 +56,10 @@ describe 'shared/_manuscript_footer.html.erb' do
     render
     expect(rendered).to have_css('a.noresult[href="/&search_field=annotations"]')
     expect(rendered).to have_css('a.noresult span.glyphicon-tag')
-    expect(rendered).to have_css('a.noresult', text: 'Annotations', count:1)
+    expect(rendered).to have_css('a.noresult', text: 'Annotations', count: 1)
     expect(rendered).to have_css('a.noresult[href="/&search_field=transcriptions"]')
     expect(rendered).to have_css('a.noresult span.glyphicon-pencil')
-    expect(rendered).to have_css('a.noresult', text: 'Transcriptions', count:1)
-    expect(rendered).to have_css('div.pull-right span', text: 'Bookmark control', count:1)
+    expect(rendered).to have_css('a.noresult', text: 'Transcriptions', count: 1)
+    expect(rendered).to have_css('div.pull-right span', text: 'Bookmark control', count: 1)
   end
 end

@@ -16,9 +16,9 @@ module Blacklight
     end
 
     def url_for_document(doc, options = {})
-      if respond_to?(:blacklight_config) and
-          blacklight_config.show.route and
-          (!doc.respond_to?(:to_model) or doc.to_model.is_a? SolrDocument)
+      if respond_to?(:blacklight_config) &&
+         blacklight_config.show.route &&
+         (!doc.respond_to?(:to_model) || doc.to_model.is_a?(SolrDocument))
         route = blacklight_config.show.route.merge(action: :show, id: doc).merge(options)
         route[:controller] = params[:controller] if route[:controller] == :current
         route
@@ -36,7 +36,7 @@ module Blacklight
 
       add_facet_param(p, field, item)
 
-      if item and item.respond_to?(:fq) and item.fq
+      if item && item.respond_to?(:fq) && item.fq
         Array(item.fq).each do |f, v|
           add_facet_param(p, f, v)
         end
@@ -68,9 +68,7 @@ module Blacklight
     # removes the field if there are no more values in params[:f][field]
     # removes additional params (page, id, etc..)
     def remove_facet_params(field, item)
-      if item.respond_to? :field
-        field = item.field
-      end
+      field = item.field if item.respond_to? :field
 
       facet_config = facet_configuration_for_field(field)
 
@@ -94,15 +92,13 @@ module Blacklight
     # @param [Hash] params_to_merge to merge into above
     # @return the current search parameters after being sanitized by Blacklight::Parameters.sanitize
     # @yield [params] The merged parameters hash before being sanitized
-    def params_for_search(params_to_merge={}, &block)
+    def params_for_search(params_to_merge = {}, &_block)
       # params hash we'll return
       my_params = params.dup.merge(params_to_merge.dup)
 
-      if block_given?
-        yield my_params
-      end
+      yield my_params if block_given?
 
-      if my_params[:page] and (my_params[:per_page] != params[:per_page] or my_params[:sort] != params[:sort] )
+      if my_params[:page] && (my_params[:per_page] != params[:per_page] || my_params[:sort] != params[:sort])
         my_params[:page] = 1
       end
 
@@ -119,18 +115,16 @@ module Blacklight
     end
 
     # TODO: this code is duplicated in Blacklight::FacetsHelperBehavior
-    def facet_value_for_facet_item item
+    def facet_value_for_facet_item(item)
       if item.respond_to? :value
         item.value
       else
         item
       end
     end
-    
+
     def add_facet_param(p, field, item)
-      if item.respond_to? :field
-        field = item.field
-      end
+      field = item.field if item.respond_to? :field
 
       facet_config = facet_configuration_for_field(field)
 
@@ -141,9 +135,7 @@ module Blacklight
       p[:f] = (p[:f] || {}).dup # the command above is not deep in rails3, !@#$!@#$
       p[:f][url_field] = (p[:f][url_field] || []).dup
 
-      if facet_config.single and not p[:f][url_field].empty?
-        p[:f][url_field] = []
-      end
+      p[:f][url_field] = [] if facet_config.single && !p[:f][url_field].empty?
 
       p[:f][url_field].push(value)
     end

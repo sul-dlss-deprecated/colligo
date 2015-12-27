@@ -74,4 +74,3 @@ describe '/shared/_transcription.html.erb' do
     end
   end
 end
-

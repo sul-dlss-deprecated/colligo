@@ -3,14 +3,14 @@ require 'spec_helper'
 describe 'catalog/_bentopage/_results_summary.html.erb' do
   describe 'it should render form for results' do
     before(:all) do
-      @response_m = {'response' => {'numFound' => 44}}
-      @response_t = {'response' => {'numFound' => 234}}
-      @response_a = {'response' => {'numFound' => 4}}
+      @response_m = { 'response' => { 'numFound' => 44 } }
+      @response_t = { 'response' => { 'numFound' => 234 } }
+      @response_a = { 'response' => { 'numFound' => 4 } }
     end
     before(:each) do
       stub_template 'catalog/_bentopage/_constraints.html.erb' => 'Constraints'
       allow(view).to receive(:search_action_url).and_return('/')
-      allow(view).to receive(:params).and_return({q: 'foobar'})
+      allow(view).to receive(:params).and_return(q: 'foobar')
       render
     end
     it 'should render headings' do
@@ -38,14 +38,14 @@ describe 'catalog/_bentopage/_results_summary.html.erb' do
   end
   describe 'it should not render form if no results' do
     before(:all) do
-      @response_m = {'response' => {'numFound' => 44}}
-      @response_t = {'response' => {'numFound' => 234}}
-      @response_a = {'response' => {'numFound' => 0}}
+      @response_m = { 'response' => { 'numFound' => 44 } }
+      @response_t = { 'response' => { 'numFound' => 234 } }
+      @response_a = { 'response' => { 'numFound' => 0 } }
     end
     before(:each) do
       stub_template 'catalog/_bentopage/_constraints.html.erb' => 'Constraints'
       allow(view).to receive(:search_action_url).and_return('/')
-      allow(view).to receive(:params).and_return({q: 'foobar'})
+      allow(view).to receive(:params).and_return(q: 'foobar')
       render
     end
     it 'should render links to manuscripts and transcriptions' do
