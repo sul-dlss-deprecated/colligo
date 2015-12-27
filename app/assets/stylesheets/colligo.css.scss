@@ -276,37 +276,37 @@ a.noresult {
   transform: translateY(25%);
 }
 
-.btn-paginate-left, .btn-paginate-right, .btn-top {
+.btn-paginate-next, .btn-paginate-prev, .btn-top {
   border: 1px solid #aaa;
   background-color: #fff;
   color: #aaa;
   text-align: right;
 }
 
-.btn-paginate-left:hover, .btn-paginate-right:hover, .btn-top:hover {
+.btn-paginate-next:hover, .btn-paginate-prev:hover, .btn-top:hover {
   border-color: #000;
   background-color: #666;
   color: #fff;
 }
 
-.btn-paginate-left {
+.btn-paginate-next {
   padding: 10px;
   margin: 10px 0px 10px 10px;
   border-right: none;
 }
 
-.btn-paginate-right {
+.btn-paginate-prev {
   padding: 10px;
   margin: 10px 10px 10px 0px;
   border-left: none;
 }
 
-.btn-paginate-left > .col-md-3 {
+.btn-paginate-next > .col-md-3 {
   padding: 5px;
   vertical-align: center;
 }
 
-.btn-paginate-left > .col-md-9 {
+.btn-paginate-next > .col-md-9 {
   padding: 5px;
 }
 

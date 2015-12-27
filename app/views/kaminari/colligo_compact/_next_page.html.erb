@@ -7,7 +7,7 @@
     remote:        data-remote
 -%>
 <% unless current_page.last? %>
-  <a href="<%=url%>" rel="next" class="btn btn-lg btn-paginate-left">
+  <a href="<%=url%>" rel="next" class="btn btn-lg btn-paginate-next" id="nextpage">
     <div class="col-md-3">
       <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
     </div>
@@ -16,7 +16,7 @@
     </div>
   </a>
 <% else %>
-  <a href="<%=url%>" rel="next" class="btn btn-lg btn-paginate-left" style="cursor: not-allowed; pointer-events: none;">
+  <a href="<%=url%>" rel="next" class="btn btn-lg btn-paginate-next" id="nextpage" style="cursor: not-allowed; pointer-events: none;">
     <span class="page_entries"><%= page_entries_info %> </span>
   </a>
 <% end %>
