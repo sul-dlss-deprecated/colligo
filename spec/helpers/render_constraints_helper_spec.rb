@@ -52,7 +52,7 @@ describe RenderConstraintsHelper do
 
   describe '#render_simple_constraints_query' do
     let(:my_engine) { double('Engine') }
-    it 'should have a link relative to the current url' do
+    it 'should have display the query string' do
       expect(helper.render_simple_constraints_query(q: 'foobar')).to have_selector('span.filterValue', text: 'foobar')
     end
     it 'should accept an optional route set' do
@@ -88,9 +88,42 @@ describe RenderConstraintsHelper do
 
     let(:path) { Blacklight::SearchState.new({ q: 'biz' }, config) }
 
-    it 'should have a link relative to the current url' do
-      # expect(subject).to have_link 'Remove constraint Item Type: journal', href: '/catalog?q=biz'
+    it 'should display the item label' do
       expect(subject).to have_selector '.filterName', text: 'Item Type'
+    end
+  end
+
+  describe '#render_breadcrumb_constraints_filters' do
+    before do
+      allow(helper).to receive(:blacklight_config).and_return(config)
+    end
+    let(:subject) { helper.render_breadcrumb_constraints_filters(f: { 'type' => [''] }) }
+    let(:params) { { f: { 'geographic_facet' => %w(Britain Israel), 'model' => ['Manuscript'] }, search_field: 'descriptions', q: 'foobar' } }
+    let(:selections) { helper.render_breadcrumb_constraints_filters(params) }
+    it 'should render nothing for empty facet limit param' do
+      expect(subject).to be_blank
+    end
+    it 'should render facet values with links to just that facet' do
+      expect(selections).to have_selector('span.filter-geographic_facet a.btn-link span.breadcrumbValue', text: 'Britain')
+      # expect(selections).to have_link 'Britain',  href: '/?f[geographic_facet][]=Britain&q=foobar&search_field=descriptions'
+      expect(selections).to have_selector('span.filter-geographic_facet a.btn-link span.breadcrumbValue', text: 'Israel')
+      # expect(selections).to have_link('Israel', href: '/?f%5Bgeographic_facet%5D%5B%5D=Great+Britain&amp;q=+foobar&amp;search_field=descriptions')
+      expect(selections).to have_selector('span.filter-model a.btn-link span.breadcrumbValue', text: 'Manuscript')
+      # expect(selections).to have_link('Manuscript', href: '/?f%5Bmodel%5D%5B%5D=Manuscript&amp;q=+foobar&amp;search_field=descriptions')
+    end
+  end
+
+  describe '#render_breadcrumb_filter_element' do
+    before do
+      allow(helper).to receive(:blacklight_config).and_return(config)
+      expect(helper).to receive(:facet_field_label).with('type').and_return('Item Type')
+    end
+    let(:searchparams) { { search_field: 'descriptions' } }
+    subject { helper.render_breadcrumb_filter_element('type', ['journal'], searchparams) }
+    it 'should have a link relative to the current url' do
+      # expect(subject).to have_link('journal', href: "/?f%5Btype%5D%5B%5D=journal&amp;search_field=descriptions")
+      # expect(subject).to have_link('journal', href: "/?f[type][]=journal&amp;search_field=descriptions")
+      expect(subject).to have_css('span.breadcrumb-filter a.btn-link span.breadcrumbValue', text: 'journal')
     end
   end
 end
