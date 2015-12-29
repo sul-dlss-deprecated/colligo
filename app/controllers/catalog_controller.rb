@@ -1,5 +1,4 @@
 # -*- encoding : utf-8 -*-
-require 'blacklight/search_state'
 class CatalogController < ApplicationController
   include Blacklight::Catalog
 
@@ -24,7 +23,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'era_facet', label: 'Era'
     config.add_facet_field 'manuscript_facet', label: 'Manuscript'
     config.add_facet_field 'language', label: 'Language', limit: 5
-    config.add_facet_field 'place_search', label: 'Place of origin'
+    config.add_facet_field 'place_facet', label: 'Place of origin'
     config.add_facet_field 'model', label: 'Type'
     config.add_facet_field 'folio', label: 'Folio'
     config.add_facet_field 'collection', label: 'Repository'
