@@ -1,0 +1,17 @@
+<% if (@document.has_key?('place_display') && !@document['place_display'].first.blank?) ||
+    (@document.has_key?('collection') && !@document['collection'].blank?)
+%>
+  <%
+    breadcrumb_params = { 'search_field' => 'descriptions', f: { } }
+    breadcrumb_params[:f]['place_facet'] = [@document['place_display'].first] unless @document['place_display'].blank?
+    breadcrumb_params[:f]['collection'] = [@document['collection']] unless @document['collection'].blank?
+  %>
+  <%= render_breadcrumb_constraints_filters(breadcrumb_params) %>
+  <% unless @document['authors_all_display'].blank? %>
+    <span> > <%= @document['authors_all_display'].join(' | ') %></span>
+  <% end %>
+<% else %>
+  <% unless @document['authors_all_display'].blank? %>
+    <span><%= @document['authors_all_display'].join(' | ') %></span>
+  <% end %>
+<% end %>

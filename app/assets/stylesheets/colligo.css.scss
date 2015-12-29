@@ -177,7 +177,7 @@ h2, h3, h4  {
   border: 1px solid #cccccc; 
 }
 
-.inline-headers h2, .inline-headers h4 {
+.inline-headers h1, .inline-headers h2, .inline-headers h4 {
   display: inline-block;
   vertical-align: baseline;
 }
@@ -256,6 +256,23 @@ h2, h3, h4  {
   border: none;
   /* font-weight: bold; */
   color: orange;
+  padding: 3px 5px;
+}
+
+.bookmark_inverse_add {
+  background-color: #fff;
+  /* border: 1px solid #ccc;*/
+  border: none;
+  color: inherit;
+  padding: 3px 5px;
+}
+
+.bookmark_inverse_remove {
+  background-color: #fff;
+  /* border: 1px solid #ccc; */
+  border: none;
+  /* font-weight: bold; */
+  color: #000;
   padding: 3px 5px;
 }
 
@@ -349,4 +366,9 @@ a.noresult {
 /* transcription results page */
 .transcription-result .media-body {
   width: auto;
+}
+
+/* Manuscripts show */
+.inline {
+  display: inline;
 }
