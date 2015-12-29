@@ -368,7 +368,40 @@ a.noresult {
   width: auto;
 }
 
-/* Manuscripts show */
+/* Manuscript show */
 .inline {
   display: inline;
+}
+
+.navbar-green .container, .navbar-green .container .navbar-collapse {
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+.navbar-green,
+.navbar-green .navbar-nav {
+  background-color: #b3e5b3;
+  border-color: #3bab3b;
+  font-weight: bold;
+  margin-bottom: 0px;
+  border-radius: 0px;
+}
+
+.navbar-green .navbar-nav li a {
+  color: #333;
+}
+
+.navbar-green .navbar-nav > .active > a,
+.navbar-green .navbar-nav > .active > a:hover,
+.navbar-green .navbar-nav > .active > a:focus {
+  background-color: #3bab3b;
+  color: #fff;
+}
+
+.panel-content {
+  border-radius: 0px;
+}
+
+#summary p, #description dd {
+  text-align: justify;
 }

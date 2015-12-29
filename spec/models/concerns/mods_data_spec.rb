@@ -535,6 +535,7 @@ describe ModsData do
     let(:date7) { document.send(:display_date, ['February 6, 1486']) }
     let(:date8) { document.send(:display_date, ['June 1781']) }
     let(:date9) { document.send(:display_date, ['s. XIII^^ex [ca. 1275-1300]']) }
+    let(:date10) { document.send(:display_date, ['850', '1499', '']) }
     it 'should be a string' do
       expect(date1).to be_a String
       expect(date2).to be_a String
@@ -545,6 +546,7 @@ describe ModsData do
       expect(date7).to be_a String
       expect(date8).to be_a String
       expect(date9).to be_a String
+      expect(date10).to be_a String
     end
 
     it 'should be the combined years for display' do
@@ -557,6 +559,21 @@ describe ModsData do
       expect(date7).to eq('February 6, 1486')
       expect(date8).to eq('June 1781')
       expect(date9).to eq('s. XIII^^ex [ca. 1275-1300]')
+      expect(date10).to eq('850 to 1499')
+    end
+  end
+
+  describe '#all_display_fields' do
+    it 'should include all display fields' do
+      expect(document.all_display_fields).to be_a Array
+      expect(document.all_display_fields.length).to eq(29)
+    end
+  end
+
+  describe '#single_valued_display_fields' do
+    it 'should include all single valued display fields' do
+      expect(document.single_valued_display_fields).to be_a Array
+      expect(document.single_valued_display_fields.length).to eq(5)
     end
   end
 end

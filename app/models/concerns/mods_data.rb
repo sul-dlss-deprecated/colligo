@@ -32,6 +32,20 @@ module ModsData
     @prettified_mods ||= CodeRay::Duo[:xml, :div].highlight(self['modsxml']).html_safe
   end
 
+  def all_display_fields
+    %w( title_display abstract_display img_info druid model manifest_urls
+        title_alternate_display title_other_display subtitle_display corporate_authors_display
+        personal_authors_display authors_all_display collection topic_display geographic_display
+        subject_other_display subject_all_display genre_display era_display pub_date_display
+        place_display physical_description_extent_display physical_description_form_display
+        physical_description_media_type_display publishers_display type_of_resource_display
+        physical_location_display access_condition_display language)
+  end
+
+  def single_valued_display_fields
+    %w(title_display abstract_display subtitle_display pub_date_display access_condition_display)
+  end
+
   def mods_to_solr
     data = mods_raw
     return {} unless data
@@ -127,6 +141,7 @@ module ModsData
 
   def display_date(input_dates)
     return '' if input_dates.blank?
+    input_dates.delete_if(&:blank?)
     if input_dates.length <= 2
       input_dates.map(&:to_s).join(' to ')
     else
