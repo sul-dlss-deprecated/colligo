@@ -405,3 +405,26 @@ a.noresult {
 #summary p, #description dd {
   text-align: justify;
 }
+
+a.result-inverse {
+  color: #666;
+  font-weight: bold;
+}
+
+a.noresult-inverse {
+  color: #aaa;
+  font-weight: bold;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.panel-default > .results-header {
+  background-color: #666;
+  color: #fff;
+  padding: 3px;
+  margin: 0px;
+}
+
+.panel-default > .panel-body > dl {
+  margin-bottom: 0px;
+}

@@ -66,7 +66,7 @@ describe 'manuscript/_description/_description.html.erb' do
     @document = manuscript_docs[0]
     @document['title_other_display'] = []
     @document['personal_authors_display'] = []
-    @document['authors_all_display'] = []
+    @document['authors_all_display'] = ['St Albans', 'Canterbury']
     @document['genre_display'] = []
     @document['era_display'] = []
     @document['place_display'] = []

@@ -25,11 +25,57 @@ describe ManuscriptController do
       expect(controller.instance_variable_get('@contents')).to be_a(Array)
       expect(controller.instance_variable_get('@contents').length).to eq(36)
     end
+    it 'should have related annotations' do
+      expect(controller.instance_variable_get('@related_annotations')).not_to be_nil
+      expect(controller.instance_variable_get('@related_annotations')).to be_a(Hash)
+      expect(controller.instance_variable_get('@related_annotations').length).to eq(1)
+      expect(controller.instance_variable_get('@related_annotations').keys).to include(controller.instance_variable_get('@document')['title_display'])
+    end
+    it 'should have related transcriptions' do
+      expect(controller.instance_variable_get('@related_transcriptions')).not_to be_nil
+      expect(controller.instance_variable_get('@related_transcriptions')).to be_a(Hash)
+      expect(controller.instance_variable_get('@related_transcriptions').length).to eq(1)
+      expect(controller.instance_variable_get('@related_transcriptions').keys).to include(controller.instance_variable_get('@document')['title_display'])
+    end
     it 'should render blacklight layout' do
       response.should render_template('layouts/blacklight')
     end
     it 'should render show template' do
       response.should render_template('manuscript/show')
+    end
+  end
+
+  describe '#related_annotations' do
+    include SolrDocumentFixtures
+    before do
+      controller.instance_variable_set(:@response, manuscript_resp_003)
+      controller.instance_variable_set(:@document, manuscript_doc_003)
+      controller.send(:related_annotations)
+    end
+    it 'should have a response' do
+      expect(controller.instance_variable_get('@related_annotations')).not_to be_nil
+    end
+    it 'should have a response for the manuscript' do
+      expect(controller.instance_variable_get('@related_annotations')).to be_a(Hash)
+      expect(controller.instance_variable_get('@related_annotations').length).to eq(1)
+      expect(controller.instance_variable_get('@related_annotations').keys).to include(manuscript_doc_003['title_display'])
+    end
+  end
+
+  describe '#related_transcriptions' do
+    include SolrDocumentFixtures
+    before do
+      controller.instance_variable_set(:@response, manuscript_resp_003)
+      controller.instance_variable_set(:@document, manuscript_doc_003)
+      controller.send(:related_transcriptions)
+    end
+    it 'should have a response' do
+      expect(controller.instance_variable_get('@related_transcriptions')).not_to be_nil
+    end
+    it 'should have a response for the manuscript' do
+      expect(controller.instance_variable_get('@related_transcriptions')).to be_a(Hash)
+      expect(controller.instance_variable_get('@related_transcriptions').length).to eq(1)
+      expect(controller.instance_variable_get('@related_transcriptions').keys).to include(manuscript_doc_003['title_display'])
     end
   end
 end
