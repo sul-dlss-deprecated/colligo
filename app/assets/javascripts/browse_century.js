@@ -1,4 +1,7 @@
 window.onload = function () {
+  if ($("#century").length == 0) {
+    return;
+  }
   // Vertical slider
   var century_slider = $("#century_slider");
   var boundaries = century_slider.data('boundaries');
@@ -174,7 +177,7 @@ window.onload = function () {
       opacity: 0.9
     }).appendTo("body").fadeIn(200);
   }
-        
+
   function function_for_find_segment(pointer_lookup_arr) {
     return function(y_coord) {
       for (var i = pointer_lookup_arr.length-1 ; i >= 0 ; i--) {

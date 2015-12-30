@@ -37,24 +37,24 @@
         // then it is currently checked (bookmarked)
         var checked = (form.find("input[name=_method][value=delete]").size() != 0);
         var button = form.find("input[type=submit]");
-        //var span = form.find("span");
+        // var span = form.find("span");
         function update_state_for(state) {
             if (state) {    
                //Set the Rails hidden field that fakes an HTTP verb
                //properly for current state action. 
                form.find("input[name=_method]").val("delete");
-               span.text(form.attr('data-present'));
+               // span.text(form.attr('data-present'));
                
             } else {
                form.find("input[name=_method]").val("put");
-               span.text(form.attr('data-absent'));
+               // span.text(form.attr('data-absent'));
             }
           }
         
         update_state_for(checked);
         
         button.click(function() {
-            span.text(form.attr('data-inprogress'));
+            // span.text(form.attr('data-inprogress'));
             button.attr("disabled", "disabled");
                             
             $.ajax({
