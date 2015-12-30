@@ -1,0 +1,31 @@
+[{
+  "@id": "https://purl.stanford.edu/bb389yg4719/iiif/canvas-0",
+  "label": "1",
+  "motivation": "sc:painting",
+  "@type": "oa:Annotation",
+  "img": "https://stacks.stanford.edu/image/iiif/bb389yg4719%2Fbb389yg4719_05_0001/full/full/0/default.jpg"
+},
+ {
+   "@id": "https://purl.stanford.edu/bb389yg4719/iiif/canvas-1",
+   "label": "2",
+   "motivation": "sc:painting",
+   "@type": "oa:Annotation",
+   "img": "https://stacks.stanford.edu/image/iiif/bb389yg4719%2Fbb389yg4719_05_0002/full/full/0/default.jpg"
+ },
+ {
+   "@id": "https://purl.stanford.edu/bb389yg4719/iiif/canvas-2",
+   "label": "3",
+   "motivation": "sc:painting",
+   "img": "https://stacks.stanford.edu/image/iiif/bb389yg4719%2Fbb389yg4719_05_0003/full/full/0/default.jpg"
+ },
+ {
+   "@id": "https://purl.stanford.edu/bb389yg4719/iiif/canvas-3",
+   "label": "4",
+   "@type": "oa:Annotation",
+   "img": "https://stacks.stanford.edu/image/iiif/bb389yg4719%2Fbb389yg4719_05_0004/full/full/0/default.jpg"
+ },
+ {
+   "@id": "https://purl.stanford.edu/bb389yg4719/iiif/canvas-4",
+   "label": "5",
+   "img": "https://stacks.stanford.edu/image/iiif/bb389yg4719%2Fbb389yg4719_05_0004/full/full/0/default.jpg"
+ }]

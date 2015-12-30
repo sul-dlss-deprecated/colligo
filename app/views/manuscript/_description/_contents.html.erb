@@ -1,0 +1,16 @@
+<% unless @contents.blank? %>
+  <dl class="dl-horizontal">
+  <% @contents.each do |cnt| %>
+    <dt title="<%=cnt['label']%>"><%=cnt['label']%></dt>
+    <% if cnt.has_key?('@type') && !cnt['@type'].blank? && cnt.has_key?('motivation') && !cnt['motivation'].blank? %>
+      <dd><%= cnt['@type'] %>, <%= cnt['motivation'] %></dd>
+    <% elsif cnt.has_key?('@type') && !cnt['@type'].blank? %>
+      <dd><%= cnt['@type'] %> %></dd>
+    <% elsif cnt.has_key?('motivation') && !cnt['motivation'].blank? %>
+      <dd><%= cnt['motivation'] %> %></dd>
+    <% else %>
+      <dd></dd>
+    <% end %>
+  <% end %>
+  </dl>
+<% end %>

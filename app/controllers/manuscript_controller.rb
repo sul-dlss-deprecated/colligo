@@ -18,6 +18,8 @@ class ManuscriptController < ApplicationController
         @document[k] = [] unless @sd.single_valued_display_fields.include?(k)
       end
     end
+    @contents = []
+    @contents = IiifManifest.new(@document['manifest_urls'].first).contents unless @document['manifest_urls'].blank?
     respond_to do |format|
       format.html do
         render
