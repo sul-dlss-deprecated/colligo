@@ -1,3 +1,7 @@
+body {
+  overflow: scroll;
+}
+
 #header-navbar .navbar-brand {
   width: 300px;
   height: 50px;
@@ -375,7 +379,7 @@ a.noresult {
 
 .navbar-green .container, .navbar-green .container .navbar-collapse {
   margin-left: 0px;
-  padding-left: 0px;
+  padding: 0px;
 }
 
 .navbar-green,
@@ -427,4 +431,10 @@ a.noresult-inverse {
 
 .panel-default > .panel-body > dl {
   margin-bottom: 0px;
+}
+
+#viewer {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 10px;
 }
