@@ -1,11 +1,19 @@
 <div class="row">
   <div class="col-md-9">
+    <%
+      a_ss = Blacklight::SearchState.new({:search_field => 'annotations'}, CatalogController.new.blacklight_config)
+      a_local_params = a_ss.add_facet_params('manuscript_facet', document['title_display'])
+      a_path = search_action_path(a_local_params)
+      t_ss = Blacklight::SearchState.new({:search_field => 'transcriptions'}, CatalogController.new.blacklight_config)
+      t_local_params = t_ss.add_facet_params('manuscript_facet', document['title_display'])
+      t_path = search_action_path(t_local_params)
+    %>
     <!-- related annotations -->
     <% a_class = 'noresult' %>
     <% if @related_annotations.has_key?( document['title_display']) && @related_annotations[document['title_display']] > 0 %>
         <% a_class = 'result' %>
     <% end %>
-    <a href="<%="#{path_for_facet('manuscript_facet', document['title_display'])}&search_field=annotations"%>" class="btn btn-sm <%=a_class%>">
+    <a href="<%=a_path%>" class="btn btn-sm <%=a_class%>">
       <span class="glyphicon glyphicon-tag" aria-hidden="true"></span> Annotations
     </a>
     <!-- related transcriptions -->
@@ -13,7 +21,7 @@
     <% if @related_transcriptions.has_key?( document['title_display']) && @related_transcriptions[document['title_display']] > 0 %>
         <% t_class = 'result' %>
     <% end %>
-    <a href="<%="#{path_for_facet('manuscript_facet', document['title_display'])}&search_field=transcriptions"%>" class="btn btn-sm <%=t_class%>">
+    <a href="<%=t_path%>" class="btn btn-sm <%=t_class%>">
       <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Transcriptions
     </a>
   </div>
