@@ -1,5 +1,4 @@
 # -*- encoding : utf-8 -*-
-require 'blacklight/search_state'
 class CatalogController < ApplicationController
   include Blacklight::Catalog
 

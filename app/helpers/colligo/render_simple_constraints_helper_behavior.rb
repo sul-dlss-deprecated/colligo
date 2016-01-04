@@ -1,5 +1,3 @@
-require 'blacklight/search_state'
-require 'blacklight/parameters'
 # Includes methods for rendering constraints graphically on the
 # search results page (render_constraints(_*))
 module Colligo::RenderSimpleConstraintsHelperBehavior
