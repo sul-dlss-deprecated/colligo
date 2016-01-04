@@ -357,9 +357,10 @@ a.noresult {
 }
 
 .footer-top {
-  top: 50%;
-  transform: translateY(60%);
-
+  //top: 50%;
+  //transform: translateY(60%);
+  margin: 10px 0px;
+  padding: 10px 0px;
 }
 
 /* annotation results page */

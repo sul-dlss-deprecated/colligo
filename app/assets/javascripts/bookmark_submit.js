@@ -14,7 +14,7 @@
        of the object in question -- used by plugin for a unique value for
        DOM id's. 
 */
-(function($) {    
+(function($) {
     $.fn.bookmark_submit = function(arg_opts) {              
       
       this.each(function() {

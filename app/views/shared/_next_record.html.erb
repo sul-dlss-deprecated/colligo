@@ -1,0 +1,17 @@
+<% unless @next_doc.blank? %>
+  <%
+    n_midpoint = 25
+    if @next_doc['title'].length < 50
+      n_midpoint = @next_doc['title'].length / 2
+    end
+    n_a = truncate(@next_doc['title'], length: n_midpoint, omission: '', separator: ' ')
+    n_b = truncate(@next_doc['title'], length: 50)
+    n_b = n_b.sub(n_a, '')
+  %>
+  <div class="pull-right">
+    <a href="<%=@next_doc['path']%>" rel="next" class="btn btn-lg btn-paginate-next" id="nextpage">
+      <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+      <span class="next_result"><%=n_a%><br/><%=n_b%></span>
+    </a>
+  </div>
+<% end %>
