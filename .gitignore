@@ -33,7 +33,3 @@ config/environments/*.local.yml
 
 # Ignore coverage directory
 coverage
-
-# Ignore IDE and rubocop files
-.idea/*
-.rubocop.yml
