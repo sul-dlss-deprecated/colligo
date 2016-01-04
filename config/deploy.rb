@@ -35,7 +35,6 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 # set :keep_releases, 5
 
 namespace :deploy do
-
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
@@ -54,7 +53,6 @@ namespace :deploy do
       # end
     end
   end
-
 end
 
 before 'deploy:publishing'
