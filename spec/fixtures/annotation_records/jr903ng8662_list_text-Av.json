@@ -1,0 +1,293 @@
+{
+    "@context": "http://www.shared-canvas.org/ns/context.json", 
+    "@id": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/list/text-Av.json", 
+    "@type": "sc:AnnotationList", 
+    "resources": [
+        {
+            "@id": "_:Ne657af8dc1964bd98b6a30e1856e03c5", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:Na5af815edf7a4ff8aab98846bfef3af2", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-8#xywh=154,111,3507,193"
+        }, 
+        {
+            "@id": "_:N9b80cd44483b4228ab6b61ebd7956c66", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N7b4a3b798d414128ad0eef9942573766", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "20. exhortacio pacis inter francos et anglos", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-8#xywh=154,304,3507,164"
+        }, 
+        {
+            "@id": "_:N12751530ebe8472cb27bcbab593fa7af", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N0580d26cfb9d45ce88c0ea8dbed3349a", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "24. cy commence le breviaire des nobles", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-8#xywh=154,469,3507,266"
+        }, 
+        {
+            "@id": "_:N613d2319bddd48bfb3e7ed2cc375e8e1", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N9596a12098e0470cbd0fbe4b0eb25ecf", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "26. lay notable", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-8#xywh=154,735,3507,290"
+        }, 
+        {
+            "@id": "_:Na83b6817166a4b64882d112dd3c7ee25", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N86b879711bdd4d11befdf35e50e242b4", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "27. paris ethimologie", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-8#xywh=154,1025,3507,237"
+        }, 
+        {
+            "@id": "_:N68604598ae7d41098e0c01c56dcca48a", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N53b3372ead1c4f858ae8e7ace968b3bd", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "28. balade moraliz\u00e9e", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-8#xywh=154,1262,3507,183"
+        }, 
+        {
+            "@id": "_:Nafd285f4c51e435eb734bfb6454f7cde", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:Ne0877012070c44a5995266977e76f208", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "28. lay et complainte de la mort d'une vaillant femme et religieuse.", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-8#xywh=154,1446,3507,183"
+        }, 
+        {
+            "@id": "_:N1bb24093f0ee4d078401a7c214037cc9", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:Nebbea46c86ba45a696b1d003cadd2edf", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "28. Cy comence l'art de ditier et de faire chancons / balades / virelays,", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-8#xywh=154,1630,3507,149"
+        }, 
+        {
+            "@id": "_:Nab36558aea0c4faca1fefe989c60273a", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N4ef26eb7cb16455ebd021bd6f18e3366", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "et rondeaus et come anc[ie]nnement nul n'osoit aprendre les sept", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-8#xywh=154,1780,3507,125"
+        }, 
+        {
+            "@id": "_:Nec573e09ad094df888fc2c766606a8ef", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N3d4d13fcd9d144ae8410f931ed62a1fd", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "ars liberauls cy apres d\u00e9clair\u00e9s s'il n'estoit noble", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-8#xywh=154,1906,3507,145"
+        }, 
+        {
+            "@id": "_:N16fdc70170a04cb2abc94b9918c181bc", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:Naef078369c564d83a0e19de96f228949", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "[et \u00e0 la fin] ce fut fait le xxv<e> jour de [novembre] l'an mil ccc iiii<xx> et xii.", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-8#xywh=154,2051,3507,154"
+        }, 
+        {
+            "@id": "_:Nbdd9504b7fbe4945bcc673cddf9ec5cc", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N1edbb1080fb2479aa9a5432743a5cb70", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "32. d'un notable enseignement p[our] continuer sant\u00e9 en corps de homme", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-8#xywh=154,2206,3507,251"
+        }, 
+        {
+            "@id": "_:Nfbae7b014237491983d6a0ebfd83ab78", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:Nf2a0bd23b6fd4bcd948c6c33a29e08a8", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "33. balade de Eustace Morel", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-8#xywh=154,2457,3507,188"
+        }, 
+        {
+            "@id": "_:N0f7065fb199e4344b342270553a2e64b", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:Nea48ee541ca046229ddb08f1abec99f2", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "34. balade qui monstre les causes et raisons dont vient l'epydemie", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-8#xywh=154,2646,3507,203"
+        }, 
+        {
+            "@id": "_:N35e5a51233324c478dd80166b0e66b54", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N885e57318bfc4cfc945a35ee65a8c925", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "34. balade et les rem\u00e8des contre la dicte epyd\u00e9mie.", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-8#xywh=154,2849,3507,159"
+        }, 
+        {
+            "@id": "_:Ne63936be7efa4cd896afb089fb9e40c9", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N9add9879da444f51936d3872c0d073c4", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "34. balade faicte de douleurs p[our] jeunesse qui va ailleurs", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-8#xywh=154,3009,3507,212"
+        }, 
+        {
+            "@id": "_:N4c6a1f7b17d641b1a70b19da517f8b4a", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:Nf640fcb2d28d4a88986088bda61a21ff", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "34. balade du regret de jeunesse.", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-8#xywh=154,3222,3507,212"
+        }, 
+        {
+            "@id": "_:N3758725fd6bc460d9c7f199328abf6c6", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N50ebb1f15ac5498ab6f78fb42ce23b64", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "35. demandes et responses pour mariages selon les", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-8#xywh=154,3434,3507,179"
+        }, 
+        {
+            "@id": "_:N9d35e586826443c29ed007ff3a4cc802", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N79156796321c4d3cba1cc13b30728b0b", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "personnages.", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-8#xywh=154,3613,3507,198"
+        }, 
+        {
+            "@id": "_:Nef4e030363bc44f59bb7aea84a263a24", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N46402cfbd8ec487f915801b1264297e7", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "fin", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-8#xywh=154,3812,3507,106"
+        }, 
+        {
+            "@id": "_:N676e75bc916e46199fb5e326fa1d0b52", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N58835116eb7544acbdb086089dca8cf2", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "5 juin 1787", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-8#xywh=154,3918,3507,343"
+        }, 
+        {
+            "@id": "_:N78e88e145c4b45b087ff3c7e476a846c", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:Nf435902e46244e409e5892a178ce3e00", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "E. Rondeau", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-8#xywh=154,4262,3507,382"
+        }
+    ]
+}

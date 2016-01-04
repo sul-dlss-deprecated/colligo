@@ -1,10 +1,12 @@
 require 'jettywrapper'
+require 'data_indexer'
 namespace :colligo do
   desc 'Run Colligo local installation steps'
   task install: [:environment] do
     Rake::Task['db:migrate'].invoke
     Rake::Task['colligo:download_and_unzip_jetty'].invoke
     Rake::Task['colligo:copy_solr_configs'].invoke
+    Rake::Task['colligo:fixtures'].invoke
   end
   desc 'Download and unzip jetty'
   task :download_and_unzip_jetty do
@@ -20,5 +22,9 @@ namespace :colligo do
     %w(schema solrconfig).each do |file|
       cp "#{Rails.root}/config/solr_configs/#{file}.xml", "#{Rails.root}/jetty/solr/blacklight-core/conf/"
     end
+  end
+  desc 'Index test fixtures'
+  task :fixtures do
+    DataIndexer.new('Test collection', 'data/test_manifest_urls.csv').run
   end
 end
