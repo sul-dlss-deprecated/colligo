@@ -27,7 +27,8 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
-WebMock.disable_net_connect!(:allow => [/127.0.0.1/, /localhost/, /github.com/] )
+WebMock.enable!
+WebMock.disable_net_connect!(:allow => [/127.0.0.1/, /localhost/, /github/] )
 
 RSpec.configure do |config|
   config.include Capybara::DSL
