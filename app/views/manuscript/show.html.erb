@@ -1,0 +1,24 @@
+<div id="content">
+  <div class="row">
+    <div class="col-md-12">
+      <%= render :partial => '/manuscript/header' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12" id="viewer_container">
+      <%= render :partial => '/manuscript/manifest' %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-9">
+      <%= render :partial => '/manuscript/description' %>
+    </div>
+    <div class="col-md-3">
+      <%= render :partial => '/manuscript/folio' %>
+      <%= render :partial => '/manuscript/find_all' %>
+    </div>
+  </div>
+  <div class="row">
+    <%= render :partial => '/manuscript/footer' %>
+  </div>
+</div>

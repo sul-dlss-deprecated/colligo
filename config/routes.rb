@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root to: 'catalog#index'
   blacklight_for :catalog
   devise_for :users
+
+  resources :manuscript, only: :show
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,16 @@
+<div class="media">
+  <div class="media-body">
+    <h1><%= @document['title_display'] %></h1>
+  </div>
+  <div class="media-right">
+    <% unless @document['manifest_urls'].blank? %>
+      <div class="iiif-logo">
+        <a href="<%=@document['manifest_urls'].first%>"><%= image_tag('iiif-logo.png') %></a>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div>
+  <%= render partial: 'manuscript/breadcrumbs' %>
+  <span><%= render partial: 'shared/bookmark_control', locals: {:document => @document, :formclass => 'inline', :buttonclassprefix => 'bookmark_inverse'} %></span>
+</div>

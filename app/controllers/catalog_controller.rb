@@ -23,7 +23,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'era_facet', label: 'Era'
     config.add_facet_field 'manuscript_facet', label: 'Manuscript'
     config.add_facet_field 'language', label: 'Language', limit: 5
-    config.add_facet_field 'place_search', label: 'Place of origin'
+    config.add_facet_field 'place_facet', label: 'Place of origin'
     config.add_facet_field 'model', label: 'Type'
     config.add_facet_field 'folio', label: 'Folio'
     config.add_facet_field 'collection', label: 'Repository'
@@ -124,6 +124,7 @@ class CatalogController < ApplicationController
       @search_state ||= Blacklight::SearchState.new(params, blacklight_config)
       annotations
       transcriptions
+      session_save_manuscript_search
       render 'bentopage'
     elsif on_manuscripts_page
       blacklight_config.add_sort_field 'title_sort asc, pub_date_sort asc', label: 'title'
@@ -133,6 +134,7 @@ class CatalogController < ApplicationController
       related_annotations
       related_transcriptions
       @search_state ||= Blacklight::SearchState.new(params, blacklight_config)
+      session_save_manuscript_search
       render 'manuscript_results'
     elsif on_transcriptions_page
       blacklight_config.add_sort_field 'folio_sort asc, manuscript_sort asc', label: 'folio'
@@ -195,6 +197,13 @@ class CatalogController < ApplicationController
       (resp, _doc_list) = get_search_results(qparams)
       @related_transcriptions[doc['title_display']] = resp['response']['numFound']
     end
+  end
+
+  def session_save_manuscript_search
+    m_params = request.query_parameters.except(:controller, :action, :search_field, :page)
+    m_params[:numFound] = @response_m['response']['numFound']
+    session[:m_last_search_query] = m_params.to_json
+    session.delete(:m_current_display_query)
   end
 
   def annotations

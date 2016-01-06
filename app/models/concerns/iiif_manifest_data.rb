@@ -60,6 +60,27 @@ module IiifManifestData
     annotations
   end
 
+  def contents
+    return [] unless manifest_url
+    read_manifest unless manifest
+    return [] unless manifest
+    content_list = []
+    manifest['sequences'].each do |s|
+      s['canvases'].each do |c|
+        data = { '@id' => c['@id'] }
+        data['label'] = c['label'] if c.key?('label')
+        if c.key?('images') && !c['images'].blank?
+          c_img = c['images'].first
+          data['motivation'] = c_img['motivation'] if c_img.key?('motivation')
+          data['@type'] = c_img['@type'] if c_img.key?('@type')
+          data['img'] = c_img['resource']['@id'] if c_img.key?('resource') && c_img['resource'].key?('@id')
+        end
+        content_list << data
+      end
+    end
+    content_list
+  end
+
   def fetch_modsxml
     self.modsxml = nil
     url = mods_url

@@ -1,0 +1,4 @@
+<% unless @document['manifest_urls'].blank? || @contents.blank? %>
+  <div id="viewer" data-manifest-uri="<%=@document['manifest_urls'].first%>" data-canvas-id="<%=@contents.first['@id']%>">
+  </div>
+<% end %>

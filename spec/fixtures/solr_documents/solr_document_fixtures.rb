@@ -49,6 +49,14 @@ module SolrDocumentFixtures
     []
   end
 
+  def manuscript_resp_003
+    JSON.parse(File.open("#{::Rails.root}/spec/fixtures/solr_documents/manuscript_solr_resp_003.json").read)
+  end
+
+  def manuscript_doc_003
+    JSON.parse(File.open("#{::Rails.root}/spec/fixtures/solr_documents/manuscript_solr_doc_003.json").read)
+  end
+
   def related_annotations
     {
       'Gospel Lectionary' => 10,

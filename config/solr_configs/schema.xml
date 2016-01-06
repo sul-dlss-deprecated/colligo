@@ -108,6 +108,7 @@
     <field name="pub_date_display" type="string" indexed="false" stored="true"/>
     <!-- origin info fields: place -->
     <field name="place_search" type="text" indexed="true" stored="false" multiValued="true" />
+    <field name="place_facet" type="string" indexed="true" stored="false" multiValued="true" />
     <field name="place_display" type="string" indexed="false" stored="true" multiValued="true" />
     <!-- origin info fields: publishers -->
     <field name="publishers_search" type="text" indexed="true" stored="false" multiValued="true" />
@@ -304,6 +305,7 @@
   <copyField source="authors_all_search" dest="authors_all_facet" />
   <copyField source="physical_description_form_search" dest="physical_description_form_facet" />
   <copyField source="physical_description_media_type_search" dest="physical_description_media_type_facet" />
+  <copyField source="place_search" dest="place_facet" />
   <copyField source="topic_search" dest="topic_facet" />
   <copyField source="geographic_search" dest="geographic_facet" />
   <copyField source="era_search" dest="era_facet" />
