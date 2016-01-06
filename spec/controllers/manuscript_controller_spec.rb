@@ -78,4 +78,18 @@ describe ManuscriptController do
       expect(controller.instance_variable_get('@related_transcriptions').keys).to include(manuscript_doc_003['title_display'])
     end
   end
+
+  describe '#m_previous_and_next_documents' do
+    it 'is a pending test'
+    # Provide m_params and nav_docs to the test
+    # look at spec helpers for session
+  end
+
+  describe '#current_query' do
+    it 'is a pending test'
+    # should receive params from session variables - m_current_display_query or m_last_search_query
+    # should receive start in params
+    # should set the params in session - m_current_display_query
+    # should return params used to get prev and next documents
+  end
 end
