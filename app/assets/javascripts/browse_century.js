@@ -82,8 +82,8 @@ window.onload = function () {
     });
     // define the slider
     var placeholder_input = $('<input type="text" data-slider-placeholder="true">').appendTo(century_slider);
-    if (placeholder_input.slider !== undefined) {
-      placeholder_input.slider({
+    if (placeholder_input.bootstrapSlider !== undefined) {
+      placeholder_input.bootstrapSlider({
         min: min,
         max: max,
         value: [min, max],
@@ -111,7 +111,7 @@ window.onload = function () {
         end_el.val(segment.to);
         var slider_placeholder = century_slider.find("[data-slider-placeholder]");
         if (slider_placeholder) {
-		  slider_placeholder.slider("setValue", [segment.from, segment.to]);
+		  slider_placeholder.bootstrapSlider("setValue", [segment.from, segment.to]);
         }
       }
     });
@@ -124,7 +124,7 @@ window.onload = function () {
         end_el.val(to);
         var slider_placeholder = century_slider.find("[data-slider-placeholder]");
         if (slider_placeholder) {
-		  slider_placeholder.slider("setValue", [from, to+1]);
+		  slider_placeholder.bootstrapSlider("setValue", [from, to+1]);
         }
       }
     });
@@ -138,9 +138,9 @@ window.onload = function () {
         //for weird data, set slider at min
         val = min;
       }
-      var values = placeholder_input.data("slider").getValue();
+      var values = placeholder_input.data("bootstrapSlider").getValue();
       values[0] = val;
-      placeholder_input.slider("setValue", values);
+      placeholder_input.bootstrapSlider("setValue", values);
     });
     end_el.change( function() {
       var val = BlacklightRangeLimit.parseNum($(this).val());
@@ -148,14 +148,14 @@ window.onload = function () {
         //weird entry, set slider to max
         val = max;
       }
-      var values = placeholder_input.data("slider").getValue();
+      var values = placeholder_input.data("bootstrapSlider").getValue();
       values[1] = val;
-      placeholder_input.slider("setValue", values);
+      placeholder_input.bootstrapSlider("setValue", values);
     });
     // on slider value change
     var slider_placeholder = century_slider.find("[data-slider-placeholder]");
     slider_placeholder.on("change", function(event) {
-      var values = $(event.target).data("slider").getValue();
+      var values = $(event.target).data("bootstrapSlider").getValue();
       begin_el.val(values[0]);
       end_el.val(values[1]);
       plot.setSelection( normalized_selection(values[0], Math.max(values[0], values[1]-1)), true);

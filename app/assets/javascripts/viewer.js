@@ -1,4 +1,7 @@
 $(function() {
+    if ($("#viewer").length == 0) {
+        return;
+    }
     var vc = $("#viewer_container");
     // var display_ratio = 1/(1.618 * 2);
     var viewer = $("#viewer");
