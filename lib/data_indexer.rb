@@ -26,7 +26,7 @@ class DataIndexer
   # from a list of manifest urls or each url
   # depending on the options 
   def run
-    if !@csv_file.blank? && File.exist?(@csv_file)
+    if @csv_file.present? && File.exist?(@csv_file)
       index_csv
       commit
     elsif @url
@@ -38,7 +38,7 @@ class DataIndexer
   # Index mods and annotations data from a list of manifest urls
   #   csv file to contain one url per line and no header
   def index_csv
-    return if @csv_file.blank? || !File.exist?(@csv_file)
+    return unless @csv_file.present? && File.exist?(@csv_file)
     CSV.foreach(@csv_file) do |row|
       @url = row[0]
       index
@@ -47,6 +47,7 @@ class DataIndexer
 
   # Index MODS and annotation lists fetched from the IIIF manifest url
   def index
+    return unless @url.present?
     fetch_manifest
     if define_doc
       index_mods
