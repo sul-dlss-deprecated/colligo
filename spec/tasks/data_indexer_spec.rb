@@ -152,6 +152,10 @@ describe 'DataIndexer' do
       # Total of 43 records indexed in solr
       @di = DataIndexer.new('test collection', nil, 'http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/stub/manifest.json')
     end
+    it 'should return if no url' do
+      expect(@stub_solr).to receive(:add).exactly(0).times
+      ans = DataIndexer.new.index
+    end
     it 'should have received 43 adds' do
       expect(@stub_solr).to receive(:add).exactly(43).times.and_return(true)
       @di.index
@@ -166,37 +170,71 @@ describe 'DataIndexer' do
       # Total of 86 records indexed in solr
       @di = DataIndexer.new('test collection', manifest_csv_file, nil)
     end
+    it 'should return if no csv file' do
+      expect(@stub_solr).to receive(:add).exactly(0).times
+      ans = DataIndexer.new.index_csv
+    end
+    it 'should return if csv file does not exist' do
+      expect(@stub_solr).to receive(:add).exactly(0).times
+      ans = DataIndexer.new('test', 'qe23r125143t14r.csv').index_csv
+    end
     it 'should have received 86 adds (1 + 19 + 23 + 1 + 20 + 22)' do
       expect(@stub_solr).to receive(:add).exactly(86).times.and_return(true)
       @di.index_csv
     end
   end
 
-  describe '#run index' do
-    before do
+  describe '#run' do
+    it 'should return if no csv file or url' do
+      expect(@stub_solr).to receive(:add).exactly(0).times
+      expect(@stub_solr).to receive(:commit).exactly(0).times
+      ans = DataIndexer.new.run
+    end
+    it 'should return if csv file does not exist and no url' do
+      expect(@stub_solr).to receive(:add).exactly(0).times
+      expect(@stub_solr).to receive(:commit).exactly(0).times
+      ans = DataIndexer.new('test', 'qe23r125143t14r.csv').run
+    end
+    it 'should have received 86 adds from csv file #1' do
+      # csv file has two manifest urls
+      # Manifest 1 - has 1 mods and 2 annotation lists. First list has 19 annotations. Second has 23 annotations
+      # Manifest 2 - has 1 mods and 2 annotation lists. First list has 20 annotations. Second has 22 annotations
+      # Total of 86 records indexed in solr
       # Manifest file has 1 mods and 2 annotation lists. First list has 19 annotations. Second has 23 annotations
       # Total of 43 records indexed in solr
-      @di = DataIndexer.new('test collection', nil, 'http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/stub/manifest.json')
-    end
-    it 'should have received adds' do
-      expect(@stub_solr).to receive(:add).exactly(43).times.and_return(true)
+      # If both are vaild, it will run the csv file
+      @di = DataIndexer.new('test collection', manifest_csv_file, 'http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/stub/manifest.json')
+      expect(@stub_solr).to receive(:add).exactly(86).times.and_return(true)
       expect(@stub_solr).to receive(:commit).once.and_return(true)
       @di.run
     end
-  end
-
-  describe '#run index_csv' do
-    before do
+    it 'should have received 86 adds from csv file #2' do
       # csv file has two manifest urls
       # Manifest 1 - has 1 mods and 2 annotation lists. First list has 19 annotations. Second has 23 annotations
       # Manifest 2 - has 1 mods and 2 annotation lists. First list has 20 annotations. Second has 22 annotations
       # Total of 86 records indexed in solr
       @di = DataIndexer.new('test collection', manifest_csv_file, nil)
-    end
-    it 'should have received 86 adds' do
       expect(@stub_solr).to receive(:add).exactly(86).times.and_return(true)
       expect(@stub_solr).to receive(:commit).once.and_return(true)
       @di.run
     end
+    it 'should have received 43 adds from index url #1' do
+      # Manifest file has 1 mods and 2 annotation lists. First list has 19 annotations. Second has 23 annotations
+      # Total of 43 records indexed in solr
+      @di = DataIndexer.new('test collection', nil, 'http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/stub/manifest.json')
+      expect(@stub_solr).to receive(:add).exactly(43).times.and_return(true)
+      expect(@stub_solr).to receive(:commit).once.and_return(true)
+      @di.run
+    end
+    it 'should have received 43 adds from index url #2' do
+      # Manifest file has 1 mods and 2 annotation lists. First list has 19 annotations. Second has 23 annotations
+      # Total of 43 records indexed in solr
+      @di = DataIndexer.new('test collection', 'qe23r125143t14r.csv', 'http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/stub/manifest.json')
+      expect(@stub_solr).to receive(:add).exactly(43).times.and_return(true)
+      expect(@stub_solr).to receive(:commit).once.and_return(true)
+      @di.run
+    end
+
   end
+
 end
