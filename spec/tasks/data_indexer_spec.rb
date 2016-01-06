@@ -77,7 +77,6 @@ describe 'DataIndexer' do
     end
     it 'should have a manifest' do
       expect(@di.instance_variable_get('@manifest').manifest).to be_a(Hash)
-      # expect(@di.instance_variable_get('@manifest').manifest).to eq(JSON.parse(@response))
     end
     it 'should have a title' do
       expect(@di.instance_variable_get('@manifest').title).to eq('Manuscript fragment of the Gospels and Canonical Epistles, glossed')
@@ -119,90 +118,85 @@ describe 'DataIndexer' do
 
   describe '#index_mods' do
     before do
+      # Manifest file has link to 1 mods record
       @di = DataIndexer.new('test collection', nil, 'http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/stub/manifest.json')
+    end
+    it 'should have received an add' do
+      expect(@stub_solr).to receive(:add).exactly(1).times.and_return(true)
       @di.send(:fetch_manifest)
       @di.send(:define_doc)
-      # @di.send(:index_mods)
+      @di.send(:index_mods)
     end
-    it 'is a pending test'
-    # it 'should have received an add' do
-    #   #TODO: How do I test solr received an add
-    #   expect(stub_solr).to receive(:add).at_least(1).times.and_return(true)
-    #   expect(stub_solr).to receive(:add).at_least(1).times.and_return(arg) |do|
-    #     expect(arg).to have_key 'responseHeader'
-    #     expect(arg['responseHeader']).to have_key 'status'
-    #     expect(arg['responseHeader']['status']).to eq 0
-    #   end
-    # end
   end
 
   describe '#index_annotations' do
     before do
+      # Manifest file has 2 annotation lists. First list has 19 annotations. Second has 23 annotations
+      # Total of 42 records indexed in solr
       @di = DataIndexer.new('test collection', nil, 'http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/stub/manifest.json')
+    end
+    it 'should have received 42 adds' do
+      expect(@stub_solr).to receive(:add).exactly(42).times.and_return(true)
       @di.send(:fetch_manifest)
       @di.send(:define_doc)
-      # @di.send(:index_mods)
-      # @ans = @di.send(:index_annotations)
+      @ans = @di.send(:index_annotations)
+      expect(@ans[0]).to eq(2)
+      expect(@ans[1]).to eq(42)
+      expect(@ans[2]).to eq(42)
     end
-    it 'is a pending test'
-    # TODO: How do I test solr received 44 adds (1  + 19 + 1 + 23)
-    # it 'should have received 44 adds' do
-    #   expect(stub_solr).to receive(:add).at_least(44).times.and_return(true)
-    # end
-    # it 'should have counted 2 lists do'
-    #   expect(@ans[0]).to eq(2)
-    # end
-    # it 'should have counted 44 resources do'
-    #   expect(@ans[1]).to eq(44)
-    #   expect(@ans[2]).to eq(44)
-    # end
   end
 
   describe '#index' do
     before do
+      # Manifest file has 1 mods and 2 annotation lists. First list has 19 annotations. Second has 23 annotations
+      # Total of 43 records indexed in solr
       @di = DataIndexer.new('test collection', nil, 'http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/stub/manifest.json')
-      # @di.index
     end
-    it 'is a pending test'
-    # TODO: How do I test solr received 45 adds (1 + 1  + 19 + 1 + 23)
-    # it 'should have received 45 adds' do
-    #   expect(stub_solr).to receive(:add).at_least(45).times.and_return(true)
-    # end
+    it 'should have received 43 adds' do
+      expect(@stub_solr).to receive(:add).exactly(43).times.and_return(true)
+      @di.index
+    end
   end
 
   describe '#index_csv' do
     before do
+      # csv file has two manifest urls
+      # Manifest 1 - has 1 mods and 2 annotation lists. First list has 19 annotations. Second has 23 annotations
+      # Manifest 2 - has 1 mods and 2 annotation lists. First list has 20 annotations. Second has 22 annotations
+      # Total of 86 records indexed in solr
       @di = DataIndexer.new('test collection', manifest_csv_file, nil)
-      # @di.index_csv
     end
-    it 'is a pending test'
-    # TODO: How do I test solr received lots of adds
-    # it 'should have received adds' do
-    #   expect(stub_solr).to receive(:add).at_least(50).times.and_return(true)
-    # end
+    it 'should have received 86 adds (1 + 19 + 23 + 1 + 20 + 22)' do
+      expect(@stub_solr).to receive(:add).exactly(86).times.and_return(true)
+      @di.index_csv
+    end
   end
 
   describe '#run index' do
     before do
+      # Manifest file has 1 mods and 2 annotation lists. First list has 19 annotations. Second has 23 annotations
+      # Total of 43 records indexed in solr
       @di = DataIndexer.new('test collection', nil, 'http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/stub/manifest.json')
+    end
+    it 'should have received adds' do
+      expect(@stub_solr).to receive(:add).exactly(43).times.and_return(true)
+      expect(@stub_solr).to receive(:commit).once.and_return(true)
       @di.run
     end
-    it 'is a pending test'
-    # it 'should have received adds' do
-    #   expect(stub_solr).to receive(:add).at_least(45).times.and_return(true)
-    #   expect(stub_solr).to receive(:commit).once_and_return(true)
-    # end
   end
 
   describe '#run index_csv' do
     before do
+      # csv file has two manifest urls
+      # Manifest 1 - has 1 mods and 2 annotation lists. First list has 19 annotations. Second has 23 annotations
+      # Manifest 2 - has 1 mods and 2 annotation lists. First list has 20 annotations. Second has 22 annotations
+      # Total of 86 records indexed in solr
       @di = DataIndexer.new('test collection', manifest_csv_file, nil)
+    end
+    it 'should have received 86 adds' do
+      expect(@stub_solr).to receive(:add).exactly(86).times.and_return(true)
+      expect(@stub_solr).to receive(:commit).once.and_return(true)
       @di.run
     end
-    it 'is a pending test'
-    # it 'should have received adds' do
-    #   expect(stub_solr).to receive(:add).at_least(50).times.and_return(true)
-    #   expect(stub_solr).to receive(:commit).once_and_return(true)
-    # end
   end
 end
