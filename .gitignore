@@ -33,3 +33,7 @@ config/environments/*.local.yml
 
 # Ignore coverage directory
 coverage
+
+#Ignore all data files
+data/*
+!data/.keep

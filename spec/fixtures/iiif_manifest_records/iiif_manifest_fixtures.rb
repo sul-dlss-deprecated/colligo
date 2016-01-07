@@ -15,4 +15,8 @@ module IiifManifestFixtures
   def manifest_url_004
     'https://purl.stanford.edu/bb389yg4719/iiif/manifest.json'
   end
+
+  def manifest_csv_file
+    "#{::Rails.root}/spec/fixtures/iiif_manifest_records/stub_manifest_urls.csv"
+  end
 end

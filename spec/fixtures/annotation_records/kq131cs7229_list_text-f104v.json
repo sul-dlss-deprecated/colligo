@@ -1,0 +1,306 @@
+{
+    "@context": "http://www.shared-canvas.org/ns/context.json", 
+    "@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f104v.json", 
+    "@type": "sc:AnnotationList", 
+    "resources": [
+        {
+            "@id": "_:Neb69b82f72934ab68d8b3849e11bf12b", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N8ee6e26e40144872bcea52ca7ab33a4e", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "Hi sunt murmurantes que-", 
+                "language": "lat"
+            }, 
+            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-36#xywh=1312,711,1400,264"
+        }, 
+        {
+            "@id": "_:N127990db185646eab6a14e114aece398", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N2d9c5f62590944f9aa08ce2deb992d1b", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "-ruli s[e]c[un]d[u]m desideria sua", 
+                "language": "lat"
+            }, 
+            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-36#xywh=1312,976,1400,248"
+        }, 
+        {
+            "@id": "_:N68e48d30268940b58769e48f76eb5f4f", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N3171c3590b6b46fc8254d94de5707b4f", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "ambulantes [et] os illorum", 
+                "language": "lat"
+            }, 
+            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-36#xywh=1312,1224,1400,259"
+        }, 
+        {
+            "@id": "_:N1bacede45c024bb9a658c5ba2a8e79a7", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N69b6a11812804c19a8b2d1ac40bb5d91", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "loquitur superbiam miran-", 
+                "language": "lat"
+            }, 
+            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-36#xywh=1312,1483,1400,237"
+        }, 
+        {
+            "@id": "_:Ne7b829ff686b4f5e9c872487778ea3df", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N40c3e6fc52774e1d9b0a8a84988ea34e", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "-tes personas questus causa", 
+                "language": "lat"
+            }, 
+            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-36#xywh=1312,1720,1400,270"
+        }, 
+        {
+            "@id": "_:N652b30e1ba124095ab698016c789a8d7", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N998b1561e4fd4771b662aeb79c7b898e", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "Vos autem k[arissi]mi memores", 
+                "language": "lat"
+            }, 
+            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-36#xywh=1312,1990,1400,275"
+        }, 
+        {
+            "@id": "_:Nb5ce992287e64f43b058b9ce6895ee62", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N02c32a3a02a54c139d83a30198de959b", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "estote verborum que p[re]dic-", 
+                "language": "lat"
+            }, 
+            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-36#xywh=1312,2266,1400,270"
+        }, 
+        {
+            "@id": "_:Nf733a918e2f640ffa1a7ce1a98548bc3", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:Ne51ff003c9f64ca58ac8d919547403cf", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "-ta sunt ab ap[osto]lis d[omi]ni", 
+                "language": "lat"
+            }, 
+            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-36#xywh=1312,2536,1400,204"
+        }, 
+        {
+            "@id": "_:N1452f547c46841d0944fde71546252ed", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:Nc5327f303b1b4f87ae13bd130101b758", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "nostri [Jesu] [Christi] qui dicebant", 
+                "language": "lat"
+            }, 
+            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-36#xywh=1312,2740,1400,237"
+        }, 
+        {
+            "@id": "_:N43723659766543cd8c44a89b4fb45a33", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N34e880d86526443aaf16b3604eb72583", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "vobis q[uonia]m in novissimis tem-", 
+                "language": "lat"
+            }, 
+            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-36#xywh=1312,2978,1400,275"
+        }, 
+        {
+            "@id": "_:N511d24e4794b49d7a2bd8f2e52a2794f", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:Nf98792b6fbe548f5b4010cc88c49d438", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "-poribus venient illusores se-", 
+                "language": "lat"
+            }, 
+            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-36#xywh=1312,3253,1400,248"
+        }, 
+        {
+            "@id": "_:N7cfbc139443c40048eca5bc65a6a66e6", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N839570f988444ea58fe1e1065c46f57b", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "-cundum desideria sua am-", 
+                "language": "lat"
+            }, 
+            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-36#xywh=1312,3502,1400,220"
+        }, 
+        {
+            "@id": "_:Nb2e4880e1697458687d44a1c514e6c1a", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:Nc5fe6a0b866d40c3afd620acabaf03d9", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "-bulantes non in pietate Hi", 
+                "language": "lat"
+            }, 
+            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-36#xywh=1312,3722,1400,215"
+        }, 
+        {
+            "@id": "_:Nc89f4bff99054752b603ada3adaf0380", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:Ne3ba79b39ef54b3c864141b6d51cd32a", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "sunt qui segregant semetipsos", 
+                "language": "lat"
+            }, 
+            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-36#xywh=1312,3937,1400,237"
+        }, 
+        {
+            "@id": "_:N8aed761b70274161b814fee97eb5d505", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:Necc498ea17bf4b1a801bddfa5785feea", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "animales sp[iritu]m non habentes", 
+                "language": "lat"
+            }, 
+            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-36#xywh=1312,4174,1400,226"
+        }, 
+        {
+            "@id": "_:N348e69471c3f414ca649acf4edbf36c6", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N04d01d49acc4434785d8a7b6fde99852", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "tanto amplius quisq[ue] murmurat [et]", 
+                "language": "lat"
+            }, 
+            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-36#xywh=187,727,1108,154"
+        }, 
+        {
+            "@id": "_:Ne3e3331543a14e7288ecbb1a465f8697", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:Nba6375bcaf2942a5a098c0e871ec0576", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "queritur de p[re]sentib[us] eccl[esi]e laborib[us]", 
+                "language": "lat"
+            }, 
+            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-36#xywh=187,882,1108,82"
+        }, 
+        {
+            "@id": "_:Nac336fc496a447b58f8dae9ec33c8264", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N9795056d38934f13b79372a74be7ff68", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "quanto minus in se desid[er]ia carnis", 
+                "language": "lat"
+            }, 
+            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-36#xywh=187,965,1108,66"
+        }, 
+        {
+            "@id": "_:Nd2ceab7e5dea473483dec19a03c0bfa0", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N41733eb345b4458bb2cc0579bb710363", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "extinxit. [At] contra s[anctu]s daniel [et] ce-", 
+                "language": "lat"
+            }, 
+            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-36#xywh=187,1031,1108,71"
+        }, 
+        {
+            "@id": "_:Nab1bd5cbf9ca4152969ec503a167fc98", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:Naccba91786b2488e8b601f5aa8e89453", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "-t[er]i s[an]c[t]o[rum] desid[er]io[rum] viri quanto obni-", 
+                "language": "lat"
+            }, 
+            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-36#xywh=187,1103,1108,82"
+        }, 
+        {
+            "@id": "_:Nbb576c26a99a436ca139652b50824488", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N1886e4a17b174e0e8a99ffabe6405888", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "-xe sola sup[er]na desid[er]ant tanto ma-", 
+                "language": "lat"
+            }, 
+            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-36#xywh=187,1185,1108,71"
+        }, 
+        {
+            "@id": "_:N26e2cc65e43a4af3ac1304b27749dd41", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:Nbf8f35f2e7014b97acc4f90864847a14", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "-gis despiciunt transitoria [et] cuncta", 
+                "language": "lat"
+            }, 
+            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-36#xywh=187,1257,1108,104"
+        }, 
+        {
+            "@id": "_:N48b4f2ecc6b64b97b2448c1a3aa94faf", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:Nc68484f0de964de289bce60467944aa0", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "q[ue] videntur adv[er]sa", 
+                "language": "lat"
+            }, 
+            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-36#xywh=187,1362,1108,71"
+        }
+    ]
+}

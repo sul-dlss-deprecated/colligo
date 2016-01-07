@@ -1,0 +1,267 @@
+{
+    "@context": "http://www.shared-canvas.org/ns/context.json", 
+    "@id": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/list/text-Ar.json", 
+    "@type": "sc:AnnotationList", 
+    "resources": [
+        {
+            "@id": "_:N5cacb373644545f489a434db6393d2f5", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:Nd27cb238814c4f54a6505bd1f4ffe59f", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "Notice", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-7#xywh=339,239,3325,272"
+        }, 
+        {
+            "@id": "_:N40b798de8b8e441bb946e98cd8d96f7f", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N06218c220b2049bc9bc3795e37d634b4", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "Il y a dans ce manuscrit 8 lays", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-7#xywh=339,511,3325,215"
+        }, 
+        {
+            "@id": "_:N74fa17522f2f4cd1a1ba75ce7a8adf8b", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N96c0a1a89b97424eafc23e14ae31e45d", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "et 136 balades, des rondeaux des serventoys etc.", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-7#xywh=339,727,3325,234"
+        }, 
+        {
+            "@id": "_:N21f440300ed24b1482a146302d6df059", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N603e702d95c2470291425ac62bae7ac0", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "voici les lays et balades qui ont des titres", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-7#xywh=339,961,3325,296"
+        }, 
+        {
+            "@id": "_:N3b13b5478f0e458a850f74fdeb0e6acb", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N25205d9d4dbb4c6c82fa2b06675f0fde", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "Feuillets 2. Lay du roy Charles VI", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-7#xywh=339,1258,3325,272"
+        }, 
+        {
+            "@id": "_:N80d00c07f12b462796ce3eda01f95712", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N17175bddffef432b82a5980d6eb320ae", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "3. Lay du bon conestable B[er]tran du Guesclin", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-7#xywh=339,1531,3325,229"
+        }, 
+        {
+            "@id": "_:Nfe3ed4c9b1444751995aff9afa428525", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N3c5ff2222e7746389f7fa2e6aa0e16b4", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "4. le lay de dep[ar]tement", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-7#xywh=339,1760,3325,191"
+        }, 
+        {
+            "@id": "_:N2502ca0f6ef64e9f8ec390e460074413", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N74743a9cd91549dcafc0d7300fa0268e", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "5. cy ensuit le Lay en co[m]plainte fait p[our] la", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-7#xywh=339,1952,3325,181"
+        }, 
+        {
+            "@id": "_:Ncdab4060923f49e7b3e894a9d763fb2a", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N420d8d6c59f84f5e83ae3642050675ab", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "bonne ville de Paris", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-7#xywh=339,2134,3325,191"
+        }, 
+        {
+            "@id": "_:Neff18473d8914285b46ebb9e947facb1", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N566983554b3046f982152da52efb7de7", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "7. complainte d'amoureus", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-7#xywh=339,2325,3325,138"
+        }, 
+        {
+            "@id": "_:Ndc3974fa74cd41f58af7e7237d8508b2", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N7c23a1965d3e46e39332d69efdf3e2d4", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "10. balade de maist[re] fumeus", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-7#xywh=339,2464,3325,234"
+        }, 
+        {
+            "@id": "_:Ne2b6e034d1084a2bbc863e0df922d727", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N5e8ffeaf80e14539b31448d43afc2377", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "10. Serventoys amoureux de xxv poins", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-7#xywh=339,2698,3325,253"
+        }, 
+        {
+            "@id": "_:N823357e40dba44f59770ca9db2965c3d", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:Nffa3f6580e144bfdaf27671aaf109b75", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "10. balade du chastel", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-7#xywh=339,2952,3325,186"
+        }, 
+        {
+            "@id": "_:N8cb58cd3249a4ed58ed407a7af79cd5e", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N56ecc5ee0656482686dec35a08d1f0d9", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "11. balade p[ar] maniere de doctrine", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-7#xywh=339,3138,3325,215"
+        }, 
+        {
+            "@id": "_:N395722ef55c94467a1b401a90f6afde7", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N1bff4efb427e4ff1905be15cda9285b0", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "12. balade du monde", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-7#xywh=339,3354,3325,172"
+        }, 
+        {
+            "@id": "_:Nda59fce4a7e246a8bfdd8c9f3569b31e", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N0ee20e2d40654bd1a18dc75a5ab79b28", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "17. balade faicte contre le duc de Bretaigne", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-7#xywh=339,3526,3325,210"
+        }, 
+        {
+            "@id": "_:N0c7a5e23e17d41b69d9c636986bd20f7", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N6e17cf63f9324502b6a3cce33a9140ab", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "environ l'an mil iii<c> iiii<xx> dix p[our]ce qu'il", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-7#xywh=339,3737,3325,167"
+        }, 
+        {
+            "@id": "_:N1274dc1bbe0a43518c906cbeb16f1df6", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N02d484ddcd9747d0b23125a328c49bbb", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "prins le sire de clicon connestable de", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-7#xywh=339,3904,3325,143"
+        }, 
+        {
+            "@id": "_:N89025b3679dc40ba87da1cdcb4898281", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:N5e1ed4e5cb684183bf699d6dd1977e5f", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "France et le sire de beaumanoir", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-7#xywh=339,4048,3325,181"
+        }, 
+        {
+            "@id": "_:N1c0e25d27f2449438d87f136a4496e4b", 
+            "@type": "oa:Annotation", 
+            "motivation": "sc:painting", 
+            "resource": {
+                "@id": "_:Nbe451f54da1b472388f3aa041573643b", 
+                "@type": "cnt:ContentAsText", 
+                "format": "text/plain", 
+                "chars": "18. balade notable", 
+                "language": "frm"
+            }, 
+            "on": "http://dms-data.stanford.edu/data/manifests/BnF/jr903ng8662/canvas/canvas-7#xywh=339,4229,3325,248"
+        }
+    ]
+}

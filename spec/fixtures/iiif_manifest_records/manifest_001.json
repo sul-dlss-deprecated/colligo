@@ -1,0 +1,1210 @@
+{
+    "@context": "http://www.shared-canvas.org/ns/context.json", 
+    "@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/manifest.json", 
+    "@type": "sc:Manifest", 
+    "label": "Manuscript fragment of the Gospels and Canonical Epistles, glossed", 
+    "description": "From a manuscript which comprised the third and fourth Gospels and The Canonical Epistles, glossed, in 105 leaves. The Gloss on St. John was composed in the eleventh century by Anselm of Laon (d. 1117) and the Gloss on the Canonical Epistles probably dates from about 1100 and may be the work of Anselm or his brother Ralph (d. 1133).\", \"Purchased, 1985.", 
+    "attribution": "Provided by the Stanford University Libraries", 
+    "seeAlso": {
+        "@id": "http://purl.stanford.edu/kq131cs7229.mods", 
+        "dcterms:format": "application/mods+xml"
+    }, 
+    "within": "http://dms-data.stanford.edu/data/manifests/Stanford/", 
+    "sequences": [
+        {
+            "@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/normal", 
+            "@type": "sc:Sequence", 
+            "label": "Current page order", 
+            "canvases": [ 
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-3", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 8r", 
+                    "height": "4502", 
+                    "width": "3016", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-3", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/sulmss_misc305_008r_SM", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "4502", 
+                                "width": "3016", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fsulmss_misc305_008r_SM", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-3"
+                        }
+                    ],
+					"otherContent": [
+						{
+						"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f8r.json", 
+						"@type": "sc:AnnotationList"
+						}
+					]
+                }, 
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-4", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 8v", 
+                    "height": "5467", 
+                    "width": "3728", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-4", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0006", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "5467", 
+                                "width": "3728", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fkq131cs7229_05_0006", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-4"
+                        }
+                    ],
+					"otherContent": [
+						{
+						"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f8v.json", 
+						"@type": "sc:AnnotationList"
+						}
+					]
+                }, 
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-5", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 9r", 
+                    "height": "5551", 
+                    "width": "3883", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-5", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0019", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "5551", 
+                                "width": "3883", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fkq131cs7229_05_0019", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-5"
+                        }
+	                    ],
+						"otherContent": [
+							{
+							"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f9r.json", 
+							"@type": "sc:AnnotationList"
+							}
+						]
+                }, 
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-6", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 9v", 
+                    "height": "5503", 
+                    "width": "3943", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-6", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0020", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "5503", 
+                                "width": "3943", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fkq131cs7229_05_0020", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-6"
+                        }
+	                    ],
+						"otherContent": [
+							{
+							"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f9v.json", 
+							"@type": "sc:AnnotationList"
+							}
+						]
+                }, 
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-7", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 11r", 
+                    "height": "5503", 
+                    "width": "3943", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-7", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0011", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "5503", 
+                                "width": "3943", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fkq131cs7229_05_0011", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-7"
+                        }
+	                    ],
+						"otherContent": [
+							{
+							"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f11r.json", 
+							"@type": "sc:AnnotationList"
+							}
+						]
+                }, 
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-8", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 11v", 
+                    "height": "5515", 
+                    "width": "3871", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-8", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0012", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "5515", 
+                                "width": "3871", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fkq131cs7229_05_0012", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-8"
+                        }
+	                    ],
+						"otherContent": [
+							{
+							"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f11v.json", 
+							"@type": "sc:AnnotationList"
+							}
+						]
+                }, 
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-9", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 13r", 
+                    "height": "5431", 
+                    "width": "3990", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-9", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0008", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "5431", 
+                                "width": "3990", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fkq131cs7229_05_0008", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-9"
+                        }
+	                    ],
+						"otherContent": [
+							{
+							"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f13r.json", 
+							"@type": "sc:AnnotationList"
+							}
+						]
+                }, 
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-10", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 13v", 
+                    "height": "5467", 
+                    "width": "4063", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-10", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0007", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "5467", 
+                                "width": "4063", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fkq131cs7229_05_0007", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-10"
+                        }
+	                    ],
+						"otherContent": [
+							{
+							"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f13v.json", 
+							"@type": "sc:AnnotationList"
+							}
+						]
+                }, 
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-11", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 14r", 
+                    "height": "5503", 
+                    "width": "3907", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-11", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0010", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "5503", 
+                                "width": "3907", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fkq131cs7229_05_0010", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-11"
+                        }
+	                    ],
+						"otherContent": [
+							{
+							"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f14r.json", 
+							"@type": "sc:AnnotationList"
+							}
+						]
+                }, 
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-12", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 14v", 
+                    "height": "5491", 
+                    "width": "3859", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-12", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0009", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "5491", 
+                                "width": "3859", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fkq131cs7229_05_0009", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-12"
+                        }
+	                    ],
+						"otherContent": [
+							{
+							"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f14v.json", 
+							"@type": "sc:AnnotationList"
+							}
+						]
+                },
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-21", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 15r", 
+                    "height": "3840", 
+                    "width": "2767", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-21", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0035", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "3840", 
+                                "width": "2767", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fkq131cs7229_05_0035", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-21"
+                        }
+	                    ],
+						"otherContent": [
+							{
+							"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f15r.json", 
+							"@type": "sc:AnnotationList"
+							}
+						]
+                }, 
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-22", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 15v", 
+                    "height": "3840", 
+                    "width": "2767", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-22", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0036", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "3840", 
+                                "width": "2767", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fkq131cs7229_05_0036", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-22"
+                        }
+	                    ],
+						"otherContent": [
+							{
+							"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f15v.json", 
+							"@type": "sc:AnnotationList"
+							}
+						]
+                },
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-13", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 16r", 
+                    "height": "6573", 
+                    "width": "4344", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-13", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0002", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "6573", 
+                                "width": "4344", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fkq131cs7229_05_0002", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-13"
+                        }
+	                    ],
+						"otherContent": [
+							{
+							"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f16r.json", 
+							"@type": "sc:AnnotationList"
+							}
+						]
+                }, 
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-14", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 16v", 
+                    "height": "5888", 
+                    "width": "4016", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-14", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0003", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "5888", 
+                                "width": "4016", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fkq131cs7229_05_0003", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-14"
+                        }
+	                    ],
+						"otherContent": [
+							{
+							"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f16v.json", 
+							"@type": "sc:AnnotationList"
+							}
+						]
+                }, 
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-15", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 16bisr", 
+                    "height": "5842", 
+                    "width": "4085", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-15", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0004", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "5842", 
+                                "width": "4085", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fkq131cs7229_05_0004", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-15"
+                        }
+	                    ],
+						"otherContent": [
+							{
+							"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f16bisr.json", 
+							"@type": "sc:AnnotationList"
+							}
+						]
+                }, 
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-16", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 16bisv", 
+                    "height": "5888", 
+                    "width": "3925", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-16", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/sulmss_misc305_016bv_SM", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "5888", 
+                                "width": "3925", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fsulmss_misc305_016bv_SM", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-16"
+                        }
+	                    ],
+						"otherContent": [
+							{
+							"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f16bisv.json", 
+							"@type": "sc:AnnotationList"
+							}
+						]
+                }, 
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-17", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 17r", 
+                    "height": "5611", 
+                    "width": "3907", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-17", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0024", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "5611", 
+                                "width": "3907", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fkq131cs7229_05_0024", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-17"
+                        }
+	                    ],
+						"otherContent": [
+							{
+							"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f17r.json", 
+							"@type": "sc:AnnotationList"
+							}
+						]
+                }, 
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-18", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 17v", 
+                    "height": "5599", 
+                    "width": "3859", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-18", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0023", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "5599", 
+                                "width": "3859", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fkq131cs7229_05_0023", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-18"
+                        }
+	                    ],
+						"otherContent": [
+							{
+							"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f17v.json", 
+							"@type": "sc:AnnotationList"
+							}
+						]
+                }, 
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-19", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 18r", 
+                    "height": "5491", 
+                    "width": "3823", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-19", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0017", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "5491", 
+                                "width": "3823", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fkq131cs7229_05_0017", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-19"
+                        }
+	                    ],
+						"otherContent": [
+							{
+							"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f18r.json", 
+							"@type": "sc:AnnotationList"
+							}
+						]
+                }, 
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-20", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 18v", 
+                    "height": "5611", 
+                    "width": "3859", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-20", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0018", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "5611", 
+                                "width": "3859", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fkq131cs7229_05_0018", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-20"
+                        }
+	                    ],
+						"otherContent": [
+							{
+							"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f18v.json", 
+							"@type": "sc:AnnotationList"
+							}
+						]
+                }, 
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-23", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 21r", 
+                    "height": "5504", 
+                    "width": "3884", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-23", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0030", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "5504", 
+                                "width": "3884", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fkq131cs7229_05_0030", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-23"
+                        }
+	                    ],
+						"otherContent": [
+							{
+							"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f21r.json", 
+							"@type": "sc:AnnotationList"
+							}
+						]
+                }, 
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-24", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 21v", 
+                    "height": "5492", 
+                    "width": "3992", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-24", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0029", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "5492", 
+                                "width": "3992", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fkq131cs7229_05_0029", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-24"
+                        }
+	                    ],
+						"otherContent": [
+							{
+							"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f21v.json", 
+							"@type": "sc:AnnotationList"
+							}
+						]
+                }, 
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-25", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 23r", 
+                    "height": "5611", 
+                    "width": "3979", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-25", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0022", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "5611", 
+                                "width": "3979", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fkq131cs7229_05_0022", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-25"
+                        }
+	                    ],
+						"otherContent": [
+							{
+							"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f23r.json", 
+							"@type": "sc:AnnotationList"
+							}
+						]
+                }, 
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-26", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 23v", 
+                    "height": "5587", 
+                    "width": "3883", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-26", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0021", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "5587", 
+                                "width": "3883", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fkq131cs7229_05_0021", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-26"
+                        }
+	                    ],
+						"otherContent": [
+							{
+							"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f23v.json", 
+							"@type": "sc:AnnotationList"
+							}
+						]
+                },
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-1", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 51r", 
+                    "height": "5528", 
+                    "width": "3931", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-1", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0032", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "5528", 
+                                "width": "3931", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fkq131cs7229_05_0032", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-1"
+                        }
+	                    ],
+						"otherContent": [
+							{
+							"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f51r.json", 
+							"@type": "sc:AnnotationList"
+							}
+						]
+                }, 
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-2", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 51v", 
+                    "height": "5527", 
+                    "width": "3945", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-2", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0031", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "5527", 
+                                "width": "3945", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fkq131cs7229_05_0031", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-2"
+                        }
+	                    ],
+						"otherContent": [
+							{
+							"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f51v.json", 
+							"@type": "sc:AnnotationList"
+							}
+						]
+                },
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-27", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 67r", 
+                    "height": "5552", 
+                    "width": "4015", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-27", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0033", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "5552", 
+                                "width": "4015", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fkq131cs7229_05_0033", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-27"
+                        }
+	                    ],
+						"otherContent": [
+							{
+							"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f67r.json", 
+							"@type": "sc:AnnotationList"
+							}
+						]
+                }, 
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-28", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 67v", 
+                    "height": "5588", 
+                    "width": "3955", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-28", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0034", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "5588", 
+                                "width": "3955", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fkq131cs7229_05_0034", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-28"
+                        }
+	                    ],
+						"otherContent": [
+							{
+							"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f67v.json", 
+							"@type": "sc:AnnotationList"
+							}
+						]
+                },
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-29", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 93r", 
+                    "height": "5695", 
+                    "width": "3943", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-29", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0028", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "5695", 
+                                "width": "3943", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fkq131cs7229_05_0028", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-29"
+                        }
+	                    ],
+						"otherContent": [
+							{
+							"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f93r.json", 
+							"@type": "sc:AnnotationList"
+							}
+						]
+                }, 
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-30", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 93v", 
+                    "height": "5599", 
+                    "width": "4003", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-30", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0027", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "5599", 
+                                "width": "4003", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fkq131cs7229_05_0027", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-30"
+                        }
+	                    ],
+						"otherContent": [
+							{
+							"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f93v.json", 
+							"@type": "sc:AnnotationList"
+							}
+						]
+                }, 
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-31", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 94r", 
+                    "height": "5731", 
+                    "width": "4183", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-31", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0026", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "5731", 
+                                "width": "4183", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fkq131cs7229_05_0026", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-31"
+                        }
+	                    ],
+						"otherContent": [
+							{
+							"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f94r.json", 
+							"@type": "sc:AnnotationList"
+							}
+						]
+                }, 
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-32", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 94v", 
+                    "height": "5635", 
+                    "width": "4194", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-32", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0025", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "5635", 
+                                "width": "4194", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fkq131cs7229_05_0025", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-32"
+                        }
+	                    ],
+						"otherContent": [
+							{
+							"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f94v.json", 
+							"@type": "sc:AnnotationList"
+							}
+						]
+                }, 
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-33", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 99bisr", 
+                    "height": "5587", 
+                    "width": "4099", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-33", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0014", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "5587", 
+                                "width": "4099", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fkq131cs7229_05_0014", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-33"
+                        }
+	                    ],
+						"otherContent": [
+							{
+							"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f99bisr.json", 
+							"@type": "sc:AnnotationList"
+							}
+						]
+                }, 
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-34", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 99bisv", 
+                    "height": "5575", 
+                    "width": "4039", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-34", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0013", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "5575", 
+                                "width": "4039", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fkq131cs7229_05_0013", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-34"
+                        }
+	                    ],
+						"otherContent": [
+							{
+							"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f99bisv.json", 
+							"@type": "sc:AnnotationList"
+							}
+						]
+                },
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-35", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 104r", 
+                    "height": "5527", 
+                    "width": "4027", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-35", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0015", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "5527", 
+                                "width": "4027", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fkq131cs7229_05_0015", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-35"
+                        }
+	                    ],
+						"otherContent": [
+							{
+							"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f104r.json", 
+							"@type": "sc:AnnotationList"
+							}
+						]
+                }, 
+                {
+                    "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-36", 
+                    "@type": "sc:Canvas", 
+                    "label": "f. 104v", 
+                    "height": "5515", 
+                    "width": "3931", 
+                    "images": [
+                        {
+                            "@id": "http://dms-data.stanford.edu/Stanford/kq131cs7229/imageanno/anno-36", 
+                            "@type": "oa:Annotation", 
+                            "motivation": "sc:painting", 
+                            "resource": {
+                                "@id": "http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0016", 
+                                "@type": "dctypes:Image", 
+                                "format": "image/jpeg", 
+                                "height": "5515", 
+                                "width": "3931", 
+                                "service": {
+                                    "@id": "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fkq131cs7229_05_0016", 
+                                    "@context": "http://iiif.io/api/image/2/context.json",
+                                    "profile": "http://library.stanford.edu/iiif/image-api/compliance.html#level1"
+                                }
+                            }, 
+                            "on": "http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-36"
+                        }
+	                    ],
+						"otherContent": [
+							{
+							"@id": "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f104v.json", 
+							"@type": "sc:AnnotationList"
+							}
+						]
+                }
+                ]
+                }
+                ]
+                }

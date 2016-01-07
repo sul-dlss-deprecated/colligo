@@ -7,18 +7,16 @@ end
 describe JsonReader::Reader do
   include AnnotationFixtures
   before(:all) do
-    @example_str = annotation_list_001
+    @fixture_dir = Rails.root.join 'spec/fixtures'
     @example_url = 'http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f8r.json'
     @example_bad_url = 'http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text.json'
-    @fixture_dir = Rails.root.join 'spec/fixtures'
-    @fixture_annotation_file = File.join(@fixture_dir, 'annotation_records/annotation-001.json')
-    @doc_from_str = JsonReader::Reader.new.from_str(@example_str)
-    @doc_from_url = JsonReader::Reader.new.from_url(@example_url)
-    @doc_from_bad_url = JsonReader::Reader.new.from_url(@example_bad_url)
-    @doc_from_file = JsonReader::Reader.new.from_file(@fixture_annotation_file)
   end
 
   context 'from_str' do
+    before do
+      @example_str = annotation_list_001
+      @doc_from_str = JsonReader::Reader.new.from_str(@example_str)
+    end
     it 'from_str should turn a json string into a Hash' do
       expect(@doc_from_str).to be_a Hash
     end
@@ -31,6 +29,16 @@ describe JsonReader::Reader do
   end
 
   context 'from_url' do
+    before do
+      stub_request(:get, @example_url)
+        .with(headers: { 'Accept' => '*/*', 'User-Agent' => 'Ruby' })
+        .to_return(status: 200, body: File.open("#{::Rails.root}/spec/fixtures/annotation_records/annotation_001.json").read, headers: {})
+      @doc_from_url = JsonReader::Reader.new.from_url(@example_url)
+      stub_request(:get, @example_bad_url)
+        .with(headers: { 'Accept' => '*/*', 'User-Agent' => 'Ruby' })
+        .to_return(status: [404, 'File not found'])
+      @doc_from_bad_url = JsonReader::Reader.new.from_url(@example_bad_url)
+    end
     it 'should return nil if url is bad' do
       expect(@doc_from_bad_url).to be_nil
     end
@@ -46,6 +54,10 @@ describe JsonReader::Reader do
   end
 
   context 'from_file' do
+    before do
+      @fixture_annotation_file = File.join(@fixture_dir, 'annotation_records/annotation_001.json')
+      @doc_from_file = JsonReader::Reader.new.from_file(@fixture_annotation_file)
+    end
     it 'should turn the contents of a file into a Hash' do
       expect(@doc_from_file).to be_a Hash
     end
