@@ -32,13 +32,11 @@ describe IiifManifestData do
       expect(@document.manifest).to be_a Hash
       expect(@document2.manifest).to be_a Hash
     end
-
     it 'should not be an empty Hash' do
       expect(@document.manifest).not_to be_empty
       expect(@document2.manifest).not_to be_empty
     end
   end
-
   describe '#title' do
     it 'should be nil if no manifest url' do
       expect(@document_empty.title).to be_nil
@@ -54,7 +52,6 @@ describe IiifManifestData do
       expect(@document2.title).to eq('Stanford University Libraries, M1814. Flat Box 2, Folder 02')
     end
   end
-
   describe '#druid' do
     it 'should be nil if no manifest url' do
       expect(@document_empty.druid).to be_nil
@@ -68,6 +65,24 @@ describe IiifManifestData do
     it 'should be a druid string' do
       expect(@document.druid).to eq('kq131cs7229')
       expect(@document2.druid).to eq('bb389yg4719')
+    end
+  end
+
+  describe '#thumbnail' do
+    it 'should be nil if no manifest url' do
+      expect(@document_empty.thumbnail).to be_nil
+    end
+
+    it 'should be nil if no thumbnail' do
+      expect(@document.thumbnail).to be_nil
+    end
+
+    it 'should be a string' do
+      expect(@document2.thumbnail).to be_a String
+    end
+
+    it 'should be a url string' do
+      expect(@document2.thumbnail).to eq('https://stacks.stanford.edu/image/iiif/bb389yg4719%2Fbb389yg4719_05_0001/full/!400,400/0/default.jpg')
     end
   end
 
@@ -102,16 +117,13 @@ describe IiifManifestData do
     it 'should not be an empty array' do
       expect(@document.annotation_lists).not_to be_empty
     end
-
     it 'should be of length 36' do
       expect(@document.annotation_lists.length).to eq(36)
     end
-
     it 'should be an array of hashes' do
       expect(@document.annotation_lists.any? { |hash| hash.keys == %w(@id @type label) }).to be_true
     end
   end
-
   describe '#fetch_modsxml' do
     before do
       response_mods1 = File.open("#{::Rails.root}/spec/fixtures/iiif_manifest_records/mods_001.xml").read
@@ -127,7 +139,6 @@ describe IiifManifestData do
       @document.fetch_modsxml
       @document2.fetch_modsxml
     end
-
     it 'should be nil if no manifest url' do
       expect(@document_empty.title).to be_nil
     end
