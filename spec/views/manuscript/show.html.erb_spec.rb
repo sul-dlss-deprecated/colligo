@@ -14,6 +14,6 @@ describe '/manuscript/show.html.erb' do
     expect(rendered).to have_css('div div.row div.col-md-9', text: 'Description')
     expect(rendered).to have_css('div div.row div.col-md-3', text: 'Folio')
     expect(rendered).to have_css('div div.row div.col-md-3', text: 'Find all')
-    expect(rendered).to have_css('div div.row div.col-md-12', text: 'Footer')
+    expect(rendered).to have_css('div div.row', text: 'Footer')
   end
 end
