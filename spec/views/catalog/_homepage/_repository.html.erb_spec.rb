@@ -1,11 +1,10 @@
 require 'spec_helper'
 
 describe '/catalog/_homepage/_repository.html.erb' do
+  include SolrDocumentFixtures
   before(:all) do
-    cc = CatalogController.new
-    cc.params = {}
-    cc.send(:manuscripts)
-    @response = cc.instance_variable_get('@response_m')
+    @response = manuscript_resp_001
+    @document = @response['response']['docs']
   end
   before(:each) do
     allow(view).to receive(:blacklight_config).and_return(CatalogController.new.blacklight_config)

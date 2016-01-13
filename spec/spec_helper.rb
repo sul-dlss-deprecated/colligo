@@ -8,6 +8,7 @@ require 'support/capybara'
 require 'fixtures/mods_records/mods_fixtures'
 require 'fixtures/annotation_records/annotation_fixtures'
 require 'fixtures/iiif_manifest_records/iiif_manifest_fixtures'
+require 'fixtures/solr_documents/solr_document_fixtures'
 require 'webmock/rspec'
 
 Capybara.register_driver :poltergeist do |app|
