@@ -11,10 +11,7 @@ require 'jettywrapper'
 desc 'Execute the test build that runs on travis'
 task ci: [:environment] do
   if Rails.env.test?
-    Rake::Task['db:migrate'].invoke
-    Rake::Task['jetty:download'].invoke
-    Rake::Task['jetty:unzip'].invoke
-    Rake::Task['colligo:copy_solr_configs'].invoke
+    Rake::Task['colligo:install'].invoke
     Jettywrapper.wrap(Jettywrapper.load_config) do
       Rake::Task['spec'].invoke
     end
