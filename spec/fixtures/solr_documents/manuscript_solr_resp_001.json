@@ -1,0 +1,823 @@
+{
+  "responseHeader": {
+    "status": 0,
+    "QTime": 215,
+    "params": {
+      "facet.query": [
+        "pub_date_t:[2000 TO *]",
+        "pub_date_t:[1900 TO 1999]",
+        "pub_date_t:[1800 TO 1899]",
+        "pub_date_t:[1700 TO 1799]",
+        "pub_date_t:[1600 TO 1699]",
+        "pub_date_t:[1500 TO 1599]",
+        "pub_date_t:[1400 TO 1499]",
+        "pub_date_t:[1300 TO 1399]",
+        "pub_date_t:[1200 TO 1299]",
+        "pub_date_t:[1100 TO 1199]",
+        "pub_date_t:[1000 TO 1099]",
+        "pub_date_t:[900 TO 999]",
+        "pub_date_t:[800 TO 899]",
+        "pub_date_t:[700 TO 799]",
+        "pub_date_t:[600 TO 699]",
+        "pub_date_t:[500 TO 599]",
+        "pub_date_t:[400 TO 499]",
+        "pub_date_t:[300 TO 399]",
+        "pub_date_t:[200 TO 299]",
+        "pub_date_t:[100 TO 199]",
+        "pub_date_t:[0 TO 99]"
+      ],
+      "facet.field": [
+        "format",
+        "type_of_resource_facet",
+        "authors_all_facet",
+        "topic_facet",
+        "geographic_facet",
+        "era_facet",
+        "manuscript_facet",
+        "language",
+        "place_search",
+        "model",
+        "folio",
+        "collection",
+        "pub_date_t"
+      ],
+      "qt": "descriptions",
+      "stats": "true",
+      "f.topic_facet.facet.limit": "21",
+      "f.language.facet.limit": "6",
+      "sort": "score desc, title_sort asc",
+      "rows": "10",
+      "wt": "ruby",
+      "facet": "true",
+      "stats.field": "pub_date_t"
+    }
+  },
+  "response": {
+    "numFound": 1181,
+    "start": 0,
+    "maxScore": 1.0,
+    "docs": [
+      {
+        "id": "fm769yq8232",
+        "druid": "fm769yq8232",
+        "url_sfx": [
+          "https://purl.stanford.edu/fm769yq8232.mods"
+        ],
+        "manifest_urls": [
+          "https://purl.stanford.edu/fm769yq8232/iiif/manifest.json"
+        ],
+        "collection": "Stanford University Libraries",
+        "model": [
+          "Manuscript"
+        ],
+        "img_info": [
+          "https://stacks.stanford.edu/image/iiif/fm769yq8232%2Ffm769yq8232_05_0001/full/!400,400/0/default.jpg"
+        ],
+        "abstract_display": "A fragment of an unidentified devotional text treating the dangers of worldly temptations occasioned to the believer in the Christian life by the vices of the world.",
+        "access_condition_display": "Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.",
+        "title_display": "[Temptations of the World] : manuscript fragment of a religious text",
+        "language": [
+          "Latin"
+        ],
+        "physical_location_display": [
+          "Department of Special Collections, Stanford University Libraries, Stanford, CA 94305"
+        ],
+        "pub_date_display": "1190 to 1210",
+        "topic_display": [
+          "Religious thought",
+          "Middle ages, 600-1500",
+          "Church history"
+        ],
+        "geographic_display": [
+          "Italy"
+        ],
+        "era_display": [
+          "13th century"
+        ],
+        "subject_all_display": [
+          "Religious thought",
+          "Middle ages, 600-1500",
+          "Church history",
+          "Italy",
+          "13th century"
+        ],
+        "score": 1.0
+      },
+      {
+        "id": "hq225cp3879",
+        "druid": "hq225cp3879",
+        "url_sfx": [
+          "https://purl.stanford.edu/hq225cp3879.mods"
+        ],
+        "manifest_urls": [
+          "https://purl.stanford.edu/hq225cp3879/iiif/manifest.json"
+        ],
+        "collection": "Parker Manuscripts",
+        "model": [
+          "Manuscript"
+        ],
+        "type_of_resource_display": [
+          "manuscript",
+          "text"
+        ],
+        "title_display": "Abd Allah Baydawi, Tawali Al-Anwar. Mahmud Isfahani, Commentary on Tawali Al-Anwar",
+        "title_alternate_display": [
+          "Liber Arabicus"
+        ],
+        "language": [
+          "Arabic and Latin."
+        ],
+        "physical_location_display": [
+          "Parker Library, Corpus Christi College, Cambridge, UK"
+        ],
+        "topic_display": [
+          "Manuscripts"
+        ],
+        "geographic_display": [
+          "Great Britain"
+        ],
+        "subject_all_display": [
+          "Manuscripts",
+          "Great Britain"
+        ],
+        "score": 1.0
+      },
+      {
+        "id": "xd738fw2393",
+        "druid": "xd738fw2393",
+        "url_sfx": [
+          "https://purl.stanford.edu/xd738fw2393.mods"
+        ],
+        "manifest_urls": [
+          "https://purl.stanford.edu/xd738fw2393/iiif/manifest.json"
+        ],
+        "collection": "Parker Manuscripts",
+        "model": [
+          "Manuscript"
+        ],
+        "type_of_resource_display": [
+          "manuscript"
+        ],
+        "corporate_authors_display": [
+          "Abingdon"
+        ],
+        "title_display": "Abingdon Benedictine Collection with Martyrology",
+        "title_alternate_display": [
+          "Regula S. Benedicti. Martyrologium Abbendoniense. Smaragdi Diadema Monachorum"
+        ],
+        "language": [
+          "Latin and Old English."
+        ],
+        "physical_location_display": [
+          "Parker Library, Corpus Christi College, Cambridge, UK"
+        ],
+        "topic_display": [
+          "Manuscripts"
+        ],
+        "geographic_display": [
+          "Great Britain"
+        ],
+        "subject_all_display": [
+          "Manuscripts",
+          "Great Britain"
+        ],
+        "score": 1.0
+      },
+      {
+        "id": "mr892jv0716",
+        "druid": "mr892jv0716",
+        "url_sfx": [
+          "https://purl.stanford.edu/mr892jv0716.mods"
+        ],
+        "manifest_urls": [
+          "https://purl.stanford.edu/mr892jv0716/iiif/manifest.json"
+        ],
+        "collection": "Stanford University Libraries",
+        "model": [
+          "Manuscript"
+        ],
+        "img_info": [
+          "https://stacks.stanford.edu/image/iiif/mr892jv0716%2Fmr892jv0716_05_0001/full/!400,400/0/default.jpg"
+        ],
+        "abstract_display": "Acquittance for a thousand livres tournois for the despense de l'hostel du Roy notre sire.",
+        "access_condition_display": "Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.",
+        "type_of_resource_display": [
+          "mixed material"
+        ],
+        "title_display": "Acquittance",
+        "title_alternate_display": [
+          "Stanford University Libraries, M0299"
+        ],
+        "physical_location_display": [
+          "Stanford University. Libraries. Department of Special Collections and University Archives",
+          "M0299. Box  3, Folder  2, Item  082"
+        ],
+        "pub_date_display": "1389",
+        "format": [
+          "Manuscript/Archive"
+        ],
+        "score": 1.0
+      },
+      {
+        "id": "jy445fd9276",
+        "druid": "jy445fd9276",
+        "url_sfx": [
+          "https://purl.stanford.edu/jy445fd9276.mods"
+        ],
+        "manifest_urls": [
+          "https://purl.stanford.edu/jy445fd9276/iiif/manifest.json"
+        ],
+        "collection": "Parker Manuscripts",
+        "model": [
+          "Manuscript"
+        ],
+        "type_of_resource_display": [
+          "manuscript"
+        ],
+        "title_display": "Adam of Barking, Carmen de serie sex aetatum",
+        "title_alternate_display": [
+          "Adam of Barking"
+        ],
+        "language": [
+          "Latin."
+        ],
+        "physical_location_display": [
+          "Parker Library, Corpus Christi College, Cambridge, UK"
+        ],
+        "topic_display": [
+          "Manuscripts"
+        ],
+        "geographic_display": [
+          "Great Britain"
+        ],
+        "subject_all_display": [
+          "Manuscripts",
+          "Great Britain"
+        ],
+        "score": 1.0
+      },
+      {
+        "id": "kc237kj0918",
+        "druid": "kc237kj0918",
+        "url_sfx": [
+          "https://purl.stanford.edu/kc237kj0918.mods"
+        ],
+        "manifest_urls": [
+          "https://purl.stanford.edu/kc237kj0918/iiif/manifest.json"
+        ],
+        "collection": "Parker Manuscripts",
+        "model": [
+          "Manuscript"
+        ],
+        "type_of_resource_display": [
+          "manuscript"
+        ],
+        "title_display": "Ado of Vienne, Chronica",
+        "title_alternate_display": [
+          "Chronica Odonis (Adonis)"
+        ],
+        "language": [
+          "Latin."
+        ],
+        "physical_location_display": [
+          "Parker Library, Corpus Christi College, Cambridge, UK"
+        ],
+        "topic_display": [
+          "Manuscripts"
+        ],
+        "geographic_display": [
+          "Great Britain"
+        ],
+        "subject_all_display": [
+          "Manuscripts",
+          "Great Britain"
+        ],
+        "score": 1.0
+      },
+      {
+        "id": "bq166fm4860",
+        "druid": "bq166fm4860",
+        "url_sfx": [
+          "https://purl.stanford.edu/bq166fm4860.mods"
+        ],
+        "manifest_urls": [
+          "https://purl.stanford.edu/bq166fm4860/iiif/manifest.json"
+        ],
+        "collection": "Parker Manuscripts",
+        "model": [
+          "Manuscript"
+        ],
+        "type_of_resource_display": [
+          "manuscript",
+          "text"
+        ],
+        "title_display": "Ælfric OSB, Old English Grammar and Glossary",
+        "title_alternate_display": [
+          "Ælfrici grammatica"
+        ],
+        "language": [
+          "Old English and Latin."
+        ],
+        "physical_location_display": [
+          "Parker Library, Corpus Christi College, Cambridge, UK"
+        ],
+        "topic_display": [
+          "Manuscripts"
+        ],
+        "geographic_display": [
+          "Great Britain"
+        ],
+        "subject_all_display": [
+          "Manuscripts",
+          "Great Britain"
+        ],
+        "score": 1.0
+      },
+      {
+        "id": "bx369vf7033",
+        "druid": "bx369vf7033",
+        "url_sfx": [
+          "https://purl.stanford.edu/bx369vf7033.mods"
+        ],
+        "manifest_urls": [
+          "https://purl.stanford.edu/bx369vf7033/iiif/manifest.json"
+        ],
+        "collection": "Parker Manuscripts",
+        "model": [
+          "Manuscript"
+        ],
+        "type_of_resource_display": [
+          "manuscript",
+          "text"
+        ],
+        "corporate_authors_display": [
+          "Christ Church, Canterbury"
+        ],
+        "authors_all_display": [
+          "Christ Church, Canterbury"
+        ],
+        "title_display": "Alan of Tewkesbury OSB, Epistolae. Apocryphal Gospels. Prophecies",
+        "title_alternate_display": [
+          "Alani Cantuar. Epistolae. Gesta Salvatoris. Infantia Salvatoris, etc."
+        ],
+        "language": [
+          "Latin."
+        ],
+        "physical_location_display": [
+          "Parker Library, Corpus Christi College, Cambridge, UK"
+        ],
+        "topic_display": [
+          "Manuscripts"
+        ],
+        "geographic_display": [
+          "Great Britain"
+        ],
+        "subject_all_display": [
+          "Manuscripts",
+          "Great Britain"
+        ],
+        "score": 1.0
+      },
+      {
+        "id": "ts762cz0303",
+        "druid": "ts762cz0303",
+        "url_sfx": [
+          "https://purl.stanford.edu/ts762cz0303.mods"
+        ],
+        "manifest_urls": [
+          "https://purl.stanford.edu/ts762cz0303/iiif/manifest.json"
+        ],
+        "collection": "Parker Manuscripts",
+        "model": [
+          "Manuscript"
+        ],
+        "type_of_resource_display": [
+          "manuscript"
+        ],
+        "corporate_authors_display": [
+          "London"
+        ],
+        "title_display": "Albertanus of Brescia (Albertanus Brixiensis), Works",
+        "title_alternate_display": [
+          "Albertanus Brixiensis"
+        ],
+        "language": [
+          "Latin."
+        ],
+        "physical_location_display": [
+          "Parker Library, Corpus Christi College, Cambridge, UK"
+        ],
+        "topic_display": [
+          "Manuscripts"
+        ],
+        "geographic_display": [
+          "Great Britain"
+        ],
+        "subject_all_display": [
+          "Manuscripts",
+          "Great Britain"
+        ],
+        "score": 1.0
+      },
+      {
+        "id": "kh694wf4541",
+        "druid": "kh694wf4541",
+        "url_sfx": [
+          "https://purl.stanford.edu/kh694wf4541.mods"
+        ],
+        "manifest_urls": [
+          "https://purl.stanford.edu/kh694wf4541/iiif/manifest.json"
+        ],
+        "collection": "Parker Manuscripts",
+        "model": [
+          "Manuscript"
+        ],
+        "type_of_resource_display": [
+          "manuscript"
+        ],
+        "title_display": "Alchemical Tracts",
+        "title_alternate_display": [
+          "Alchemica"
+        ],
+        "language": [
+          "Latin."
+        ],
+        "physical_location_display": [
+          "Parker Library, Corpus Christi College, Cambridge, UK"
+        ],
+        "topic_display": [
+          "Manuscripts"
+        ],
+        "geographic_display": [
+          "Great Britain"
+        ],
+        "subject_all_display": [
+          "Manuscripts",
+          "Great Britain"
+        ],
+        "score": 1.0
+      }
+    ]
+  },
+  "facet_counts": {
+    "facet_queries": {
+      "pub_date_t:[2000 TO *]": 0,
+      "pub_date_t:[1900 TO 1999]": 6,
+      "pub_date_t:[1800 TO 1899]": 24,
+      "pub_date_t:[1700 TO 1799]": 38,
+      "pub_date_t:[1600 TO 1699]": 71,
+      "pub_date_t:[1500 TO 1599]": 212,
+      "pub_date_t:[1400 TO 1499]": 137,
+      "pub_date_t:[1300 TO 1399]": 71,
+      "pub_date_t:[1200 TO 1299]": 65,
+      "pub_date_t:[1100 TO 1199]": 71,
+      "pub_date_t:[1000 TO 1099]": 125,
+      "pub_date_t:[900 TO 999]": 7,
+      "pub_date_t:[800 TO 899]": 24,
+      "pub_date_t:[700 TO 799]": 1,
+      "pub_date_t:[600 TO 699]": 0,
+      "pub_date_t:[500 TO 599]": 0,
+      "pub_date_t:[400 TO 499]": 0,
+      "pub_date_t:[300 TO 399]": 0,
+      "pub_date_t:[200 TO 299]": 0,
+      "pub_date_t:[100 TO 199]": 1,
+      "pub_date_t:[0 TO 99]": 0
+    },
+    "facet_fields": {
+      "format": [
+        "Manuscript/Archive",
+        579,
+        "Book",
+        38
+      ],
+      "type_of_resource_facet": [
+        "manuscript",
+        909,
+        "mixed material",
+        579,
+        "text",
+        206,
+        "collection",
+        1
+      ],
+      "authors_all_facet": [
+        "No author name given.",
+        79,
+        "Catholic Church",
+        33,
+        "Christ Church, Canterbury",
+        11,
+        "Ilyās ibn Yūsuf Niẓāmī Ganjavī",
+        11,
+        "Nūr al-Dīn ʿAbd al-Raḥmān ibn Aḥmad Jāmī",
+        11,
+        "Niẓāmī Ganjavī, 1140 or 41-1202 or 3",
+        9,
+        "Jāmī, 1414-1492",
+        8,
+        "Shams al-Dīn Muḥammad Ḥāfiz al-Shīrāzī",
+        8,
+        "Ḥāfiẓ, 14th cent.",
+        7,
+        "الياس بن يوسف نظامى گنجوى",
+        7,
+        "شمس الدين محمد حافظ الشيرازي",
+        7,
+        "Musharrif al-Dīn ibn Muṣliḥ Saʿdī Shīrāzī",
+        6,
+        "Saʿdī",
+        6,
+        "Worcester",
+        6,
+        "نور الدين عبد الرحمان بن احمد جامى",
+        6,
+        "Abū al-Qāsim Ḥasan ibn Isḥāq Firdawsī Ṭūsī",
+        5,
+        "Firdawsī",
+        5,
+        "ابو القاسم حسن بن اسحاق فردوسى طوسى",
+        5,
+        "نور الدين عبد الرحمان بن احمد جامي",
+        5,
+        "Amīr Khusraw Dihlavī, ca. 1253-1325",
+        4,
+        "Amīr Khusraw Dihlavī",
+        4
+      ],
+      "topic_facet": [
+        "Manuscripts",
+        562,
+        "Manuscripts, Latin (Medieval and modern)",
+        28,
+        "History",
+        26,
+        "Illumination of books and manuscripts",
+        11,
+        "Liturgy",
+        10,
+        "Catholic Church",
+        9,
+        "Church music",
+        9,
+        "Neumes",
+        9,
+        "Paleography, Musical",
+        9,
+        "Latin language",
+        7,
+        "Manuscripts, Medieval",
+        7,
+        "Bible",
+        6,
+        "Hebrew language",
+        5,
+        "Manuscripts, Latin",
+        5,
+        "Manuscripts, Latin (Medieval and modern)-France.",
+        5,
+        "Miniatures.",
+        5,
+        "Science",
+        5,
+        "Italian literature",
+        4,
+        "Manuscripts, Latin (Medieval and modern)-England.",
+        4,
+        "Medicine",
+        4,
+        "Biography",
+        3
+      ],
+      "geographic_facet": [
+        "Great Britain",
+        556,
+        "Italy",
+        19,
+        "France",
+        14,
+        "Germany",
+        6,
+        "England",
+        5,
+        "Austria",
+        4,
+        "Belgium",
+        3,
+        "Spain",
+        3,
+        "Florence (Italy)",
+        2,
+        "Netherlands",
+        2,
+        "Barcelona (Spain : Province)",
+        1,
+        "Catalonia (Spain)",
+        1,
+        "Durham (England)",
+        1,
+        "La Varella-Castellar Site (Spain)",
+        1,
+        "Marseille (France)",
+        1,
+        "Rome",
+        1,
+        "Tournai (Belgium)",
+        1,
+        "Villeneuve-lès-Avignon (France)",
+        1
+      ],
+      "era_facet": [
+        "500-1400",
+        9,
+        "13th century",
+        7,
+        "15th century",
+        4,
+        "Early works to 1800",
+        4,
+        "Middle Ages, 600-1500",
+        3,
+        "Renaissance",
+        3,
+        "To 1555",
+        3,
+        "1492-1559",
+        2,
+        "14th century",
+        2,
+        "Middle Ages, 500-1500",
+        2,
+        "To 1400",
+        2,
+        "1268-1492",
+        1,
+        "12th century",
+        1,
+        "1421-1737",
+        1,
+        "711-1516",
+        1,
+        "Italy",
+        1,
+        "Medieval period, 987-1515",
+        1,
+        "Middle Ages, 843-1555",
+        1,
+        "Middle Ages, 987-1515",
+        1,
+        "Middle English, 1100-1500",
+        1,
+        "Old English, ca. 450-1100",
+        1
+      ],
+      "manuscript_facet": [
+
+      ],
+      "language": [
+        "Latin.",
+        325,
+        "Latin",
+        208,
+        "Persian",
+        98,
+        "Arabic",
+        61,
+        "Latin and English.",
+        30,
+        "No linguistic content. Not applicable.",
+        25
+      ],
+      "place_search": [
+        "itali",
+        87,
+        "iran",
+        81,
+        "germani",
+        59,
+        "franc",
+        50,
+        "india",
+        48,
+        "england",
+        45,
+        "cau",
+        30,
+        "turkey",
+        26,
+        "or",
+        22,
+        "probabl",
+        20,
+        "fr",
+        17,
+        "northern",
+        17,
+        "it",
+        15,
+        "enk",
+        13,
+        "ethiopia",
+        13,
+        "netherland",
+        13,
+        "austria",
+        12,
+        "constantinopl",
+        11,
+        "florenc",
+        11,
+        "spain",
+        11,
+        "southern",
+        10
+      ],
+      "model": [
+        "Manuscript",
+        1181
+      ],
+      "folio": [
+
+      ],
+      "collection": [
+        "Parker Manuscripts",
+        555,
+        "Stanford University Libraries",
+        324,
+        "The Walters Art Museum",
+        299,
+        "Test collection",
+        3
+      ],
+      "pub_date_t": [
+        "1000",
+        112,
+        "1599",
+        110,
+        "1499",
+        63,
+        "1100",
+        40,
+        "1200",
+        22,
+        "1300",
+        22,
+        "1501",
+        22,
+        "1600",
+        22,
+        "850",
+        20,
+        "1500",
+        17,
+        "1400",
+        15,
+        "1450",
+        15,
+        "1700",
+        13,
+        "1250",
+        11,
+        "1601",
+        11,
+        "1225",
+        10,
+        "1299",
+        10,
+        "1199",
+        9,
+        "1230",
+        9,
+        "1150",
+        8,
+        "1175",
+        8
+      ]
+    },
+    "facet_dates": {
+
+    },
+    "facet_ranges": {
+
+    },
+    "facet_intervals": {
+
+    }
+  },
+  "stats": {
+    "stats_fields": {
+      "pub_date_t": {
+        "min": 100.0,
+        "max": 1975.0,
+        "count": 991,
+        "missing": 561,
+        "sum": 1362183.0,
+        "sumOfSquares": 1938827309.0,
+        "mean": 1374.5539858728557,
+        "stddev": 259.04493752694566,
+        "facets": {
+
+        }
+      }
+    }
+  }
+}
