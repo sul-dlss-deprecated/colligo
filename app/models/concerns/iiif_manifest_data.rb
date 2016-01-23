@@ -90,7 +90,7 @@ module IiifManifestData
     require 'open-uri'
     begin
       self.modsxml = open(uri.to_s).read
-    rescue Timeout::Error, Errno::EINVAL, Errno::ECONNRESET, Errno::ETIMEDOUT, EOFError,
+    rescue Timeout::Error, Errno::EINVAL, Errno::ECONNRESET, Errno::ETIMEDOUT, EOFError, SocketError,
            Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError, Net::ProtocolError, OpenURI::HTTPError => the_error
       puts "\nOpen URI error for #{uri}\n\t#{the_error.message}" # TODO: Add to log
       return nil
