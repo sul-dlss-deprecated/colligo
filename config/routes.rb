@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :manuscript, only: :show
+  get '/manuscript/:id/related_content', to: 'manuscript#related_content'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,7 +1,10 @@
 <% unless @next_doc.blank? %>
   <%
     n_midpoint = 25
-    if @next_doc['title'].length < 50
+    @next_doc['title'] = @next_doc['title'].strip
+    if @next_doc['title'].length < 20 && @next_doc['title'].include?(' ')
+      n_midpoint = @next_doc['title'].length / 2
+    elsif @next_doc['title'].length >= 20 && @next_doc['title'].length < 50
       n_midpoint = @next_doc['title'].length / 2
     end
     n_a = truncate(@next_doc['title'], length: n_midpoint, omission: '', separator: ' ')

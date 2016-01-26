@@ -49,41 +49,62 @@ module SolrDocumentFixtures
     []
   end
 
+  def annotation_resp_003
+    JSON.parse(File.open("#{::Rails.root}/spec/fixtures/solr_documents/annotation_solr_resp_003.json").read)
+  end
+
+  def annotation_docs_003
+    []
+  end
+
+  def transcription_resp_003
+    JSON.parse(File.open("#{::Rails.root}/spec/fixtures/solr_documents/transcription_solr_resp_003.json").read)
+  end
+
+  def transcription_docs_003
+    ans = transcription_resp_003
+    ans['response']['docs']
+  end
+
   def manuscript_resp_003
     JSON.parse(File.open("#{::Rails.root}/spec/fixtures/solr_documents/manuscript_solr_resp_003.json").read)
   end
 
-  def manuscript_doc_003
+  def manuscript_docs_003
     JSON.parse(File.open("#{::Rails.root}/spec/fixtures/solr_documents/manuscript_solr_doc_003.json").read)
   end
 
   def related_annotations
     {
-      'Gospel Lectionary' => 10,
-      'Greek Gospel Lectionary (fragments)' => 320,
-      'Walters Ms. W.528, Gospel Book' => 0,
-      'Walters Ms. W.520, Gospel Lectionary' => 100,
-      'Walters Ms. W.751, Corvey Gospel fragment' => 4,
-      'Walters Ms. W.527, Gospel Book' => 0,
-      'Walters Ms. W.529, Gospel Book' => 43,
-      'Walters Ms. W.523, Gospel Book' => 30,
-      'Walters Ms. W.522, Gospel Book' => 108,
-      'Walters Ms. W.524, Gospel Book' => 123
+      'hp146pz7537' => 10,
+      'wz353pg0755' => 320,
+      'xs067jx3704' => 0,
+      'pc969nh5331' => 100,
+      'kx761rc2825' => 4,
+      'tz740cf3316' => 0,
+      'rr549ng6599' => 43,
+      'ct437ht0445' => 30,
+      'yq907xc9138' => 108,
+      'ds092yq5452' => 123
     }
   end
 
   def related_transcriptions
     {
-      'Gospel Lectionary' => 0,
-      'Greek Gospel Lectionary (fragments)' => 32,
-      'Walters Ms. W.528, Gospel Book' => 10,
-      'Walters Ms. W.520, Gospel Lectionary' => 140,
-      'Walters Ms. W.751, Corvey Gospel fragment' => 41,
-      'Walters Ms. W.527, Gospel Book' => 0,
-      'Walters Ms. W.529, Gospel Book' => 52,
-      'Walters Ms. W.523, Gospel Book' => 35,
-      'Walters Ms. W.522, Gospel Book' => 101,
-      'Walters Ms. W.524, Gospel Book' => 345
+      'hp146pz7537' => 0,
+      'wz353pg0755' => 32,
+      'xs067jx3704' => 10,
+      'pc969nh5331' => 140,
+      'kx761rc2825' => 41,
+      'tz740cf3316' => 0,
+      'rr549ng6599' => 52,
+      'ct437ht0445' => 35,
+      'yq907xc9138' => 101,
+      'ds092yq5452' => 345
     }
+  end
+
+  def prev_and_next_docs
+    JSON.parse(File.open("#{::Rails.root}/spec/fixtures/solr_documents/prev_and_next_docs.json").read)
   end
 end

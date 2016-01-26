@@ -7,27 +7,23 @@ class ManuscriptController < ApplicationController
   layout 'blacklight'
 
   def show
-    m_params = current_query
-    redirect_to(action: 'show', id: params[:id] ) and return if params.has_key?(:start)
-    @sd = SolrDocument.new
     @response, @document = get_solr_response_for_doc_id params[:id]
     # Sanitize results for the viewer
+    sd = SolrDocument.new
     @document.each do |k, v|
-      @document[k] = [] if v.blank? && !@sd.single_valued_display_fields.include?(k)
+      @document[k] = [] if v.blank? && !sd.single_valued_display_fields.include?(k)
     end
-    @sd.all_display_fields.each do |k|
+    sd.all_display_fields.each do |k|
       unless @document.include?(k)
-        @document[k] = [] unless @sd.single_valued_display_fields.include?(k)
+        @document[k] = [] unless sd.single_valued_display_fields.include?(k)
       end
     end
-    # Get the contents from the manifest
+    # Get the contents from the manifest - need this for getting first folio
+    # TODO: Index manifest and use that to retrieve the details
     @contents = []
     @contents = IiifManifest.new(@document['manifest_urls'].first).contents unless @document['manifest_urls'].blank?
     # Get the next and previous docs
-    m_previous_and_next_documents(m_params)
-    # Get the related annotations and transcriptions
-    related_annotations
-    related_transcriptions
+    m_previous_and_next_documents
     respond_to do |format|
       format.html do
         render
@@ -35,38 +31,62 @@ class ManuscriptController < ApplicationController
     end
   end
 
+  def related_content
+    transcriptions = related_transcriptions
+    ans = {
+        annotations: related_annotations,
+        transcriptions: transcriptions[0],
+        first_transcription: transcriptions[1]
+    }
+    respond_to do |format|
+      format.json do
+        render json: ans
+      end
+    end
+  end
+
   private
 
   def related_annotations
-    @related_annotations = {}
-    qparams = { q: "manuscript_search:\"#{@document['title_display']}", rows: 0 }
+    if params.has_key?(:folio) && params[:folio].present?
+      query_params = { q: "druid:#{params[:id]} AND folio:\"#{params[:folio]}\"", rows: 0 }
+    else
+      query_params = { q: "druid:#{params[:id]}", rows: 0 }
+    end
     self.search_params_logic += [:add_annotation_filter]
     self.search_params_logic -= [:all_search_filter, :add_manuscript_filter, :add_transcription_filter]
-    (resp, _doc_list) = get_search_results(qparams)
-    @related_annotations[@document['title_display']] = resp['response']['numFound']
+    (resp, _doc_list) = get_search_results(query_params)
+    resp['response']['numFound']
   end
 
   def related_transcriptions
-    @related_transcriptions = {}
-    qparams = { q: "manuscript_search:\"#{@document['title_display']}", rows: 0 }
+    if params.has_key?(:folio) && params[:folio].present?
+      query_params = { q: "druid:#{params[:id]} AND folio:\"#{params[:folio]}\"", rows: 1, sort: 'sort_index asc' }
+    else
+      query_params = { q: "druid:#{params[:id]}", rows: 1, sort: 'sort_index asc' }
+    end
     self.search_params_logic += [:add_transcription_filter]
     self.search_params_logic -= [:all_search_filter, :add_manuscript_filter, :add_annotation_filter]
-    (resp, _doc_list) = get_search_results(qparams)
-    @related_transcriptions[@document['title_display']] = resp['response']['numFound']
+    (resp, doc_list) = get_search_results(query_params)
+    if doc_list.present?
+      [resp['response']['numFound'], doc_list[0]['body_chars_display']]
+    else
+      [resp['response']['numFound'], nil]
+    end
   end
 
-  def m_previous_and_next_documents(m_params)
+  def m_previous_and_next_documents
+    m_params = current_query
     @prev_doc = {}
     @next_doc = {}
     return if m_params.blank? || m_params[:start].blank?
     nav_docs = get_previous_and_next_documents_for_search(m_params[:start], m_params, {})
-    if nav_docs.second && !nav_docs.second.first.blank? && m_params[:start] > 0
+    if nav_docs.second && nav_docs.second.first.present? && m_params[:start] > 0
       index = m_params[:start] - 1
       @prev_doc['path'] = url_for(controller: 'manuscript', action: 'show', id: nav_docs.second.first['druid'], params: {start: index})
       @prev_doc['title'] = nav_docs.second.first['title_display'] || nav_docs.second.first['druid']
-
     end
-    if nav_docs.second && !nav_docs.second.second.blank? && m_params[:start] < nav_docs.first['response']['numFound'] - 1
+    if nav_docs.second && nav_docs.second.second.present? && m_params[:start] < nav_docs.first['response']['numFound'] - 1
       index = m_params[:start] + 1
       @next_doc['path'] = url_for(controller: 'manuscript', action: 'show', id: nav_docs.second.second['druid'], params: {start: index})
       @next_doc['title'] = nav_docs.second.second['title_display'] || nav_docs.second.second['druid']
@@ -74,22 +94,13 @@ class ManuscriptController < ApplicationController
   end
 
   def current_query
-    return if session[:m_last_search_query].blank? && session[:m_current_display_query].blank?
-    if session[:m_current_display_query]
-      m_params = JSON.parse(session[:m_current_display_query])
-    else
-      m_params = JSON.parse(session[:m_last_search_query])
-    end
-    if params[:start]
-      begin
-        Integer(params[:start])
-      rescue
-        return nil
-      end
+    return nil if session[:m_last_search_query].blank? || !params.has_key?(:start) || params[:start].blank?
+    m_params = JSON.parse(session[:m_last_search_query])
+    begin
       m_params['start'] = Integer(params[:start])
+    rescue
+      return nil
     end
-    return nil unless m_params['start']
-    session[:m_current_display_query] = m_params.to_json
     m_params['qt'] = 'descriptions'
     m_params.inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}
   end
