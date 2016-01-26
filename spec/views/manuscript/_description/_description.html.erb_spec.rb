@@ -62,7 +62,7 @@ describe 'manuscript/_description/_description.html.erb' do
     expect(rendered).to have_css('dl.dl-horizontal dt[title="Access condition"]', text: 'Access condition')
     expect(rendered).to have_css('dl.dl-horizontal dd', text: 'Access condition')
   end
-  it 'should render available details' do
+  it 'should render available details 1' do
     @document = manuscript_docs[0]
     @document['title_other_display'] = []
     @document['personal_authors_display'] = []
@@ -106,7 +106,7 @@ describe 'manuscript/_description/_description.html.erb' do
     expect(rendered).to have_css('dl.dl-horizontal dd', text: 'Parker Library, Corpus Christi College, Cambridge, UK')
     expect(rendered).not_to have_css('dl.dl-horizontal dt[title="Access condition"]', text: 'Access condition')
   end
-  it 'should render available details' do
+  it 'should render available details 2' do
     @document = manuscript_docs[9]
     @document['title_other_display'] = []
     @document['corporate_authors_display'] = []

@@ -4,7 +4,13 @@ Rails.application.routes.draw do
   blacklight_for :catalog
   devise_for :users
 
-  resources :manuscript, only: :show
+  resources :manuscript, only: :show do
+    # adding constraint as folio may have dots and should not be considered as formatted route
+    resources :folio, only: :show, :constraints => { :id => /[^\/]+/ }
+    resources :test, only: :show, :constraints => { :id => /[^\/]+/ }
+  end
+  get '/manuscript/:id/related_content', to: 'manuscript#related_content'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

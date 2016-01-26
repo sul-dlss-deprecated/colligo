@@ -1,0 +1,15 @@
+<div class="media">
+  <div class="media-body">
+    <h1 id="folio-title"><%= params[:view].capitalize %></h1>
+  </div>
+  <div class="media-right">
+    <% unless @manuscript['manifest_urls'].blank? %>
+      <div class="iiif-logo">
+        <a href="<%=@manuscript['manifest_urls'].first%>"><%= image_tag('iiif-logo.png') %></a>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div>
+  <%= render partial: 'folio/breadcrumbs' %>
+</div>

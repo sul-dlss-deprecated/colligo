@@ -10,7 +10,7 @@
     %>
     <!-- related annotations -->
     <% a_class = 'noresult' %>
-    <% if @related_annotations.has_key?( document['title_display']) && @related_annotations[document['title_display']] > 0 %>
+    <% if @related_annotations.has_key?( document['druid']) && @related_annotations[document['druid']] > 0 %>
         <% a_class = 'result' %>
     <% end %>
     <a href="<%=a_path%>" class="btn btn-sm <%=a_class%>">
@@ -18,7 +18,7 @@
     </a>
     <!-- related transcriptions -->
     <% t_class = 'noresult' %>
-    <% if @related_transcriptions.has_key?( document['title_display']) && @related_transcriptions[document['title_display']] > 0 %>
+    <% if @related_transcriptions.has_key?( document['druid']) && @related_transcriptions[document['druid']] > 0 %>
         <% t_class = 'result' %>
     <% end %>
     <a href="<%=t_path%>" class="btn btn-sm <%=t_class%>">

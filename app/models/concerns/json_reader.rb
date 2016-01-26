@@ -8,7 +8,7 @@ module JsonReader
       require 'open-uri'
       begin
         JSON.parse(open(url).read)
-      rescue Timeout::Error, Errno::EINVAL, Errno::ECONNRESET, Errno::ETIMEDOUT, EOFError,
+      rescue Timeout::Error, Errno::EINVAL, Errno::ECONNRESET, Errno::ETIMEDOUT, EOFError, SocketError,
              Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError, Net::ProtocolError, OpenURI::HTTPError => the_error
         puts "\nOpen URI error for #{url}\n\t#{the_error.message}" # TODO: Add to log
         return nil

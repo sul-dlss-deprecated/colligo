@@ -74,6 +74,7 @@ module AnnotationData
     solr_doc['druid'] = self['druid']
     solr_doc['manifest_urls'] = self['iiif_manifest']
     solr_doc['collection'] = self['collection']
+    solr_doc['sort_index'] = self['sort_index']
     solr_doc['url_sfx'] = data['url'] if data.key?('url')
     solr_doc['folio'] = data['folio'] if data.key?('folio')
     solr_doc['manuscript_search'] = data['manuscript'] if data.key?('manuscript')

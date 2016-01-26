@@ -1,3 +1,3 @@
-<% unless @document['abstract_display'].blank? %>
+<% if @document['abstract_display'].present? %>
   <p><%= @document['abstract_display'] %></p>
 <% end %>
