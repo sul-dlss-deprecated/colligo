@@ -180,22 +180,22 @@ class CatalogController < ApplicationController
   def related_annotations
     @related_annotations = {}
     @document_list_m.each do |doc|
-      qparams = { q: "manuscript_search:\"#{doc['title_display']}", rows: 0 }
+      query_params = { q: "manuscript_search:\"#{doc['title_display']}\"", rows: 0 }
       self.search_params_logic += [:add_annotation_filter]
       self.search_params_logic -= [:all_search_filter, :add_manuscript_filter, :add_transcription_filter]
-      (resp, _doc_list) = get_search_results(qparams)
-      @related_annotations[doc['title_display']] = resp['response']['numFound']
+      (resp, _doc_list) = get_search_results(query_params)
+      @related_annotations[doc['druid']] = resp['response']['numFound']
     end
   end
 
   def related_transcriptions
     @related_transcriptions = {}
     @document_list_m.each do |doc|
-      qparams = { q: "manuscript_search:\"#{doc['title_display']}", rows: 0 }
+      query_params = { q: "manuscript_search:\"#{doc['title_display']}\"", rows: 0 }
       self.search_params_logic += [:add_transcription_filter]
       self.search_params_logic -= [:all_search_filter, :add_manuscript_filter, :add_annotation_filter]
-      (resp, _doc_list) = get_search_results(qparams)
-      @related_transcriptions[doc['title_display']] = resp['response']['numFound']
+      (resp, _doc_list) = get_search_results(query_params)
+      @related_transcriptions[doc['druid']] = resp['response']['numFound']
     end
   end
 
@@ -252,7 +252,6 @@ class CatalogController < ApplicationController
         array << { from: Regexp.last_match(1).to_i, to: Regexp.last_match(2).to_i, count: count.to_i }
       end
     end
-    array = array.sort_by { |hash| hash[:from].to_i }
-    array
+    array.sort_by { |hash| hash[:from].to_i }
   end
 end
