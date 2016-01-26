@@ -501,6 +501,11 @@ a.noresult-inverse {
   color: #fff;
 }
 
+.transcription_text, .annotation_text {
+  //border-bottom: 1px solid #ccc;
+  margin: 0px 0px 3px 0px;
+}
+
 /*
 // Annotations displayed in mirador
 .annotation {

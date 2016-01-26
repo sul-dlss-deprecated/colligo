@@ -60,8 +60,8 @@ $(function() {
         if (annos.length == 0 &&  anno_check_count < 5) {
             setTimeout(image_rect_updated_handle, 1, event, data);
         } else {
-            console.log(annos.length);
-            console.log(texts.length);
+            //console.log(annos.length);
+            //console.log(texts.length);
             $.publish('disableTooltips.' + win_id);
             //var current_annos = [];
             var index = 0;
