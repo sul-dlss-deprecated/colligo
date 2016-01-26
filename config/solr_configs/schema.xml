@@ -206,6 +206,7 @@
     <!-- folio: facet and display -->
     <field name="folio" type="string" stored="true" indexed="true" />
     <field name="folio_sort" type="alphaSort" stored="false" indexed="true" />
+    <field name="sort_index" type="tint" indexed="true" stored="false" />
     
     <!-- *************** dynamic field types  ****************** -->
     <!--

@@ -95,8 +95,8 @@ class DataIndexer
     add_count = 0
     @manifest.annotation_lists.each do |al|
       annotation_list = @doc.read_annotation(al['@id'])
-      @doc.resources(annotation_list).each do |a|
-        data = { 'annotation' => a, 'manuscript' => @title, 'folio' => al['label'], 'url' => al['@id'] }
+      @doc.resources(annotation_list).each.with_index(1) do |a, index|
+        data = { 'annotation' => a, 'manuscript' => @title, 'folio' => al['label'], 'url' => al['@id'], 'sort_index' => index }
         solr_doc = @doc.annotation_to_solr(data)
         unless solr_doc.blank?
           @solr.add solr_doc
