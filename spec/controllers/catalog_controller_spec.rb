@@ -4,6 +4,7 @@ describe CatalogController do
   describe '#index home page' do
     before do
       allow(controller).to receive(:on_home_page).and_return(true)
+      controller.should_not_receive(:session_save_manuscript_search)
       get :index
     end
     it 'should add range facet if on home page' do
@@ -43,6 +44,7 @@ describe CatalogController do
     before do
       allow(controller).to receive(:on_home_page).and_return(false)
       allow(controller).to receive(:on_bento_page).and_return(true)
+      controller.should_receive(:session_save_manuscript_search)
       get :index, params: { 'q': 'gospel', 'search_field': 'all_fields' }
     end
     it 'should have manuscripts' do
@@ -70,6 +72,7 @@ describe CatalogController do
       allow(controller).to receive(:on_home_page).and_return(false)
       allow(controller).to receive(:on_bento_page).and_return(false)
       allow(controller).to receive(:on_manuscripts_page).and_return(true)
+      controller.should_receive(:session_save_manuscript_search)
       get :index, params: { 'q': 'gospel', 'search_field': 'descriptions' }
     end
     it 'should have manuscripts' do
@@ -114,6 +117,7 @@ describe CatalogController do
       allow(controller).to receive(:on_bento_page).and_return(false)
       allow(controller).to receive(:on_manuscripts_page).and_return(false)
       allow(controller).to receive(:on_transcriptions_page).and_return(true)
+      controller.should_not_receive(:session_save_manuscript_search)
       get :index, params: { 'q': 'gospel', 'search_field': 'transcriptions' }
     end
     it 'should have transcriptions' do
@@ -153,6 +157,7 @@ describe CatalogController do
       allow(controller).to receive(:on_manuscripts_page).and_return(false)
       allow(controller).to receive(:on_transcriptions_page).and_return(false)
       allow(controller).to receive(:on_annotations_page).and_return(true)
+      controller.should_not_receive(:session_save_manuscript_search)
       get :index, params: { 'q': 'gospel', 'search_field': 'annotations' }
     end
     it 'should have annotations' do
@@ -224,7 +229,7 @@ describe CatalogController do
       expect(controller.instance_variable_get('@related_annotations')).to be_a(Hash)
       expect(controller.instance_variable_get('@related_annotations').length).to eq(@numdocs)
       controller.instance_variable_get('@document_list_m').each do |doc|
-        expect(controller.instance_variable_get('@related_annotations').keys).to include(doc['title_display'])
+        expect(controller.instance_variable_get('@related_annotations').keys).to include(doc['druid'])
       end
     end
   end
@@ -242,7 +247,7 @@ describe CatalogController do
       expect(controller.instance_variable_get('@related_transcriptions')).to be_a(Hash)
       expect(controller.instance_variable_get('@related_transcriptions').length).to eq(@numdocs)
       controller.instance_variable_get('@document_list_m').each do |doc|
-        expect(controller.instance_variable_get('@related_transcriptions').keys).to include(doc['title_display'])
+        expect(controller.instance_variable_get('@related_transcriptions').keys).to include(doc['druid'])
       end
     end
   end
@@ -270,6 +275,23 @@ describe CatalogController do
     end
     it 'should have annotations request handler' do
       expect(controller.instance_variable_get('@response_a')['responseHeader']['params']['qt']).to eq('annotations')
+    end
+  end
+
+  describe '#session_save_manuscript_search' do
+    let(:request) { double('request', query_parameters: {controller: 'catalog', action: 'index', search_field: 'all_search', page: 3, f: {language: ['Latin']}, q: 'gospel'}) }
+    before do
+      allow(controller).to receive(:request).and_return(request)
+      controller.instance_variable_set(:@response_m, {'response' => {'numFound' => 62}})
+      @expected = {
+        f: {language: ['Latin']},
+        q: 'gospel',
+        numFound: 62
+      }.to_json
+      controller.send(:session_save_manuscript_search)
+    end
+    it 'should save the session params' do
+      session[:m_last_search_query].should eq(@expected)
     end
   end
 
