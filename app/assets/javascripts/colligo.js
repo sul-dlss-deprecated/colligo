@@ -1,9 +1,15 @@
 // Tabs on homepage
 $(document).on('click', '.nav-tabs li', function() {
   $(".nav-tabs li").removeClass("active");
+  $(".tab-pane").removeClass("active");
   $(this).addClass("active");
   $("#main_search_field").val($(this).data("field"));
   $("#q" ).focus();
+  var tab_ele = $(this).data('tab-id');
+  if (tab_ele) {
+    $("#"+tab_ele).addClass("active");
+    $("#folio-title").html(tab_ele[0].toUpperCase() + tab_ele.slice(1));
+  }
 });
 
 // nav on manuscript show

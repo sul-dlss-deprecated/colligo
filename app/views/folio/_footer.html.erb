@@ -1,0 +1,15 @@
+<div class="media">
+  <div class="media-left">
+    <%= render :partial => '/folio/previous_folio' %>
+  </div>
+  <div class="media-body media-body-center">
+    <div class="panel panel-content folio-panel">
+      <div class="panel-body">
+        <%= render partial: 'shared/manuscript_body', locals: {document: @manuscript, show_manifest: true, count: nil}  %>
+      </div>
+    </div>
+  </div>
+  <div class="media-right">
+    <%= render :partial => '/folio/next_folio' %>
+  </div>
+</div>
