@@ -1,10 +1,12 @@
-<% next_url = "/manuscript/#{params[:manuscript_id]}/folio/#{@next_folio['label']}" %>
-<a href="<%=next_url%>" rel="next" class="btn btn-lg btn-paginate-next" id="nextpage">
-  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
-  <span class="next_result"><%= @next_folio['label'] %></span>
-</a>
-<div>
-  <a href="<%=next_url%>" rel="next">
-    <img class="media-object results-thumbnail" src="<%=@next_folio['img']%>" alt="folio thumbnail">
+<% if @next_folio.present? %>
+  <% next_url = "/manuscript/#{params[:manuscript_id]}/folio/#{@next_folio['label']}" %>
+  <a href="<%=next_url%>" rel="next" class="btn btn-lg btn-paginate-next" id="nextpage">
+    <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+    <span class="next_result"><%= @next_folio['label'] %></span>
   </a>
-</div>
+  <div>
+    <a href="<%=next_url%>" rel="next">
+      <img class="media-object results-thumbnail" src="<%=@next_folio['img']%>" alt="folio thumbnail">
+    </a>
+  </div>
+<% end %>
