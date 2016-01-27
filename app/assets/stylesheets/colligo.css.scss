@@ -483,7 +483,7 @@ a.noresult-inverse {
   color: #666;
   border: 2px solid #666;
   border-radius: 0px;
-  margin: -2px;
+  margin: -1px;
   padding: 10px;
 }
 
@@ -493,7 +493,8 @@ a.noresult-inverse {
   border: 2px solid #666;
   border-radius: 0px;
   border-top: none;
-  margin: -1px;
+  margin: -2px;
+  height: 45px;
 }
 
 .folio-tabs > li:hover, .folio-tabs > li.active:hover {
