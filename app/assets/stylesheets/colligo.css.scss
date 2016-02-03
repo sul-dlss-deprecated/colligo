@@ -32,6 +32,19 @@ body {
   padding: 0px 15px;
 }
 
+.navbar-inverse .navbar-nav > li > a {
+  color: #fff;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+  color: #000;
+}
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+  background-color: #99bbff;
+  color: #000;
+}
+
 #main-container {
   margin-top: 70px;
 }
