@@ -17,3 +17,14 @@ $(document).on('click', '.navbar-green .navbar-nav li', function() {
     $(".navbar-green .navbar-nav li").removeClass("active");
     $(this).addClass("active");
 });
+
+$(window).scroll(function() {
+    if ($("#viewer").length > 0) {
+        if ($(window).scrollTop() > 0) {
+            $("#nav_top").css('display', 'block');
+        } else {
+            $("#nav_top").css('display', 'none');
+        }
+
+    }
+});
