@@ -17,6 +17,8 @@
 //= require blacklight/blacklight
 // For Mirador viewer
 //= require mirador
+// For scaling fonts
+//= require flowtype
 //= require_tree .
 //
 // For blacklight_range_limit built-in JS, if you don't want it you don't need
