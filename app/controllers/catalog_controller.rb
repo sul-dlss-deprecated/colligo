@@ -83,7 +83,7 @@ class CatalogController < ApplicationController
 
     # "fielded" search configuration. Used by pulldown among other places.
     # For supported keys in hash, see rdoc for Blacklight::SearchFields
-    config.add_search_field 'all_fields', label: 'All Fields'
+    config.add_search_field 'all_fields', label: 'All Content'
     config.add_search_field('descriptions') do |field|
       field.qt = 'descriptions'
     end
