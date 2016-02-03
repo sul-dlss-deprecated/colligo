@@ -96,4 +96,13 @@ $(function() {
     // update the current page thumbnail each time the focus changes
     $.subscribe('focusUpdated', handle);
 
+    // Set width on navbar for affixing to top
+    function affixWidth() {
+        // ensure the affix element maintains it width
+        var affix = $('.navbar-green');
+        var width = affix.width();
+        affix.width(width);
+    }
+    affixWidth();
+
 });
