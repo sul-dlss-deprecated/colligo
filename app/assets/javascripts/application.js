@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks//
+//= require turbolinks
 // For Mirador viewer
 //= require mirador
 // For scaling fonts
@@ -20,6 +20,7 @@
 // Required by Blacklight
 //= require blacklight/blacklight
 //= require affix
+//= require scrollspy
 //= require_tree .
 //
 // For blacklight_range_limit built-in JS, if you don't want it you don't need
