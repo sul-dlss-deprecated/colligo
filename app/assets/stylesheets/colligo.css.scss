@@ -245,12 +245,8 @@ h2, h3, h4  {
 .results-thumbnail {
   width: 75px; 
   height: 100%;
+  max-height: 100px;
   display: block;
-}
-
-.results-thumbnail > img {
-  width: 64px;
-  max-height: 64px;
 }
 
 .iiif-logo {
