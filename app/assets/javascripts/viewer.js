@@ -61,8 +61,6 @@ $(function() {
             url: window.location.pathname + '/related_content',
             data: 'folio=' + current_folio,
             success: function(data) {
-                console.log("Got related content");
-                console.log(data);
                 // Annotations
                 var cls = 'noresult-inverse';
                 if (data['annotations'] > 0) {
