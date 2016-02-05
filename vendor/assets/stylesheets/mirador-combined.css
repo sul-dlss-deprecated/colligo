@@ -2465,7 +2465,7 @@ a {
 #bookmark-panel h3 {
   text-align: center;
 }
-.container {
+/* .container {
   position: relative;
   width: 100%;
   height:100%;
@@ -2473,7 +2473,7 @@ a {
   box-sizing: border-box;
   overflow: hidden;
   margin:0 auto;
-}
+} */
 .items-listing {
   margin: 0;
   padding-left: 0;

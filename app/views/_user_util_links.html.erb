@@ -6,6 +6,7 @@
       <%= render_nav_actions do |config, action|%>
         <li><%= action %></li>
       <% end %>
+      <li role="separator" class="divider"></li>
       <% if has_user_authentication_provider? %>
         <% if current_user %>
           <li>
