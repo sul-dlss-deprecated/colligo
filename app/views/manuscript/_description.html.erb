@@ -5,8 +5,10 @@
       <ul class="nav navbar-nav">
         <% if @document['abstract_display'].present? %>
           <li class="active"><a href="#summary">Summary</a></li>
+          <li><a href="#description">Description</a></li>
+        <% else %>
+          <li class="active"><a href="#description">Description</a></li>
         <% end %>
-        <li><a href="#description">Description</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -17,11 +19,13 @@
       <section id="summary">
         <h2>Summary</h2>
         <%= render partial: 'manuscript/_description/summary' %>
+        <%#= render partial: 'shared/lorem_ipsum' %>
       </section>
     <% end %>
     <section id="description">
       <h2>Description</h2>
       <%= render partial: 'manuscript/_description/description' %>
+      <%#= render partial: 'shared/lorem_ipsum' %>
     </section>
   </div>
 </div>
