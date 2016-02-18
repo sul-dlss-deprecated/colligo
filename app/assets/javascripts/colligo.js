@@ -23,14 +23,11 @@ $(document).on('click', '.navbar-green li', function() {
     $(this).addClass("active");
 });
 
-// scrollspy
+// enable top on scroll
 $(window).scroll(function() {
-    if ($("#viewer").length > 0) {
-        if ($(window).scrollTop() > 0) {
-            $("#nav_top").css('display', 'block');
-        } else {
-            $("#nav_top").css('display', 'none');
-        }
-
+    if ($(window).scrollTop() > 0) {
+        $("#nav_top").css('display', 'block');
+    } else {
+        $("#nav_top").css('display', 'none');
     }
 });
