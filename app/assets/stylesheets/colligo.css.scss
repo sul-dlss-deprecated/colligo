@@ -80,9 +80,10 @@ body {
   color: black;
 }
 
-#myDropDown a:hover, #myDropDown a:hover h4 {
+#myDropDown:hover, #myDropDown a:hover, #myDropDown a:hover h4 {
   text-decoration: none;
-  color: #666;
+  background-color: #fff;
+  color: #000;
 }
 
 #myTabs {
