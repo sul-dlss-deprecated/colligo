@@ -40,7 +40,10 @@ $(function() {
 function lookup_init(activeTab) {
     var possibleValues = [];
     $("#" + activeTab + " tbody tr").each(function(){
-        possibleValues.push($(this).find("td:first a").text()); //put elements into array
+        var a_ele = $(this).find("td:first a");
+        if (!a_ele.hasClass("remove")) {
+            possibleValues.push({value: a_ele.attr("href"), label: a_ele.text()}); //put elements into array
+        }
     });
     $( "#" + activeTab + "-lookup" ).autocomplete({
         source: possibleValues,
@@ -48,6 +51,9 @@ function lookup_init(activeTab) {
         messages: {
             noResults: '',
             results: function() {}
+        },
+        select: function( event, ui ) {
+            window.location.href = ui.item.value;
         }
     })
 }
