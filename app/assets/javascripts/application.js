@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
-//= require turbolinks
+// require turbolinks
 // For Mirador viewer
 //= require mirador
 // For scaling fonts
