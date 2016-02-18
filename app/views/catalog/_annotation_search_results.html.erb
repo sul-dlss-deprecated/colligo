@@ -1,23 +1,8 @@
-<h2 class="top-content-title"><%= @response_a['response']['numFound'] %> Annotations</h2>
-
-<% @page_title = t('blacklight.search.page_title.title', :constraints => render_search_to_page_title(params), :application_name => application_name) %>
-
-<% content_for(:head) do -%>
-  <%= render_opensearch_response_metadata %>
-  <%= auto_discovery_link_tag(:rss, url_for(params.merge(:format => 'rss')), :title => t('blacklight.search.rss_feed') ) %>
-  <%= auto_discovery_link_tag(:atom, url_for(params.merge(:format => 'atom')), :title => t('blacklight.search.atom_feed') ) %>
-<% end -%>
-
-<%= render partial: 'shared/results_header' %>
-
 <h2 class="sr-only"><%= t('blacklight.search.search_results') %></h2>
 
 <%- if @document_list_a.empty? %>
   <%= render partial: 'catalog/zero_results' %>
 <%- else %>
-  <div class="row">
-    <%= render partial: 'shared/annotation', collection: @document_list_a, as: :document %>
-  </div>
+  <%= render partial: 'shared/annotation', collection: @document_list_a, as: :document %>
   <%= render partial: 'shared/results_footer' %>
 <%- end %>
-

@@ -1,9 +1,26 @@
 <% @response = @response_a %>
 <% @document_list = @document_list_a %>
-<div id="sidebar" class="<%= sidebar_classes %>">
-  <%= render 'search_sidebar' %>
+
+<% @page_title = t('blacklight.search.page_title.title', :constraints => render_search_to_page_title(params), :application_name => application_name) %>
+
+<% content_for(:head) do -%>
+    <%= render_opensearch_response_metadata %>
+    <%= auto_discovery_link_tag(:rss, url_for(params.merge(:format => 'rss')), :title => t('blacklight.search.rss_feed') ) %>
+    <%= auto_discovery_link_tag(:atom, url_for(params.merge(:format => 'atom')), :title => t('blacklight.search.atom_feed') ) %>
+<% end -%>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="refine">
+      <%= render 'search_sidebar' %>
+    </div>
+    <div class="summary">
+      <h2 class="top-content-title"><%= @response_a['response']['numFound'] %> Annotations</h2>
+      <%= render partial: 'shared/results_header' %>
+    </div>
+  </div>
 </div>
 
-<div id="content" class="<%= main_content_classes %>">
+<div id="content" class="<%#= main_content_classes %>">
   <%= render partial: 'catalog/annotation_search_results' %>
 </div>

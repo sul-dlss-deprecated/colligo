@@ -1,0 +1,21 @@
+<% # main container for facets/limits menu -%>
+<% if has_facet_values?  %>
+  <div id="myDropDown" class="dropdown">
+    <a id="dLabel" role="button" data-toggle="dropdown" data-target="#"><h4>Refine <span class="caret"></span></h4></a>
+    <ul id="myTabs" class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+      <div class="row" style="min-width: 500px; max-height: 600px; overflow: auto;">
+        <div class="col-xs-3">
+          <ul class="nav nav-tabs tabs-left">
+            <%= render_facet_tabs %>
+          </ul>
+        </div>
+        <div class="col-xs-9">
+          <div class="tab-content">
+            <%= render_facet_partials %>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </ul>
+  </div>
+<% end %>
