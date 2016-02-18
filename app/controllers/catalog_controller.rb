@@ -8,7 +8,9 @@ class CatalogController < ApplicationController
     ## Default parameters to send to solr for all search-like requests. See also SearchBuilder#processed_parameters
     config.default_solr_params = {
       qt: 'search',
-      rows: 10
+      rows: 10,
+      'facet.limit' => -1,
+      'facet.sort' => 'count'
     }
 
     # solr field configuration for search results/index views
@@ -18,11 +20,11 @@ class CatalogController < ApplicationController
     config.add_facet_field 'format', label: 'Format'
     config.add_facet_field 'type_of_resource_facet', label: 'Type of resource'
     config.add_facet_field 'authors_all_facet', label: 'Authors'
-    config.add_facet_field 'topic_facet', label: 'Topic', limit: 20
+    config.add_facet_field 'topic_facet', label: 'Topic'#, limit: 20
     config.add_facet_field 'geographic_facet', label: 'Region'
     config.add_facet_field 'era_facet', label: 'Era'
     config.add_facet_field 'manuscript_facet', label: 'Manuscript'
-    config.add_facet_field 'language', label: 'Language', limit: 5
+    config.add_facet_field 'language', label: 'Language'#, solr_params: { 'facet.limit' => -1 }
     config.add_facet_field 'place_facet', label: 'Place of origin'
     config.add_facet_field 'model', label: 'Type'
     config.add_facet_field 'folio', label: 'Folio'
@@ -115,6 +117,7 @@ class CatalogController < ApplicationController
         assumed_boundaries: [0, 2999],
         segments: true
       }
+      blacklight_config.default_solr_params['facet.limit'] = 6
       manuscripts
       annotations
       plot_data
