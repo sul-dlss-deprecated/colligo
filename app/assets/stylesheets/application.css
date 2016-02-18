@@ -13,9 +13,7 @@
  * Used by blacklight_range_limit
  *= require 'blacklight_range_limit'
  *= require mirador-combined
- * require jquery-ui
  *= require jquery-tablesorter
- * require 'bootstrap.vertical-tabs'
  *
  *= require_tree .
  *= require_self
