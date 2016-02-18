@@ -51,6 +51,44 @@ body {
   color: #000;
 }
 
+.refine {
+  display: inline-block;
+  float:left;
+  padding: 25px 10px;
+  margin-right: 10px;
+}
+
+.summary {
+  display: inline-block;
+  float:left;
+  width: 100%;
+}
+
+#myDropDown {
+  border: 1px solid #aaa;
+  padding: 0px 5px;
+  background-color: #ccc;
+}
+
+#myDropDown.open {
+  background-color: transparent;
+  border-bottom: 1px solid white;
+  margin-bottom: -1px;
+}
+
+#myDropDown a h4 {
+  color: black;
+}
+
+#myDropDown a:hover, #myDropDown a:hover h4 {
+  text-decoration: none;
+  color: #666;
+}
+
+#myTabs {
+  margin-left: -10px;
+}
+
 .dropdown li {
   margin: 0;
   cursor: pointer;
@@ -76,6 +114,11 @@ body {
   overflow: hidden;
   background-color: #e5e5e5;
   border-left: none;
+}
+
+.facet-label .remove {
+  padding-left: 5px;
+  color: red;
 }
 
 #main-container {
@@ -264,7 +307,6 @@ h2, h3, h4  {
 }
 
 #searchinfo {
-  border-bottom: 1px solid #DDD;
   margin-bottom: 0.5em;
   padding-bottom: 0.5em;
 }
@@ -577,4 +619,29 @@ a.noresult-inverse {
 
 #nav_top {
   display: none;
+}
+
+.tabs-left > li > a {
+  color: #000;
+}
+
+.tabs-left > li {
+  margin-left: 5px;
+  border: none;
+  border-right: 1px solid #ccc;
+}
+
+.tabs-left > li.active {
+  border: 1px solid #ccc;
+  border-right: none;
+  color: #000;
+}
+
+.tabs-left > li.active > a, .tabs-left > li.active > a:hover, .tabs-left > li.active > a:focus {
+  border: none;
+  color: #000;
+}
+
+.tabs-left > li:hover, .tabs-left > li > a:hover {
+  font-weight: normal;
 }
