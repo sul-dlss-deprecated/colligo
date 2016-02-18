@@ -1,23 +1,29 @@
 // Tabs on homepage
-$(document).on('click', '.nav-tabs li', function() {
-  $(".nav-tabs li").removeClass("active");
-  $(".tab-pane").removeClass("active");
-  $(this).addClass("active");
-  $("#main_search_field").val($(this).data("field"));
-  $("#q" ).focus();
-  var tab_ele = $(this).data('tab-id');
-  if (tab_ele) {
-    $("#"+tab_ele).addClass("active");
-    $("#folio-title").html(tab_ele[0].toUpperCase() + tab_ele.slice(1));
-  }
+$(document).on('click', '.search-tabs li', function() {
+    $(".search-tabs li").removeClass("active");
+    $(this).addClass("active");
+    $("#main_search_field").val($(this).data("field"));
+    $("#q" ).focus();
 });
 
+// Tabs on folio page
+$(document).on('click', '.folio-tabs li', function() {
+    $(".folio-tabs li").removeClass("active");
+    $(".tab-pane").removeClass("active");
+    $(this).addClass("active");
+    var tab_ele = $(this).data('tab-id');
+    $("#"+tab_ele).addClass("active");
+    $("#folio-title").html(tab_ele[0].toUpperCase() + tab_ele.slice(1));
+});
+
+
 // nav on manuscript show
-$(document).on('click', '.navbar-green .navbar-nav li', function() {
-    $(".navbar-green .navbar-nav li").removeClass("active");
+$(document).on('click', '.navbar-green li', function() {
+    $(".navbar-green li").removeClass("active");
     $(this).addClass("active");
 });
 
+// scrollspy
 $(window).scroll(function() {
     if ($("#viewer").length > 0) {
         if ($(window).scrollTop() > 0) {
