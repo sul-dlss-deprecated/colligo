@@ -1,6 +1,7 @@
 <div class="panel panel-content">
   <div class="panel-body">
     <h3>by repository</h3>
+    <% params[:search_field] = 'descriptions' %>
     <% @response['facet_counts']['facet_fields']['collection'].each_with_index do |r, i| %>
       <% if i.even? %>
         <% case %>
@@ -13,7 +14,7 @@
         <% else %>
           <% fname = 'other.png' %>
         <% end %>
-        <a href="<%="#{path_for_facet('collection', r)}&search_field=descriptions"%>" class="btn btn-secondary">
+        <a href="<%="#{path_for_facet('collection', r)}"%>" class="btn btn-secondary">
           <%= image_tag(fname) %>
           <%= r %>
         </a>
