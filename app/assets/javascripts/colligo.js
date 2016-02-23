@@ -31,3 +31,13 @@ $(window).scroll(function() {
         $("#nav_top").css('display', 'none');
     }
 });
+
+
+$(document).on("focus", ".ui-autocomplete-input", function() {
+    $(this).val("");
+});
+
+$(document).on("click", "#home_modal_button", function(){
+    lookup_init('facet-language');
+    $(".tablesorter").tablesorter({});
+});

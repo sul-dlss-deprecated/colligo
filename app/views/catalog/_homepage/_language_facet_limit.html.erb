@@ -1,17 +1,20 @@
 <ul class="facet-values list-unstyled">
   <% paginator = facet_paginator(facet_field, display_facet) %>
+  <% params[:search_field] = 'descriptions' %>
   <%#= render_facet_limit_list paginator, field_name %>
  
   <% @response['facet_counts']['facet_fields']['language'].each_with_index do |r, i| %>
     <% if i.even? && i < 9 %>
-      <a href="<%="#{path_for_facet('language', r)}&search_field=descriptions"%>" class="btn btn-primary">
+      <a href="<%="#{path_for_facet('language', r)}"%>" class="btn btn-primary">
         <%= r %>
       </a>
     <% end %>
   <% end %>
 
-  <% unless paginator.last_page? || params[:action] == 'facet' %>
-    <%= link_to t("more_#{field_name}_html", scope: 'blacklight.search.facets', default: :more_html, field_name: facet_field.label), 
+  <% unless paginator.total_count < 6 || params[:action] == 'facet' %>
+    <%#= link_to t("more_#{field_name}_html", scope: 'blacklight.search.facets', default: :more_html, field_name: facet_field.label),
       search_facet_url(id: field_name), class: 'btn btn-primary-outline more_facets_link' %>
+      <button type="button" class="btn btn-primary-outline more_facets_link" data-toggle="modal" data-target="#home_modal" id="home_modal_button">More »</button>
+      <%= render :partial=>'/catalog/_homepage/home_modal', locals: {display_facet: display_facet, facet_field: facet_field} %>
   <% end %>
  </ul>

@@ -24,7 +24,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'geographic_facet', label: 'Region'
     config.add_facet_field 'era_facet', label: 'Era'
     config.add_facet_field 'manuscript_facet', label: 'Manuscript'
-    config.add_facet_field 'language', label: 'Language'#, solr_params: { 'facet.limit' => -1 }
+    config.add_facet_field 'language', label: 'Language', solr_params: { 'facet.limit' => -1 }
     config.add_facet_field 'place_facet', label: 'Place of origin'
     config.add_facet_field 'model', label: 'Type'
     config.add_facet_field 'folio', label: 'Folio'
