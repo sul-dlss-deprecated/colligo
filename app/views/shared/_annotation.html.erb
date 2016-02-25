@@ -8,9 +8,9 @@
       </div>
       <div class="media-body">
         <% unless document['body_chars_display'].blank? %>
-          <h4 class="media-heading"><a href="/annotations/<%=document['id']%>"><%= truncate(document['body_chars_display'], length: 150) %></a></h4>
+          <h4 class="media-heading"><a href="/manuscript/<%=document['druid']%>/folio/<%=document['folio']%>"><%= truncate(document['body_chars_display'], length: 150) %></a></h4>
         <% else %>
-          <h4 class="media-heading"><a href="/annotations/<%=document['id']%>"><%= document['id'] %></a></h4>
+          <h4 class="media-heading"><a href="/manuscript/<%=document['druid']%>/folio/<%=document['folio']%>"><%= document['id'] %></a></h4>
         <% end %>
         <% unless document['authors_all_display'].blank? %>
           <p><strong><%= raw document['authors_all_display'].join('<br/>') %></strong></p>
