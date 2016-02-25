@@ -1,5 +1,6 @@
 window.onload = function () {
-  if ($("#century").length == 0) {
+  var century = $("#century");
+  if (century.length == 0) {
     return;
   }
   // Vertical slider
@@ -11,6 +12,7 @@ window.onload = function () {
   //*******Century HORIZONTAL BAR CHART
   //http://www.jqueryflottutorial.com/how-to-make-jquery-flot-horizontal-bar-chart.html
   var century_panel = $('#century_panel');
+  century_panel.width(century.width() - century_slider.width());
   var rawData = century_panel.data('rawdata');
   var ticks = century_panel.data('ticks');
   var pointer_lookup = century_panel.data('pointerlookup');
@@ -58,7 +60,7 @@ window.onload = function () {
   $(document).ready(function () {
     var plot;
     var browse_century = $("#browse_century");
-    var form = $("#century").find("form.range_limit");
+    var form = century.parent().find("form.range_limit");
     var begin_el = form.find("input.range_begin");
     var end_el = form.find("input.range_end");
     // Plot the graph
@@ -87,7 +89,7 @@ window.onload = function () {
         min: min,
         max: max,
         value: [min, max],
-        tooltip_position: "left",
+        tooltip_position: "right",
         orientation: 'vertical',
         reversed: true,
         //step: 100,
