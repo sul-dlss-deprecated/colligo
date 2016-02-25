@@ -94,13 +94,19 @@ $(function() {
     // update the current page thumbnail each time the focus changes
     $.subscribe('focusUpdated', handle);
 
-    // Set width on navbar for affixing to top
+    // Set width and data-offset-top on navbar for affixing to top
     function affixWidth() {
         // ensure the affix element maintains it width
         var affix = $('.navbar-green');
         var width = affix.width();
+        var top_pos = $('#manuscript-description').position().top - 50;
+        affix.attr('data-offset-top', top_pos);
         affix.width(width);
     }
     affixWidth();
+
+  $(window).on("resize", function(){
+    affixWidth();
+  })
 
 });
