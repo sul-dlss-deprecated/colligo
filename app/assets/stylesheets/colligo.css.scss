@@ -1,3 +1,22 @@
+@media (max-width: 767px) {
+  .container {
+    margin:0px 5px;
+  }
+
+  .flash_messages {
+    margin-top: 20px;
+  }
+
+  .affix {
+    top: 125px;
+  }
+}
+@media (min-width: 768px) {
+  .affix {
+    top: 50px;
+  }
+}
+
 body {
   overflow: scroll;
 }
@@ -15,6 +34,7 @@ body {
   text-indent: 50px;
   font-size: 2.5em;
   color: #fff;
+  margin-left: -50px;
 }
 
 #header-navbar .navbar-brand:hover {
@@ -32,8 +52,23 @@ body {
   padding: 0px 15px;
 }
 
+.container > .navbar-header {
+  width: 100%;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.navbar-inverse  .navbar-nav {
+  /* margin: 0px -15px; */
+  float: right;
+  /* padding-right: 15px; */
+}
+
 .navbar-inverse .navbar-nav > li  {
   border-left: 1px solid #aaa;
+  display: inline-block;
+  float: right;
+  /* padding-left: 10px; */
 }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -49,6 +84,10 @@ body {
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
   background-color: #b3d9ff;
   color: #000;
+}
+
+.navbar-toggle {
+  margin: 4px 7px;
 }
 
 .refine {
@@ -88,6 +127,8 @@ body {
 
 #myTabs {
   margin-left: -10px;
+  right: auto;
+  left: 5px;
 }
 
 .dropdown li {
@@ -107,6 +148,11 @@ body {
 
 .dropdown li a:hover{
   background-color: #fff;
+}
+
+.dropdown-menu {
+  right: 5px;
+  left: auto;
 }
 
 .dropdown-menu .divider, .dropdown-menu .divider:hover {
@@ -130,10 +176,15 @@ body {
   margin-top: 70px;
 }
 
+.top_padding {
+  margin-top: 60px;
+}
+
 /* application search */
 .searchbar {
   display: block;
   float: left;
+
 }
 
 .search-query-form .form-control {
@@ -147,16 +198,22 @@ body {
   background-color: #ccc;
   font-weight: bold;
   color: #000;
+  width: 100%
 }
 
 #search {
- background-color: #ccc;
- color: #000;
+  background-color: #ccc;
+  color: #000;
+  width: 100%
 }
 
 #search:hover {
- background-color: #666;
- color: #fff;
+  background-color: #666;
+  color: #fff;
+}
+
+.navbar-form .form-group {
+  padding: 0px
 }
 
 /* Home page search */
@@ -231,6 +288,14 @@ h2, h3, h4  {
   margin: 0 5px 5px 0;
 }
 
+.panel-footer .pull-left {
+  padding-right: 0px;
+}
+
+.panel-footer .pull-right {
+  padding-left: 0px;
+}
+
 #century_panel {
   height: 400px;
   text-align: center;
@@ -241,10 +306,14 @@ h2, h3, h4  {
 
 #century_slider {
   height: auto;
-  width: 50px;
+  width: 25px;
   float: left;
   position: relative;
   padding-right: 0px;
+}
+
+#century, #annotations_recent, #annotations_author {
+  margin-left: 15px;
 }
 
 .simple-query > .constraint-value > .filterName{
@@ -616,11 +685,6 @@ a.noresult-inverse {
   box-shadow: none;
 }
 */
-
-.affix {
-  top: 50px;
-  width: 75%;
-}
 
 #nav_top {
   display: none;
