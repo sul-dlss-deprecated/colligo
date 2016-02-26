@@ -3,6 +3,7 @@ class FolioController < ApplicationController
   include Blacklight::SolrHelper
   include Blacklight::Catalog::SearchContext
   copy_blacklight_config_from(CatalogController)
+  blacklight_config.max_per_page = 1000
 
   layout 'blacklight'
 
@@ -41,21 +42,21 @@ class FolioController < ApplicationController
     query_params = { q: "druid:#{params[:manuscript_id]} AND folio:\"#{params[:id]}\"", rows: 1000, sort: 'sort_index asc' }
     self.search_params_logic += [:add_annotation_filter]
     self.search_params_logic -= [:all_search_filter, :add_manuscript_filter, :add_transcription_filter]
-    (_resp, @annotations) = get_search_results(query_params)
+    (_resp, @annotations) = search_results(query_params, self.search_params_logic)
   end
 
   def transcriptions
     query_params = { q: "druid:#{params[:manuscript_id]} AND folio:\"#{params[:id]}\"", rows: 1000, sort: 'sort_index asc' }
     self.search_params_logic += [:add_transcription_filter]
     self.search_params_logic -= [:all_search_filter, :add_manuscript_filter, :add_annotation_filter]
-    (_resp, @transcriptions) = get_search_results(query_params)
+    (_resp, @transcriptions) = search_results(query_params, self.search_params_logic)
   end
 
   def manuscript
     query_params = { q: "druid:#{params[:manuscript_id]}", rows: 1 }
     self.search_params_logic += [:add_manuscript_filter]
     self.search_params_logic -= [:all_search_filter, :add_annotation_filter, :add_transcription_filter]
-    (_resp, doc) = get_search_results(query_params)
+    (_resp, doc) = search_results(query_params, self.search_params_logic)
     @manuscript = doc.first if doc
   end
 
