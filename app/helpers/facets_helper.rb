@@ -1,6 +1,19 @@
 module FacetsHelper
   include Blacklight::FacetsHelperBehavior
 
+  ##
+  # Render a collection of facet fields.
+  # @see #render_refine_facet_limit
+  # 
+  # @param [Array<String>]
+  # @param [Hash] options
+  # @return String
+  def render_refine_facet_partials fields = facet_field_names, options = {}
+    safe_join(facets_from_request(fields).map do |display_facet|
+      render_refine_facet_limit(display_facet, options)
+    end.compact, "\n")
+  end
+
   def render_facet_tabs(fields = facet_field_names, options = {})
     count = 0
     tabs = []
@@ -23,10 +36,10 @@ module FacetsHelper
     "<li class=\"#{active}\" data-tab-id=\"#{facet_field_id(facet)}\"><a href=\"##{facet_field_id(facet)}\" class=\"disabled\" data-toggle=\"tab\">#{facet['label']}</a></li>".html_safe
   end
 
-  def render_facet_limit(display_facet, options = {})
+  def render_refine_facet_limit(display_facet, options = {})
     options = options.dup
-    options[:partial] ||= 'facet_limit' #facet_partial_name(display_facet)
-    options[:layout] ||= 'facet_layout' unless options.has_key?(:layout)
+    options[:partial] ||= 'refine_facet_limit' #facet_partial_name(display_facet)
+    options[:layout] ||= 'refine_facet_layout' unless options.has_key?(:layout)
     options[:locals] ||= {}
     options[:locals][:field_name] ||= display_facet.name
     options[:locals][:solr_field] ||= display_facet.name # deprecated
@@ -41,11 +54,21 @@ module FacetsHelper
   # Renders the list of values
   # removes any elements where render_facet_item returns a nil value. This enables an application
   # to filter undesireable facet items so they don't appear in the UI
-  def render_facet_limit_list(paginator, facet_field, wrapping_element=:tr)
+  def render_refine_facet_limit_list(paginator, facet_field, wrapping_element=:tr)
     safe_join(paginator.items.
-        map { |item| render_facet_item(facet_field, item) }.compact.
+        map { |item| render_refine_facet_item(facet_field, item) }.compact.
         map { |item| content_tag(wrapping_element,item)}
     )
+  end
+
+  ##
+  # Renders a single facet item
+  def render_refine_facet_item(facet_field, item)
+    if facet_in_params?(facet_field, item.value )
+      render_refine_selected_facet_value(facet_field, item)
+    else
+      render_refine_facet_value(facet_field, item)
+    end
   end
 
   ##
@@ -58,24 +81,24 @@ module FacetsHelper
   # @param [Hash] options
   # @option options [Boolean] :suppress_link display the facet, but don't link to it
   # @return [String]
-  def render_facet_value(facet_field, item, options ={})
+  def render_refine_facet_value(facet_field, item, options ={})
     path = path_for_facet(facet_field, item)
     content_tag(:td, :class => 'facet-label') do
       link_to_unless(options[:suppress_link], facet_display_value(facet_field, item), path, :class => 'facet_select')
-    end + render_facet_count(item.hits)
+    end + render_refine_facet_count(item.hits)
     # + content_tag(:td)
   end
 
 
   ##
   # Standard display of a SELECTED facet value (e.g. without a link and with a remove button)
-  # @params (see #render_facet_value)
-  def render_selected_facet_value(facet_field, item)
+  # @params (see #render_refine_facet_value)
+  def render_refine_selected_facet_value(facet_field, item)
     content_tag(:td, :class => 'facet-label') do
       content_tag(:span, facet_display_value(facet_field, item), :class => 'selected') +
           # remove link
           link_to(content_tag(:span, '', :class => 'glyphicon glyphicon-remove') + content_tag(:span, '[remove]', :class => 'sr-only'), search_action_path(remove_facet_params(facet_field, item, params)), :class=> 'remove')
-    end + render_facet_count(item.hits, :classes => ['selected'])
+    end + render_refine_facet_count(item.hits, :classes => ['selected'])
     # + content_tag(:td)
   end
 
@@ -86,7 +109,7 @@ module FacetsHelper
   # @num [number of facet results
   # @options - hash of options.
   # @return [String]
-  def render_facet_count(num, options = {})
+  def render_refine_facet_count(num, options = {})
     classes = (options[:classes] || []) << 'facet-count'
     content_tag('td', t('blacklight.search.facets.count', :number => number_with_delimiter(num)), :class => classes)
   end
