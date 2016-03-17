@@ -171,13 +171,13 @@ class CatalogController < ApplicationController
   def all_results
     self.search_params_logic += [:all_search_filter]
     self.search_params_logic -= [:add_manuscript_filter, :add_annotation_filter, :add_transcription_filter]
-    (@response_all, @document_list_all) = get_search_results
+    (@response_all, @document_list_all) = search_results(params || {}, self.search_params_logic)
   end
 
   def manuscripts
     self.search_params_logic += [:add_manuscript_filter]
     self.search_params_logic -= [:all_search_filter, :add_annotation_filter, :add_transcription_filter]
-    (@response_m, @document_list_m) = get_search_results
+    (@response_m, @document_list_m) = search_results(params || {}, self.search_params_logic)
   end
 
   def related_annotations
@@ -186,7 +186,7 @@ class CatalogController < ApplicationController
       query_params = { q: "manuscript_search:\"#{doc['title_display']}\"", rows: 0 }
       self.search_params_logic += [:add_annotation_filter]
       self.search_params_logic -= [:all_search_filter, :add_manuscript_filter, :add_transcription_filter]
-      (resp, _doc_list) = get_search_results(query_params)
+      (resp, _doc_list) = search_results(query_params, self.search_params_logic)
       @related_annotations[doc['druid']] = resp['response']['numFound']
     end
   end
@@ -197,7 +197,7 @@ class CatalogController < ApplicationController
       query_params = { q: "manuscript_search:\"#{doc['title_display']}\"", rows: 0 }
       self.search_params_logic += [:add_transcription_filter]
       self.search_params_logic -= [:all_search_filter, :add_manuscript_filter, :add_annotation_filter]
-      (resp, _doc_list) = get_search_results(query_params)
+      (resp, _doc_list) = search_results(query_params, self.search_params_logic)
       @related_transcriptions[doc['druid']] = resp['response']['numFound']
     end
   end
@@ -212,13 +212,13 @@ class CatalogController < ApplicationController
   def annotations
     self.search_params_logic += [:add_annotation_filter]
     self.search_params_logic -= [:all_search_filter, :add_manuscript_filter, :add_transcription_filter]
-    (@response_a, @document_list_a) = get_search_results
+    (@response_a, @document_list_a) = search_results(params || {}, self.search_params_logic)
   end
 
   def transcriptions
     self.search_params_logic += [:add_transcription_filter]
     self.search_params_logic -= [:all_search_filter, :add_manuscript_filter, :add_annotation_filter]
-    (@response_t, @document_list_t) = get_search_results
+    (@response_t, @document_list_t) = search_results(params || {}, self.search_params_logic)
   end
 
   def plot_data

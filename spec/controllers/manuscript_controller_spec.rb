@@ -58,7 +58,7 @@ describe ManuscriptController do
     it 'should have a response' do
       allow(controller).to receive(:params).and_return({id: 'kq131cs7229', folio: 'f. 8r'})
       query_params = { q: 'druid:kq131cs7229 AND folio:"f. 8r"', rows: 0 }
-      allow(controller).to receive(:get_search_results).with(query_params).and_return([annotation_resp_003, annotation_docs_003])
+      allow(controller).to receive(:search_results).with(query_params).and_return([annotation_resp_003, annotation_docs_003])
       ans = controller.send(:related_annotations)
       ans.should eq(annotation_resp_003['response']['numFound'])
     end
@@ -69,21 +69,21 @@ describe ManuscriptController do
     it 'should have a response and a transcription' do
       allow(controller).to receive(:params).and_return({id: 'kq131cs7229', folio: 'f. 8r'})
       query_params = { q: 'druid:kq131cs7229 AND folio:"f. 8r"', rows: 1, sort: 'sort_index asc' }
-      allow(controller).to receive(:get_search_results).with(query_params).and_return([transcription_resp_003, transcription_docs_003])
+      allow(controller).to receive(:search_results).with(query_params).and_return([transcription_resp_003, transcription_docs_003])
       ans = controller.send(:related_transcriptions)
       ans.should eq([transcription_resp_003['response']['numFound'], transcription_docs_003[0]['body_chars_display']])
     end
     it 'should not have a folio parameter' do
       allow(controller).to receive(:params).and_return({id: 'kq131cs7229'})
       query_params = { q: 'druid:kq131cs7229', rows: 1, sort: 'sort_index asc' }
-      allow(controller).to receive(:get_search_results).with(query_params).and_return([transcription_resp_003, transcription_docs_003])
+      allow(controller).to receive(:search_results).with(query_params).and_return([transcription_resp_003, transcription_docs_003])
       ans = controller.send(:related_transcriptions)
       ans.should eq([transcription_resp_003['response']['numFound'], transcription_docs_003[0]['body_chars_display']])
     end
     it 'should have a response and no transcription' do
       allow(controller).to receive(:params).and_return({id: 'some_unknown_id', folio: '12r'})
       query_params = { q: 'druid:some_unknown_id AND folio:"12r"', rows: 1, sort: 'sort_index asc' }
-      allow(controller).to receive(:get_search_results).with(query_params).and_return([transcription_resp_002, transcription_docs_002])
+      allow(controller).to receive(:search_results).with(query_params).and_return([transcription_resp_002, transcription_docs_002])
       ans = controller.send(:related_transcriptions)
       ans.should eq([transcription_resp_002['response']['numFound'], nil])
     end
