@@ -1,3 +1,5 @@
 en:
   blacklight:
-    application_name: 'Blacklight'
+    application_name: 'Colligo'
+    range_limit:
+      submit_limit: 'Apply range'

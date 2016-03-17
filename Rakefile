@@ -14,6 +14,7 @@ task ci: [:environment] do
     Rake::Task['db:migrate'].invoke
     Rake::Task['jetty:download'].invoke
     Rake::Task['jetty:unzip'].invoke
+    Rake::Task['colligo:copy_solr_configs'].invoke
     Jettywrapper.wrap(Jettywrapper.load_config) do
       Rake::Task['spec'].invoke
     end
