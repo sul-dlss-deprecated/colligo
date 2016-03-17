@@ -265,6 +265,32 @@ h2, h3, h4  {
   font-weight: bold;
 }
 
+.facet_limit > .panel-heading {
+  background-color: #b3d9ff;
+}
+
+.facet_limit > .panel-heading.collapsed {
+  background-color: #f5f5f5;
+}
+
+.facet_limit-active {
+  border-color: #ddd;
+}
+
+.facet_limit-active > .panel-heading {
+  background-color: #b3d9ff;
+  color: #000;
+  border-color: #ddd;
+}
+
+.facet_limit-active > .panel-heading + .panel-collapse > .panel-body {
+  border-top-color: #ddd;
+}
+
+.facet-values li .selected {
+  color: #000;
+}
+
 .panel-body .btn-secondary {
   margin: 3px;
   padding: 3px;
@@ -406,8 +432,11 @@ h2, h3, h4  {
 .results-footer {
   background-color: #666;
   color: #fff;
-  padding: 3px;
+  padding: 0px 3px;
   margin: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  max-height: 25px;
 }
 
 .bookmark_add {
@@ -447,6 +476,8 @@ h2, h3, h4  {
 a.result {
   color: #fff;
   font-weight: bold;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 a.noresult {
@@ -454,6 +485,8 @@ a.noresult {
   font-weight: bold;
   pointer-events: none;
   cursor: not-allowed;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 .prev-page {
