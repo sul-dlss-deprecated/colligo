@@ -1,0 +1,41 @@
+<% @response = @response_m %>
+<% @document_list = @document_list_m %>
+
+<div class="row">
+  <div class="col-md-8">
+    <%= render :partial=>'/catalog/_homepage/home_text' %>
+  </div><!--paragraph ends -->
+  <div class="col-md-4">
+  </div>
+</div>
+<div class="search row">
+  <div class="col-md-8">
+    <h2>Search</h2>
+    <%= render :partial=>'/catalog/_homepage/home_search_form' %>
+  </div><!--paragraph ends -->
+  <div class="col-md-4">
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8">
+    <h2>Browse manuscripts</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <%= render :partial=>'/catalog/_homepage/repository' %>
+        <%= render :partial=>'/catalog/_homepage/language' %>
+      </div>
+      <div class="col-md-6">
+        <%= render :partial=>'/catalog/_homepage/century' %>
+      </div>
+    </div>
+  </div><!-- browse manuscripts ends -->
+  <div class="col-md-4">
+    <h2>& annotations</h2>
+    <div class="row">
+      <%= render :partial=>'/catalog/_homepage/annotations_recent' %>
+    </div>
+    <div class="row">
+      <%= render :partial=>'/catalog/_homepage/annotations_author' %>
+    </div>
+  </div><!-- annotations ends -->
+</div>

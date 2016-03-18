@@ -1,0 +1,81 @@
+#header-navbar .navbar-brand {
+    width: 300px;
+    height: 50px;
+    background: transparent none no-repeat scroll left top;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-right: 0px;
+    margin-right: 20px;
+    padding-left: 5px;
+    text-indent: 50px;
+    font-size: 2.5em;
+}
+
+/* Home page search */
+.navbar-form .nav-tabs {
+  border-bottom: 0px;
+}
+
+.navbar-form .nav-tabs > li {
+  border-bottom: 1px solid #cccccc;
+}
+
+.navbar-form .nav-tabs > li:active {
+  border-bottom: 0px;
+}
+
+.navbar-form .input-group {
+  width: 100%;
+  border-top: 0px;
+  height: 35px;
+  border-top: 0px;
+}
+
+.navbar-form .input-group > input {
+  border-top: 0px;
+}
+
+h2, h3  {
+  color: #999;
+  font-weight: bold;
+}
+
+.panel-body .btn-secondary {
+  margin: 3px;
+  padding: 3px;
+  border: 1px solid #cccccc;
+  width: 100%;
+  text-align: left;
+}
+
+.panel-body .btn > img {
+  padding-right: 5px;
+}
+
+.panel-body .btn-primary-outline {
+  color: #0275D8;
+  background-color: transparent;
+  background-image: none;
+  border-color: #0275D8;
+}
+
+.panel-body .btn-primary {
+  margin: 0 5px 5px 0;
+}
+
+#century_panel {
+  height: 400px;
+  text-align: center;
+  float:left;
+  position: relative;
+  padding-left: 0px;
+}
+
+#century_slider {
+  height: auto;
+  width: 50px;
+  float: left;
+  position: relative;
+  padding-right: 0px;
+}
