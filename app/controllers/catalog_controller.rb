@@ -53,6 +53,11 @@ class CatalogController < ApplicationController
       years_2: { label: '2nd', fq: 'pub_date_t:[100 TO 199]' },
       years_1: { label: '1st', fq: 'pub_date_t:[0 TO 99]' }
     }
+    config.add_facet_field 'pub_date_t', label: 'Publication Year', range: {
+       num_segments: 21,
+       assumed_boundaries: [0, 2999],
+       segments: true
+     }
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
@@ -112,11 +117,6 @@ class CatalogController < ApplicationController
 
   def index
     if on_home_page
-      blacklight_config.add_facet_field 'pub_date_t', label: 'Publication Year', range: {
-        num_segments: 21,
-        assumed_boundaries: [0, 2999],
-        segments: true
-      }
       blacklight_config.default_solr_params['facet.limit'] = 6
       manuscripts
       annotations
@@ -227,6 +227,7 @@ class CatalogController < ApplicationController
     @data_ticks = []
     @pointer_lookup = []
     @slider_ticks = []
+    @boundaries = []
     # @slider_labels = []
     data.each do |val|
       @data_array << [val[:count], val[:from]]
@@ -244,7 +245,9 @@ class CatalogController < ApplicationController
       # @slider_labels << label
       @pointer_lookup << { 'from': val[:from], 'to': val[:to], 'count': val[:count], 'label': "#{val[:from]} to #{val[:to]}" }
     end
-    @boundaries = [@data_array.first.last, @data_array.last.last]
+    if @data_array.any?
+      @boundaries = [@data_array.first.last, @data_array.last.last]
+    end
   end
 
   def solr_range_queries_to_a(solr_field)
