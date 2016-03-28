@@ -1,5 +1,5 @@
 <% if @next_folio.present? %>
-  <% next_url = "/manuscript/#{params[:manuscript_id]}/folio/#{@next_folio['label']}" %>
+  <% next_url = "/manuscript/#{params[:manuscript_id]}/folio/#{@next_folio['label']}?start=#{params[:start]}&view=#{params[:view]}" %>
   <a href="<%=next_url%>" rel="next" class="btn btn-lg btn-paginate-next" id="nextpage">
     <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
     <span class="next_result"><%= @next_folio['label'] %></span>

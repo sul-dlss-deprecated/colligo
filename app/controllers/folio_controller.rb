@@ -21,8 +21,6 @@ class FolioController < ApplicationController
       params[:view] = 'annotations'
     elsif !params.has_key?(:view) && @transcriptions.present?
       params[:view] = 'transcriptions'
-    elsif !params.has_key?(:view) || params[:view].blank?
-      params[:view] = 'annotations'
     end
     params[:view] = 'annotations' unless %w(annotations transcriptions).include?(params[:view])
     # Get details of manuscript

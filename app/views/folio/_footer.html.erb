@@ -5,7 +5,7 @@
   <div class="media-body media-body-center">
     <div class="panel panel-content folio-panel">
       <div class="panel-body">
-        <%= render partial: 'shared/manuscript_body', locals: {document: @manuscript, show_manifest: true, count: nil}  %>
+        <%= render partial: 'shared/manuscript_body', locals: {document: @manuscript, show_manifest: true, count: params[:start]}  %>
       </div>
     </div>
   </div>

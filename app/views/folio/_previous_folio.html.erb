@@ -1,5 +1,5 @@
 <% if @previous_folio.present? %>
-  <% prev_url = "/manuscript/#{params[:manuscript_id]}/folio/#{@previous_folio['label']}" %>
+  <% prev_url = "/manuscript/#{params[:manuscript_id]}/folio/#{@previous_folio['label']}?start=#{params[:start]}&view=#{params[:view]}" %>
   <a href="<%=prev_url%>" rel="prev" class="btn btn-lg btn-paginate-prev" id="previouspage">
     <span class="prev_result"><%= @previous_folio['label'] %></span>
     <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
