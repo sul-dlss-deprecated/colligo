@@ -42,19 +42,32 @@ $(function() {
         // `e` is the event object passed to handle - don't care about it.
         var highlighted_pages = $("ul.panel-listing-thumbs li.highlight");
         var current_page = highlighted_pages.first();
+        var current_panel = $(".folio-recto");
+        var param_start = current_panel.data("start");
         if (highlighted_pages.length == 2) {
+            current_page = highlighted_pages.eq(0);
+            fill_folio(current_page, current_panel, param_start);
             current_page = highlighted_pages.eq(1);
+            current_panel = $(".folio-verso");
+            current_panel.css('display', 'block')
+        } else {
+            $(".folio-verso").css('display', 'none');
         }
+        fill_folio(current_page, current_panel, param_start);
+    }
+
+    function fill_folio(current_page, current_panel, param_start) {
+        console.log(param_start);
         var current_folio = current_page.find('div').text();
         // Folio thumbnail
         var img_ele = current_page.find('img').clone();
         if ( !img_ele.attr('src') ) {
-          img_ele.attr('src', img_ele.attr('data'));
+            img_ele.attr('src', img_ele.attr('data'));
         }
         img_ele.removeClass('thumbnail-image highlight');
-        $(".folio-img").html(img_ele);
+        current_panel.find(".folio-img").html(img_ele);
         // Folio title
-        $(".foliotitle").html(current_folio);
+        current_panel.find(".foliotitle").html(current_folio);
         // Get related content
         $.ajax({
             type: 'get',
@@ -67,25 +80,33 @@ $(function() {
                     cls = 'result-inverse';
                 }
                 var ele = $('<a></a>');
-                ele.attr("href", window.location.pathname + '/folio/' + current_folio);
+                var url = window.location.pathname + '/folio/' + current_folio + '?view=annotations';
+                if (param_start || param_start === 0) {
+                    url = url + '&start=' + param_start;
+                }
+                ele.attr("href", url);
                 ele.attr("class", "btn btn-sm " + cls);
                 ele.html('<span class="glyphicon glyphicon-tag" aria-hidden="true"></span> Annotations');
-                $(".folio-annotations").html(ele);
+                current_panel.find(".folio-annotations").html(ele);
                 // Transcriptions
-                var cls = 'noresult-inverse';
+                cls = 'noresult-inverse';
                 if (data['transcriptions'] > 0) {
                     cls = 'result-inverse';
                 }
-                var ele = $('<a></a>');
-                ele.attr("href", window.location.pathname + '/folio/' + current_folio);
+                ele = $('<a></a>');
+                url = window.location.pathname + '/folio/' + current_folio + '?view=transcriptions';
+                if (param_start || param_start === 0) {
+                    url = url + '&start=' + param_start;
+                }
+                ele.attr("href", url);
                 ele.attr("class", "btn btn-sm " + cls);
                 ele.html('<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Transcriptions');
-                $(".folio-transcriptions").html(ele);
+                current_panel.find(".folio-transcriptions").html(ele);
                 // First transcription
                 if (data['first_transcription']) {
                     var ele = $('<p></p>');
                     ele.html('"'+data['first_transcription']+'"');
-                    $(".folio-first-transcription").html(ele)
+                    current_panel.find(".folio-first-transcription").html(ele)
                 }
             }
         });

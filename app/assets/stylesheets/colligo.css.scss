@@ -665,8 +665,16 @@ a.noresult-inverse {
   border: 1px solid #cccccc;
 }
 
+.folio-verso {
+  display: none;
+}
+
 .folio-panel > .panel-body {
   padding: 5px;
+}
+
+.folio-img img {
+  max-width: 70px;
 }
 
 .folio-tabs {
