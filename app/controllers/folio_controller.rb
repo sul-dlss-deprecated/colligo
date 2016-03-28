@@ -14,7 +14,7 @@ class FolioController < ApplicationController
     # If no annotation or transcriptions redirect to manuscript page
     if @annotations.blank? && @transcriptions.blank?
       flash[:notice] = "There are no transcriptions or annotations for folio #{params[:id]}"
-      redirect_to manuscript_path(params[:manuscript_id]) and return #
+      # redirect_to manuscript_path(params[:manuscript_id]) and return #
     end
     # Set a value for the active tab
     if !params.has_key?(:view) && @annotations.present?

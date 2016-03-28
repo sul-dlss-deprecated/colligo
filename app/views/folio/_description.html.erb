@@ -20,17 +20,25 @@
       end
     %>
     <div class="<%=a_class%>" id="annotations">
-      <% @annotations.each do |annotation| %>
-        <div class="annotation_text" id="anno_<%=annotation['id']%>">
-          <%= annotation['body_chars_display'] %>
-        </div>
+      <% if @annotations.any? %>
+        <% @annotations.each do |annotation| %>
+          <div class="annotation_text" id="anno_<%=annotation['id']%>">
+            <%= annotation['body_chars_display'] %>
+          </div>
+        <% end %>
+      <% else %>
+        <div>There are no annotations for folio <%=params[:id]%></div>
       <% end %>
     </div>
     <div class="<%=t_class%>" id="transcriptions">
-      <% @transcriptions.each do |transcription| %>
+      <% if @transcriptions.any? %>
+        <% @transcriptions.each do |transcription| %>
           <div class="transcription_text" id="trans_<%=transcription['id']%>">
             <%=transcription['body_chars_display']%>
           </div>
+        <% end %>
+      <% else %>
+        <div>There are no transcriptions for folio <%=params[:id]%></div>
       <% end %>
     </div>
   </div>
