@@ -687,8 +687,11 @@ a.noresult-inverse {
 }
 
 .folio-panel {
-  margin: 10px 30px;
+  //margin: 10px 30px;
   border: 1px solid #cccccc;
+  width: 75%;
+  max-width: 250px;
+  margin: auto auto 10px;
 }
 
 .folio-verso {

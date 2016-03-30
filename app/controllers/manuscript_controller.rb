@@ -22,6 +22,9 @@ class ManuscriptController < ApplicationController
     # TODO: Index manifest and use that to retrieve the details
     @contents = []
     @contents = IiifManifest.new(@document['manifest_urls'].first).contents unless @document['manifest_urls'].blank?
+    # Get related annotations and transcriptions
+    @related_annotations = related_annotations[0]
+    @related_transcriptions = related_transcriptions[0]
     # Get the next and previous docs
     m_previous_and_next_documents
     respond_to do |format|
