@@ -1,4 +1,5 @@
 <% if query_has_constraints?(params) %>
+  <!-- displaying old design -->
   <% if query_has_search_constraints?(params) %>
     <div>
       <span class="constraints-label"><%= t('blacklight.search.simple_queries.title') %></span>
@@ -9,6 +10,20 @@
     <div>
       <span class="constraints-label"><%= t('blacklight.search.simple_filters.title') %></span>
       <%=render_simple_constraints_filters(params) %>
-    </div> 
+    </div>
+  <% end %>
+  <hr/> <!-- used just to demarcate old and new design -->
+  <!-- displaying new design -->
+  <% if query_has_search_constraints?(params) %>
+    <div>
+      <span class="constraints-label"><%= t('blacklight.search.simple_queries.title') %></span>
+      <%= render_constraints_query(params) %>
+    </div>
+  <% end %>
+  <% if query_has_facet_constraints?(params) %>
+    <div>
+      <span class="constraints-label"><%= t('blacklight.search.simple_filters.title') %></span>
+      <%=render_constraints_filters(params) %>
+    </div>
   <% end %>
 <% end %>
