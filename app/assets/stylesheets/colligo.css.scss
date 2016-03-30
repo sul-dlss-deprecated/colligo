@@ -536,13 +536,13 @@ a.noresult {
 .btn-paginate-next {
   padding: 10px;
   margin: 10px 0px 10px 10px;
-  border-right: none;
+  //border-right: none;
 }
 
 .btn-paginate-prev {
   padding: 10px;
   margin: 10px 10px 10px 0px;
-  border-left: none;
+  //border-left: none;
 }
 
 .btn-paginate-next > .col-md-3 {
@@ -689,7 +689,7 @@ a.noresult-inverse {
 .folio-panel {
   //margin: 10px 30px;
   border: 1px solid #cccccc;
-  max-width: 250px;
+  //max-width: 250px;
   margin: auto auto 10px;
 }
 
