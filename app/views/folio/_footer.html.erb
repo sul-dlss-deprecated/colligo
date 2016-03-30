@@ -1,4 +1,4 @@
-<div class="media">
+<div class="media hidden-xs">
   <div class="media-left">
     <%= render :partial => '/folio/previous_folio' %>
   </div>
@@ -10,6 +10,21 @@
     </div>
   </div>
   <div class="media-right">
+    <%= render :partial => '/folio/next_folio' %>
+  </div>
+</div>
+<div class="visible-xs row">
+  <div class="col-xs-12">
+    <%= render :partial => '/folio/previous_folio' %>
+  </div>
+  <div class="col-xs-12">
+    <div class="panel panel-content folio-panel">
+      <div class="panel-body">
+        <%= render partial: 'shared/manuscript_body', locals: {document: @manuscript, show_manifest: true, count: params[:start]}  %>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12">
     <%= render :partial => '/folio/next_folio' %>
   </div>
 </div>

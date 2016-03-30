@@ -56,9 +56,8 @@ class ManuscriptController < ApplicationController
     else
       query_params = { q: "druid:#{params[:id]}", rows: 0 }
     end
-    self.search_params_logic += [:add_annotation_filter]
-    self.search_params_logic -= [:all_search_filter, :add_manuscript_filter, :add_transcription_filter]
-    (resp, _doc_list) = search_results(query_params, self.search_params_logic)
+    search_params_logic = self.search_params_logic + [:add_annotation_filter] - [:all_search_filter, :add_manuscript_filter, :add_transcription_filter]
+    (resp, _doc_list) = search_results(query_params, search_params_logic)
     resp['response']['numFound']
   end
 
@@ -68,9 +67,8 @@ class ManuscriptController < ApplicationController
     else
       query_params = { q: "druid:#{params[:id]}", rows: 1, sort: 'sort_index asc' }
     end
-    self.search_params_logic += [:add_transcription_filter]
-    self.search_params_logic -= [:all_search_filter, :add_manuscript_filter, :add_annotation_filter]
-    (resp, doc_list) = search_results(query_params, self.search_params_logic)
+    search_params_logic = self.search_params_logic + [:add_transcription_filter] -[:all_search_filter, :add_manuscript_filter, :add_annotation_filter]
+    (resp, doc_list) = search_results(query_params, search_params_logic)
     if doc_list.present?
       [resp['response']['numFound'], doc_list[0]['body_chars_display']]
     else

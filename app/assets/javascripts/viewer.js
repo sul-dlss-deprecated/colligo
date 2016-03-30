@@ -57,7 +57,6 @@ $(function() {
     }
 
     function fill_folio(current_page, current_panel, param_start) {
-        console.log(param_start);
         var current_folio = current_page.find('div').text();
         // Folio thumbnail
         var img_ele = current_page.find('img').clone();
@@ -79,7 +78,7 @@ $(function() {
                 if (data['annotations'] > 0) {
                     cls = 'result-inverse';
                 }
-                var ele = $('<a></a>');
+                ele = $('<a></a>');
                 var url = window.location.pathname + '/folio/' + current_folio + '?view=annotations';
                 if (param_start || param_start === 0) {
                     url = url + '&start=' + param_start;

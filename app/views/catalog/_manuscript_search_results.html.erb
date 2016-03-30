@@ -15,6 +15,10 @@
 <%- if @document_list_m.empty? %>
   <%= render partial: 'catalog/zero_results' %>
 <%- else %>
-  <%= render partial: 'shared/manuscript', collection: @document_list_m, as: :document, locals: {show_manifest: true, show_footer: true} %>
+  <div class="row">
+    <div class="col-md-12">
+      <%= render partial: 'shared/manuscript', collection: @document_list_m, as: :document, locals: {show_manifest: true, show_footer: true} %>
+    </div>
+  </div>
   <%= render partial: 'shared/results_footer' %>
 <%- end %>

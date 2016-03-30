@@ -3,6 +3,10 @@
 <%- if @document_list_a.empty? %>
   <%= render partial: 'catalog/zero_results' %>
 <%- else %>
-  <%= render partial: 'shared/annotation', collection: @document_list_a, as: :document %>
+  <div class="row">
+    <div class="col-md-12">
+      <%= render partial: 'shared/annotation', collection: @document_list_a, as: :document %>
+    </div>
+  </div>
   <%= render partial: 'shared/results_footer' %>
 <%- end %>
