@@ -10,12 +10,20 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-9" id="manuscript-description">
+    <div class="hidden-lg col-md-12">
+      <div class="row">
+        <%= render :partial => '/manuscript/folios' %>
+        <%= render :partial => '/manuscript/find_all' %>
+      </div>
+    </div>
+    <div class="col-lg-9 col-md-12" id="manuscript-description">
       <%= render :partial => '/manuscript/description' %>
     </div>
-    <div class="col-md-3">
+    <div class="col-lg-3 visible-lg col-md-12">
+      <div class="row">
       <%= render :partial => '/manuscript/folios' %>
       <%= render :partial => '/manuscript/find_all' %>
+      </div>
     </div>
   </div>
   <div class="row">
