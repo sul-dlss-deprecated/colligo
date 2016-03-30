@@ -14,17 +14,17 @@
   <% end %>
   <% unless @document['corporate_authors_display'].blank? %>
     <dt title="Corporate authors">Corporate authors</dt>
-    <dd><%= @document['corporate_authors_display'].join('<br/>') %></dd>
+    <dd><%= raw @document['corporate_authors_display'].join('<br/>') %></dd>
   <% end %>
   <% unless @document['personal_authors_display'].blank? %>
     <dt title="Personal authors">Personal authors</dt>
-    <dd><%= @document['personal_authors_display'].join('<br/>') %></dd>
+    <dd><%= raw @document['personal_authors_display'].join('<br/>') %></dd>
   <% end %>
   <%
     a = @document['authors_all_display'] - @document['personal_authors_display'] - @document['corporate_authors_display']
     unless a.blank? %>
     <dt title="Other authors">Other authors</dt>
-    <dd><%= (@document['authors_all_display'] - @document['personal_authors_display'] - @document['corporate_authors_display']).join('<br/>') %></dd>
+    <dd><%= raw (@document['authors_all_display'] - @document['personal_authors_display'] - @document['corporate_authors_display']).join('<br/>') %></dd>
   <% end %>
   <% unless @document['collection'].blank? %>
     <dt title="Repository">Repository</dt>
@@ -32,15 +32,15 @@
   <% end %>
   <% unless @document['language'].blank? %>
     <dt title="Language">Language</dt>
-    <dd><%= @document['language'].join('<br/>') %></dd>
+    <dd><%= raw @document['language'].join('<br/>') %></dd>
   <% end %>
   <% unless @document['topic_display'].blank? %>
     <dt title="Topic">Topic</dt>
-    <dd><%= @document['topic_display'].join('<br/>') %></dd>
+    <dd><%= raw @document['topic_display'].join('<br/>') %></dd>
   <% end %>
   <% unless @document['geographic_display'].blank? %>
     <dt title="Region">Region</dt>
-    <dd><%= @document['geographic_display'].join('<br/>') %></dd>
+    <dd><%= raw @document['geographic_display'].join('<br/>') %></dd>
   <% end %>
   <%
     s = (@document['subject_all_display'] + @document['genre_display'] -
@@ -48,11 +48,11 @@
     unless s.blank?
   %>
     <dt title="Keyword">Keyword</dt>
-    <dd><%= s.join('<br/>') %></dd>
+    <dd><%= raw s.join('<br/>') %></dd>
   <% end %>
   <% unless @document['era_display'].blank? %>
     <dt title="Era">Era</dt>
-    <dd><%= @document['era_display'].join('<br/>') %></dd>
+    <dd><%= raw @document['era_display'].join('<br/>') %></dd>
   <% end %>
   <% unless @document['pub_date_display'].blank? %>
     <dt title="Date of publication">Date of publication</dt>
@@ -60,35 +60,35 @@
   <% end %>
   <% unless @document['place_display'].blank? %>
     <dt title="Location">Location</dt>
-    <dd><%= @document['place_display'].join('<br/>') %></dd>
+    <dd><%= raw @document['place_display'].join('<br/>') %></dd>
   <% end %>
   <% unless @document['physical_description_extent_display'].blank? %>
     <dt title="Extent">Extent</dt>
-    <dd><%= @document['physical_description_extent_display'].join('<br/>') %></dd>
+    <dd><%= raw @document['physical_description_extent_display'].join('<br/>') %></dd>
   <% end %>
   <% unless @document['physical_description_form_display'].blank? %>
     <dt title="Form">Form</dt>
-    <dd><%= @document['physical_description_form_display'].join('<br/>') %></dd>
+    <dd><%= raw @document['physical_description_form_display'].join('<br/>') %></dd>
   <% end %>
   <% unless @document['physical_description_media_type_display'].blank? %>
     <dt title="Media type">Media type</dt>
-    <dd><%= @document['physical_description_media_type_display'].join('<br/>') %></dd>
+    <dd><%= raw @document['physical_description_media_type_display'].join('<br/>') %></dd>
   <% end %>
   <% unless @document['format'].blank? %>
     <dt title="Format">Format</dt>
-    <dd><%= @document['format'].join('<br/>') %></dd>
+    <dd><%= raw @document['format'].join('<br/>') %></dd>
   <% end %>
   <% unless @document['publishers_display'].blank? %>
     <dt title="Publisher">Publisher</dt>
-    <dd><%= @document['publishers_display'].join('<br/>') %></dd>
+    <dd><%= raw @document['publishers_display'].join('<br/>') %></dd>
   <% end %>
   <% unless @document['type_of_resource_display'].blank? %>
     <dt title="Type of resource">Type of resource</dt>
-    <dd><%= @document['type_of_resource_display'].join('<br/>') %></dd>
+    <dd><%= raw @document['type_of_resource_display'].join('<br/>') %></dd>
   <% end %>
   <% unless @document['physical_location_display'].blank? %>
     <dt title="Manuscript location">Manuscript location</dt>
-    <dd><%= @document['physical_location_display'].join('<br/>') %></dd>
+    <dd><%= raw @document['physical_location_display'].join('<br/>') %></dd>
   <% end %>
   <% unless @document['access_condition_display'].blank? %>
     <dt title="Access condition">Access condition</dt>
