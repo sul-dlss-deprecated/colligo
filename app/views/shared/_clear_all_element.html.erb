@@ -1,0 +1,19 @@
+<%  # local params:
+    # label
+    # options =>
+    #   :remove => url for a remove constraint link
+    #   :classes => array of classes to add to container span
+    options ||= {}
+%>
+
+<span class="btn-group appliedFilter constraint <%= options[:classes].join(' ') if options[:classes] %>">
+  <% unless options[:remove].blank? %>
+    <% remove_label = content_tag :span, class: 'text' do
+      label
+    end
+    %>
+    <%= link_to(content_tag(:span, '', class: 'glyphicon glyphicon-remove') + remove_label,
+        options[:remove], class: 'btn btn-default btn-sm remove dropdown-toggle'
+     ) %>
+  <%- end -%>
+</span>

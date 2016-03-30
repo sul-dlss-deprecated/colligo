@@ -101,4 +101,27 @@ module Colligo::RenderSimpleConstraintsHelperBehavior
   def simple_constraint_query_label(localized_params = params)
     label_for_search_field(localized_params[:search_field])
   end
+
+  # Render a clear all filters constraint on the screen.
+  #
+  # @param [String] label
+  # @param [Hash] query parameters
+  # @return [String]
+  def render_clear_all(label, localized_params)
+    render_clear_all_element( label,
+                               :remove => search_action_path(localized_params.except(:f, :range)),
+                               :classes => %w(filter filter-clear-all)
+    )
+  end
+
+  # Render a clear all element on the screen.
+  #
+  # @param [String] label to display
+  # @param [Hash] options
+  # @option options [String] :remove url to execute for a 'remove' action
+  # @option options [Array<String>] :classes an array of classes to add to container span for constraint.
+  # @return [String]
+  def render_clear_all_element(label, options = {})
+    render(:partial => 'shared/clear_all_element', :locals => {:label => label, :options => options})
+  end
 end

@@ -131,6 +131,32 @@ body {
   left: 5px;
 }
 
+#myTabs > div.row {
+  min-width: 500px;
+  max-height: 600px;
+  overflow: auto;
+}
+
+#myDropDown .filter-clear-all {
+  padding: 5px 0px 5px 5px;
+}
+
+#myDropDown .filter-clear-all .btn {
+  border: none;
+  text-decoration: underline;
+  color: #23527c;
+  cursor: pointer;
+}
+
+#myDropDown .filter-clear-all .btn:hover {
+  color: red;
+  text-decoration-color: red;
+}
+
+#myDropDown .filter-clear-all .btn .text {
+  padding-left: 5px;
+}
+
 .dropdown li {
   margin: 0;
   cursor: pointer;

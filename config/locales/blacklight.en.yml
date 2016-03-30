@@ -4,6 +4,8 @@ en:
     range_limit:
       submit_limit: 'Apply range'
     search:
+      filters:
+        clear-all: 'Clear all'
       simple_queries:
         title: 'You searched'
       simple_filters:
