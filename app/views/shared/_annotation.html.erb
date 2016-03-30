@@ -16,9 +16,12 @@
         <% unless document['authors_all_display'].blank? %>
           <p><strong><%= raw document['authors_all_display'].join('<br/>') %></strong></p>
         <% end %>
-        <% unless document['body_type'].blank? %>
-          <p><%= raw document['body_type'].join('<br/>') %></p>
+        <% unless document['language'].blank? %>
+            <p><%= document['language'].join(', ') %></p>
         <% end %>
+        <!--<% unless document['body_type'].blank? %>-->
+          <!--<p><%#= raw document['body_type'].join(', ') %></p>-->
+        <!--<% end %>-->
         <% unless document['folio'].blank? %>
           <p><%= document['folio'] %></p>
         <% end %>
