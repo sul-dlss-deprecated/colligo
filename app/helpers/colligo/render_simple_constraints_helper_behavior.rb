@@ -53,10 +53,9 @@ module Colligo::RenderSimpleConstraintsHelperBehavior
   # @return [String]
   def render_simple_constraints_filters(localized_params = params)
     return ''.html_safe unless localized_params[:f]
-    path = Blacklight::SearchState.new(localized_params, blacklight_config)
     content = []
     localized_params[:f].each_pair do |facet, values|
-      content << render_simple_filter_element(facet, values, path)
+      content << render_simple_filter_element(facet, values, localized_params)
     end
 
     safe_join(content.flatten, "\n")
@@ -66,15 +65,15 @@ module Colligo::RenderSimpleConstraintsHelperBehavior
   # Render a single facet's constraint
   # @param [String] facet field
   # @param [Array<String>] values selected facet values
-  # @param [Blacklight::SearchState] path query parameters
+  # @param [Hash] path query parameters
   # @return [String]
-  def render_simple_filter_element(facet, values, path)
+  def render_simple_filter_element(facet, values, localized_params)
     facet_config = facet_configuration_for_field(facet)
 
     safe_join(values.map do |val|
       next if val.blank? # skip empty string
       render_simple_constraint_element(facet_field_label(facet_config.key), facet_display_value(facet, val),
-                                       remove: search_action_path(path.remove_facet_params(facet, val)),
+                                       remove: search_action_path(remove_facet_params(facet, val, localized_params)),
                                        classes: ['filter', 'simple-filter', 'filter-' + facet.parameterize]
                                       )
     end, "\n")

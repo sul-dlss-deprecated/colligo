@@ -26,8 +26,7 @@ module Colligo
       facet_config = facet_configuration_for_field(facet)
       safe_join(values.map do |val|
         next if val.blank? # skip empty string
-        path = Blacklight::SearchState.new(remaining_params, blacklight_config)
-        local_params = path.add_facet_params(facet, val)
+        local_params = add_facet_params(facet, val, source_params=remaining_params)
         render_breadcrumb_constraint_element(facet_field_label(facet_config.key), facet_display_value(facet, val),
                                              search_path: search_action_path(local_params),
                                              classes: ['filter', 'breadcrumb-filter', 'filter-' + facet.parameterize]
