@@ -6,7 +6,7 @@
       <% if count == current_per_page %>
         <span><%= count %></span>
       <% else %>
-        <span><%= link_to(count, url_for(@search_state.params_for_search(per_page: count))) %></span>
+        <span><%= link_to(count, url_for(params_for_search(per_page: count))) %></span>
       <% end %>
     <%- end -%>
     per page

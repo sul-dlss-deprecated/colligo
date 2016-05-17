@@ -124,7 +124,6 @@ class CatalogController < ApplicationController
       render 'homepage'
     elsif on_bento_page
       manuscripts
-      @search_state ||= Blacklight::SearchState.new(params, blacklight_config)
       annotations
       transcriptions
       session_save_manuscript_search
@@ -136,7 +135,6 @@ class CatalogController < ApplicationController
       manuscripts
       related_annotations
       related_transcriptions
-      @search_state ||= Blacklight::SearchState.new(params, blacklight_config)
       session_save_manuscript_search
       render 'manuscript_results'
     elsif on_transcriptions_page
@@ -144,14 +142,12 @@ class CatalogController < ApplicationController
       blacklight_config.add_sort_field 'manuscript_sort asc, folio_sort asc', label: 'manuscript'
       blacklight_config.add_sort_field 'last_updated desc', label: 'most recent'
       transcriptions
-      @search_state ||= Blacklight::SearchState.new(params, blacklight_config)
       render 'transcription_results'
     elsif on_annotations_page
       blacklight_config.add_sort_field 'folio_sort asc, manuscript_sort asc', label: 'folio'
       blacklight_config.add_sort_field 'manuscript_sort asc, folio_sort asc', label: 'manuscript'
       blacklight_config.add_sort_field 'last_updated desc', label: 'most recent'
       annotations
-      @search_state ||= Blacklight::SearchState.new(params, blacklight_config)
       render 'annotation_results'
     else
       super

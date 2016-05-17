@@ -1,11 +1,11 @@
 <div class="row">
   <div class="col-md-8 pull-left">
     <%
-      a_ss = Blacklight::SearchState.new({:search_field => 'annotations'}, CatalogController.new.blacklight_config)
-      a_local_params = a_ss.add_facet_params('manuscript_facet', document['title_display'])
+      a_sf = {:search_field => 'annotations'}
+      a_local_params = add_facet_params('manuscript_facet', document['title_display'], source_params=a_sf)
       a_path = search_action_path(a_local_params)
-      t_ss = Blacklight::SearchState.new({:search_field => 'transcriptions'}, CatalogController.new.blacklight_config)
-      t_local_params = t_ss.add_facet_params('manuscript_facet', document['title_display'])
+      t_sf = {:search_field => 'transcriptions'}
+      t_local_params = add_facet_params('manuscript_facet', document['title_display'], source_params=t_sf)
       t_path = search_action_path(t_local_params)
     %>
     <!-- related annotations -->
