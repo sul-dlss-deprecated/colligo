@@ -23,8 +23,8 @@ class ManuscriptController < ApplicationController
     @contents = []
     @contents = IiifManifest.new(@document['manifest_urls'].first).contents unless @document['manifest_urls'].blank?
     # Get related annotations and transcriptions
-    @related_annotations = related_annotations[0]
-    @related_transcriptions = related_transcriptions[0]
+    @related_annotations = folio_related_annotations[0]
+    @related_transcriptions = folio_related_transcriptions[0]
     # Get the next and previous docs
     m_previous_and_next_documents
     respond_to do |format|
@@ -35,9 +35,9 @@ class ManuscriptController < ApplicationController
   end
 
   def related_content
-    transcriptions = related_transcriptions
+    transcriptions = folio_related_transcriptions
     ans = {
-        annotations: related_annotations,
+        annotations: folio_related_annotations,
         transcriptions: transcriptions[0],
         first_transcription: transcriptions[1]
     }
@@ -50,7 +50,7 @@ class ManuscriptController < ApplicationController
 
   private
 
-  def related_annotations
+  def folio_related_annotations
     if params.has_key?(:folio) && params[:folio].present?
       query_params = { q: "druid:#{params[:id]} AND folio:\"#{params[:folio]}\"", rows: 0 }
     else
@@ -61,7 +61,7 @@ class ManuscriptController < ApplicationController
     resp['response']['numFound']
   end
 
-  def related_transcriptions
+  def folio_related_transcriptions
     if params.has_key?(:folio) && params[:folio].present?
       query_params = { q: "druid:#{params[:id]} AND folio:\"#{params[:folio]}\"", rows: 1, sort: 'sort_index asc' }
     else
