@@ -464,38 +464,48 @@ h2, h3, h4  {
   max-height: 25px;
 }
 
-.bookmark_add {
+.bookmark_add, .bookmark_remove, .checkbox.toggle_bookmark {
   background-color: #666;
   /* border: 1px solid #ccc;*/
   border: none;
-  color: #fff; 
-  padding: 3px 5px;
+  min-height: 14px;
+  padding: 0px;
+  //padding: 3px 5px;
 }
 
-.bookmark_remove {
-  background-color: #666;
-  /* border: 1px solid #ccc; */
-  border: none;
-  /* font-weight: bold; */
+.toggle_bookmark > input[type="checkbox"] {
+  opacity: 0;
+}
+
+.bookmark_add, label.toggle_bookmark {
+  color: #fff;
+}
+
+.bookmark_remove, label.toggle_bookmark.checked {
   color: orange;
-  padding: 3px 5px;
 }
 
-.bookmark_inverse_add {
+label.toggle_bookmark > span::before {
+  font-family: 'Glyphicons Halflings';
+  content:"\e044";
+  padding-right: 5px;
+  vertical-align: middle;
+}
+
+.bookmark_inverse_add, .bookmark_inverse .checkbox.toggle_bookmark{
   background-color: #fff;
   /* border: 1px solid #ccc;*/
   border: none;
-  color: inherit;
+  float: right;
   padding: 3px 5px;
 }
 
-.bookmark_inverse_remove {
-  background-color: #fff;
-  /* border: 1px solid #ccc; */
-  border: none;
-  /* font-weight: bold; */
+.bookmark_inverse_remove, .bookmark_inverse label.toggle_bookmark  {
   color: #000;
-  padding: 3px 5px;
+}
+
+.bookmark_inverse_remove, .bookmark_inverse label.toggle_bookmark.checked  {
+  color: #ff8700;
 }
 
 a.result {
