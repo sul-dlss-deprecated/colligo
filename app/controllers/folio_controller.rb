@@ -31,9 +31,6 @@ class FolioController < ApplicationController
       format.html do
         render
       end
-      format.json do
-        render json: render_folio_as_json
-      end
     end
   end
 
@@ -91,12 +88,7 @@ class FolioController < ApplicationController
     @previous_folio = nil
     @next_folio = nil
     @canvas_id = nil
-    if params[:id]
-      page_number = contents.index {|c| c['label'] == params[:id]}
-    else
-      page_number = 0
-      params[:id] = contents.first['label']
-    end
+    page_number = contents.index {|c| c['label'] == params[:id]}
     @canvas_id = contents[page_number]['@id'] if page_number
     @previous_folio = contents[page_number-1] if page_number && page_number > 0
     @next_folio = contents[page_number+1] if page_number && page_number < contents.length
@@ -107,20 +99,6 @@ class FolioController < ApplicationController
     contents = IiifManifest.new(@manuscript['manifest_urls'].first).contents unless @manuscript['manifest_urls'].blank?
     page_number = contents.index {|c| c['@id'] == params[:canvas_id]}
     contents[page_number]['label']
-  end
-
-  def render_folio_as_json
-    {
-      response: {
-        annotations: @annotations,
-        transcriptions: @transcriptions,
-        prev: @previous_folio,
-        next: @next_folio,
-        # This is the same for all folios
-        # manuscript: @manuscript,
-        canvas_id: @canvas_id
-      }
-    }
   end
 
 end

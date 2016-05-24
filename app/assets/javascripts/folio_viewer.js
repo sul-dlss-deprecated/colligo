@@ -57,7 +57,6 @@ $(function() {
     $.subscribe('focusUpdated', focus_updated_handle);
     $.subscribe('windowAdded', window_added_handle);
 
-
     function image_rect_updated_handle(event, data) {
         var win_id = data['id'];
         anno_check_count += 1;
@@ -108,16 +107,13 @@ $(function() {
 
     function canvas_updated_handle(event, data) {
         if (data != canvas_id) {
-            // alert(data);
-            // Get prev  next page label
+            // Get label of new canvas navigated to
             $.ajax({
                 type: 'get',
                 url: window.location.pathname + '/folio_label',
                 data: 'canvas_id=' + data,
                 success: function(data) {
-                    // alert(data['folio']);
                     url = next_url(data['folio']);
-                    // alert(url);
                     window.location.pathname = url;
                 }
             });
@@ -159,7 +155,7 @@ $(function() {
     function next_url(folio) {
         path = window.location.pathname;
         path = path.replace(/\/$/, "");
-        path = path.split('/')
+        path = path.split('/');
         path[path.length-1] = folio;
         path = path.join('/') + window.location.search;
         return path;
