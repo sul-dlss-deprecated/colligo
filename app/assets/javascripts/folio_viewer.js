@@ -55,6 +55,8 @@ $(function() {
     var anno_check_count = 0;
     $.subscribe('imageRectangleUpdated', image_rect_updated_handle);
     $.subscribe('focusUpdated', focus_updated_handle);
+    $.subscribe('windowAdded', window_added_handle);
+
 
     function image_rect_updated_handle(event, data) {
         var win_id = data['id'];
@@ -100,6 +102,28 @@ $(function() {
         anno_check_count = 0;
     }
 
+    function window_added_handle(event, windowId, slotId) {
+        $.subscribe('currentCanvasIDUpdated.' + windowId['id'], canvas_updated_handle);
+    }
+
+    function canvas_updated_handle(event, data) {
+        if (data != canvas_id) {
+            // alert(data);
+            // Get prev  next page label
+            $.ajax({
+                type: 'get',
+                url: window.location.pathname + '/folio_label',
+                data: 'canvas_id=' + data,
+                success: function(data) {
+                    // alert(data['folio']);
+                    url = next_url(data['folio']);
+                    // alert(url);
+                    window.location.pathname = url;
+                }
+            });
+        }
+    }
+
     function get_max_text_length(text_class) {
         var max_length = 0;
         $("." + text_class).each(function(){
@@ -130,6 +154,15 @@ $(function() {
         } else {
             return 30
         }
+    }
+
+    function next_url(folio) {
+        path = window.location.pathname;
+        path = path.replace(/\/$/, "");
+        path = path.split('/')
+        path[path.length-1] = folio;
+        path = path.join('/') + window.location.search;
+        return path;
     }
 
 });

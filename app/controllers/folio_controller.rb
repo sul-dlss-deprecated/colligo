@@ -8,10 +8,14 @@ class FolioController < ApplicationController
   layout 'blacklight'
 
   def show
+    # Get details of manuscript
+    manuscript
+    # Get current canvas id, previous and next folio
+    current_prev_and_next_folio
     # Get all transcriptions and annotations
     annotations
     transcriptions
-    # If no annotation or transcriptions redirect to manuscript page
+    # If no annotation or transcriptions add a flash notice
     if @annotations.blank? && @transcriptions.blank?
       flash[:notice] = "There are no transcriptions or annotations for folio #{params[:id]}"
       # redirect_to manuscript_path(params[:manuscript_id]) and return #
@@ -23,13 +27,23 @@ class FolioController < ApplicationController
       params[:view] = 'transcriptions'
     end
     params[:view] = 'annotations' unless %w(annotations transcriptions).include?(params[:view])
-    # Get details of manuscript
-    manuscript
-    # Get current canvas id, previous and next folio
-    current_prev_and_next_folio
     respond_to do |format|
       format.html do
         render
+      end
+      format.json do
+        render json: render_folio_as_json
+      end
+    end
+  end
+
+  def folio_label
+    # Get details of manuscript
+    manuscript
+    label = folio_from_canvas
+    respond_to do |format|
+      format.json do
+        render json: {folio: label}
       end
     end
   end
@@ -69,7 +83,7 @@ class FolioController < ApplicationController
   end
 
   def current_prev_and_next_folio
-    # TODO: For now I am downloading manifest - I should just index the manifest
+    # TODO: For now I am downloading manifest - Should I index the manifest and read the data from solr instead?
     # The canvas id in the annotations can be different from the manifest - using the one in the manifest
     # This method subsumes the method canvas_id
     contents = []
@@ -77,10 +91,36 @@ class FolioController < ApplicationController
     @previous_folio = nil
     @next_folio = nil
     @canvas_id = nil
-    page_number = contents.index {|c| c['label'] == params[:id]}
+    if params[:id]
+      page_number = contents.index {|c| c['label'] == params[:id]}
+    else
+      page_number = 0
+      params[:id] = contents.first['label']
+    end
     @canvas_id = contents[page_number]['@id'] if page_number
     @previous_folio = contents[page_number-1] if page_number && page_number > 0
     @next_folio = contents[page_number+1] if page_number && page_number < contents.length
+  end
+
+  def folio_from_canvas
+    contents = []
+    contents = IiifManifest.new(@manuscript['manifest_urls'].first).contents unless @manuscript['manifest_urls'].blank?
+    page_number = contents.index {|c| c['@id'] == params[:canvas_id]}
+    contents[page_number]['label']
+  end
+
+  def render_folio_as_json
+    {
+      response: {
+        annotations: @annotations,
+        transcriptions: @transcriptions,
+        prev: @previous_folio,
+        next: @next_folio,
+        # This is the same for all folios
+        # manuscript: @manuscript,
+        canvas_id: @canvas_id
+      }
+    }
   end
 
 end
