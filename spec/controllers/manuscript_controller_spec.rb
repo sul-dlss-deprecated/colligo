@@ -25,6 +25,14 @@ describe ManuscriptController do
       expect(controller.instance_variable_get('@contents')).to be_a(Array)
       expect(controller.instance_variable_get('@contents').length).to eq(36)
     end
+    it 'should have related annotations' do
+      expect(controller.instance_variable_get('@related_annotations')).not_to be_nil
+      expect(controller.instance_variable_get('@related_annotations')).to be_a(Integer)
+    end
+    it 'should have related transcriptions' do
+      expect(controller.instance_variable_get('@related_transcriptions')).not_to be_nil
+      expect(controller.instance_variable_get('@related_transcriptions')).to be_a(Integer)
+    end
     it 'should have previous and next document' do
       expect(controller.instance_variable_get('@prev_doc')).not_to be_nil
       expect(controller.instance_variable_get('@prev_doc')).to be_a(Hash)
@@ -41,8 +49,8 @@ describe ManuscriptController do
 
   describe 'get related_content in json' do
     it 'should be a json object' do
-      allow(controller).to receive(:related_transcriptions).and_return([10, 'first line of transcription'])
-      allow(controller).to receive(:related_annotations).and_return(5)
+      allow(controller).to receive(:folio_related_transcriptions).and_return([10, 'first line of transcription'])
+      allow(controller).to receive(:folio_related_annotations).and_return(5)
       @expected = {
           annotations: 5,
           transcriptions: 10,
@@ -53,38 +61,50 @@ describe ManuscriptController do
     end
   end
 
-  describe '#related_annotations' do
+  describe '#folio_related_annotations' do
     include SolrDocumentFixtures
     it 'should have a response' do
       allow(controller).to receive(:params).and_return({id: 'kq131cs7229', folio: 'f. 8r'})
       query_params = { q: 'druid:kq131cs7229 AND folio:"f. 8r"', rows: 0 }
-      allow(controller).to receive(:search_results).with(query_params).and_return([annotation_resp_003, annotation_docs_003])
-      ans = controller.send(:related_annotations)
+      search_params_logic = [:default_solr_parameters, :add_query_to_solr, :add_facet_fq_to_solr, :add_facetting_to_solr,
+                       :add_solr_fields_to_query, :add_paging_to_solr, :add_sorting_to_solr, :add_group_config_to_solr,
+                       :add_facet_paging_to_solr, :add_annotation_filter]
+      allow(controller).to receive(:search_results).with(query_params, search_params_logic).and_return([annotation_resp_003, annotation_docs_003])
+      ans = controller.send(:folio_related_annotations)
       ans.should eq(annotation_resp_003['response']['numFound'])
     end
   end
 
-  describe '#related_transcriptions' do
+  describe '#folio_related_transcriptions' do
     include SolrDocumentFixtures
     it 'should have a response and a transcription' do
       allow(controller).to receive(:params).and_return({id: 'kq131cs7229', folio: 'f. 8r'})
       query_params = { q: 'druid:kq131cs7229 AND folio:"f. 8r"', rows: 1, sort: 'sort_index asc' }
-      allow(controller).to receive(:search_results).with(query_params).and_return([transcription_resp_003, transcription_docs_003])
-      ans = controller.send(:related_transcriptions)
+      search_params_logic = [:default_solr_parameters, :add_query_to_solr, :add_facet_fq_to_solr, :add_facetting_to_solr,
+                         :add_solr_fields_to_query, :add_paging_to_solr, :add_sorting_to_solr, :add_group_config_to_solr,
+                         :add_facet_paging_to_solr, :add_transcription_filter]
+      allow(controller).to receive(:search_results).with(query_params, search_params_logic).and_return([transcription_resp_003, transcription_docs_003])
+      ans = controller.send(:folio_related_transcriptions)
       ans.should eq([transcription_resp_003['response']['numFound'], transcription_docs_003[0]['body_chars_display']])
     end
     it 'should not have a folio parameter' do
       allow(controller).to receive(:params).and_return({id: 'kq131cs7229'})
       query_params = { q: 'druid:kq131cs7229', rows: 1, sort: 'sort_index asc' }
-      allow(controller).to receive(:search_results).with(query_params).and_return([transcription_resp_003, transcription_docs_003])
-      ans = controller.send(:related_transcriptions)
+      search_params_logic = [:default_solr_parameters, :add_query_to_solr, :add_facet_fq_to_solr, :add_facetting_to_solr,
+                             :add_solr_fields_to_query, :add_paging_to_solr, :add_sorting_to_solr, :add_group_config_to_solr,
+                             :add_facet_paging_to_solr, :add_transcription_filter]
+      allow(controller).to receive(:search_results).with(query_params, search_params_logic).and_return([transcription_resp_003, transcription_docs_003])
+      ans = controller.send(:folio_related_transcriptions)
       ans.should eq([transcription_resp_003['response']['numFound'], transcription_docs_003[0]['body_chars_display']])
     end
     it 'should have a response and no transcription' do
       allow(controller).to receive(:params).and_return({id: 'some_unknown_id', folio: '12r'})
       query_params = { q: 'druid:some_unknown_id AND folio:"12r"', rows: 1, sort: 'sort_index asc' }
-      allow(controller).to receive(:search_results).with(query_params).and_return([transcription_resp_002, transcription_docs_002])
-      ans = controller.send(:related_transcriptions)
+      search_params_logic = [:default_solr_parameters, :add_query_to_solr, :add_facet_fq_to_solr, :add_facetting_to_solr,
+                             :add_solr_fields_to_query, :add_paging_to_solr, :add_sorting_to_solr, :add_group_config_to_solr,
+                             :add_facet_paging_to_solr, :add_transcription_filter]
+      allow(controller).to receive(:search_results).with(query_params, search_params_logic).and_return([transcription_resp_002, transcription_docs_002])
+      ans = controller.send(:folio_related_transcriptions)
       ans.should eq([transcription_resp_002['response']['numFound'], nil])
     end
   end

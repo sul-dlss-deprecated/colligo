@@ -7,8 +7,14 @@ describe CatalogController do
       controller.should_not_receive(:session_save_manuscript_search)
       get :index
     end
-    it 'should add range facet if on home page' do
+    it 'should have collection facet if on home page' do
+      expect(controller.blacklight_config.facet_fields).to have_key('collection')
+    end
+    it 'should have range facet if on home page' do
       expect(controller.blacklight_config.facet_fields).to have_key('pub_date_t')
+    end
+    it 'should have language facet if on home page' do
+      expect(controller.blacklight_config.facet_fields).to have_key('language')
     end
     it 'should have manuscripts' do
       expect(controller.instance_variable_get('@response_m')).not_to be_nil
@@ -56,9 +62,6 @@ describe CatalogController do
     it 'should have transcriptions' do
       expect(controller.instance_variable_get('@response_t')).not_to be_nil
     end
-    it 'should have search state' do
-      expect(controller.instance_variable_get('@search_state')).not_to be_nil
-    end
     it 'should render blacklight layout' do
       response.should render_template('layouts/blacklight')
     end
@@ -83,9 +86,6 @@ describe CatalogController do
     end
     it 'should have related transcriptions' do
       expect(controller.instance_variable_get('@related_transcriptions')).not_to be_nil
-    end
-    it 'should have search state' do
-      expect(controller.instance_variable_get('@search_state')).not_to be_nil
     end
     it 'should have the correct sort options' do
       expect(controller.blacklight_config.sort_fields.keys).to eq ['score desc, title_sort asc', 'title_sort asc, pub_date_sort asc',
@@ -123,9 +123,6 @@ describe CatalogController do
     it 'should have transcriptions' do
       expect(controller.instance_variable_get('@response_t')).not_to be_nil
     end
-    it 'should have search state' do
-      expect(controller.instance_variable_get('@search_state')).not_to be_nil
-    end
     it 'should have the correct sort options' do
       expect(controller.blacklight_config.sort_fields.keys).to eq ['score desc, title_sort asc', 'folio_sort asc, manuscript_sort asc',
                                                                    'manuscript_sort asc, folio_sort asc', 'last_updated desc']
@@ -162,9 +159,6 @@ describe CatalogController do
     end
     it 'should have annotations' do
       expect(controller.instance_variable_get('@response_a')).not_to be_nil
-    end
-    it 'should have search state' do
-      expect(controller.instance_variable_get('@search_state')).not_to be_nil
     end
     it 'should have the correct sort options' do
       expect(controller.blacklight_config.sort_fields.keys).to eq ['score desc, title_sort asc', 'folio_sort asc, manuscript_sort asc',
@@ -325,7 +319,7 @@ describe CatalogController do
       it 'should include all fields search' do
         search_field = config.search_fields['all_fields']
         expect(search_field).to be_present
-        expect(search_field.label).to eq 'All Fields'
+        expect(search_field.label).to eq 'All Content'
       end
       it 'should include descriptions search' do
         search_field = config.search_fields['descriptions']

@@ -84,9 +84,7 @@ describe RenderConstraintsHelper do
       allow(helper).to receive(:blacklight_config).and_return(config)
       expect(helper).to receive(:facet_field_label).with('type').and_return('Item Type')
     end
-    subject { helper.render_simple_filter_element('type', ['journal'], path) }
-
-    let(:path) { Blacklight::SearchState.new({ q: 'biz' }, config) }
+    subject { helper.render_simple_filter_element('type', ['journal'], {}) }
 
     it 'should display the item label' do
       expect(subject).to have_selector '.filterName', text: 'Item Type'
