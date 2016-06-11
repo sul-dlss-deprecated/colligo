@@ -15,7 +15,7 @@ describe '/catalog/_search_form.html.erb' do
       expect(rendered).to have_css('form.search-query-form select#search_field option', count: 4)
     end
     it 'should have all_fields' do
-      expect(rendered).to have_css('form.search-query-form select option[value=all_fields]', text: 'All Fields')
+      expect(rendered).to have_css('form.search-query-form select option[value=all_fields]', text: 'All Content')
     end
     it 'should have descriptions as the selected option' do
       expect(rendered).to have_css('form.search-query-form select option[value=descriptions][selected=selected]', text: 'Descriptions')

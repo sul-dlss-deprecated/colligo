@@ -15,7 +15,7 @@ describe '/catalog/_homepage/_home_search_form.html.erb' do
       expect(rendered).to have_css('ul.nav-tabs li', count: 4)
     end
     it 'should have all_fields as the active tab' do
-      expect(rendered).to have_css('ul.nav-tabs li.active[data-field=all_fields]', text: 'All Fields')
+      expect(rendered).to have_css('ul.nav-tabs li.active[data-field=all_fields]', text: 'All Content')
     end
     it 'should have descriptions tab' do
       expect(rendered).to have_css('ul.nav-tabs li[data-field=descriptions]', text: 'Descriptions')

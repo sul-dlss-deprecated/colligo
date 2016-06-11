@@ -9,32 +9,93 @@ describe '/catalog/_homepage/_home.html.erb' do
     stub_template 'catalog/_homepage/_century.html.erb' => 'Century'
     stub_template 'catalog/_homepage/_annotations_recent.html.erb' => 'Recent annotations'
     stub_template 'catalog/_homepage/_annotations_author.html.erb' => 'Annotations by author'
-    render
   end
-  it 'should render the home text' do
-    expect(rendered).to match(/Home text/)
+  describe 'it should render a basic page when no data' do
+    before(:all) do
+      @data_array = []
+      @response_m = {'facet_counts' => {'facet_fields' => {'collection' => [], 'language' => []}}}
+      @document_list_a = []
+    end
+    it 'should render the home text' do
+      render
+      expect(rendered).to match(/Home text/)
+    end
+    it 'should render search heading' do
+      render
+      rendered.should match('<h2.*?>Search</h2>')
+    end
+    it 'should render the search box' do
+      render
+      expect(rendered).to match(/Search box/)
+    end
+    it 'should not render the browse manuscript heading' do
+      render
+      rendered.should_not match('<h2.*?>Browse manuscripts</h2>')
+    end
+    it 'should not render the repository facet' do
+      render
+      expect(rendered).not_to match(/Repository/)
+    end
+    it 'should not render the language facet' do
+      render
+      expect(rendered).not_to match(/Language/)
+    end
+    it 'should not render the century graph' do
+      render
+      expect(rendered).not_to match(/Century/)
+    end
+    it 'should not render the annotations heading' do
+      render
+      rendered.should_not match('<h2.*?>& annotations</h2>')
+    end
+    it 'should not render the recent annotations and facets for annotations' do
+      render
+      expect(rendered).not_to match(/Recent annotations/)
+      expect(rendered).not_to match(/Annotations by author/)
+    end
   end
-  it 'should render the search box' do
-    expect(rendered).to match(/Search box/)
-  end
-  it 'should render the repository facet' do
-    expect(rendered).to match(/Repository/)
-  end
-  it 'should render the language facet' do
-    expect(rendered).to match(/Language/)
-  end
-  it 'should render the century graph' do
-    expect(rendered).to match(/Century/)
-  end
-  it 'should render the recent annotations' do
-    expect(rendered).to match(/Recent annotations/)
-  end
-  it 'should render author facets for annotations' do
-    expect(rendered).to match(/Annotations by author/)
-  end
-  it 'should render headings' do
-    rendered.should match('<h2.*?>Search</h2>')
-    rendered.should match('<h2.*?>Browse manuscripts</h2>')
-    rendered.should match('<h2.*?>& annotations</h2>')
+  describe 'it should render heading and partials if data available' do
+    before(:all) do
+      @data_array = [1, 2, 3]
+      @response_m = {'facet_counts' => {'facet_fields' => {'collection' => %w(a b c), 'language' => %w(English Latin)}}}
+      @document_list_a = [1, 2, 3]
+    end
+    it 'should render the home text' do
+      render
+      expect(rendered).to match(/Home text/)
+    end
+    it 'should render search heading' do
+      render
+      rendered.should match('<h2.*?>Search</h2>')
+    end
+    it 'should render the search box' do
+      render
+      expect(rendered).to match(/Search box/)
+    end
+    it 'should render the browse manuscript heading' do
+      render
+      rendered.should match('<h2.*?>Browse manuscripts</h2>')
+    end
+    it 'should render the repository facet' do
+      render
+      expect(rendered).to match(/Repository/)
+    end
+    it 'should render the language facet' do
+      render
+      expect(rendered).to match(/Language/)
+    end
+    it 'should render the century graph' do
+      render
+      expect(rendered).to match(/Century/)
+    end
+    it 'should render the annotations heading' do
+      render
+      rendered.should match('<h2.*?>& annotations</h2>')
+    end
+    it 'should render the recent annotations and facets for annotations' do
+      render
+      expect(rendered).to match(/Recent annotations/)
+      expect(rendered).to match(/Annotations by author/)
+    end
   end
 end

@@ -8,7 +8,7 @@ describe 'Homepage search tab', type: :feature, js: true do
         click_link 'Descriptions'
       end
     end
-    expect(page).to have_css('ul.nav-tabs li[data-field=all_fields]', text: 'All Fields')
+    expect(page).to have_css('ul.nav-tabs li[data-field=all_fields]', text: 'All Content')
     expect(page).to have_css('ul.nav-tabs li.active[data-field=descriptions]', text: 'Descriptions')
     expect(page).to have_css('ul.nav-tabs li[data-field=transcriptions]', text: 'Transcriptions')
     expect(page).to have_css('ul.nav-tabs li[data-field=annotations]', text: 'Annotations')
