@@ -15,6 +15,7 @@ en:
       bookmarks:
         present: "bookmarked"
         absent: "bookmark"
+        inprogress: "Saving..."
       pagination_info:
         pages:
           one: '<strong>%{start_num}</strong>-<strong>%{end_num}</strong> of<br/><strong>%{total_num}</strong> results'
