@@ -37,6 +37,7 @@ describe IiifManifestData do
       expect(@document2.manifest).not_to be_empty
     end
   end
+
   describe '#title' do
     it 'should be nil if no manifest url' do
       expect(@document_empty.title).to be_nil
@@ -52,6 +53,7 @@ describe IiifManifestData do
       expect(@document2.title).to eq('Stanford University Libraries, M1814. Flat Box 2, Folder 02')
     end
   end
+
   describe '#druid' do
     it 'should be nil if no manifest url' do
       expect(@document_empty.druid).to be_nil
@@ -121,7 +123,23 @@ describe IiifManifestData do
       expect(@document.annotation_lists.length).to eq(36)
     end
     it 'should be an array of hashes' do
-      expect(@document.annotation_lists.any? { |hash| hash.keys == %w(@id @type label) }).to be_true
+      expect(@document.annotation_lists.any? { |hash| hash.keys == %w(@id @type label img_info) }).to be_true
+    end
+    it 'should have the correct data' do
+      expected_hash_1 = {
+        '@id' => 'http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f8r.json',
+        '@type' => 'sc:AnnotationList',
+        'label' => 'f. 8r',
+        'img_info' => ['http://stacks.stanford.edu/image/kq131cs7229/sulmss_misc305_008r_SM']
+      }
+      expect(@document.annotation_lists.first).to eq(expected_hash_1)
+      expected_hash_2 = {
+        '@id' => 'http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f15r.json',
+        '@type' => 'sc:AnnotationList',
+        'label' => 'f. 15r',
+        'img_info' => ['http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0035']
+      }
+      expect(@document.annotation_lists[10]).to eq(expected_hash_2)
     end
   end
 

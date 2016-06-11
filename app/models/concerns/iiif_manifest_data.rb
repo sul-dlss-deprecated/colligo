@@ -52,8 +52,21 @@ module IiifManifestData
     annotations = []
     manifest['sequences'].each do |s|
       s['canvases'].each do |c|
+        img_info = []
+        if c.key?('images')
+          c['images'].each do |i|
+            if i.key?('resource') and i['resource'].key?('@id') and i['resource']['@id'] and
+                i['resource'].key?('format') and %w(image/jpeg image/png).include?(i['resource']['format'])
+              img_info << i['resource']['@id']
+            end
+          end
+        end
         if c.key?('otherContent')
-          annotations += c['otherContent'].select { |item| item['@type'] == 'sc:AnnotationList' }.map { |item| item['label'] = c['label']; item }
+          annotations += c['otherContent'].select { |item| item['@type'] == 'sc:AnnotationList' }.map do |item|
+            item['label'] = c['label']
+            item['img_info'] = img_info
+            item
+          end
         end
       end
     end

@@ -110,6 +110,20 @@ describe ModsData do
     end
   end
 
+  describe '#all_display_fields' do
+    it 'should include all display fields' do
+      expect(document.all_display_fields).to be_a Array
+      expect(document.all_display_fields.length).to eq(29)
+    end
+  end
+
+  describe '#single_valued_display_fields' do
+    it 'should include all single valued display fields' do
+      expect(document.single_valued_display_fields).to be_a Array
+      expect(document.single_valued_display_fields.length).to eq(5)
+    end
+  end
+
   describe '#mods_to_solr' do
     let(:data) { document.mods_to_solr }
     let(:data_with_id) { document_with_id.mods_to_solr }
@@ -560,20 +574,6 @@ describe ModsData do
       expect(date8).to eq('June 1781')
       expect(date9).to eq('s. XIII^^ex [ca. 1275-1300]')
       expect(date10).to eq('850 to 1499')
-    end
-  end
-
-  describe '#all_display_fields' do
-    it 'should include all display fields' do
-      expect(document.all_display_fields).to be_a Array
-      expect(document.all_display_fields.length).to eq(29)
-    end
-  end
-
-  describe '#single_valued_display_fields' do
-    it 'should include all single valued display fields' do
-      expect(document.single_valued_display_fields).to be_a Array
-      expect(document.single_valued_display_fields.length).to eq(5)
     end
   end
 end

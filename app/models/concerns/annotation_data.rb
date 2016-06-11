@@ -65,7 +65,7 @@ module AnnotationData
   end
 
   def annotation_to_solr(data = {})
-    # data.keys = [:annotation, :manuscript, :folio, :url]
+    # data.keys = [:annotation, :manuscript, :folio, :url, :img_info]
     return {} unless data.key?('annotation') || data['annotation']
     anno = map_annotation(data['annotation'])
     return {} unless anno['id']
@@ -77,6 +77,7 @@ module AnnotationData
     solr_doc['sort_index'] = self['sort_index']
     solr_doc['url_sfx'] = data['url'] if data.key?('url')
     solr_doc['folio'] = data['folio'] if data.key?('folio')
+    solr_doc['img_info'] = data['img_info'].uniq if data.key?('img_info')
     solr_doc['manuscript_search'] = data['manuscript'] if data.key?('manuscript')
     solr_doc['model'] = anno['model']
     solr_doc['motivation'] = anno['motivation']

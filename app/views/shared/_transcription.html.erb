@@ -2,9 +2,8 @@
   <div class="panel-body transcription-result">
     <div class="media">
       <div class="media-left">
-        <% unless document['target_url'].blank? %>
-          <% t_url = document['target_url'].first.partition('#')[0] %>
-          <%= image_tag(t_url, class: 'media-object results-thumbnail') %>
+        <% unless document['img_info'].blank? %>
+          <%= image_tag(document['img_info'].first, class: 'media-object results-thumbnail') %>
         <% end %>&nbsp;
       </div>
       <div class="media-body">
@@ -19,9 +18,6 @@
         <% unless document['language'].blank? %>
             <p><%= document['language'].join(', ') %></p>
         <% end %>
-        <!--<% unless document['body_type'].blank? %>-->
-          <!--<p><%#= raw document['body_type'].join(', ') %></p>-->
-        <!--<% end %>-->
         <% unless document['folio'].blank? %>
           <p><%= document['folio'] %></p>
         <% end %>

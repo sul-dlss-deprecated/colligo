@@ -47,7 +47,8 @@ module AnnotationFixtures
       'annotation' => annotation_001,
       'manuscript' => 'Manuscript fragment of the Gospels and Canonical Epistles, glossed',
       'folio' => 'f. 8r',
-      'url' => 'http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f8r.json'
+      'url' => 'http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f8r.json',
+      'img_info' => ['http://stacks.stanford.edu/image/kq131cs7229/sulmss_misc305_008r_SM']
     }
   end
 
@@ -62,7 +63,8 @@ module AnnotationFixtures
       'annotation' => annotation_001.except('@id'),
       'manuscript' => 'Manuscript fragment of the Gospels and Canonical Epistles, glossed',
       'folio' => 'f. 8r',
-      'url' => 'http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f8r.json'
+      'url' => 'http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f8r.json',
+      'img_info' => ['http://stacks.stanford.edu/image/kq131cs7229/sulmss_misc305_008r_SM']
     }
   end
 
@@ -70,7 +72,8 @@ module AnnotationFixtures
     {
       'manuscript' => 'Manuscript fragment of the Gospels and Canonical Epistles, glossed',
       'folio' => 'f. 8r',
-      'url' => 'http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f8r.json'
+      'url' => 'http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f8r.json',
+      'img_info' => ['http://stacks.stanford.edu/image/kq131cs7229/sulmss_misc305_008r_SM']
     }
   end
 end

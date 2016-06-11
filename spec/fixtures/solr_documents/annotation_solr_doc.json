@@ -14,7 +14,7 @@
     "format":["text/plain"],
     "body_chars_display":"Erant aut[em] qui manducaverant Erant aut[em] qui manducaverant Erant aut[em] qui manducaverant Erant aut[em] qui manducaverant Erant aut[em] qui manducaverant Erant aut[em] qui manducaverant",
     "language":["Latin"],
-    "img_info": ["https://stacks.stanford.edu/image/iiif/xs067jx3704%2FW528_000001_300/full/!400,400/0/default.jpg"],
+    "img_info": ["https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fsulmss_misc305_008r_SM"],
     "authors_all_display": ["Joe Blogg", "John Smith"],
     "score":0.00088888034
   },
@@ -33,6 +33,7 @@
     "format":["text/plain"],
     "body_chars_display":"quasi quatuor milia hominu[m] et",
     "language":["Latin"],
+    "img_info": ["https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fsulmss_misc305_008r_SM"],
     "score":0.00088888034
   },
   {
@@ -49,7 +50,9 @@
     "body_type":["cnt:ContentAsText"],
     "format":["text/plain"],
     "body_chars_display":"et dimisit eos Et stati[m] ascendens na-",
-    "language":["Latin"],"score":0.00088888034
+    "language":["Latin"],
+    "img_info": ["https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fsulmss_misc305_008r_SM"],
+    "score":0.00088888034
   },
   {
     "id":"_:N82e5366197f24bc1ae583248d73e36fc",
@@ -66,6 +69,7 @@
     "format":["text/plain"],
     "body_chars_display":"-ve[m] cu[m] discip[u]lis suis venit in par-",
     "language":["Latin"],
+    "img_info": ["https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fsulmss_misc305_008r_SM"],
     "score":0.00088888034
   },
   {
@@ -100,6 +104,7 @@
     "format":["text/plain"],
     "body_chars_display":"-sei et ceper[un]t conquirere cu[m] eo que-",
     "language":["Latin"],
+    "img_info": ["https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fsulmss_misc305_008r_SM"],
     "score":0.00088888034
   },
   {
@@ -134,6 +139,7 @@
     "format":["text/plain"],
     "body_chars_display":"eu[m] [Et] ingemiscens sp[irit]u ait Q[ui]d g[e]n[er]a-",
     "language":["Latin"],
+    "img_info": ["https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fsulmss_misc305_008r_SM"],
     "score":0.00088888034
   },
   {
@@ -168,6 +174,7 @@
     "format":["text/plain"],
     "body_chars_display":"vob[is] si dabit[ur] g[e]n[er]ationi isti signum",
     "language":["Latin"],
+    "img_info": ["https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fsulmss_misc305_008r_SM"],
     "score":0.00088888034
   }
 ]
