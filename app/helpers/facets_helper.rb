@@ -83,10 +83,9 @@ module FacetsHelper
   # @return [String]
   def render_refine_facet_value(facet_field, item, options ={})
     path = path_for_facet(facet_field, item)
-    content_tag(:td, :class => 'facet-label') do
-      link_to_unless(options[:suppress_link], facet_display_value(facet_field, item), path, :class => 'facet_select')
+    content_tag(:td, class: 'facet-label') do
+      link_to_unless(options[:suppress_link], facet_display_value(facet_field, item), path, class: 'facet_select')
     end + render_refine_facet_count(item.hits)
-    # + content_tag(:td)
   end
 
 
@@ -94,11 +93,12 @@ module FacetsHelper
   # Standard display of a SELECTED facet value (e.g. without a link and with a remove button)
   # @params (see #render_refine_facet_value)
   def render_refine_selected_facet_value(facet_field, item)
-    content_tag(:td, :class => 'facet-label') do
-      content_tag(:span, facet_display_value(facet_field, item), :class => 'selected') +
+    content_tag(:td, class: 'facet-label') do
+      content_tag(:span, facet_display_value(facet_field, item), class: 'selected') +
           # remove link
-          link_to(content_tag(:span, '', :class => 'glyphicon glyphicon-remove') + content_tag(:span, '[remove]', :class => 'sr-only'), search_action_path(remove_facet_params(facet_field, item, params)), :class=> 'remove')
-    end + render_refine_facet_count(item.hits, :classes => ['selected'])
+          link_to(content_tag(:span, '', class: 'glyphicon glyphicon-remove') + content_tag(:span, '[remove]', class: 'sr-only'),
+                  search_action_path(remove_facet_params(facet_field, item, params)), class: 'remove')
+    end + render_refine_facet_count(item.hits, classes: ['selected'])
     # + content_tag(:td)
   end
 
@@ -111,7 +111,7 @@ module FacetsHelper
   # @return [String]
   def render_refine_facet_count(num, options = {})
     classes = (options[:classes] || []) << 'facet-count'
-    content_tag('td', t('blacklight.search.facets.count', :number => number_with_delimiter(num)), :class => classes)
+    content_tag('td', t('blacklight.search.facets.count', number: number_with_delimiter(num)), class: classes)
   end
 
 end
