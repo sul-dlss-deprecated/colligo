@@ -1,13 +1,13 @@
 class ManuscriptController < ApplicationController
   include Blacklight::Configurable
-  include Blacklight::SolrHelper
-  include Blacklight::Catalog::SearchContext
+  include Blacklight::SearchHelper
+  include Blacklight::SearchContext
   copy_blacklight_config_from(CatalogController)
 
   layout 'blacklight'
 
   def show
-    @response, @document = get_solr_response_for_doc_id params[:id]
+    @response, @document = fetch(params[:id])
     # Sanitize results for the viewer
     sd = SolrDocument.new
     @document.each do |k, v|

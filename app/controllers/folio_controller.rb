@@ -1,7 +1,7 @@
 class FolioController < ApplicationController
   include Blacklight::Configurable
-  include Blacklight::SolrHelper
-  include Blacklight::Catalog::SearchContext
+  include Blacklight::SearchHelper
+  include Blacklight::SearchContext
   copy_blacklight_config_from(CatalogController)
   blacklight_config.max_per_page = 1000
 
@@ -62,6 +62,7 @@ class FolioController < ApplicationController
   end
 
   def manuscript
+    @manuscript = nil
     query_params = { q: "druid:#{params[:manuscript_id]}", rows: 1 }
     self.search_params_logic += [:add_manuscript_filter]
     self.search_params_logic -= [:all_search_filter, :add_annotation_filter, :add_transcription_filter]
