@@ -55,7 +55,8 @@ $(function() {
     var anno_check_count = 0;
     $.subscribe('imageRectangleUpdated', image_rect_updated_handle);
     $.subscribe('focusUpdated', focus_updated_handle);
-    $.subscribe('windowAdded', window_added_handle);
+    // $.subscribe('windowAdded', window_added_handle);
+    $.subscribe('imageBoundsUpdated', image_bounds_handle);
 
     function image_rect_updated_handle(event, data) {
         var win_id = data['id'];
@@ -102,10 +103,13 @@ $(function() {
     }
 
     function window_added_handle(event, windowId, slotId) {
+        console.log('In window added handle');
+        console.log(windowId['id']);
         $.subscribe('currentCanvasIDUpdated.' + windowId['id'], canvas_updated_handle);
     }
 
     function canvas_updated_handle(event, data) {
+        console.log('In canvas updated handle');
         if (data != canvas_id) {
             // Get label of new canvas navigated to
             $.ajax({
@@ -114,10 +118,56 @@ $(function() {
                 data: 'canvas_id=' + data,
                 success: function(data) {
                     url = next_url(data['folio']);
-                    window.location.pathname = url;
+                    // window.location.pathname = url;
                 }
             });
         }
+    }
+
+    function image_bounds_handle() {
+        console.log('In image bounds handle');
+        var osd_id = $('.mirador-osd').attr('id');
+        console.log(osd_id);
+        var osd_viewer = OpenSeadragon({
+            'id': osd_id
+        });
+        var viewerInputHook = new OpenSeadragonImaging.ViewerInputHook({
+            viewer: osd_viewer,
+            hooks: [
+                    {tracker: 'viewer', handler: 'clickHandler', hookHandler: onHookOsdViewerClick}
+                ]
+        });
+    }
+
+    function onHookOsdViewerClick(event, data) {
+        console.log('In onHookOsdViewerClick');
+        console.log(data);
+        //if (data != canvas_id) {
+        //    // Get label of new canvas navigated to
+        //    $.ajax({
+        //        type: 'get',
+        //        url: window.location.pathname + '/folio_label',
+        //        data: 'canvas_id=' + data,
+        //        success: function(data) {
+        //            url = next_url(data['folio']);
+        //            // window.location.pathname = url;
+        //        }
+        //    });
+        //}
+        // set event.stopHandlers = true to prevent any more handlers in the chain from being called
+        // set event.stopBubbling = true to prevent the original event from bubbling
+        // set event.preventDefaultAction = true to prevent viewer's default action
+        //if (event.quick) {
+        //    var logPoint = imagingHelper.physicalToLogicalPoint(event.position);
+        //    if (event.shift) {
+        //        imagingHelper.zoomOutAboutLogicalPoint(logPoint);
+        //    }
+        //    else {
+        //        imagingHelper.zoomInAboutLogicalPoint(logPoint);
+        //    }
+        //}
+        //event.stopBubbling = true;
+        //event.preventDefaultAction = true;
     }
 
     function get_max_text_length(text_class) {
