@@ -1,0 +1,31 @@
+<nav class="navbar navbar-default navbar-green" data-spy="affix" data-offset-top="700">
+  <div class="container">
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="manuscript-navbar">
+      <ul class="nav navbar-nav">
+        <% if @document['abstract_display'].present? %>
+          <li class="active"><a href="#summary">Summary</a></li>
+          <li><a href="#description">Description</a></li>
+        <% else %>
+          <li class="active"><a href="#description">Description</a></li>
+        <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<div class="panel panel-default panel-content">
+  <div class="panel-body">
+    <% if @document['abstract_display'].present? %>
+      <section id="summary">
+        <h2>Summary</h2>
+        <%= render partial: 'manuscript/_description/summary' %>
+        <%#= render partial: 'shared/lorem_ipsum' %>
+      </section>
+    <% end %>
+    <section id="description">
+      <h2>Description</h2>
+      <%= render partial: 'manuscript/_description/description' %>
+      <%#= render partial: 'shared/lorem_ipsum' %>
+    </section>
+  </div>
+</div>

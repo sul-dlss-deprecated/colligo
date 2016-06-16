@@ -1,14 +1,18 @@
+# Module to handle json data
 module JsonReader
+  # Class to read and parse json from a file, passed in as a string or fetched from a url
   class Reader
+    # Parse a json from string
     def from_str(str)
       JSON.parse(str)
     end
 
+    # Fetch the json data from the provided url and parse it
     def from_url(url, _encoding = nil)
       require 'open-uri'
       begin
         JSON.parse(open(url).read)
-      rescue Timeout::Error, Errno::EINVAL, Errno::ECONNRESET, Errno::ETIMEDOUT, EOFError,
+      rescue Timeout::Error, Errno::EINVAL, Errno::ECONNRESET, Errno::ETIMEDOUT, EOFError, SocketError,
              Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError, Net::ProtocolError, OpenURI::HTTPError => the_error
         puts "\nOpen URI error for #{url}\n\t#{the_error.message}" # TODO: Add to log
         return nil

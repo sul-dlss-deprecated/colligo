@@ -37,6 +37,7 @@ describe IiifManifestData do
       expect(@document2.manifest).not_to be_empty
     end
   end
+
   describe '#title' do
     it 'should be nil if no manifest url' do
       expect(@document_empty.title).to be_nil
@@ -52,6 +53,7 @@ describe IiifManifestData do
       expect(@document2.title).to eq('Stanford University Libraries, M1814. Flat Box 2, Folder 02')
     end
   end
+
   describe '#druid' do
     it 'should be nil if no manifest url' do
       expect(@document_empty.druid).to be_nil
@@ -121,9 +123,68 @@ describe IiifManifestData do
       expect(@document.annotation_lists.length).to eq(36)
     end
     it 'should be an array of hashes' do
-      expect(@document.annotation_lists.any? { |hash| hash.keys == %w(@id @type label) }).to be_true
+      expect(@document.annotation_lists.any? { |hash| hash.keys == %w(@id @type label img_info) }).to be_true
+    end
+    it 'should have the correct data' do
+      expected_hash_1 = {
+        '@id' => 'http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f8r.json',
+        '@type' => 'sc:AnnotationList',
+        'label' => 'f. 8r',
+        'img_info' => ['http://stacks.stanford.edu/image/kq131cs7229/sulmss_misc305_008r_SM']
+      }
+      expect(@document.annotation_lists.first).to eq(expected_hash_1)
+      expected_hash_2 = {
+        '@id' => 'http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f15r.json',
+        '@type' => 'sc:AnnotationList',
+        'label' => 'f. 15r',
+        'img_info' => ['http://stacks.stanford.edu/image/kq131cs7229/kq131cs7229_05_0035']
+      }
+      expect(@document.annotation_lists[10]).to eq(expected_hash_2)
     end
   end
+
+  describe '#contents' do
+    it 'should be an array' do
+      expect(@document_empty.contents).to be_a Array
+      expect(@document.contents).to be_a Array
+      expect(@document2.contents).to be_a Array
+    end
+
+    it 'should be an empty array if no manifest url' do
+      expect(@document_empty.contents).to be_empty
+    end
+
+    it 'should not be an empty array' do
+      expect(@document.contents).not_to be_empty
+      expect(@document2.contents).not_to be_empty
+    end
+    it 'should have all the canvases' do
+      expect(@document.contents.length).to eq(36)
+      expect(@document2.contents.length).to eq(2)
+    end
+    it 'should be an array of hashes' do
+      expect(@document.contents.any? { |hash| hash.keys == %w(@id label motivation @type img) }).to be_true
+      expect(@document2.contents.any? { |hash| hash.keys == %w(@id label motivation @type img) }).to be_true
+    end
+    it 'should have the correct order' do
+      expect(@document.contents[15]).to eq ({ '@id' => 'http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-16',
+                                              'label' => 'f. 16bisv',
+                                              'motivation' => 'sc:painting',
+                                              '@type' => 'oa:Annotation',
+                                              'img' => 'http://stacks.stanford.edu/image/kq131cs7229/sulmss_misc305_016bv_SM' })
+      expect(@document2.contents.first).to eq ({ '@id' => 'https://purl.stanford.edu/bb389yg4719/iiif/canvas-0',
+                                                 'label' => '1',
+                                                 'motivation' => 'sc:painting',
+                                                 '@type' => 'oa:Annotation',
+                                                 'img' => 'https://stacks.stanford.edu/image/iiif/bb389yg4719%2Fbb389yg4719_05_0001/full/full/0/default.jpg' })
+      expect(@document2.contents.last).to eq ({ '@id' => 'https://purl.stanford.edu/bb389yg4719/iiif/canvas-1',
+                                                'label' => '2',
+                                                'motivation' => 'sc:painting',
+                                                '@type' => 'oa:Annotation',
+                                                'img' => 'https://stacks.stanford.edu/image/iiif/bb389yg4719%2Fbb389yg4719_05_0002/full/full/0/default.jpg' })
+    end
+  end
+
   describe '#fetch_modsxml' do
     before do
       response_mods1 = File.open("#{::Rails.root}/spec/fixtures/iiif_manifest_records/mods_001.xml").read

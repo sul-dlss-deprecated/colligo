@@ -1,0 +1,11 @@
+<div class="panel panel-content search-panel">
+  <div class="panel-body">
+    <% count = document_counter + @response_m['response']['start'] %>
+    <%= render partial: 'shared/manuscript_body', locals: {document: document, show_manifest: show_manifest, count: count}  %>
+  </div>
+  <% if show_footer == true %>
+    <div class="panel-footer results-footer">
+      <%= render partial: 'shared/manuscript_footer', locals: {document: document}  %>
+    </div>
+  <% end %>
+</div>

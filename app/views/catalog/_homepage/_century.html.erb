@@ -1,0 +1,26 @@
+<%- # requires solr_config local passed in
+  label = facet_field_label('pub_date_t')
+  input_label_range_begin = t('blacklight.range_limit.range_begin', field_label: label)
+  input_label_range_end   = t('blacklight.range_limit.range_end', field_label: label)
+-%>
+
+<div id="century" class="row">
+  <h3>by century</h3>
+  <%= content_tag :div, class: 'pull-left', id: 'century_slider', data: {boundaries: @boundaries, ticks: @slider_ticks} do %>
+  <% end %>
+
+  <%= content_tag :div, class: 'pull-left', id: 'century_panel', data: {rawdata: @data_array, ticks: @data_ticks, pointerlookup: @pointer_lookup} do %>
+    <div id="browse_century" class="panel-body" style="width:80%;height:100%;">
+    </div>
+  <% end %>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <%= form_tag catalog_index_path, :method => :get, :class=> 'range_limit subsection range_pub_date_t form-inline' do %>
+      <%= hidden_field_tag('search_field', 'descriptions', id: 'search_descriptions_century') %>
+      <%= render_range_input( 'pub_date_t', :begin, input_label_range_begin) %> – <%= render_range_input('pub_date_t', :end, input_label_range_end) %>
+      <%= submit_tag t('blacklight.range_limit.submit_limit'), :class=>'submit btn btn-default' %>
+    <% end %>
+  </div>
+</div>
+

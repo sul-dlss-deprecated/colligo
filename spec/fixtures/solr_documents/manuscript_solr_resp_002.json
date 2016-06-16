@@ -1,0 +1,130 @@
+{
+  "responseHeader": {
+    "status": 0,
+    "QTime": 4,
+    "params": {
+      "facet.query": [
+        "pub_date_t:[2000 TO *]",
+        "pub_date_t:[1900 TO 1999]",
+        "pub_date_t:[1800 TO 1899]",
+        "pub_date_t:[1700 TO 1799]",
+        "pub_date_t:[1600 TO 1699]",
+        "pub_date_t:[1500 TO 1599]",
+        "pub_date_t:[1400 TO 1499]",
+        "pub_date_t:[1300 TO 1399]",
+        "pub_date_t:[1200 TO 1299]",
+        "pub_date_t:[1100 TO 1199]",
+        "pub_date_t:[1000 TO 1099]",
+        "pub_date_t:[900 TO 999]",
+        "pub_date_t:[800 TO 899]",
+        "pub_date_t:[700 TO 799]",
+        "pub_date_t:[600 TO 699]",
+        "pub_date_t:[500 TO 599]",
+        "pub_date_t:[400 TO 499]",
+        "pub_date_t:[300 TO 399]",
+        "pub_date_t:[200 TO 299]",
+        "pub_date_t:[100 TO 199]",
+        "pub_date_t:[0 TO 99]"
+      ],
+      "q": "foobar",
+      "facet.field": [
+        "format",
+        "type_of_resource_facet",
+        "authors_all_facet",
+        "topic_facet",
+        "geographic_facet",
+        "era_facet",
+        "manuscript_facet",
+        "language",
+        "place_search",
+        "model",
+        "folio",
+        "collection"
+      ],
+      "qt": "descriptions",
+      "f.topic_facet.facet.limit": "21",
+      "f.language.facet.limit": "6",
+      "sort": "score desc, title_sort asc",
+      "rows": "10",
+      "wt": "ruby",
+      "facet": "true"
+    }
+  },
+  "response": {
+    "numFound": 0,
+    "start": 0,
+    "maxScore": 0.0,
+    "docs": [
+
+    ]
+  },
+  "facet_counts": {
+    "facet_queries": {
+      "pub_date_t:[2000 TO *]": 0,
+      "pub_date_t:[1900 TO 1999]": 0,
+      "pub_date_t:[1800 TO 1899]": 0,
+      "pub_date_t:[1700 TO 1799]": 0,
+      "pub_date_t:[1600 TO 1699]": 0,
+      "pub_date_t:[1500 TO 1599]": 0,
+      "pub_date_t:[1400 TO 1499]": 0,
+      "pub_date_t:[1300 TO 1399]": 0,
+      "pub_date_t:[1200 TO 1299]": 0,
+      "pub_date_t:[1100 TO 1199]": 0,
+      "pub_date_t:[1000 TO 1099]": 0,
+      "pub_date_t:[900 TO 999]": 0,
+      "pub_date_t:[800 TO 899]": 0,
+      "pub_date_t:[700 TO 799]": 0,
+      "pub_date_t:[600 TO 699]": 0,
+      "pub_date_t:[500 TO 599]": 0,
+      "pub_date_t:[400 TO 499]": 0,
+      "pub_date_t:[300 TO 399]": 0,
+      "pub_date_t:[200 TO 299]": 0,
+      "pub_date_t:[100 TO 199]": 0,
+      "pub_date_t:[0 TO 99]": 0
+    },
+    "facet_fields": {
+      "format": [
+
+      ],
+      "type_of_resource_facet": [
+
+      ],
+      "authors_all_facet": [
+
+      ],
+      "topic_facet": [
+
+      ],
+      "geographic_facet": [
+
+      ],
+      "era_facet": [
+
+      ],
+      "manuscript_facet": [
+
+      ],
+      "language": [
+
+      ],
+      "place_search": [
+
+      ],
+      "model": [
+
+      ],
+      "folio": [
+
+      ],
+      "collection": [
+
+      ]
+    },
+    "facet_dates": {
+    },
+    "facet_ranges": {
+    },
+    "facet_intervals": {
+    }
+  }
+}

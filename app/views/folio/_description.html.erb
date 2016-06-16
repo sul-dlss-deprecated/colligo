@@ -1,0 +1,53 @@
+<div class="tabbable tabs-below">
+  <div class="tab-content" id="viewer_text">
+    <%
+      a_class = 'tab-pane'
+      t_class = 'tab-pane'
+      li_a_class = ''
+      li_t_class = ''
+      if @annotations.blank?
+        a_class += ' tab-disabled'
+      end
+      if @transcriptions.blank?
+        t_class += ' tab-disabled'
+      end
+      if params[:view] == 'annotations'
+        a_class += ' active'
+        li_a_class = ' active'
+      else
+        t_class += ' active'
+        li_t_class = ' active'
+      end
+    %>
+    <div class="<%=a_class%>" id="annotations">
+      <% if @annotations.any? %>
+        <% @annotations.each do |annotation| %>
+          <div class="annotation_text" id="anno_<%=annotation['id']%>">
+            <%= annotation['body_chars_display'] %>
+          </div>
+        <% end %>
+      <% else %>
+        <div>There are no annotations for folio <%=params[:id]%></div>
+      <% end %>
+    </div>
+    <div class="<%=t_class%>" id="transcriptions">
+      <% if @transcriptions.any? %>
+        <% @transcriptions.each do |transcription| %>
+          <div class="transcription_text" id="trans_<%=transcription['id']%>">
+            <%=transcription['body_chars_display']%>
+          </div>
+        <% end %>
+      <% else %>
+        <div>There are no transcriptions for folio <%=params[:id]%></div>
+      <% end %>
+    </div>
+  </div>
+  <ul class="nav nav-tabs folio-tabs">
+    <li class="<%=li_a_class%>" data-tab-id="annotations">
+      <span class="glyphicon glyphicon-tag" aria-hidden="true"></span> Annotations
+     </li>
+    <li class="<%=li_t_class%>" data-tab-id="transcriptions">
+      <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Transcriptions
+    </li>
+  </ul>
+</div>

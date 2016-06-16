@@ -1,0 +1,57 @@
+{
+  "responseHeader": {
+    "status": 0,
+    "QTime": 6,
+    "params": {
+      "q": "druid:kq131cs7229 AND folio:\"f. 8r\"",
+      "qt": "transcriptions",
+      "sort": "score desc",
+      "rows": "1",
+      "wt": "ruby",
+      "facet": "true"
+    }
+  },
+  "response": {
+    "numFound": 662,
+    "start": 0,
+    "maxScore": 0.00088888034,
+    "docs": [
+      {
+        "id": "_:N43deaea09a5345379218db8cb72600c3",
+        "druid": "kq131cs7229",
+        "manifest_urls": [
+          "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/manifest.json"
+        ],
+        "collection": "Test collection",
+        "url_sfx": [
+          "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/list/text-f8r.json"
+        ],
+        "folio": "f. 8r",
+        "manuscript_display": "Manuscript fragment of the Gospels and Canonical Epistles, glossed",
+        "model": [
+          "Transcription"
+        ],
+        "target_url": [
+          "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/canvas/canvas-3#xywh=600,450,1017,166"
+        ],
+        "target_type": [
+          "oa:Annotation"
+        ],
+        "body_type": [
+          "cnt:ContentAsText"
+        ],
+        "format": [
+          "text/plain"
+        ],
+        "body_chars_display": "Erant aut[em] qui manducaverant",
+        "language": [
+          "Latin"
+        ],
+        "img_info": [
+          "https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fsulmss_misc305_008r_SM"
+        ],
+        "score": 0.00088888034
+      }
+    ]
+  }
+}

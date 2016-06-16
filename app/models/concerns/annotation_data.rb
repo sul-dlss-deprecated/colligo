@@ -1,26 +1,32 @@
+# Module with methods to extract content from the open annotation json-ld record  
 module AnnotationData
   include JsonReader
   extend ActiveSupport::Concern
 
+  # Fetch json-ld based annotation data from a url
   def read_annotation(url = nil)
     return nil unless url # self[:annotation_url]
     @annotation_list = JsonReader::Reader.new.from_url(url)
   end
 
+  # define the oa type used annotations
   def motivation_for_annotations
     'oa:commenting'
   end
 
+  # define the oa type used annotations
   def motivation_for_transcriptions
     'sc:painting'
   end
 
+  # extract all of the resources in the annotations record
   def resources(annotation_list = nil)
     return [] unless annotation_list
     return [] unless annotation_list.key? 'resources'
     annotation_list['resources']
   end
 
+  # extract all of the resources in the annotations record of type annotations
   def annotations(annotation_list = nil)
     # the motivation for annotations will be: "oa:commenting"
     # return [] unless self[:annotation_url]
@@ -32,6 +38,7 @@ module AnnotationData
     al.select { |anno| anno['motivation'] == motivation_for_annotations }
   end
 
+  # extract all of the resources in the annotations record of type transcriptions
   def transcriptions(annotation_list = nil)
     # the motivation for transcriptions will be: "sc:painting"
     # return [] unless self[:annotation_url]
@@ -43,6 +50,7 @@ module AnnotationData
     al.select { |anno| anno['motivation'] == motivation_for_transcriptions }
   end
 
+  # handy method to fetch just the data of interest into a hash
   def map_annotation(annotation = nil)
     return {} unless annotation
     anno = {}
@@ -64,8 +72,9 @@ module AnnotationData
     anno
   end
 
+  # method to index each annotation / transcription record (single resource) to solr
   def annotation_to_solr(data = {})
-    # data.keys = [:annotation, :manuscript, :folio, :url]
+    # data.keys = [:annotation, :manuscript, :folio, :url, :img_info]
     return {} unless data.key?('annotation') || data['annotation']
     anno = map_annotation(data['annotation'])
     return {} unless anno['id']
@@ -74,8 +83,10 @@ module AnnotationData
     solr_doc['druid'] = self['druid']
     solr_doc['manifest_urls'] = self['iiif_manifest']
     solr_doc['collection'] = self['collection']
+    solr_doc['sort_index'] = self['sort_index']
     solr_doc['url_sfx'] = data['url'] if data.key?('url')
     solr_doc['folio'] = data['folio'] if data.key?('folio')
+    solr_doc['img_info'] = data['img_info'].uniq if data.key?('img_info')
     solr_doc['manuscript_search'] = data['manuscript'] if data.key?('manuscript')
     solr_doc['model'] = anno['model']
     solr_doc['motivation'] = anno['motivation']

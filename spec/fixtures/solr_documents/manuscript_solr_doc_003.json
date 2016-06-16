@@ -1,0 +1,54 @@
+{
+  "id": "kq131cs7229",
+  "druid": "kq131cs7229",
+  "url_sfx": [
+    "http://purl.stanford.edu/kq131cs7229.mods"
+  ],
+  "manifest_urls": [
+    "http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/manifest.json"
+  ],
+  "collection": "Test collection",
+  "model": [
+    "Manuscript"
+  ],
+  "access_condition_display": "Property rights reside with the repository. Literary rights reside with the creators of the documents or their heirs. To obtain permission to publish or reproduce, please contact the Special Collections Public Services Librarian at speccollref@stanford.edu.",
+  "title_display": "Manuscript fragment of the Gospels and Canonical Epistles, glossed",
+  "title_other_display": [
+    "Bible"
+  ],
+  "language": [
+    "Latin"
+  ],
+  "physical_location_display": [
+    "Department of Special Collections, Stanford University Libraries, Stanford, CA 94305"
+  ],
+  "pub_date_display": "1135",
+  "topic_display": [
+    "Bible",
+    "History",
+    "Manuscripts, Latin",
+    "Church history"
+  ],
+  "geographic_display": [
+    "France"
+  ],
+  "era_display": [
+    "Middle Ages, 987-1515"
+  ],
+  "subject_other_display": [
+    "of Laon, Anselm, d.1117",
+    "of Laon, Ralph, d.1133"
+  ],
+  "subject_all_display": [
+    "Bible",
+    "History",
+    "Manuscripts, Latin",
+    "Church history",
+    "France",
+    "of Laon, Anselm, d.1117",
+    "of Laon, Ralph, d.1133",
+    "Middle Ages, 987-1515",
+    "Sources"
+  ],
+  "score": 8.943517
+}

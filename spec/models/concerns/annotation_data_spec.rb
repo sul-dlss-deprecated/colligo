@@ -226,6 +226,12 @@ describe AnnotationData do
       expect(solr_doc_anno).not_to have_key('folio')
     end
 
+    it 'should have img_info if defined' do
+      expect(solr_doc_all).to have_key('img_info')
+      expect(solr_doc_all['img_info']).to eq(['http://stacks.stanford.edu/image/kq131cs7229/sulmss_misc305_008r_SM'])
+      expect(solr_doc_anno).not_to have_key('img_info')
+    end
+
     it 'should have model Transcription' do
       expect(solr_doc_all).to have_key('model')
       expect(solr_doc_all['model']).to eq('Transcription')

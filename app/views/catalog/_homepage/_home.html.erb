@@ -1,0 +1,51 @@
+<% @response = @response_m %>
+<% @document_list = @document_list_m %>
+
+<div class="row">
+  <div class="col-md-8">
+    <%= render :partial=>'/catalog/_homepage/home_text' %>
+  </div><!--paragraph ends -->
+  <div class="col-md-4">
+  </div>
+</div>
+<div class="search row">
+  <div class="col-md-8">
+    <h2>Search</h2>
+    <%= render :partial=>'/catalog/_homepage/home_search_form' %>
+  </div><!--paragraph ends -->
+  <div class="col-md-4">
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8">
+    <% if @data_array.any? || @response_m['facet_counts']['facet_fields']['collection'].any? || @response_m['facet_counts']['facet_fields']['language'].any? %>
+      <h2>Browse manuscripts</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <% if @response_m['facet_counts']['facet_fields']['collection'].any? %>
+            <%= render :partial=>'/catalog/_homepage/repository' %>
+          <% end %>
+          <% if @response_m['facet_counts']['facet_fields']['language'].any? %>
+            <%= render :partial=>'/catalog/_homepage/language' %>
+          <% end %>
+        </div>
+        <div class="col-md-6">
+          <% if @data_array.any? %>
+            <%= render :partial=>'/catalog/_homepage/century' %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div><!-- browse manuscripts ends -->
+  <div class="col-md-4">
+    <% if @document_list_a.any? %>
+      <h2>& annotations</h2>
+      <div class="row">
+        <%= render :partial=>'/catalog/_homepage/annotations_recent' %>
+      </div>
+      <div class="row">
+        <%= render :partial=>'/catalog/_homepage/annotations_author' %>
+      </div>
+    <% end %>
+  </div><!-- annotations ends -->
+</div>

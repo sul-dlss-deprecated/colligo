@@ -239,5 +239,4 @@ describe 'DataIndexer' do
     end
 
   end
-
 end

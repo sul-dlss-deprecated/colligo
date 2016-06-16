@@ -1,0 +1,16 @@
+<div class="inline-headers">
+  <h2>Manuscripts</h2>
+  <% if @response_m['response']['numFound'] > 0 %>
+    <h4><span class="glyphicon glyphicon-forward tabbed" aria-hidden="true"></span>
+    <%= form_tag search_action_url, method: :get, class: 'pull-right', role: 'search' do %>
+      <%= hidden_field_tag :search_field, 'descriptions', id: 'search_field_descriptions' %>
+      <%= hidden_field_tag :q, params[:q], id: 'q_descriptions' %>
+      <button type="submit" class="btn-link">See all <%= @response_m['response']['numFound'] %></button>
+    <% end %>
+    </h4>
+  <% else %>
+    <h4><span> No results</span></h4>
+  <% end %>
+</div>
+
+<%= render partial: 'shared/manuscript', collection: @document_list_m[0, 4], as: :document, locals: {show_manifest: false, show_footer: false} %>

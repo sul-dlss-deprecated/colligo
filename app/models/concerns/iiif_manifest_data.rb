@@ -1,14 +1,17 @@
+# Module to read the IIIF manifest and extract particular content
 module IiifManifestData
   include JsonReader
   extend ActiveSupport::Concern
 
   attr_accessor :manifest_url, :manifest, :modsxml
 
+  # Read the manifest from the given url
   def read_manifest
     return nil unless manifest_url
     self.manifest = JsonReader::Reader.new.from_url(manifest_url)
   end
 
+  # Get the title/label from the manifest
   def title
     return nil unless manifest_url
     read_manifest unless manifest
@@ -16,6 +19,7 @@ module IiifManifestData
     manifest['label']
   end
 
+  # Get the pid from the manifest
   def druid
     # druid is a 11 digit alphanumeric sring
     return nil unless manifest_url
@@ -24,6 +28,7 @@ module IiifManifestData
     manifest['@id'].match(%r{/([a-zA-Z0-9]{11})/}).to_s.delete('/')
   end
 
+  # Get the thumbnail for the resources desribed by the manifest
   def thumbnail
     return nil unless manifest_url
     read_manifest unless manifest
@@ -32,19 +37,21 @@ module IiifManifestData
     manifest['thumbnail']['@id']
   end
 
+  # Get the url for the mods metadata listed in the see also in the manifest
   def mods_url
     return nil unless manifest_url
     read_manifest unless manifest
     return nil unless manifest
     return nil unless manifest.key?('seeAlso')
-    if manifest['seeAlso']['dcterms:format'] == 'application/mods+xml'
-      return manifest['seeAlso']['@id']
-    elsif manifest['seeAlso']['format'] == 'application/mods+xml'
+    if manifest['seeAlso']['dcterms:format'] == 'application/mods+xml' ||
+       manifest['seeAlso']['format'] == 'application/mods+xml'
       return manifest['seeAlso']['@id']
     end
     nil
   end
 
+  # Get the list of open annotation reources listed in the manifest
+  # for each cnavas along with the img resource
   def annotation_lists
     return [] unless manifest_url
     read_manifest unless manifest
@@ -52,14 +59,49 @@ module IiifManifestData
     annotations = []
     manifest['sequences'].each do |s|
       s['canvases'].each do |c|
-        if c.key?('otherContent')
-          annotations += c['otherContent'].select { |item| item['@type'] == 'sc:AnnotationList' }.map { |item| item['label'] = c['label']; item }
+        img_info = []
+        if c.key?('images')
+          c['images'].each do |i|
+            if i.key?('resource') && i['resource'].key?('@id') && i['resource']['@id'] &&
+               i['resource'].key?('format') && %w(image/jpeg image/png).include?(i['resource']['format'])
+              img_info << i['resource']['@id']
+            end
+          end
+        end
+        next unless c.key?('otherContent')
+        annotations += c['otherContent'].select { |item| item['@type'] == 'sc:AnnotationList' }.map do |item|
+          item['label'] = c['label']
+          item['img_info'] = img_info
+          item
         end
       end
     end
     annotations
   end
 
+  # Get a list of all the canvases described in the manifest along with their metadata
+  def contents
+    return [] unless manifest_url
+    read_manifest unless manifest
+    return [] unless manifest
+    content_list = []
+    manifest['sequences'].each do |s|
+      s['canvases'].each do |c|
+        data = { '@id' => c['@id'] }
+        data['label'] = c['label'] if c.key?('label')
+        if c.key?('images') && !c['images'].blank?
+          c_img = c['images'].first
+          data['motivation'] = c_img['motivation'] if c_img.key?('motivation')
+          data['@type'] = c_img['@type'] if c_img.key?('@type')
+          data['img'] = c_img['resource']['@id'] if c_img.key?('resource') && c_img['resource'].key?('@id')
+        end
+        content_list << data
+      end
+    end
+    content_list
+  end
+
+  # Extract the contents of the mods-xml pointed to by the mods_url in the manifest
   def fetch_modsxml
     self.modsxml = nil
     url = mods_url
@@ -69,7 +111,7 @@ module IiifManifestData
     require 'open-uri'
     begin
       self.modsxml = open(uri.to_s).read
-    rescue Timeout::Error, Errno::EINVAL, Errno::ECONNRESET, Errno::ETIMEDOUT, EOFError,
+    rescue Timeout::Error, Errno::EINVAL, Errno::ECONNRESET, Errno::ETIMEDOUT, EOFError, SocketError,
            Net::HTTPBadResponse, Net::HTTPHeaderSyntaxError, Net::ProtocolError, OpenURI::HTTPError => the_error
       puts "\nOpen URI error for #{uri}\n\t#{the_error.message}" # TODO: Add to log
       return nil

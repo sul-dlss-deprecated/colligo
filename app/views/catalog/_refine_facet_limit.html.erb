@@ -1,0 +1,24 @@
+<%#= render partial: 'facet_search' %>
+<%#= render partial: 'facet_table' %>
+<div class="tab-pane <%=tab_classes%>" id="<%=facet_id%>">
+  <div>
+    <label class="lookup-label" for="<%=facet_id%>-lookup">Search list</label>
+    <div class="inner-addon left-addon lookup-widget">
+      <i class="glyphicon glyphicon-search"></i>
+      <input type="text" class="form-control" id="<%=facet_id%>-lookup"/>
+      <div id="<%=facet_id%>-popover-div"><ul></ul></div>
+    </div>
+  </div>
+  <table class="table tablesorter table-striped">
+    <thead>
+    <tr>
+      <th>Value</th>
+      <th>Count</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% paginator = facet_paginator(facet_field, display_facet) %>
+    <%= render_refine_facet_limit_list(paginator, field_name) %>
+    </tbody>
+  </table>
+</div>
