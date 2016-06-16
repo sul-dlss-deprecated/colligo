@@ -13,14 +13,14 @@ class TestController < ApplicationController
     # If no annotation or transcriptions redirect to manuscript page
     if @annotations.blank? && @transcriptions.blank?
       flash[:notice] = "There are no transcriptions or annotations for folio #{params[:id]}"
-      redirect_to manuscript_path(params[:manuscript_id]) and return #
+      redirect_to(manuscript_path(params[:manuscript_id])) && return #
     end
     # Set a value for the active tab
-    if !params.has_key?(:view) && @annotations.present?
+    if !params.key?(:view) && @annotations.present?
       params[:view] = 'annotations'
-    elsif !params.has_key?(:view) && @transcriptions.present?
+    elsif !params.key?(:view) && @transcriptions.present?
       params[:view] = 'transcriptions'
-    elsif !params.has_key?(:view) || params[:view].blank?
+    elsif !params.key?(:view) || params[:view].blank?
       params[:view] = 'annotations'
     end
     params[:view] = 'annotations' unless %w(annotations transcriptions).include?(params[:view])
@@ -78,10 +78,9 @@ class TestController < ApplicationController
     @previous_folio = nil
     @next_folio = nil
     @canvas_id = nil
-    page_number = contents.index {|c| c['label'] == params[:id]}
+    page_number = contents.index { |c| c['label'] == params[:id] }
     @canvas_id = contents[page_number]['@id'] if page_number
-    @previous_folio = contents[page_number-1] if page_number && page_number > 0
-    @next_folio = contents[page_number+1] if page_number && page_number < contents.length
+    @previous_folio = contents[page_number - 1] if page_number && page_number > 0
+    @next_folio = contents[page_number + 1] if page_number && page_number < contents.length
   end
-
 end

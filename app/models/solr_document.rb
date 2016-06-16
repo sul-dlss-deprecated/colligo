@@ -1,4 +1,5 @@
 # -*- encoding : utf-8 -*-
+# Module to extract all of the data from a iiif manifest to index in solr
 class SolrDocument
   include ModsData
   include AnnotationData

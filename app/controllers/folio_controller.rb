@@ -21,9 +21,9 @@ class FolioController < ApplicationController
       # redirect_to manuscript_path(params[:manuscript_id]) and return #
     end
     # Set a value for the active tab
-    if !params.has_key?(:view) && @annotations.present?
+    if !params.key?(:view) && @annotations.present?
       params[:view] = 'annotations'
-    elsif !params.has_key?(:view) && @transcriptions.present?
+    elsif !params.key?(:view) && @transcriptions.present?
       params[:view] = 'transcriptions'
     end
     params[:view] = 'annotations' unless %w(annotations transcriptions).include?(params[:view])
@@ -40,7 +40,7 @@ class FolioController < ApplicationController
     label = folio_from_canvas
     respond_to do |format|
       format.json do
-        render json: {folio: label}
+        render json: { folio: label }
       end
     end
   end
@@ -89,17 +89,16 @@ class FolioController < ApplicationController
     @previous_folio = nil
     @next_folio = nil
     @canvas_id = nil
-    page_number = contents.index {|c| c['label'] == params[:id]}
+    page_number = contents.index { |c| c['label'] == params[:id] }
     @canvas_id = contents[page_number]['@id'] if page_number
-    @previous_folio = contents[page_number-1] if page_number && page_number > 0
-    @next_folio = contents[page_number+1] if page_number && page_number < contents.length
+    @previous_folio = contents[page_number - 1] if page_number && page_number > 0
+    @next_folio = contents[page_number + 1] if page_number && page_number < contents.length
   end
 
   def folio_from_canvas
     contents = []
     contents = IiifManifest.new(@manuscript['manifest_urls'].first).contents unless @manuscript['manifest_urls'].blank?
-    page_number = contents.index {|c| c['@id'] == params[:canvas_id]}
+    page_number = contents.index { |c| c['@id'] == params[:canvas_id] }
     contents[page_number]['label']
   end
-
 end

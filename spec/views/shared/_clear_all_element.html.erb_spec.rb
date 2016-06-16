@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'shared/_clear_all_element.html.erb' do
   describe 'there are no params to clear' do
     before do
-      render :partial => 'shared/clear_all_element', :locals => {:label => 'Clear All', :options => {classes: ['clear-all'], remove: {}}}
+      render partial: 'shared/clear_all_element', locals: { label: 'Clear All', options: { classes: ['clear-all'], remove: {} } }
     end
     it 'should display just the outer tag' do
       expect(rendered).to have_css('span', count: 1)
@@ -13,7 +13,7 @@ describe 'shared/_clear_all_element.html.erb' do
   describe 'there are params to clear' do
     # it 'is a pending test'
     before do
-      render :partial => 'shared/clear_all_element', :locals => {:label => 'Clear All', :options => {classes: ['clear-all'], remove: 'http://remove'}}
+      render partial: 'shared/clear_all_element', locals: { label: 'Clear All', options: { classes: ['clear-all'], remove: 'http://remove' } }
     end
     it 'should display the outer tag along with the delete button' do
       expect(rendered).to have_css('span', count: 3)

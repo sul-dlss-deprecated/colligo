@@ -28,4 +28,3 @@ describe '/shared/_sort_widget.html.erb' do
     expect(rendered).to have_css('div[id="sort-dropdown"] ul.dropdown-menu li:nth-child(4) a', text: 'repository')
   end
 end
-

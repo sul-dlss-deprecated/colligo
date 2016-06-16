@@ -7,7 +7,7 @@ module Colligo::RenderSimpleConstraintsHelperBehavior
   # @param [Hash] query parameters
   # @return [Boolean]
   def query_has_search_constraints?(localized_params = params)
-    !(localized_params[:q].blank?)
+    localized_params[:q].present?
   end
 
   ##
@@ -74,8 +74,7 @@ module Colligo::RenderSimpleConstraintsHelperBehavior
       next if val.blank? # skip empty string
       render_simple_constraint_element(facet_field_label(facet_config.key), facet_display_value(facet, val),
                                        remove: search_action_path(remove_facet_params(facet, val, localized_params)),
-                                       classes: ['filter', 'simple-filter', 'filter-' + facet.parameterize]
-                                      )
+                                       classes: ['filter', 'simple-filter', 'filter-' + facet.parameterize])
     end, "\n")
   end
 
@@ -107,10 +106,9 @@ module Colligo::RenderSimpleConstraintsHelperBehavior
   # @param [Hash] query parameters
   # @return [String]
   def render_clear_all(label, localized_params)
-    render_clear_all_element( label,
-                               :remove => search_action_path(localized_params.except(:f, :range)),
-                               :classes => %w(filter filter-clear-all)
-    )
+    render_clear_all_element(label,
+                             remove: search_action_path(localized_params.except(:f, :range)),
+                             classes: %w(filter filter-clear-all))
   end
 
   # Render a clear all element on the screen.
@@ -121,6 +119,6 @@ module Colligo::RenderSimpleConstraintsHelperBehavior
   # @option options [Array<String>] :classes an array of classes to add to container span for constraint.
   # @return [String]
   def render_clear_all_element(label, options = {})
-    render(:partial => 'shared/clear_all_element', :locals => {:label => label, :options => options})
+    render(partial: 'shared/clear_all_element', locals: { label: label, options: options })
   end
 end

@@ -8,13 +8,13 @@ describe '/shared/_transcription.html.erb' do
       render
     end
     it 'should display the media tags within a panel' do
-      expect(rendered).to have_css('div.panel.panel-content.search-panel.search-panel-auto', count:1)
-      expect(rendered).to have_css('div.panel div.panel-body.transcription-result', count:1)
-      expect(rendered).to have_css('div.panel div.panel-body.transcription-result div.media', count:1)
+      expect(rendered).to have_css('div.panel.panel-content.search-panel.search-panel-auto', count: 1)
+      expect(rendered).to have_css('div.panel div.panel-body.transcription-result', count: 1)
+      expect(rendered).to have_css('div.panel div.panel-body.transcription-result div.media', count: 1)
     end
     it 'should have an image' do
       img_src = 'https://stacks.stanford.edu/image/iiif/kq131cs7229%252Fsulmss_misc305_008r_SM'
-      expect(rendered).to have_css('div.media div.media-left img.media-object.results-thumbnail[src="'+img_src+'"]', count: 1)
+      expect(rendered).to have_css('div.media div.media-left img.media-object.results-thumbnail[src="' + img_src + '"]', count: 1)
     end
     it 'should have a title truncated to 150 characters' do
       txt = 'Erant aut[em] qui manducaverant Erant aut[em] qui manducaverant Erant aut[em] qui manducaverant Erant aut[em] qui manducaverant Erant aut[em] qui m...'

@@ -51,4 +51,3 @@ describe '/folio/_footer.html.erb' do
     end
   end
 end
-

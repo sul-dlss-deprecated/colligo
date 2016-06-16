@@ -12,7 +12,7 @@ describe '/folio/_header.html.erb' do
       render
     end
     it 'should display the media tag' do
-      expect(rendered).to have_css('div.media', count:1)
+      expect(rendered).to have_css('div.media', count: 1)
       expect(rendered).to have_css('div.media div:nth-child(1).media-body')
       expect(rendered).to have_css('div.media div:nth-child(2).media-right')
     end
@@ -21,7 +21,7 @@ describe '/folio/_header.html.erb' do
     end
     it 'should display the IIIF logo with manifest url' do
       href = @manuscript['manifest_urls'].first
-      expect(rendered).to have_css('div.media div:nth-child(2).media-right div.iiif-logo a[href="'+href+'"]')
+      expect(rendered).to have_css('div.media div:nth-child(2).media-right div.iiif-logo a[href="' + href + '"]')
       expect(rendered).to have_css('div.media div:nth-child(2).media-right div.iiif-logo a img[src="/assets/iiif-logo.png"]')
     end
     it 'should display the breadcrumbs' do
@@ -38,7 +38,7 @@ describe '/folio/_header.html.erb' do
       render
     end
     it 'should display the media tag' do
-      expect(rendered).to have_css('div.media', count:1)
+      expect(rendered).to have_css('div.media', count: 1)
       expect(rendered).to have_css('div.media div:nth-child(1).media-body')
       expect(rendered).to have_css('div.media div:nth-child(2).media-right')
     end
@@ -53,4 +53,3 @@ describe '/folio/_header.html.erb' do
     end
   end
 end
-

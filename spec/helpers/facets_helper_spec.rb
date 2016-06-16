@@ -8,14 +8,14 @@ describe FacetsHelper do
   before(:each) do
     allow(helper).to receive(:blacklight_config).and_return blacklight_config
   end
-  
+
   describe 'render_refine_facet_partials' do
     it 'should try to render all provided facets ' do
-      a = double(:items => [1,2])
-      b = double(:items => ['b','c'])
-      empty = double(:items => [])
+      a = double(items: [1, 2])
+      b = double(items: %w(b c))
+      empty = double(items: [])
 
-      fields = [a,b,empty]
+      fields = [a, b, empty]
 
       allow(helper).to receive(:render_refine_facet_limit).with(a, {})
       allow(helper).to receive(:render_refine_facet_limit).with(b, {})
@@ -25,16 +25,15 @@ describe FacetsHelper do
     end
 
     it 'should default to the configured facets' do
-      a = double(:items => [1,2])
-      b = double(:items => ['b','c'])
-      allow(helper).to receive(:facet_field_names) { [a,b] }
+      a = double(items: [1, 2])
+      b = double(items: %w(b c))
+      allow(helper).to receive(:facet_field_names) { [a, b] }
 
       allow(helper).to receive(:render_refine_facet_limit).with(a, {})
       allow(helper).to receive(:render_refine_facet_limit).with(b, {})
 
       helper.render_refine_facet_partials
     end
-
   end
 
   describe 'render_facet_tabs' do
@@ -57,8 +56,8 @@ describe FacetsHelper do
     # end
 
     it 'should default to the configured facets' do
-      a = double(name: 'Authors', items: [1,2])
-      b = double(name: 'Language', items: ['b','c'])
+      a = double(name: 'Authors', items: [1, 2])
+      b = double(name: 'Language', items: %w(b c))
       empty = double(name: 'Topic', items: [])
 
       c = allow(helper).to receive(:facet_configuration_for_field).with(a.name).and_return
@@ -70,14 +69,12 @@ describe FacetsHelper do
 
       helper.render_facet_tabs
     end
-
   end
 
   describe 'render_facet_tab' do
-
     it 'should try to render an active tab' do
-      a = {'label' => 'Authors'}
-      option = {locals: {index: 0}}
+      a = { 'label' => 'Authors' }
+      option = { locals: { index: 0 } }
       allow(helper).to receive(:facet_field_id).with(a).and_return('a_id')
       expected_html = '<li class="active" data-tab-id="a_id"><a href="#a_id" class="disabled" data-toggle="tab">Authors</a></li>'
       result = helper.render_facet_tab(a, option)
@@ -85,29 +82,27 @@ describe FacetsHelper do
     end
 
     it 'should try to render a tab' do
-      a = {'label' => 'Authors'}
-      option = {locals: {index: 2}}
+      a = { 'label' => 'Authors' }
+      option = { locals: { index: 2 } }
       allow(helper).to receive(:facet_field_id).with(a).and_return('a_id')
       expected_html = '<li class="" data-tab-id="a_id"><a href="#a_id" class="disabled" data-toggle="tab">Authors</a></li>'
       result = helper.render_facet_tab(a, option)
       expect(result).to eq(expected_html)
     end
-
   end
 
   describe 'render_refine_facet_limit' do
     before do
-
       @config = Blacklight::Configuration.new do |config|
         config.add_facet_field 'basic_field'
-        config.add_facet_field 'pivot_facet_field', :pivot => ['a', 'b']
-        config.add_facet_field 'my_pivot_facet_field_with_custom_partial', :partial => 'custom_facet_partial', :pivot => ['a', 'b']
-        config.add_facet_field 'my_facet_field_with_custom_partial', :partial => 'custom_facet_partial'
+        config.add_facet_field 'pivot_facet_field', pivot: %w(a b)
+        config.add_facet_field 'my_pivot_facet_field_with_custom_partial', partial: 'custom_facet_partial', pivot: %w(a b)
+        config.add_facet_field 'my_facet_field_with_custom_partial', partial: 'custom_facet_partial'
       end
 
       # allow(helper).to receive_messages(:blacklight_config => @config)
       allow(helper).to receive(:blacklight_config).and_return @config
-      @response = double()
+      @response = double
     end
 
     it 'should set basic local variables' do
@@ -120,8 +115,8 @@ describe FacetsHelper do
                                                               facet_field: helper.blacklight_config.facet_fields['basic_field'],
                                                               display_facet: @mock_facet,
                                                               facet_id: 'facet-basic_field',
-                                                              tab_classes: ''}
-                                                          ))
+                                                              tab_classes: ''
+                                                            }))
       helper.render_refine_facet_limit(@mock_facet)
     end
 
@@ -154,7 +149,6 @@ describe FacetsHelper do
       allow(helper).to receive(:render).with(hash_including(layout: 'custom_facet_layout'))
       helper.render_refine_facet_limit(@mock_facet, layout: 'custom_facet_layout')
     end
-
   end
 
   describe 'render_refine_facet_limit_list' do
@@ -210,9 +204,10 @@ describe FacetsHelper do
     let (:item) { double(value: 'A', hits: 10) }
     before do
       allow(helper).to receive(:facet_configuration_for_field).with('simple_field').and_return(
-          double(query: nil, date: nil, helper_method: nil, single: false, url_method: nil))
+        double(query: nil, date: nil, helper_method: nil, single: false, url_method: nil)
+      )
       allow(helper).to receive(:facet_display_value).and_return('Z')
-      allow(helper).to receive(:add_facet_params_and_redirect).and_return({controller:'catalog'})
+      allow(helper).to receive(:add_facet_params_and_redirect).and_return(controller: 'catalog')
 
       allow(helper).to receive(:search_action_path) do |*args|
         catalog_index_path *args
@@ -229,8 +224,8 @@ describe FacetsHelper do
     describe 'when :url_method is set' do
       let(:expected_html) { '<td class="facet-label"><a class="facet_select" href="/blabla">Z</a></td><td class="facet-count">10</td>' }
       it 'should use that method' do
-        allow(helper).to receive(:facet_configuration_for_field).with('simple_field').and_return(double(:query => nil,
-                                  :date => nil, :helper_method => nil, :single => false, :url_method => :test_method))
+        allow(helper).to receive(:facet_configuration_for_field).with('simple_field').and_return(double(query: nil,
+                                                                                                        date: nil, helper_method: nil, single: false, url_method: :test_method))
         allow(helper).to receive(:test_method).with('simple_field', item).and_return('/blabla')
         result = helper.render_refine_facet_value('simple_field', item)
         expect(result).to eq(expected_html)
@@ -240,7 +235,7 @@ describe FacetsHelper do
     describe 'when :suppress_link is set' do
       let(:expected_html) { '<td class="facet-label">Z</td><td class="facet-count">10</td>' }
       it 'should suppress the link' do
-        result = helper.render_refine_facet_value('simple_field', item, :suppress_link => true)
+        result = helper.render_refine_facet_value('simple_field', item, suppress_link: true)
         expect(result).to eq(expected_html)
       end
     end
@@ -251,7 +246,8 @@ describe FacetsHelper do
     let(:expected_html) { '<td class="facet-label"><span class="selected">Z</span><a class="remove" href="/catalog"><span class="glyphicon glyphicon-remove"></span><span class="sr-only">[remove]</span></a></td><td class="selected facet-count">10</td>' }
     before do
       allow(helper).to receive(:facet_configuration_for_field).with('simple_field').and_return(
-          double(query: nil, date: nil, helper_method: nil, single: false, url_method: nil))
+        double(query: nil, date: nil, helper_method: nil, single: false, url_method: nil)
+      )
       allow(helper).to receive(:facet_display_value).and_return('Z')
       allow(helper).to receive(:remove_facet_params).and_return({})
       allow(helper).to receive(:search_action_path) do |*args|
@@ -263,5 +259,4 @@ describe FacetsHelper do
       expect(result).to eq(expected_html)
     end
   end
-
 end

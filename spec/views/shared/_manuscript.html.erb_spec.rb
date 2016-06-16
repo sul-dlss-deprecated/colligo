@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'shared/_manuscript.html.erb' do
   before(:all) do
-    @response_m = {'response' => {'start' => 10}}
+    @response_m = { 'response' => { 'start' => 10 } }
   end
   before(:each) do
     stub_template 'shared/_manuscript_body.html.erb' => '<div>Manuscript body</div>'

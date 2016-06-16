@@ -23,5 +23,4 @@ module Colligo::SearchManuscripts
       @related_transcriptions[doc['druid']] = resp['response']['numFound']
     end
   end
-
 end

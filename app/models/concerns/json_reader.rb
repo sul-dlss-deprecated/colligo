@@ -1,9 +1,13 @@
+# Module to handle json data
 module JsonReader
+  # Class to read and parse json from a file, passed in as a string or fetched from a url
   class Reader
+    # Parse a json from string
     def from_str(str)
       JSON.parse(str)
     end
 
+    # Fetch the json data from the provided url and parse it
     def from_url(url, _encoding = nil)
       require 'open-uri'
       begin

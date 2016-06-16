@@ -1,3 +1,4 @@
+# Model for the mods linked in the IIIF manifest
 module ModsData
   extend ActiveSupport::Concern
   included do
@@ -16,22 +17,26 @@ module ModsData
   # after_save :add_to_index
   # before_destroy :remove_from_index
 
+  # render mods for display
   def mods
     return nil unless self[:modsxml]
     @mods ||= render_mods_display(self)
   end
 
+  # fetch the mods xml data
   def mods_raw
     return nil unless self[:modsxml]
     @mods_data = Stanford::Mods::Record.new
     @mods_data.from_str(self[:modsxml])
   end
 
+  # fetch the mods data in pretty xml
   def prettified_mods
     return nil unless self['modsxml']
     @prettified_mods ||= CodeRay::Duo[:xml, :div].highlight(self['modsxml']).html_safe
   end
 
+  # list of display fileds of interest to Colligo
   def all_display_fields
     %w( title_display abstract_display img_info druid model manifest_urls
         title_alternate_display title_other_display subtitle_display corporate_authors_display
@@ -42,10 +47,12 @@ module ModsData
         physical_location_display access_condition_display language)
   end
 
+  # list of single valued fields in the mods
   def single_valued_display_fields
     %w(title_display abstract_display subtitle_display pub_date_display access_condition_display)
   end
 
+  # method to index the mods data
   def mods_to_solr
     data = mods_raw
     return {} unless data
@@ -69,8 +76,8 @@ module ModsData
       type_of_resource << t.text if t.text
     end
     solr_doc['type_of_resource_search'] = type_of_resource.uniq
-    solr_doc['corporate_authors_search'] = (data.sw_corporate_authors).uniq
-    solr_doc['personal_authors_search'] = (data.sw_person_authors).uniq
+    solr_doc['corporate_authors_search'] = data.sw_corporate_authors.uniq
+    solr_doc['personal_authors_search'] = data.sw_person_authors.uniq
     solr_doc['authors_all_search'] = (data.sw_person_authors + data.sw_impersonal_authors).uniq
     solr_doc['title_search'] = data.sort_title
     solr_doc['title_alternate_search'] = data.alternative_titles
@@ -112,15 +119,16 @@ module ModsData
 
   protected
 
+  # Parse the different date formats used across the mods
+  # 1. Year                            ["1389"]                        (eg: mr892jv0716)
+  # 2. Start and end years             ["850","1499"]                  (eg: kh686yw0435)
+  # 3. Approximate year                ["Ca. 1580 CE"]                 (eg: gs755tr2814)
+  # 4. Approximate year                ["1500 CE"]                     (eg: hp976mx6580)
+  # 5. Approximate century             ["14uu"]                        (eg: tw490xj0071)
+  # 6. Full date                       ["February 6, 1486"]            (eg: ss222gr9703)
+  # 7. Partial date                    ["June 1781"]                   (eg: zq824dz1346)
+  # 8. Approximate start and end years ["s. XIII^^ex [ca. 1275-1300]"] (eg: rc145sy7436)
   def parse_dates(input_dates)
-    # 1. Year                            ["1389"]                        (eg: mr892jv0716)
-    # 2. Start and end years             ["850","1499"]                  (eg: kh686yw0435)
-    # 3. Approximate year                ["Ca. 1580 CE"]                 (eg: gs755tr2814)
-    # 4. Approximate year                ["1500 CE"]                     (eg: hp976mx6580)
-    # 5. Approximate century             ["14uu"]                        (eg: tw490xj0071)
-    # 6. Full date                       ["February 6, 1486"]            (eg: ss222gr9703)
-    # 7. Partial date                    ["June 1781"]                   (eg: zq824dz1346)
-    # 8. Approximate start and end years ["s. XIII^^ex [ca. 1275-1300]"] (eg: rc145sy7436)
     dates = { all_int: [], sort: '' }
     return dates if input_dates.blank?
     input_dates.each do |dt|
@@ -139,6 +147,7 @@ module ModsData
     dates
   end
 
+  # join the different dates and return a string (example: start and end dates)
   def display_date(input_dates)
     return '' if input_dates.blank?
     input_dates.delete_if(&:blank?)

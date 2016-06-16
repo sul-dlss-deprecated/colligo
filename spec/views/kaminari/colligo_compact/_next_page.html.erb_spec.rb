@@ -33,4 +33,3 @@ describe '/kaminari/colligo_compact/_next_page.html.erb' do
     end
   end
 end
-

@@ -13,7 +13,7 @@ require 'webmock/rspec'
 
 Capybara.register_driver :poltergeist do |app|
   # NOTE: bootstrap_slider.js is throwing js errors. So I set js_errors to false
-  Capybara::Poltergeist::Driver.new(app, { timeout: 60, js_errors: false })
+  Capybara::Poltergeist::Driver.new(app, timeout: 60, js_errors: false)
 end
 Capybara.javascript_driver = :poltergeist
 

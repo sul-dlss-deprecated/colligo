@@ -97,12 +97,12 @@ class DataIndexer
       annotation_list = @doc.read_annotation(al['@id'])
       @doc.resources(annotation_list).each.with_index(1) do |a, index|
         data = {
-            'annotation' => a,
-            'manuscript' => @title,
-            'folio' => al['label'],
-            'img_info' => al['img_info'],
-            'url' => al['@id'],
-            'sort_index' => index
+          'annotation' => a,
+          'manuscript' => @title,
+          'folio' => al['label'],
+          'img_info' => al['img_info'],
+          'url' => al['@id'],
+          'sort_index' => index
         }
         solr_doc = @doc.annotation_to_solr(data)
         unless solr_doc.blank?

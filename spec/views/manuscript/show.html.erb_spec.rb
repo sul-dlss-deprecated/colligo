@@ -18,12 +18,12 @@ describe '/manuscript/show.html.erb' do
   end
   it 'should display the folios and description supporting different form factors' do
     # on form factors other than large display folios and find all between manifest and description
-    expect(rendered).to have_css('div div.row div.hidden-lg.col-md-12 div.row span', text: 'Folios' )
-    expect(rendered).to have_css('div div.row div.hidden-lg.col-md-12 div.row span', text: 'Find all' )
+    expect(rendered).to have_css('div div.row div.hidden-lg.col-md-12 div.row span', text: 'Folios')
+    expect(rendered).to have_css('div div.row div.hidden-lg.col-md-12 div.row span', text: 'Find all')
     expect(rendered).to have_css('div div.row div.col-lg-9.col-md-12[id="manuscript-description"] span', text: 'Description')
     # on large form factors display folios and find all to the right of the description
-    expect(rendered).to have_css('div div.row div.col-lg-3.visible-lg div.row span', text: 'Folios' )
-    expect(rendered).to have_css('div div.row div.col-lg-3.visible-lg div.row span', text: 'Find all' )
+    expect(rendered).to have_css('div div.row div.col-lg-3.visible-lg div.row span', text: 'Folios')
+    expect(rendered).to have_css('div div.row div.col-lg-3.visible-lg div.row span', text: 'Find all')
   end
   it 'should render the manuscript footer partial' do
     expect(rendered).to have_css('div div.row span', text: 'Footer')

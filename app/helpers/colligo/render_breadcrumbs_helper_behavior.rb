@@ -26,11 +26,10 @@ module Colligo
       facet_config = facet_configuration_for_field(facet)
       safe_join(values.map do |val|
         next if val.blank? # skip empty string
-        local_params = add_facet_params(facet, val, source_params=remaining_params)
+        local_params = add_facet_params(facet, val, source_params = remaining_params)
         render_breadcrumb_constraint_element(facet_field_label(facet_config.key), facet_display_value(facet, val),
                                              search_path: search_action_path(local_params),
-                                             classes: ['filter', 'breadcrumb-filter', 'filter-' + facet.parameterize]
-                                            )
+                                             classes: ['filter', 'breadcrumb-filter', 'filter-' + facet.parameterize])
       end, ' | ')
     end
 

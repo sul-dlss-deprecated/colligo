@@ -3,8 +3,8 @@ require 'spec_helper'
 describe 'shared/_previous_record.html.erb' do
   it 'should render the previous button with long text truncated' do
     @prev_doc = {
-        'title' => 'Walters Ms. W.768, Ethiopic Psalter with Canticles, Song of Songs, and two hymns in praise of Mary',
-        'path' => '/manuscript/1?start=2'
+      'title' => 'Walters Ms. W.768, Ethiopic Psalter with Canticles, Song of Songs, and two hymns in praise of Mary',
+      'path' => '/manuscript/1?start=2'
     }
     render
     expect(rendered).to have_css('a', count: 1)
@@ -15,8 +15,8 @@ describe 'shared/_previous_record.html.erb' do
   end
   it 'should render the previous button with text of length 50' do
     @prev_doc = {
-        'title' => 'Paris, Bibliothèque Nationale de France, NAF 6221',
-        'path' => '/manuscript/1?start=2'
+      'title' => 'Paris, Bibliothèque Nationale de France, NAF 6221',
+      'path' => '/manuscript/1?start=2'
     }
     render
     expect(rendered).to have_css('a', count: 1)
@@ -27,8 +27,8 @@ describe 'shared/_previous_record.html.erb' do
   end
   it 'should render the previous button with shorter text over two lines' do
     @prev_doc = {
-        'title' => 'Walters Ms. W.575, Koran',
-        'path' => '/manuscript/1?start=2'
+      'title' => 'Walters Ms. W.575, Koran',
+      'path' => '/manuscript/1?start=2'
     }
     render
     expect(rendered).to have_css('a', count: 1)
@@ -39,8 +39,8 @@ describe 'shared/_previous_record.html.erb' do
   end
   it 'should render the previous button with text over two lines if short and greater than 1 word' do
     @prev_doc = {
-        'title' => 'Treasury order',
-        'path' => '/manuscript/1?start=2'
+      'title' => 'Treasury order',
+      'path' => '/manuscript/1?start=2'
     }
     render
     expect(rendered).to have_css('a', count: 1)
@@ -51,8 +51,8 @@ describe 'shared/_previous_record.html.erb' do
   end
   it 'should render the previous button with text over two lines if short and more than 1 word' do
     @prev_doc = {
-        'title' => 'Que Sera, Sera',
-        'path' => '/manuscript/1?start=2'
+      'title' => 'Que Sera, Sera',
+      'path' => '/manuscript/1?start=2'
     }
     render
     expect(rendered).to have_css('a', count: 1)
@@ -63,8 +63,8 @@ describe 'shared/_previous_record.html.erb' do
   end
   it 'should render the previous button with text in 1 line if short and 1 word' do
     @prev_doc = {
-        'title' => 'Dragmaticon',
-        'path' => '/manuscript/1?start=2'
+      'title' => 'Dragmaticon',
+      'path' => '/manuscript/1?start=2'
     }
     render
     expect(rendered).to have_css('a', count: 1)

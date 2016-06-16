@@ -37,9 +37,9 @@ class ManuscriptController < ApplicationController
   def related_content
     transcriptions = folio_related_transcriptions
     ans = {
-        annotations: folio_related_annotations,
-        transcriptions: transcriptions[0],
-        first_transcription: transcriptions[1]
+      annotations: folio_related_annotations,
+      transcriptions: transcriptions[0],
+      first_transcription: transcriptions[1]
     }
     respond_to do |format|
       format.json do
@@ -51,7 +51,7 @@ class ManuscriptController < ApplicationController
   private
 
   def folio_related_annotations
-    if params.has_key?(:folio) && params[:folio].present?
+    if params.key?(:folio) && params[:folio].present?
       query_params = { q: "druid:#{params[:id]} AND folio:\"#{params[:folio]}\"", rows: 0 }
     else
       query_params = { q: "druid:#{params[:id]}", rows: 0 }
@@ -62,12 +62,12 @@ class ManuscriptController < ApplicationController
   end
 
   def folio_related_transcriptions
-    if params.has_key?(:folio) && params[:folio].present?
+    if params.key?(:folio) && params[:folio].present?
       query_params = { q: "druid:#{params[:id]} AND folio:\"#{params[:folio]}\"", rows: 1, sort: 'sort_index asc' }
     else
       query_params = { q: "druid:#{params[:id]}", rows: 1, sort: 'sort_index asc' }
     end
-    search_params_logic = self.search_params_logic + [:add_transcription_filter] -[:all_search_filter, :add_manuscript_filter, :add_annotation_filter]
+    search_params_logic = self.search_params_logic + [:add_transcription_filter] - [:all_search_filter, :add_manuscript_filter, :add_annotation_filter]
     (resp, doc_list) = search_results(query_params, search_params_logic)
     if doc_list.present?
       [resp['response']['numFound'], doc_list[0]['body_chars_display']]
@@ -84,18 +84,18 @@ class ManuscriptController < ApplicationController
     nav_docs = get_previous_and_next_documents_for_search(m_params[:start], m_params, {})
     if nav_docs.second && nav_docs.second.first.present? && m_params[:start] > 0
       index = m_params[:start] - 1
-      @prev_doc['path'] = url_for(controller: 'manuscript', action: 'show', id: nav_docs.second.first['druid'], params: {start: index})
+      @prev_doc['path'] = url_for(controller: 'manuscript', action: 'show', id: nav_docs.second.first['druid'], params: { start: index })
       @prev_doc['title'] = nav_docs.second.first['title_display'] || nav_docs.second.first['druid']
     end
     if nav_docs.second && nav_docs.second.second.present? && m_params[:start] < nav_docs.first['response']['numFound'] - 1
       index = m_params[:start] + 1
-      @next_doc['path'] = url_for(controller: 'manuscript', action: 'show', id: nav_docs.second.second['druid'], params: {start: index})
+      @next_doc['path'] = url_for(controller: 'manuscript', action: 'show', id: nav_docs.second.second['druid'], params: { start: index })
       @next_doc['title'] = nav_docs.second.second['title_display'] || nav_docs.second.second['druid']
     end
   end
 
   def current_query
-    return nil if session[:m_last_search_query].blank? || !params.has_key?(:start) || params[:start].blank?
+    return nil if session[:m_last_search_query].blank? || !params.key?(:start) || params[:start].blank?
     m_params = JSON.parse(session[:m_last_search_query])
     begin
       m_params['start'] = Integer(params[:start])
@@ -103,6 +103,6 @@ class ManuscriptController < ApplicationController
       return nil
     end
     m_params['qt'] = 'descriptions'
-    m_params.inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}
+    m_params.inject({}) { |memo, (k, v)| memo[k.to_sym] = v; memo }
   end
 end

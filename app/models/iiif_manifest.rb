@@ -1,3 +1,4 @@
+# Model for iiif manifest
 class IiifManifest
   include IiifManifestData
 

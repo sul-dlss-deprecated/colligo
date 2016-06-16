@@ -10,7 +10,7 @@ describe '/folio/_manifest.html.erb' do
     it 'should display the folio viewer' do
       render
       url = @manuscript['manifest_urls'].first
-      expect(rendered).to have_css('div[id="folio_viewer"][data-manifest-uri="'+url+'"][data-canvas-id="'+@canvas_id+'"]')
+      expect(rendered).to have_css('div[id="folio_viewer"][data-manifest-uri="' + url + '"][data-canvas-id="' + @canvas_id + '"]')
     end
   end
   describe 'Canvas id is not available' do

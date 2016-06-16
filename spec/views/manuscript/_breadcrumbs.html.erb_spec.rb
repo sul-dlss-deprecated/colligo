@@ -29,7 +29,7 @@ describe 'manuscript/_breadcrumbs.html.erb' do
   it 'should render the author' do
     @document = manuscript_docs[0].except('collection')
     @response = manuscript_resp
-    @bcparams = { 'search_field' => 'descriptions', f: { } }
+    @bcparams = { 'search_field' => 'descriptions', f: {} }
     allow(view).to receive(:render_breadcrumb_constraints_filters).with(@bcparams).and_return('Breadcrumb constraints')
     render
     expect(rendered).not_to have_content('Breadcrumb constraints')

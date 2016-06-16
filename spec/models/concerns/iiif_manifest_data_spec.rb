@@ -171,20 +171,17 @@ describe IiifManifestData do
                                               'label' => 'f. 16bisv',
                                               'motivation' => 'sc:painting',
                                               '@type' => 'oa:Annotation',
-                                              'img' => 'http://stacks.stanford.edu/image/kq131cs7229/sulmss_misc305_016bv_SM'
-                                            })
+                                              'img' => 'http://stacks.stanford.edu/image/kq131cs7229/sulmss_misc305_016bv_SM' })
       expect(@document2.contents.first).to eq ({ '@id' => 'https://purl.stanford.edu/bb389yg4719/iiif/canvas-0',
                                                  'label' => '1',
                                                  'motivation' => 'sc:painting',
                                                  '@type' => 'oa:Annotation',
-                                                 'img' => 'https://stacks.stanford.edu/image/iiif/bb389yg4719%2Fbb389yg4719_05_0001/full/full/0/default.jpg'
-                                              })
+                                                 'img' => 'https://stacks.stanford.edu/image/iiif/bb389yg4719%2Fbb389yg4719_05_0001/full/full/0/default.jpg' })
       expect(@document2.contents.last).to eq ({ '@id' => 'https://purl.stanford.edu/bb389yg4719/iiif/canvas-1',
                                                 'label' => '2',
                                                 'motivation' => 'sc:painting',
                                                 '@type' => 'oa:Annotation',
-                                                'img' => 'https://stacks.stanford.edu/image/iiif/bb389yg4719%2Fbb389yg4719_05_0002/full/full/0/default.jpg'
-                                             })
+                                                'img' => 'https://stacks.stanford.edu/image/iiif/bb389yg4719%2Fbb389yg4719_05_0002/full/full/0/default.jpg' })
     end
   end
 

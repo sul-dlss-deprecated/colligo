@@ -34,7 +34,7 @@ describe 'folio/_breadcrumbs.html.erb' do
   end
   it 'should render just folio if no collection and title' do
     @manuscript = manuscript_docs[0].except('collection', 'title_display')
-    @bcparams = { 'search_field' => 'transcriptions', f: { } }
+    @bcparams = { 'search_field' => 'transcriptions', f: {} }
     allow(view).to receive(:params).and_return(id: '12345g')
     render
     expect(rendered).not_to have_content('Breadcrumb constraints')

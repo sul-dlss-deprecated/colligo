@@ -4,7 +4,7 @@ describe '/catalog/_refine_facets.html.erb' do
   describe 'facet limits with facet constraints in query' do
     before(:each) do
       allow(view).to receive(:has_facet_values?).and_return(true)
-      allow(view).to receive(:params).and_return(double(f: {language: ['Latin']}))
+      allow(view).to receive(:params).and_return(double(f: { language: ['Latin'] }))
       allow(view).to receive(:query_has_facet_constraints?).and_return(true)
       allow(view).to receive(:render_clear_all).and_return(raw('<div class="clear_all">Clear all</div>'))
       allow(view).to receive(:render_facet_tabs).and_return(raw('<div class="facet_tabs">Facet tabs</div>'))
@@ -44,7 +44,7 @@ describe '/catalog/_refine_facets.html.erb' do
   describe 'facet limits without any facet constraints in query' do
     before(:each) do
       allow(view).to receive(:has_facet_values?).and_return(true)
-      allow(view).to receive(:params).and_return(double(f: {language: []}))
+      allow(view).to receive(:params).and_return(double(f: { language: [] }))
       allow(view).to receive(:query_has_facet_constraints?).and_return(false)
       allow(view).to receive(:render_clear_all).and_return(raw('<div class="clear_all">Clear all</div>'))
       allow(view).to receive(:render_facet_tabs).and_return(raw('<div class="facet_tabs">Facet tabs</div>'))

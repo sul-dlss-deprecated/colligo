@@ -13,7 +13,7 @@ describe '/catalog/_homepage/_home.html.erb' do
   describe 'it should render a basic page when no data' do
     before(:all) do
       @data_array = []
-      @response_m = {'facet_counts' => {'facet_fields' => {'collection' => [], 'language' => []}}}
+      @response_m = { 'facet_counts' => { 'facet_fields' => { 'collection' => [], 'language' => [] } } }
       @document_list_a = []
     end
     it 'should render the home text' do
@@ -57,7 +57,7 @@ describe '/catalog/_homepage/_home.html.erb' do
   describe 'it should render heading and partials if data available' do
     before(:all) do
       @data_array = [1, 2, 3]
-      @response_m = {'facet_counts' => {'facet_fields' => {'collection' => %w(a b c), 'language' => %w(English Latin)}}}
+      @response_m = { 'facet_counts' => { 'facet_fields' => { 'collection' => %w(a b c), 'language' => %w(English Latin) } } }
       @document_list_a = [1, 2, 3]
     end
     it 'should render the home text' do

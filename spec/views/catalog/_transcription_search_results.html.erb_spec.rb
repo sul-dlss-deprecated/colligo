@@ -8,7 +8,7 @@ describe '/catalog/_transcription_search_results.html.erb' do
     stub_template 'catalog/_zero_results.html.erb' => '<span>Zero results</span>'
     allow(view).to receive(:search_action_url).and_return('/')
     allow(view).to receive(:params).and_return(q: 'gospel')
-    allow(view).to receive(:render_opensearch_response_metadata).and_return(raw '<span>open search response metadata</span>')
+    allow(view).to receive(:render_opensearch_response_metadata).and_return(raw('<span>open search response metadata</span>'))
     render
   end
   describe 'it should render transcription search results' do

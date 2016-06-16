@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe '_user_util_links' do
-
   let :blacklight_config do
     Blacklight::Configuration.new.configure do |config|
       config.add_nav_action(:bookmark, partial: 'blacklight/nav/bookmark')
@@ -21,7 +20,7 @@ describe '_user_util_links' do
       allow(view).to receive(:edit_user_registration_path).and_return '/user/edit'
       allow(view).to receive(:new_user_session_path).and_return '/user/new'
       # allow(view).to receive_message_chain(:current_or_guest_user, :bookmarks, :count).and_return(count)
-      render :partial => 'user_util_links'
+      render partial: 'user_util_links'
     end
     it 'should display dropdown button with text' do
       expect(rendered).to have_selector('ul.nav.navbar-nav.navbar-right')
@@ -44,6 +43,4 @@ describe '_user_util_links' do
       expect(rendered).to have_selector('ul.navbar-right li[id="nav_top"] a span.glyphicon.glyphicon-arrow-up')
     end
   end
-
 end
-
