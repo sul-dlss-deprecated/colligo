@@ -31,7 +31,7 @@ class CatalogController < ApplicationController
     config.add_facet_field 'folio', label: 'Folio'
     config.add_facet_field 'collection', label: 'Repository'
     # config.add_facet_field 'example_pivot_field', label: 'Pivot Field', pivot: %w(format language)
-    config.add_facet_field 'date_range', label: 'Century', query: {
+    config.add_facet_field 'date_range', if: false, label: 'Century', query: {
       years_21: { label: '21st', fq: 'pub_date_t:[2000 TO *]' },
       years_20: { label: '20th', fq: 'pub_date_t:[1900 TO 1999]' },
       years_19: { label: '19th', fq: 'pub_date_t:[1800 TO 1899]' },
