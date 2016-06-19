@@ -33,13 +33,13 @@ describe 'Bookmarks', type: :feature, js: true do
     sleep 2
     expect(page).to have_css('form.bookmark_toggle.bookmark_inverse.inline[data-doc-id="kq131cs7229"] div.checkbox.toggle_bookmark label.toggle_bookmark span', text: 'bookmark')
     b = page.find('form.inline[data-doc-id="kq131cs7229"] div.checkbox.toggle_bookmark label.toggle_bookmark span')
-    b.click
+    b.trigger('click')
     sleep 1
     expect(page).to have_css('form.bookmark_toggle.bookmark_inverse.inline[data-doc-id="kq131cs7229"] div.checkbox.toggle_bookmark label.toggle_bookmark span', text: 'bookmarked')
     visit '/manuscript/kq131cs7229'
     expect(page).to have_css('form.bookmark_toggle.bookmark_inverse.inline[data-doc-id="kq131cs7229"] div.checkbox.toggle_bookmark label.toggle_bookmark span', text: 'bookmarked')
     b = page.find('form.bookmark_toggle.bookmark_inverse.inline[data-doc-id="kq131cs7229"] div.checkbox.toggle_bookmark label.toggle_bookmark span')
-    b.click
+    b.trigger('click')
     sleep 1
     expect(page).to have_css('form.bookmark_toggle.bookmark_inverse.inline[data-doc-id="kq131cs7229"] div.checkbox.toggle_bookmark label.toggle_bookmark span', text: 'bookmark')
   end
