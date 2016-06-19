@@ -10,7 +10,7 @@ describe 'Bookmarks', type: :feature, js: true do
     click_button 'search'
     expect(page).to have_css('form.pull-right[data-doc-id="jr903ng8662"] div.checkbox.toggle_bookmark label.toggle_bookmark span', text: 'bookmark')
     b = page.find('form.pull-right[data-doc-id="jr903ng8662"] div.checkbox.toggle_bookmark label.toggle_bookmark span')
-    b.click
+    b.trigger('click')
     sleep 1
     # Bookmark is through ajax call, so should not see successfult message
     # expect(page).to have_content 'Successfully added bookmark.'
@@ -19,7 +19,7 @@ describe 'Bookmarks', type: :feature, js: true do
     click_button 'search'
     expect(page).to have_css('form.pull-right[data-doc-id="jr903ng8662"] div.checkbox.toggle_bookmark label.toggle_bookmark span', text: 'bookmarked')
     b = page.find('form.pull-right[data-doc-id="jr903ng8662"] div.checkbox.toggle_bookmark label.toggle_bookmark span')
-    b.click
+    b.trigger('click')
     sleep 1
     expect(page).to have_css('form.pull-right[data-doc-id="jr903ng8662"] label.toggle_bookmark span', text: 'bookmark')
   end
