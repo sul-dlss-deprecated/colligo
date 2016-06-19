@@ -3248,13 +3248,16 @@ window.Mirador = window.Mirador || function(config) {
     //true or false.  controls display of "Add new object from URL" on manifest listing page
     'showAddFromURLBox' : true,
 
-    'buildPath' : 'build/mirador/',
+    // 'buildPath' : 'build/mirador/',
+    'buildPath' : '/',
 
     'i18nPath' : 'locales/',
 
-    'imagesPath' : 'images/',
+    // 'imagesPath' : 'images/',
+    'imagesPath' : 'assets/',
 
-    'logosPath' : 'images/logos/',
+    // 'logosPath' : 'images/logos/',
+    'logosPath' : 'assets/logos/',
 
     'repoImages' : {
       'other': 'iiif_logo.png'
@@ -3345,7 +3348,7 @@ window.Mirador = window.Mirador || function(config) {
       .css('background-repeat','repeat').css('position','fixed');
 
       //initialize i18next  
-      i18n.init({debug: false, getAsync: false, resGetPath: _this.buildPath + _this.i18nPath+'__lng__/__ns__.json'}); 
+      // i18n.init({debug: false, getAsync: false, resGetPath: _this.buildPath + _this.i18nPath+'__lng__/__ns__.json'});
 
       //register Handlebars helper
       Handlebars.registerHelper('t', function(i18n_key) {
