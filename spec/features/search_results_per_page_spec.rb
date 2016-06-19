@@ -6,11 +6,11 @@ describe 'Search page sort', type: :feature, js: true do
     click_link 'Descriptions'
     # sleep 2
     page.evaluate_script('document.getElementById("main_search_field").value') == 'descriptions'
-    fill_in 'q', with: 'gospel'
+    fill_in 'q', with: 'manuscript'
     click_button 'search'
     # default per-page is 10
-    expect(page).to have_css('h2', text: '62 Manuscripts')
-    expect(page).to have_css('div#content div.search-panel', count: 10)
+    expect(page).to have_css('h2', text: '3 Manuscripts')
+    expect(page).to have_css('div#content div.search-panel', count: 3)
     expect(page).to have_css('div.footer-per-page div.page-count span', count: 4)
     expect(page).to have_css('div.footer-per-page div.page-count span', text: '10')
     expect(page).to have_css('div.footer-per-page div.page-count span a', count: 3)
@@ -19,36 +19,37 @@ describe 'Search page sort', type: :feature, js: true do
     expect(page).to have_css('div.footer-per-page div.page-count span a', text: '100')
     # select 50 per-page
     click_link '50'
-    expect(page).to have_css('h2', text: '62 Manuscripts')
-    expect(page).to have_css('div#content div.search-panel', count: 50)
+    expect(page).to have_css('h2', text: '3 Manuscripts')
+    expect(page).to have_css('div#content div.search-panel', count: 3)
     expect(page).to have_css('div.footer-per-page div.page-count span', count: 4)
     expect(page).to have_css('div.footer-per-page div.page-count span', text: '50')
     expect(page).to have_css('div.footer-per-page div.page-count span a', count: 3)
     expect(page).to have_css('div.footer-per-page div.page-count span a', text: '10')
     expect(page).to have_css('div.footer-per-page div.page-count span a', text: '20')
     expect(page).to have_css('div.footer-per-page div.page-count span a', text: '100')
+    # Testing only with test fixtures which has just 3 results
     # select next page
-    click_link '1 - 50'
-    expect(page).to have_css('h2', text: '62 Manuscripts')
-    expect(page).to have_css('div#content div.search-panel', count: 12)
-    expect(page).to have_css('div.footer-per-page div.page-count span', count: 4)
-    expect(page).to have_css('div.footer-per-page div.page-count span', text: '50')
-    expect(page).to have_css('div.footer-per-page div.page-count span a', count: 3)
-    expect(page).to have_css('div.footer-per-page div.page-count span a', text: '10')
-    expect(page).to have_css('div.footer-per-page div.page-count span a', text: '20')
-    expect(page).to have_css('div.footer-per-page div.page-count span a', text: '100')
-    # select previous page
-    click_link 'previouspage'
-    expect(page).to have_css('h2', text: '62 Manuscripts')
-    expect(page).to have_css('div#content div.search-panel', count: 50)
-    expect(page).to have_css('div.footer-per-page div.page-count span', count: 4)
-    expect(page).to have_css('div.footer-per-page div.page-count span', text: '50')
-    expect(page).to have_css('div.footer-per-page div.page-count span a', count: 3)
-    expect(page).to have_css('div.footer-per-page div.page-count span a', text: '10')
-    expect(page).to have_css('div.footer-per-page div.page-count span a', text: '20')
-    expect(page).to have_css('div.footer-per-page div.page-count span a', text: '100')
+    # click_link '1 - 50'
+    # expect(page).to have_css('h2', text: '62 Manuscripts')
+    # expect(page).to have_css('div#content div.search-panel', count: 12)
+    # expect(page).to have_css('div.footer-per-page div.page-count span', count: 4)
+    # expect(page).to have_css('div.footer-per-page div.page-count span', text: '50')
+    # expect(page).to have_css('div.footer-per-page div.page-count span a', count: 3)
+    # expect(page).to have_css('div.footer-per-page div.page-count span a', text: '10')
+    # expect(page).to have_css('div.footer-per-page div.page-count span a', text: '20')
+    # expect(page).to have_css('div.footer-per-page div.page-count span a', text: '100')
+    # # select previous page
+    # click_link 'previouspage'
+    # expect(page).to have_css('h2', text: '62 Manuscripts')
+    # expect(page).to have_css('div#content div.search-panel', count: 50)
+    # expect(page).to have_css('div.footer-per-page div.page-count span', count: 4)
+    # expect(page).to have_css('div.footer-per-page div.page-count span', text: '50')
+    # expect(page).to have_css('div.footer-per-page div.page-count span a', count: 3)
+    # expect(page).to have_css('div.footer-per-page div.page-count span a', text: '10')
+    # expect(page).to have_css('div.footer-per-page div.page-count span a', text: '20')
+    # expect(page).to have_css('div.footer-per-page div.page-count span a', text: '100')
     # should have number of search results per page option even if total is less than 10
-    fill_in 'q', with: 'israel'
+    fill_in 'q', with: 'gospel'
     click_button 'search'
     expect(page).to have_css('h2', text: '1 Manuscripts')
     expect(page).to have_css('div#content div.search-panel', count: 1)
@@ -77,7 +78,8 @@ describe 'Search page sort', type: :feature, js: true do
     fill_in 'q', with: 'jesus'
     click_button 'search'
     # default per-page is 10
-    expect(page).to have_css('h2', text: '24 Transcriptions')
+    # save_and_open_page
+    expect(page).to have_selector('h2', text: '24 Transcriptions')
     expect(page).to have_css('div#content div.search-panel', count: 10)
     expect(page).to have_css('div.footer-per-page div.page-count span', count: 4)
     expect(page).to have_css('div.footer-per-page div.page-count span', text: '10')
