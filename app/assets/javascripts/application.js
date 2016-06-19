@@ -16,7 +16,7 @@
 // require turbolinks
 // For Mirador viewer
 //= require mirador
-//= require openseadragon-viewerinputhook
+// require openseadragon-viewerinputhook
 // For scaling fonts
 //= require flowtype
 // Required by Blacklight

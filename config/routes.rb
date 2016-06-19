@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   resources :manuscript, only: :show do
     # adding constraint as folio may have dots and should not be considered as formatted route
     resources :folio, only: :show, constraints: { id: /[^\/]+/ }
-    resources :test, only: :show, constraints: { id: /[^\/]+/ }
     match 'folio/:id/folio_label', to: 'folio#folio_label', constraints: { id: /[^\/]+/ }, via: :get
   end
   get '/manuscript/:id/related_content', to: 'manuscript#related_content'

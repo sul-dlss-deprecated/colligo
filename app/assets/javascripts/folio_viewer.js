@@ -56,7 +56,7 @@ $(function() {
     $.subscribe('imageRectangleUpdated', image_rect_updated_handle);
     $.subscribe('focusUpdated', focus_updated_handle);
     // $.subscribe('windowAdded', window_added_handle);
-    $.subscribe('imageBoundsUpdated', image_bounds_handle);
+    // $.subscribe('imageBoundsUpdated', image_bounds_handle);
 
     function image_rect_updated_handle(event, data) {
         var win_id = data['id'];
