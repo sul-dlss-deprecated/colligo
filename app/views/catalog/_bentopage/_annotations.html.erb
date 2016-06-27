@@ -1,0 +1,16 @@
+<div class="inline-headers">
+  <h2>Annotations</h2>
+  <% if @response_a['response']['numFound'] > 0 %>
+    <h4><span class="glyphicon glyphicon-forward tabbed" aria-hidden="true"></span>
+    <%= form_tag search_action_url, method: :get, class: 'pull-right', role: 'search' do %>
+      <%= hidden_field_tag :search_field, 'annotations', id: 'search_field_annotations' %>
+      <%= hidden_field_tag :q, params[:q], id: 'q_annotations' %>
+      <button type="submit" class="btn-link">See all <%= @response_a['response']['numFound'] %></button>
+    <% end %>
+    </h4>
+  <% else %>
+    <h4><span> No results</span></h4>
+  <% end %>
+</div>
+
+<%= render partial: 'shared/annotation', collection: @document_list_a[0, 6], as: :document %>

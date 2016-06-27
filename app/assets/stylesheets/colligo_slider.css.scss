@@ -1,0 +1,47 @@
+.slider-tick {
+  width: 2px;
+  height: 2px;
+}
+
+.slider-handle.custom {
+  background: transparent asset_url('play-arrow-16-1.png') no-repeat scroll 0% 50%;
+}
+/*
+.slider-track-low::before {
+  line-height: 20px;
+  font-size: 20px;
+  content: &#xe092;;
+  color: #ccc;
+}
+*/
+
+.slider-handle.custom::before {
+    content: none;
+    color: #ccc;
+}
+
+.slider-tick.custom::before {
+    content: "-";
+    color: #726204;
+}
+
+.slider-selection.tick-slider-selection {
+    background-image: linear-gradient(to bottom, #aab 0%, #aaa 100%);
+    background-repeat: repeat-x;
+}
+
+.slider-selection {
+    background-image: linear-gradient(to bottom, #aab 0%, #aaa 100%);
+    background-repeat: repeat-x;
+}
+
+.slider-track {
+    background-image: linear-gradient(to bottom, #e5e5e5 0%, #e9e9e9 100%);
+    background-repeat: repeat-x;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1) inset;
+    border-radius: 4px;
+}
+
+.slider.slider-vertical .slider-track {
+    width: 2px;
+}

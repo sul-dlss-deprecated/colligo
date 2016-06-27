@@ -1,0 +1,13 @@
+<%  # local params:
+    # label
+    # value
+    # options =>
+    #   :search_path => url for a constraint link
+    #   :classes => array of classes to add to container span
+    options ||= {}
+%>
+
+<span class="btn-group breadcrumb-filter <%= options[:classes].join(" ") if options[:classes] %>">
+  <%= link_to(content_tag(:span, value, class: 'breadcrumbValue', title: value),
+             options[:search_path], class: 'btn btn-default btn-link') %>
+</span>

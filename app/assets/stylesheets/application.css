@@ -10,6 +10,13 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ * Used by blacklight_range_limit
+ *= require 'blacklight_range_limit'
+ *= require mirador-combined
+ *= require jquery-tablesorter
+ *
  *= require_tree .
  *= require_self
- */
+ *
+ *
+*/

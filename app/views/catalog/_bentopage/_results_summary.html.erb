@@ -1,0 +1,39 @@
+<h2>Results summary</h2>
+<div class="panel panel-content panel-results-suumary">
+  <div class="panel-body">
+    <p><%= render :partial => '/catalog/_bentopage/constraints' %></p>
+    <!-- manuscript results -->
+    <% if @response_m['response']['numFound'] > 0 %>
+      <%= form_tag search_action_url, method: :get, class: '', role: 'search' do %>
+        <%= hidden_field_tag :search_field, 'descriptions', id: 'search_field_descriptions_1' %>
+        <%= hidden_field_tag :q, params[:q], id: 'q_descriptions_1' %>
+        <button type="submit" class="btn-link"><%= @response_m['response']['numFound'] %> Manuscripts</button>
+      <% end %>
+    <% else %>
+      <div><%= @response_m['response']['numFound'] %> Manuscripts</div>
+    <% end %>
+    <div class="tabbed">Searched full manuscript descriptions.</div> 
+    <!-- transcription results -->
+    <% if @response_t['response']['numFound'] > 0 %>
+      <%= form_tag search_action_url, method: :get, class: '', role: 'search' do %>
+        <%= hidden_field_tag :search_field, 'transcriptions', id: 'search_field_transcriptions_1' %>
+        <%= hidden_field_tag :q, params[:q], id: 'q_transcriptions_1' %>
+        <button type="submit" class="btn-link"><%= @response_t['response']['numFound'] %> Transcriptions</button>
+      <% end %>
+    <% else %>
+      <div><%= @response_t['response']['numFound'] %> Transcriptions</div>
+    <% end %>
+    <div class="tabbed">Searched transcription content.</div> 
+    <!-- annotation results -->
+    <% if @response_a['response']['numFound'] > 0 %>
+      <%= form_tag search_action_url, method: :get, class: '', role: 'search' do %>
+        <%= hidden_field_tag :search_field, 'annotations', id: 'search_field_annotations_1' %>
+        <%= hidden_field_tag :q, params[:q], id: 'q_annotations_1' %>
+        <button type="submit" class="btn-link"><%= @response_a['response']['numFound'] %> Annotations</button>
+      <% end %>
+    <% else %>
+      <div><%= @response_a['response']['numFound'] %> Annotations</div>
+    <% end %>
+    <div class="tabbed">Searched annotation content.</div> 
+  </div>
+</div>

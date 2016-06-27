@@ -110,6 +110,20 @@ describe ModsData do
     end
   end
 
+  describe '#all_display_fields' do
+    it 'should include all display fields' do
+      expect(document.all_display_fields).to be_a Array
+      expect(document.all_display_fields.length).to eq(29)
+    end
+  end
+
+  describe '#single_valued_display_fields' do
+    it 'should include all single valued display fields' do
+      expect(document.single_valued_display_fields).to be_a Array
+      expect(document.single_valued_display_fields.length).to eq(5)
+    end
+  end
+
   describe '#mods_to_solr' do
     let(:data) { document.mods_to_solr }
     let(:data_with_id) { document_with_id.mods_to_solr }
@@ -171,7 +185,7 @@ describe ModsData do
       expect(data_with_id2['abstract_search']).to eq('')
       expect(data_with_id4['abstract_search']).to eq("Acquittance for a thousand livres tournois for the despense de l'hostel du Roy notre sire.")
       expect(data_with_id5['abstract_search']).to eq("Fragment from a Beneventan psalter, containing most of Psalm 36: verses 1-29. For an early printed edition of this text in its relation to other versions of the psalter, see Jacques Lefevre d'Etaples's Quincuplex Psalterium, 1513. ")
-      expect(data_with_id8['abstract_search']).to eq("From a university text book. The manuscript frequently cites Aristotle and \"sensus et sensibilis\" (the little treatise of Aristotle is sometimes called \"De sensu et Sensibili). Besides sensation the fragment mentions motion, form, intellect, and odour. [dealer description]")
+      expect(data_with_id8['abstract_search']).to eq('From a university text book. The manuscript frequently cites Aristotle and "sensus et sensibilis" (the little treatise of Aristotle is sometimes called "De sensu et Sensibili). Besides sensation the fragment mentions motion, form, intellect, and odour. [dealer description]')
       expect(data_with_id11['abstract_search']).to eq('Lavishly illuminated manuscript consisting of 77 large column miniatures, 51
             smaller miniatures, and 36 historiated initials. Miniatures and historiated initials by
             at least two artists, the scale and quality of whose work distinguish the manuscript
@@ -535,6 +549,7 @@ describe ModsData do
     let(:date7) { document.send(:display_date, ['February 6, 1486']) }
     let(:date8) { document.send(:display_date, ['June 1781']) }
     let(:date9) { document.send(:display_date, ['s. XIII^^ex [ca. 1275-1300]']) }
+    let(:date10) { document.send(:display_date, ['850', '1499', '']) }
     it 'should be a string' do
       expect(date1).to be_a String
       expect(date2).to be_a String
@@ -545,6 +560,7 @@ describe ModsData do
       expect(date7).to be_a String
       expect(date8).to be_a String
       expect(date9).to be_a String
+      expect(date10).to be_a String
     end
 
     it 'should be the combined years for display' do
@@ -557,6 +573,7 @@ describe ModsData do
       expect(date7).to eq('February 6, 1486')
       expect(date8).to eq('June 1781')
       expect(date9).to eq('s. XIII^^ex [ca. 1275-1300]')
+      expect(date10).to eq('850 to 1499')
     end
   end
 end

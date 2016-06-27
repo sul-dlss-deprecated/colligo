@@ -1,0 +1,31 @@
+<div class="panel panel-content search-panel search-panel-auto">
+  <div class="panel-body transcription-result">
+    <div class="media">
+      <div class="media-left">
+        <% unless document['img_info'].blank? %>
+          <%= image_tag(document['img_info'].first, class: 'media-object results-thumbnail') %>
+        <% end %>&nbsp;
+      </div>
+      <div class="media-body">
+        <% unless document['body_chars_display'].blank? %>
+          <h4 class="media-heading"><a href="/manuscript/<%=document['druid']%>/folio/<%=document['folio']%>?view=transcriptions"><%= truncate(document['body_chars_display'], length: 150) %></a></h4>
+        <% else %>
+          <h4 class="media-heading"><a href="/manuscript/<%=document['druid']%>/folio/<%=document['folio']%>?view=transcriptions"><%= document['id'] %></a></h4>
+        <% end %>
+        <% unless document['authors_all_display'].blank? %>
+          <p><strong><%= raw document['authors_all_display'].join('<br/>') %></strong></p>
+        <% end %>
+        <% unless document['language'].blank? %>
+            <p><%= document['language'].join(', ') %></p>
+        <% end %>
+        <% unless document['folio'].blank? %>
+          <p><%= document['folio'] %></p>
+        <% end %>
+        <% unless document['manuscript_display'].blank? %>
+          <p><%= document['manuscript_display'] %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -4,13 +4,16 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
 require 'capybara/poltergeist'
+# require 'support/capybara'
 require 'fixtures/mods_records/mods_fixtures'
 require 'fixtures/annotation_records/annotation_fixtures'
 require 'fixtures/iiif_manifest_records/iiif_manifest_fixtures'
+require 'fixtures/solr_documents/solr_document_fixtures'
 require 'webmock/rspec'
 
 Capybara.register_driver :poltergeist do |app|
-  Capybara::Poltergeist::Driver.new(app, { timeout: 60 })
+  # NOTE: bootstrap_slider.js is throwing js errors. So I set js_errors to false
+  Capybara::Poltergeist::Driver.new(app, timeout: 60, js_errors: false)
 end
 Capybara.javascript_driver = :poltergeist
 
@@ -28,7 +31,7 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 ActiveRecord::Migration.maintain_test_schema!
 
 WebMock.enable!
-WebMock.disable_net_connect!(:allow => [/127.0.0.1/, /localhost/] )
+WebMock.disable_net_connect!(allow: [/127.0.0.1/, /localhost/])
 
 RSpec.configure do |config|
   config.include Capybara::DSL

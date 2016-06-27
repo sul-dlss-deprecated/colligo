@@ -1,0 +1,24 @@
+<% # main container for facets/limits menu -%>
+<% if has_facet_values?  %>
+  <div id="myDropDown" class="dropdown">
+    <a id="dLabel" role="button" data-toggle="dropdown" data-target="#"><h4>Refine <span class="caret"></span></h4></a>
+    <ul id="myTabs" class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+      <div class="row">
+        <div class="col-xs-3">
+          <% if query_has_facet_constraints?(params) %>
+            <div><%= render_clear_all(t('blacklight.search.filters.clear-all'), params) %></div>
+          <% end %>
+          <ul class="nav nav-tabs tabs-left">
+            <%= render_facet_tabs %>
+          </ul>
+        </div>
+        <div class="col-xs-9">
+          <div class="tab-content">
+            <%= render_refine_facet_partials %>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </ul>
+  </div>
+<% end %>

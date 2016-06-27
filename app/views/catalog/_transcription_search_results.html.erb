@@ -1,0 +1,12 @@
+<h2 class="sr-only"><%= t('blacklight.search.search_results') %></h2>
+
+<%- if @document_list_t.empty? %>
+  <%= render partial: 'catalog/zero_results' %>
+<%- else %>
+    <div class="row">
+      <div class="col-md-12">
+        <%= render partial: 'shared/transcription', collection: @document_list_t, as: :document %>
+      </div>
+    </div>
+  <%= render partial: 'shared/results_footer' %>
+<%- end %>

@@ -1,4 +1,5 @@
 # encoding: UTF-8
+require 'json'
 module IiifManifestFixtures
   def manifest_url_001
     'http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/manifest.json'
@@ -18,5 +19,9 @@ module IiifManifestFixtures
 
   def manifest_csv_file
     "#{::Rails.root}/spec/fixtures/iiif_manifest_records/stub_manifest_urls.csv"
+  end
+
+  def manifest_contents
+    JSON.parse(File.read('spec/fixtures/iiif_manifest_records/manifest_contents.json'))
   end
 end

@@ -1,0 +1,326 @@
+[
+  {
+    "responseHeader": {
+      "status": 0,
+      "QTime": 6,
+      "params": {
+        "facet.query": [
+          "pub_date_t:[2000 TO *]",
+          "pub_date_t:[1900 TO 1999]",
+          "pub_date_t:[1800 TO 1899]",
+          "pub_date_t:[1700 TO 1799]",
+          "pub_date_t:[1600 TO 1699]",
+          "pub_date_t:[1500 TO 1599]",
+          "pub_date_t:[1400 TO 1499]",
+          "pub_date_t:[1300 TO 1399]",
+          "pub_date_t:[1200 TO 1299]",
+          "pub_date_t:[1100 TO 1199]",
+          "pub_date_t:[1000 TO 1099]",
+          "pub_date_t:[900 TO 999]",
+          "pub_date_t:[800 TO 899]",
+          "pub_date_t:[700 TO 799]",
+          "pub_date_t:[600 TO 699]",
+          "pub_date_t:[500 TO 599]",
+          "pub_date_t:[400 TO 499]",
+          "pub_date_t:[300 TO 399]",
+          "pub_date_t:[200 TO 299]",
+          "pub_date_t:[100 TO 199]",
+          "pub_date_t:[0 TO 99]"
+        ],
+        "q": "gospel",
+        "facet.field": [
+          "format",
+          "type_of_resource_facet",
+          "authors_all_facet",
+          "topic_facet",
+          "geographic_facet",
+          "era_facet",
+          "manuscript_facet",
+          "language",
+          "place_facet",
+          "model",
+          "folio",
+          "collection"
+        ],
+        "qt": "descriptions",
+        "fl": "*",
+        "f.topic_facet.facet.limit": "21",
+        "f.language.facet.limit": "6",
+        "start": "2",
+        "sort": "score desc, title_sort asc",
+        "rows": "3",
+        "wt": "ruby",
+        "facet": "false"
+      }
+    },
+    "response": {
+      "numFound": 62,
+      "start": 2,
+      "docs": [
+        {
+          "id": "xs067jx3704",
+          "druid": "xs067jx3704",
+          "url_sfx": [
+            "https://purl.stanford.edu/xs067jx3704.mods"
+          ],
+          "manifest_urls": [
+            "https://purl.stanford.edu/xs067jx3704/iiif/manifest.json"
+          ],
+          "collection": "The Walters Art Museum",
+          "model": [
+            "Manuscript"
+          ],
+          "img_info": [
+            "https://stacks.stanford.edu/image/iiif/xs067jx3704%2FW528_000001_300/full/!400,400/0/default.jpg"
+          ],
+          "abstract_display": "This Gospel Book is representative of a large group of illuminated manuscripts produced during the second half of the twelfth century and possibly in the first decades after the Crusader conquest of Constantinople (1204). Its one surviving miniature was painted over in the twentieth century but retains some of its original character. Each Gospel opens with an exuberantly ornamented headpiece. \n        For full description, see http://www.thedigitalwalters.org/Data/WaltersManuscripts/html/W528/description.html",
+          "access_condition_display": "Licensed for use under Creative Commons Attribution-ShareAlike 3.0 Unported Access Rights, http://creativecommons.org/licenses/by-sa/3.0/legalcode. Images are free for any use, provided you follow the terms of this license. You do not need to apply to the Walters prior to using the images. We ask only that you cite the source of the images as the Walters Art Museum (see citation style at http://www.thedigitalwalters.org/03_ReadMe.html). Additionally, we request that a copy of any work created using these materials be sent to the Curator of Manuscripts and Rare Books at the Walters Art Museum, 600 N. Charles Street, Baltimore, MD 21201, mss-curator@thewalters.org.All Walters manuscript images and descriptions provided here are copyrighted © The Walters Art Museum.CC by-sa: Attribution-ShareAlike 3.0 Unported",
+          "type_of_resource_display": [
+            "manuscript",
+            "mixed material"
+          ],
+          "title_sort": "Walters Ms. W.528, Gospel Book",
+          "title_display": "Walters Ms. W.528, Gospel Book",
+          "title_alternate_display": [
+            "Gospel Book"
+          ],
+          "language": [
+            "Greek, Ancient (t0 1453)"
+          ],
+          "physical_location_display": [
+            "The Walters Art Museum, 600 North Charles Street, Baltimore MD 21201."
+          ],
+          "pub_dates": [
+            "1200",
+            "1230"
+          ],
+          "pub_date": [
+            "1200",
+            "1230"
+          ],
+          "pub_date_display": "1200, 1230, ",
+          "place_display": [
+            "Byzantine Empire"
+          ],
+          "format": [
+            "Manuscript/Archive"
+          ],
+          "last_updated": "2015-12-12T19:06:28Z",
+          "created": "2015-12-12T19:06:28Z"
+        },
+        {
+          "id": "pc969nh5331",
+          "druid": "pc969nh5331",
+          "url_sfx": [
+            "https://purl.stanford.edu/pc969nh5331.mods"
+          ],
+          "manifest_urls": [
+            "https://purl.stanford.edu/pc969nh5331/iiif/manifest.json"
+          ],
+          "collection": "The Walters Art Museum",
+          "model": [
+            "Manuscript"
+          ],
+          "img_info": [
+            "https://stacks.stanford.edu/image/iiif/pc969nh5331%2FW520_000001_300/full/!400,400/0/default.jpg"
+          ],
+          "abstract_display": "This is an example of a Gospel Lectionary written in the archaic, majuscule form of Greek letters. Liturgical books were inherently conservative and therefore commonly retained such antiquated writing. The scribe, a certain monk Theodore, has recorded his name in a verse at the end of the volume (fol. 179v). A leaf removed from this manuscript ca. 1900 is now in Sofia, National Library of Republic of Bulgaria NBKM Gr. 2. \n        For full description, see http://www.thedigitalwalters.org/Data/WaltersManuscripts/html/W520/description.html",
+          "access_condition_display": "Licensed for use under Creative Commons Attribution-ShareAlike 3.0 Unported Access Rights, http://creativecommons.org/licenses/by-sa/3.0/legalcode. Images are free for any use, provided you follow the terms of this license. You do not need to apply to the Walters prior to using the images. We ask only that you cite the source of the images as the Walters Art Museum (see citation style at http://www.thedigitalwalters.org/03_ReadMe.html). Additionally, we request that a copy of any work created using these materials be sent to the Curator of Manuscripts and Rare Books at the Walters Art Museum, 600 N. Charles Street, Baltimore, MD 21201, mss-curator@thewalters.org.All Walters manuscript images and descriptions provided here are copyrighted © The Walters Art Museum.CC by-sa: Attribution-ShareAlike 3.0 Unported",
+          "type_of_resource_display": [
+            "manuscript",
+            "mixed material"
+          ],
+          "personal_authors_display": [
+            "Theodore"
+          ],
+          "authors_all_display": [
+            "Theodore"
+          ],
+          "title_sort": "Walters Ms. W.520, Gospel Lectionary",
+          "title_display": "Walters Ms. W.520, Gospel Lectionary",
+          "title_alternate_display": [
+            "Gospel Lectionary"
+          ],
+          "language": [
+            "Greek, Ancient (t0 1453)"
+          ],
+          "physical_location_display": [
+            "The Walters Art Museum, 600 North Charles Street, Baltimore MD 21201."
+          ],
+          "pub_dates": [
+            "0950",
+            "1000"
+          ],
+          "pub_date": [
+            "950",
+            "1000"
+          ],
+          "pub_date_display": "0950, 1000, ",
+          "place_display": [
+            "Byzantine Empire"
+          ],
+          "format": [
+            "Manuscript/Archive"
+          ],
+          "last_updated": "2015-12-12T18:56:53Z",
+          "created": "2015-12-12T18:56:53Z"
+        },
+        {
+          "id": "kx761rc2825",
+          "druid": "kx761rc2825",
+          "url_sfx": [
+            "https://purl.stanford.edu/kx761rc2825.mods"
+          ],
+          "manifest_urls": [
+            "https://purl.stanford.edu/kx761rc2825/iiif/manifest.json"
+          ],
+          "collection": "The Walters Art Museum",
+          "model": [
+            "Manuscript"
+          ],
+          "img_info": [
+            "https://stacks.stanford.edu/image/iiif/kx761rc2825%2FW751_000001_300/full/!400,400/0/default.jpg"
+          ],
+          "abstract_display": "This manuscript consists of four folios from a Gospel Book that was likely made at the monastery of Corvey in Western Germany during the last quarter of the tenth century. Dating to the reign of Otto I, these pages are a magnificent example of early Ottonian manuscript illumination. The heavily ornamented pages, which introduce the Gospels of Luke and John, shine with gold and jewel-like colors against dyed purple grounds. These pages combine monumental classicizing square capitals on purple grounds with rich and complex interlace. This fragment contains the opening pages of Luke (fols. 93-94) and John (fols. 137-138) that were originally part of Rheims, Bibliothèque Municipale, Ms. 10, a Gospel Book originally owned by the Chapter Library of the Cathedral of Rheims until it was confiscated, along with the rest of the cathedral's manuscripts, during the French Revolution. Related manuscripts include Pierpont Morgan Library Ms. M. 755 and New York Public Library Ms. 1. \n        For full description, see http://www.thedigitalwalters.org/Data/WaltersManuscripts/html/W751/description.html",
+          "access_condition_display": "Licensed for use under Creative Commons Attribution-ShareAlike 3.0 Unported Access Rights, http://creativecommons.org/licenses/by-sa/3.0/legalcode. Images are free for any use, provided you follow the terms of this license. You do not need to apply to the Walters prior to using the images. We ask only that you cite the source of the images as the Walters Art Museum (see citation style at http://www.thedigitalwalters.org/03_ReadMe.html). Additionally, we request that a copy of any work created using these materials be sent to the Curator of Manuscripts and Rare Books at the Walters Art Museum, 600 N. Charles Street, Baltimore, MD 21201, mss-curator@thewalters.org.All Walters manuscript images and descriptions provided here are copyrighted © The Walters Art Museum.CC by-sa: Attribution-ShareAlike 3.0 Unported",
+          "type_of_resource_display": [
+            "manuscript",
+            "mixed material"
+          ],
+          "title_sort": "Walters Ms. W.751, Corvey Gospel fragment",
+          "title_display": "Walters Ms. W.751, Corvey Gospel fragment",
+          "title_alternate_display": [
+            "Gospel fragment"
+          ],
+          "language": [
+            "Latin"
+          ],
+          "physical_location_display": [
+            "The Walters Art Museum, 600 North Charles Street, Baltimore MD 21201."
+          ],
+          "pub_dates": [
+            "0940",
+            "0975"
+          ],
+          "pub_date": [
+            "940",
+            "975"
+          ],
+          "pub_date_display": "0940, 0975, ",
+          "place_display": [
+            "Corvey, Germany"
+          ],
+          "format": [
+            "Manuscript/Archive"
+          ],
+          "last_updated": "2015-12-12T18:53:46Z",
+          "created": "2015-12-12T18:53:46Z"
+        }
+      ]
+    }
+  },
+  [
+    {
+      "id": "xs067jx3704",
+      "druid": "xs067jx3704",
+      "url_sfx": [
+        "https://purl.stanford.edu/xs067jx3704.mods"
+      ],
+      "manifest_urls": [
+        "https://purl.stanford.edu/xs067jx3704/iiif/manifest.json"
+      ],
+      "collection": "The Walters Art Museum",
+      "model": [
+        "Manuscript"
+      ],
+      "img_info": [
+        "https://stacks.stanford.edu/image/iiif/xs067jx3704%2FW528_000001_300/full/!400,400/0/default.jpg"
+      ],
+      "abstract_display": "This Gospel Book is representative of a large group of illuminated manuscripts produced during the second half of the twelfth century and possibly in the first decades after the Crusader conquest of Constantinople (1204). Its one surviving miniature was painted over in the twentieth century but retains some of its original character. Each Gospel opens with an exuberantly ornamented headpiece. \n        For full description, see http://www.thedigitalwalters.org/Data/WaltersManuscripts/html/W528/description.html",
+      "access_condition_display": "Licensed for use under Creative Commons Attribution-ShareAlike 3.0 Unported Access Rights, http://creativecommons.org/licenses/by-sa/3.0/legalcode. Images are free for any use, provided you follow the terms of this license. You do not need to apply to the Walters prior to using the images. We ask only that you cite the source of the images as the Walters Art Museum (see citation style at http://www.thedigitalwalters.org/03_ReadMe.html). Additionally, we request that a copy of any work created using these materials be sent to the Curator of Manuscripts and Rare Books at the Walters Art Museum, 600 N. Charles Street, Baltimore, MD 21201, mss-curator@thewalters.org.All Walters manuscript images and descriptions provided here are copyrighted © The Walters Art Museum.CC by-sa: Attribution-ShareAlike 3.0 Unported",
+      "type_of_resource_display": [
+        "manuscript",
+        "mixed material"
+      ],
+      "title_sort": "Walters Ms. W.528, Gospel Book",
+      "title_display": "Walters Ms. W.528, Gospel Book",
+      "title_alternate_display": [
+        "Gospel Book"
+      ],
+      "language": [
+        "Greek, Ancient (t0 1453)"
+      ],
+      "physical_location_display": [
+        "The Walters Art Museum, 600 North Charles Street, Baltimore MD 21201."
+      ],
+      "pub_dates": [
+        "1200",
+        "1230"
+      ],
+      "pub_date": [
+        "1200",
+        "1230"
+      ],
+      "pub_date_display": "1200, 1230, ",
+      "place_display": [
+        "Byzantine Empire"
+      ],
+      "format": [
+        "Manuscript/Archive"
+      ],
+      "last_updated": "2015-12-12T19:06:28Z",
+      "created": "2015-12-12T19:06:28Z"
+    },
+    {
+      "id": "kx761rc2825",
+      "druid": "kx761rc2825",
+      "url_sfx": [
+        "https://purl.stanford.edu/kx761rc2825.mods"
+      ],
+      "manifest_urls": [
+        "https://purl.stanford.edu/kx761rc2825/iiif/manifest.json"
+      ],
+      "collection": "The Walters Art Museum",
+      "model": [
+        "Manuscript"
+      ],
+      "img_info": [
+        "https://stacks.stanford.edu/image/iiif/kx761rc2825%2FW751_000001_300/full/!400,400/0/default.jpg"
+      ],
+      "abstract_display": "This manuscript consists of four folios from a Gospel Book that was likely made at the monastery of Corvey in Western Germany during the last quarter of the tenth century. Dating to the reign of Otto I, these pages are a magnificent example of early Ottonian manuscript illumination. The heavily ornamented pages, which introduce the Gospels of Luke and John, shine with gold and jewel-like colors against dyed purple grounds. These pages combine monumental classicizing square capitals on purple grounds with rich and complex interlace. This fragment contains the opening pages of Luke (fols. 93-94) and John (fols. 137-138) that were originally part of Rheims, Bibliothèque Municipale, Ms. 10, a Gospel Book originally owned by the Chapter Library of the Cathedral of Rheims until it was confiscated, along with the rest of the cathedral's manuscripts, during the French Revolution. Related manuscripts include Pierpont Morgan Library Ms. M. 755 and New York Public Library Ms. 1. \n        For full description, see http://www.thedigitalwalters.org/Data/WaltersManuscripts/html/W751/description.html",
+      "access_condition_display": "Licensed for use under Creative Commons Attribution-ShareAlike 3.0 Unported Access Rights, http://creativecommons.org/licenses/by-sa/3.0/legalcode. Images are free for any use, provided you follow the terms of this license. You do not need to apply to the Walters prior to using the images. We ask only that you cite the source of the images as the Walters Art Museum (see citation style at http://www.thedigitalwalters.org/03_ReadMe.html). Additionally, we request that a copy of any work created using these materials be sent to the Curator of Manuscripts and Rare Books at the Walters Art Museum, 600 N. Charles Street, Baltimore, MD 21201, mss-curator@thewalters.org.All Walters manuscript images and descriptions provided here are copyrighted © The Walters Art Museum.CC by-sa: Attribution-ShareAlike 3.0 Unported",
+      "type_of_resource_display": [
+        "manuscript",
+        "mixed material"
+      ],
+      "title_sort": "Walters Ms. W.751, Corvey Gospel fragment",
+      "title_display": "Walters Ms. W.751, Corvey Gospel fragment",
+      "title_alternate_display": [
+        "Gospel fragment"
+      ],
+      "language": [
+        "Latin"
+      ],
+      "physical_location_display": [
+        "The Walters Art Museum, 600 North Charles Street, Baltimore MD 21201."
+      ],
+      "pub_dates": [
+        "0940",
+        "0975"
+      ],
+      "pub_date": [
+        "940",
+        "975"
+      ],
+      "pub_date_display": "0940, 0975, ",
+      "place_display": [
+        "Corvey, Germany"
+      ],
+      "format": [
+        "Manuscript/Archive"
+      ],
+      "last_updated": "2015-12-12T18:53:46Z",
+      "created": "2015-12-12T18:53:46Z"
+    }
+  ]
+]

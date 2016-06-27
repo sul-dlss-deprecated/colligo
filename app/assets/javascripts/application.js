@@ -12,8 +12,21 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks//
+//= require jquery-ui
+// require turbolinks
+// For Mirador viewer
+//= require mirador
+// require openseadragon-viewerinputhook
+// For scaling fonts
+//= require flowtype
 // Required by Blacklight
 //= require blacklight/blacklight
-
+//= require affix
+//= require scrollspy
+//= require "jquery.tablesorter"
 //= require_tree .
+//
+// For blacklight_range_limit built-in JS, if you don't want it you don't need
+// this:
+//= require 'blacklight_range_limit'
+

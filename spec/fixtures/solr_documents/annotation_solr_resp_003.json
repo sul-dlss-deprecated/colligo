@@ -1,0 +1,21 @@
+{
+  "responseHeader": {
+    "status": 0,
+    "QTime": 6,
+    "params": {
+      "q": "druid:kq131cs7229 AND folio:\"f. 8r\"",
+      "qt": "annotations",
+      "sort": "score desc",
+      "rows": "0",
+      "wt": "ruby",
+      "facet": "true"
+    }
+  },
+  "response": {
+    "numFound": 12,
+    "start": 0,
+    "maxScore": 0.00088888034,
+    "docs": [
+    ]
+  }
+}

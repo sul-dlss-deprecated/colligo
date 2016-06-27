@@ -1,0 +1,23 @@
+<%# Link to the "Next" page
+  - available local variables
+    url:           url to the next page
+    current_page:  a page object for the currently displayed page
+    num_pages:     total number of pages
+    per_page:      number of items to fetch per page
+    remote:        data-remote
+-%>
+<% unless current_page.last? %>
+  <a href="<%=url%>" rel="next" class="btn btn-lg btn-paginate-next" id="nextpage">
+    <div class="col-md-3">
+      <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+    </div>
+    <div class="col-md-9">
+      <span class="page_entries"><%= page_entries_info %> </span>
+    </div>
+  </a>
+<% else %>
+  <a href="<%=url%>" rel="next" class="btn btn-lg btn-paginate-next" id="nextpage" style="cursor: not-allowed; pointer-events: none;">
+    <span class="page_entries"><%= page_entries_info %> </span>
+  </a>
+<% end %>
+

@@ -1,0 +1,4 @@
+<% if query_has_constraints?(params) %>
+  <span class="constraints-label"><%= t('blacklight.search.simple_filters.title') %></span>
+  <%= render_simple_constraints(params) %>
+<% end %>

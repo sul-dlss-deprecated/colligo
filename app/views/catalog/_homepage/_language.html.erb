@@ -1,0 +1,9 @@
+<div class="panel panel-content">
+  <div class="panel-body">
+    <h3>by language</h3>
+    <%= safe_join(facets_from_request(['language']).map do |display_facet| %>
+      <%= render_facet_limit(display_facet, {layout: 'catalog/_homepage/language_layout', partial: 'catalog/_homepage/language_facet_limit'}) %>
+    <% end.compact, "\n") %>
+  </div>
+</div>
+

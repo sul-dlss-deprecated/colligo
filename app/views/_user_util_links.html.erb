@@ -1,0 +1,34 @@
+<ul class="nav navbar-nav navbar-right">
+  <li class="dropdown" id="mywork">
+    <a href="#" class="dropdown-toggle hidden-xs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Work <span class="caret"></span></a>
+    <button type="button" class="navbar-toggle btn collapsed" data-toggle="collapse" data-target="#user-util-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <ul class="dropdown-menu" id="user-util-collapse">
+      <%= render_nav_actions do |config, action|%>
+        <li><%= action %></li>
+      <% end %>
+      <li role="separator" class="divider"></li>
+      <% if has_user_authentication_provider? %>
+        <% if current_user %>
+          <li>
+            <%= link_to t('blacklight.header_links.logout'), destroy_user_session_path %>
+          </li>
+          <% unless current_user.to_s.blank? -%>
+            <li>
+              <%= link_to current_user, edit_user_registration_path %>
+            </li>
+          <% end %>
+        <% else %>
+          <li>
+            <%= link_to t('blacklight.header_links.login'), new_user_session_path %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </li>
+  <li id="nav_top"><a href="#" rel="top"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></a></li>
+</ul>

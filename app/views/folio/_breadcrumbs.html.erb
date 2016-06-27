@@ -1,0 +1,14 @@
+<% if (@manuscript.has_key?('collection') && @manuscript['collection'].present?) ||
+     (@manuscript.has_key?('title_display') && @manuscript['title_display'].present?)
+%>
+  <%
+    breadcrumb_params = { 'search_field' => 'transcriptions', f: { } }
+    # breadcrumb_params[:f]['place_facet'] = [@manuscript['place_display'].first] unless @manuscript['place_display'].blank?
+    breadcrumb_params[:f]['collection'] = [@manuscript['collection']] unless @manuscript['collection'].blank?
+    breadcrumb_params[:f]['manuscript_facet'] = [@manuscript['title_display']] unless @manuscript['title_display'].blank?
+  %>
+  <%= render_breadcrumb_constraints_filters(breadcrumb_params) %>
+  <span> > </span>
+<% end %>
+<span><%= params[:id] %></span>
+

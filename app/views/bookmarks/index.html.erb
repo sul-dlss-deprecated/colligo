@@ -1,0 +1,29 @@
+<%
+  @page_title = t('blacklight.bookmarks.page_title', :application_name => application_name)
+  @response = @response_m
+  @document_list = @document_list_m
+%>
+<div id="content" class="col-md-12">
+  <h2 class="top-content-title"><%= @response['response']['numFound'] %> <%= t('blacklight.bookmarks.title') %></h2>
+  <%- if current_or_guest_user.blank? -%>
+    <h3 class='section-heading'><%= t('blacklight.bookmarks.need_login') %></h3>
+  <%- elsif @document_list.blank? -%>
+    <h3 class='section-heading'><%= t('blacklight.bookmarks.no_bookmarks') %></h3>
+  <% else %>
+    <div id="searchinfo" class="row">
+      <div class="col-md-12">
+        <div class="pull-right">
+          <%= render :partial => 'bookmarks/clear_bookmarks_widget' %>
+          <%= render :partial => 'shared/sort_widget' %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <%= render partial: 'shared/manuscript', collection: @document_list, as: :document, locals: {show_manifest: true, show_footer: true} %>
+      </div>
+    </div>
+    <%= render partial: 'shared/results_footer' %>
+  <% end %>
+</div>
+

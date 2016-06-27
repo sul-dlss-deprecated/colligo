@@ -1,0 +1,22 @@
+<% unless @prev_doc.blank? %>
+  <%
+    p_midpoint = 25
+    @prev_doc['title'] = @prev_doc['title'].strip
+    if @prev_doc['title'].length < 20 && @prev_doc['title'].include?(' ')
+      p_midpoint = @prev_doc['title'].length / 2
+    elsif @prev_doc['title'].length >= 20 && @prev_doc['title'].length < 50
+      p_midpoint = @prev_doc['title'].length / 2
+    end
+    p_a = truncate(@prev_doc['title'], length: p_midpoint, omission: '', separator: ' ')
+    p_b = truncate(@prev_doc['title'], length: 50)
+    p_b = p_b.sub(p_a, '')
+  %>
+  <a href="<%=@prev_doc['path']%>" rel="prev" class="btn btn-lg btn-paginate-prev" id="previouspage">
+    <div class="pull-left hidden-xs">
+      <span class="prev_result"><%=p_a%><br/><%=p_b%></span>
+    </div>
+    <div class="pull-left">
+      <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+    </div>
+  </a>
+<% end %>
