@@ -9,8 +9,8 @@ describe 'Search page paginate', type: :feature, js: true do
     fill_in 'q', with: 'manuscript'
     click_button 'search'
     # default pagination
-    expect(page).to have_css('h2', text: '3 Manuscripts')
-    expect(page).to have_css('div#content div.search-panel', count: 3)
+    expect(page).to have_css('h2', text: '4 Manuscripts')
+    expect(page).to have_css('div#content div.search-panel', count: 4)
     expect(page).not_to have_css('div.prev-page', text: nil)
     expect(page).not_to have_css('a.btn-paginate-next div span.glyphicon-arrow-right')
     expect(page).not_to have_css('a.btn-paginate-next div span.page_entries', text: '1 - 10 of')
@@ -19,32 +19,32 @@ describe 'Search page paginate', type: :feature, js: true do
   it 'should render arbitrary pagination options set in url' do
     # set per page to 2 to see pagination
     visit '/?per_page=2&q=manuscript&search_field=descriptions'
-    expect(page).to have_css('h2', text: '3 Manuscripts')
+    expect(page).to have_css('h2', text: '4 Manuscripts')
     expect(page).to have_css('div#content div.search-panel', count: 2)
     expect(page).to have_css('div.prev-page', text: nil)
     expect(page).to have_css('a.btn-paginate-next div span.glyphicon-arrow-right')
     expect(page).to have_css('a.btn-paginate-next div span.page_entries', text: '1 - 2 of')
-    expect(page).to have_css('a.btn-paginate-next div span.page_entries', text: '3 results')
+    expect(page).to have_css('a.btn-paginate-next div span.page_entries', text: '4 results')
     # click on next
     click_link('1 - 2 of')
-    expect(page).to have_css('h2', text: '3 Manuscripts')
-    expect(page).to have_css('div#content div.search-panel', count: 1)
+    expect(page).to have_css('h2', text: '4 Manuscripts')
+    expect(page).to have_css('div#content div.search-panel', count: 2)
     expect(page).to have_css('div.prev-page a.btn-paginate-prev span.glyphicon-arrow-left')
     expect(page).not_to have_css('a.btn-paginate-next span.glyphicon-arrow-right')
-    expect(page).to have_css('a.btn-paginate-next span.page_entries', text: '3 - 3 of')
-    expect(page).to have_css('a.btn-paginate-next span.page_entries', text: '3 results')
+    expect(page).to have_css('a.btn-paginate-next span.page_entries', text: '3 - 4 of')
+    expect(page).to have_css('a.btn-paginate-next span.page_entries', text: '4 results')
     # click on prev
     click_link('previouspage')
-    expect(page).to have_css('h2', text: '3 Manuscripts')
+    expect(page).to have_css('h2', text: '4 Manuscripts')
     expect(page).to have_css('div#content div.search-panel', count: 2)
     expect(page).not_to have_css('div.prev-page a.btn-paginate-prev span.glyphicon-arrow-left')
     expect(page).to have_css('a.btn-paginate-next div span.glyphicon-arrow-right')
     expect(page).to have_css('a.btn-paginate-next div span.page_entries', text: '1 - 2 of')
-    expect(page).to have_css('a.btn-paginate-next div span.page_entries', text: '3 results')
+    expect(page).to have_css('a.btn-paginate-next div span.page_entries', text: '4 results')
     # click 20 per page
     click_link('20')
-    expect(page).to have_css('h2', text: '3 Manuscripts')
-    expect(page).to have_css('div#content div.search-panel', count: 3)
+    expect(page).to have_css('h2', text: '4 Manuscripts')
+    expect(page).to have_css('div#content div.search-panel', count: 4)
     expect(page).not_to have_css('div.prev-page a.btn-paginate-prev span.glyphicon-arrow-left')
     expect(page).not_to have_css('a.btn-paginate-next div span.glyphicon-arrow-right')
     expect(page).not_to have_css('a.btn-paginate-next div span.page_entries', text: '1 - 20 of')

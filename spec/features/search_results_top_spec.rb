@@ -7,8 +7,8 @@ describe 'Search page top', type: :feature, js: true do
     page.evaluate_script('document.getElementById("main_search_field").value') == 'descriptions'
     fill_in 'q', with: 'manuscripts'
     click_button 'search'
-    expect(page).to have_css('h2', text: '3 Manuscripts')
-    expect(page).to have_css('div#content div.search-panel', count: 3)
+    expect(page).to have_css('h2', text: '4 Manuscripts')
+    expect(page).to have_css('div#content div.search-panel', count: 4)
     expect(page).to have_css('div.footer-top a.btn-top[href="#"]', text: 'Top')
     expect(page).to have_css('div.footer-top a.btn-top[href="#"] span.glyphicon-arrow-up')
     click_link 'Top'

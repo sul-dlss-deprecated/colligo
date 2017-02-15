@@ -9,8 +9,8 @@ describe 'Search page sort', type: :feature, js: true do
     fill_in 'q', with: 'manuscript'
     click_button 'search'
     # default per-page is 10
-    expect(page).to have_css('h2', text: '3 Manuscripts')
-    expect(page).to have_css('div#content div.search-panel', count: 3)
+    expect(page).to have_css('h2', text: '4 Manuscripts')
+    expect(page).to have_css('div#content div.search-panel', count: 4)
     expect(page).to have_css('div.footer-per-page div.page-count span', count: 4)
     expect(page).to have_css('div.footer-per-page div.page-count span', text: '10')
     expect(page).to have_css('div.footer-per-page div.page-count span a', count: 3)
@@ -19,8 +19,8 @@ describe 'Search page sort', type: :feature, js: true do
     expect(page).to have_css('div.footer-per-page div.page-count span a', text: '100')
     # select 50 per-page
     click_link '50'
-    expect(page).to have_css('h2', text: '3 Manuscripts')
-    expect(page).to have_css('div#content div.search-panel', count: 3)
+    expect(page).to have_css('h2', text: '4 Manuscripts')
+    expect(page).to have_css('div#content div.search-panel', count: 4)
     expect(page).to have_css('div.footer-per-page div.page-count span', count: 4)
     expect(page).to have_css('div.footer-per-page div.page-count span', text: '50')
     expect(page).to have_css('div.footer-per-page div.page-count span a', count: 3)
