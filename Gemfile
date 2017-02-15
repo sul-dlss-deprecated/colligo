@@ -51,7 +51,7 @@ end
 gem 'webmock', group: :test
 
 gem 'blacklight', '>= 5.3.0'
-gem 'jettywrapper', '>= 2.0'
+gem 'solr_wrapper'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
 gem 'rsolr', '~> 1.0.6'
 gem 'devise'
