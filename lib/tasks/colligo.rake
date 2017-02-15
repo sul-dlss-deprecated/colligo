@@ -6,7 +6,9 @@ namespace :colligo do
     Rake::Task['db:migrate'].invoke
     Rake::Task['colligo:download_and_unzip_jetty'].invoke
     Rake::Task['colligo:copy_solr_configs'].invoke
-    Rake::Task['colligo:fixtures'].invoke
+    Jettywrapper.wrap(Jettywrapper.load_config) do
+      Rake::Task['colligo:fixtures'].invoke
+    end
   end
   desc 'Download and unzip jetty'
   task :download_and_unzip_jetty do
