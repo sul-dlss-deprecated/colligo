@@ -5,18 +5,15 @@ require File.expand_path('../config/application', __FILE__)
 
 Rails.application.load_tasks
 
-ZIP_URL = 'https://github.com/projectblacklight/blacklight-jetty/archive/v4.10.3.zip'
-require 'jettywrapper'
-
 desc 'Execute the test build that runs on travis'
 task ci: [:environment] do
   if Rails.env.test?
-    Rake::Task['db:migrate'].invoke
-    Rake::Task['colligo:download_and_unzip_jetty'].invoke
-    Rake::Task['colligo:copy_solr_configs'].invoke
-    Jettywrapper.wrap(Jettywrapper.load_config) do
-      Rake::Task['colligo:fixtures'].invoke
-      Rake::Task['spec'].invoke
+    SolrWrapper.wrap(port: '8983') do |solr|
+      solr.with_collection(name: 'blacklight-core', dir: File.join(File.expand_path(File.dirname(__FILE__)), 'config', 'solr_configs')) do
+        Rake::Task['db:migrate'].invoke
+        Rake::Task['colligo:fixtures'].invoke
+        Rake::Task['spec'].invoke
+      end
     end
   else
     system('RAILS_ENV=test rake ci')
