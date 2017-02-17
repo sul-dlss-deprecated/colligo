@@ -1,9 +1,15 @@
 require 'spec_helper'
 
 describe '/catalog/_homepage/_home_search_form.html.erb' do
-  before(:each) do
-    allow(view).to receive(:search_action_url).and_return('/')
-    allow(view).to receive(:blacklight_config).and_return(CatalogController.new.blacklight_config)
+  let(:search_fields) do
+    CatalogController.new.blacklight_config.search_fields.map do |sf|
+      [sf[1].label, sf[1].key]
+    end
+  end
+
+  before do
+    expect(view).to receive(:search_action_url).and_return('/')
+    expect(view).to receive(:search_fields).at_least(:once).and_return(search_fields)
     render
   end
 

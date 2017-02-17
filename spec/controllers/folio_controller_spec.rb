@@ -63,10 +63,7 @@ describe FolioController do
     before do
       allow(controller).to receive(:params).and_return(manuscript_id: 'kq131cs7229', id: 'f. 8r')
       query_params = { q: 'druid:kq131cs7229 AND folio:"f. 8r"', rows: 1000, sort: 'sort_index asc' }
-      search_params_logic = [:default_solr_parameters, :add_query_to_solr, :add_facet_fq_to_solr, :add_facetting_to_solr,
-                             :add_solr_fields_to_query, :add_paging_to_solr, :add_sorting_to_solr, :add_group_config_to_solr,
-                             :add_facet_paging_to_solr, :add_annotation_filter]
-      allow(controller).to receive(:search_results).with(query_params, search_params_logic).and_return([annotation_resp, annotation_docs])
+      expect(controller).to receive(:search_results).with(query_params).and_return([annotation_resp, annotation_docs])
       controller.send(:annotations)
     end
     it 'should have annotations' do
@@ -81,10 +78,7 @@ describe FolioController do
     before do
       allow(controller).to receive(:params).and_return(manuscript_id: 'kq131cs7229', id: 'f. 8r')
       query_params = { q: 'druid:kq131cs7229 AND folio:"f. 8r"', rows: 1000, sort: 'sort_index asc' }
-      search_params_logic = [:default_solr_parameters, :add_query_to_solr, :add_facet_fq_to_solr, :add_facetting_to_solr,
-                             :add_solr_fields_to_query, :add_paging_to_solr, :add_sorting_to_solr, :add_group_config_to_solr,
-                             :add_facet_paging_to_solr, :add_transcription_filter]
-      allow(controller).to receive(:search_results).with(query_params, search_params_logic).and_return([transcription_resp, transcription_docs])
+      expect(controller).to receive(:search_results).with(query_params).and_return([transcription_resp, transcription_docs])
       controller.send(:transcriptions)
     end
     it 'should have transcriptions' do
@@ -99,10 +93,7 @@ describe FolioController do
     before do
       allow(controller).to receive(:params).and_return(manuscript_id: 'kq131cs7229', id: 'f. 8r')
       query_params = { q: 'druid:kq131cs7229', rows: 1 }
-      search_params_logic = [:default_solr_parameters, :add_query_to_solr, :add_facet_fq_to_solr, :add_facetting_to_solr,
-                             :add_solr_fields_to_query, :add_paging_to_solr, :add_sorting_to_solr, :add_group_config_to_solr,
-                             :add_facet_paging_to_solr, :add_manuscript_filter]
-      allow(controller).to receive(:search_results).with(query_params, search_params_logic).and_return([manuscript_resp_003, [manuscript_docs_003]])
+      expect(controller).to receive(:search_results).with(query_params).and_return([manuscript_resp_003, [manuscript_docs_003]])
       controller.send(:manuscript)
     end
     it 'should have manuscript details' do

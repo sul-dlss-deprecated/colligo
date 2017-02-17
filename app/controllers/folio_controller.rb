@@ -49,24 +49,24 @@ class FolioController < ApplicationController
 
   def annotations
     query_params = { q: "druid:#{params[:manuscript_id]} AND folio:\"#{params[:id]}\"", rows: 1000, sort: 'sort_index asc' }
-    self.search_params_logic += [:add_annotation_filter]
-    self.search_params_logic -= [:all_search_filter, :add_manuscript_filter, :add_transcription_filter]
-    (_resp, @annotations) = search_results(query_params, self.search_params_logic)
+    (_resp, @annotations) = search_results(query_params) do |search_builder|
+      search_builder.append(:add_annotation_filter)
+    end
   end
 
   def transcriptions
     query_params = { q: "druid:#{params[:manuscript_id]} AND folio:\"#{params[:id]}\"", rows: 1000, sort: 'sort_index asc' }
-    self.search_params_logic += [:add_transcription_filter]
-    self.search_params_logic -= [:all_search_filter, :add_manuscript_filter, :add_annotation_filter]
-    (_resp, @transcriptions) = search_results(query_params, self.search_params_logic)
+    (_resp, @transcriptions) = search_results(query_params) do |search_builder|
+      search_builder.append(:add_transcription_filter)
+    end
   end
 
   def manuscript
     @manuscript = nil
     query_params = { q: "druid:#{params[:manuscript_id]}", rows: 1 }
-    self.search_params_logic += [:add_manuscript_filter]
-    self.search_params_logic -= [:all_search_filter, :add_annotation_filter, :add_transcription_filter]
-    (_resp, doc) = search_results(query_params, self.search_params_logic)
+    (_resp, doc) = search_results(query_params) do |search_builder|
+      search_builder.append(:add_manuscript_filter)
+    end
     @manuscript = doc.first if doc
   end
 

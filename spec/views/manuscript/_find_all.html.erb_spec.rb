@@ -1,9 +1,11 @@
 require 'spec_helper'
 
 describe 'manuscript/_find_all.html.erb' do
-  it 'should render the panel for find all with results for annotations and transcriptions' do
-    allow(view).to receive(:blacklight_config).and_return(ManuscriptController.new.blacklight_config)
+  before do
     allow(view).to receive(:search_action_path).and_return('/')
+    expect(view).to receive(:path_for_facet).at_least(:once).and_return('/')
+  end
+  it 'should render the panel for find all with results for annotations and transcriptions' do
     @document = { 'title_display' => 'Title' }
     @related_annotations = 4
     @related_transcriptions = 34
@@ -17,8 +19,6 @@ describe 'manuscript/_find_all.html.erb' do
     expect(rendered).to have_css('div.panel div.panel-body dl dt', text: '...for this manuscript')
   end
   it 'should render the panel for find all with results for annotations' do
-    allow(view).to receive(:blacklight_config).and_return(ManuscriptController.new.blacklight_config)
-    allow(view).to receive(:search_action_path).and_return('/')
     @document = { 'title_display' => 'Title' }
     @related_annotations = 4
     @related_transcriptions = 0
@@ -32,8 +32,6 @@ describe 'manuscript/_find_all.html.erb' do
     expect(rendered).to have_css('div.panel div.panel-body dl dt', text: '...for this manuscript')
   end
   it 'should render the panel for find all with results for transcriptions' do
-    allow(view).to receive(:blacklight_config).and_return(ManuscriptController.new.blacklight_config)
-    allow(view).to receive(:search_action_path).and_return('/')
     @document = { 'title_display' => 'Title' }
     @related_annotations = 0
     @related_transcriptions = 34
@@ -47,8 +45,6 @@ describe 'manuscript/_find_all.html.erb' do
     expect(rendered).to have_css('div.panel div.panel-body dl dt', text: '...for this manuscript')
   end
   it 'should render the panel for find all with no results' do
-    allow(view).to receive(:blacklight_config).and_return(ManuscriptController.new.blacklight_config)
-    allow(view).to receive(:search_action_path).and_return('/')
     @document = { 'title_display' => 'Title' }
     @related_annotations = 0
     @related_transcriptions = 0

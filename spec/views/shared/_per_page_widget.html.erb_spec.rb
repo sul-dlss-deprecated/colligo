@@ -1,13 +1,13 @@
 require 'spec_helper'
 
 describe '/shared/_per_page_widget.html.erb' do
+  before do
+    expect(view).to receive(:show_sort_and_per_page?).and_return(true)
+    expect(view).to receive(:current_per_page).at_least(:once).and_return(10)
+    expect(view).to receive(:params_for_search).at_least(:once).and_return('/')
+    expect(view).to receive(:blacklight_config).at_least(:once).and_return(Blacklight::Configuration.new)
+  end
   it 'should have a header with a search form' do
-    @config = CatalogController.new.blacklight_config
-    @config.per_page = [10, 20, 50, 100]
-    allow(view).to receive(:blacklight_config).and_return(@config)
-    allow(view).to receive(:show_sort_and_per_page?).and_return(true)
-    allow(view).to receive(:current_per_page).and_return(10)
-    allow(view).to receive(:url_for).and_return('/url')
     render
     expect(rendered).to have_css('span.sr-only', count: 1, text: 'Number of results to display per page')
     expect(rendered).to have_selector('div.page-count', count: 1) do |t|

@@ -157,8 +157,9 @@ describe FacetsHelper do
     let(:paginator) { Blacklight::Solr::FacetPaginator.new([f1, f2], limit: 10) }
     subject { helper.render_refine_facet_limit_list(paginator, 'type_solr_field') }
     before do
+      expect(helper).to receive(:path_for_facet).at_least(:once).and_return('/')
       allow(helper).to receive(:search_action_path) do |*args|
-        catalog_index_path *args
+        search_catalog_path *args
       end
     end
     it 'should draw a list of elements' do
@@ -173,7 +174,7 @@ describe FacetsHelper do
     let(:f2) { Blacklight::Solr::Response::Facets::FacetItem.new(hits: '65', value: 'Musical Score') }
     before do
       allow(helper).to receive(:search_action_path) do |*args|
-        catalog_index_path *args
+        search_catalog_path *args
       end
     end
     describe 'render selected facet item' do
@@ -190,7 +191,7 @@ describe FacetsHelper do
     describe 'render normal facet item' do
       subject { helper.render_refine_facet_item('type_solr_field', f2) }
       before do
-        allow(helper).to receive(:facet_in_params?).and_return(false)
+        expect(helper).to receive(:path_for_facet).and_return('/')
       end
       it 'should draw a row for the select param ' do
         expect(subject).to have_selector 'td', count: 2
@@ -210,12 +211,13 @@ describe FacetsHelper do
       allow(helper).to receive(:add_facet_params_and_redirect).and_return(controller: 'catalog')
 
       allow(helper).to receive(:search_action_path) do |*args|
-        catalog_index_path *args
+        search_catalog_path *args
       end
     end
     describe 'simple case' do
       let(:expected_html) { '<td class="facet-label"><a class="facet_select" href="/catalog">Z</a></td><td class="facet-count">10</td>' }
       it 'should use facet_display_value' do
+        expect(helper).to receive(:path_for_facet).at_least(:once).and_return('/catalog')
         result = helper.render_refine_facet_value('simple_field', item)
         expect(result).to eq(expected_html)
       end
@@ -235,6 +237,7 @@ describe FacetsHelper do
     describe 'when :suppress_link is set' do
       let(:expected_html) { '<td class="facet-label">Z</td><td class="facet-count">10</td>' }
       it 'should suppress the link' do
+        expect(helper).to receive(:path_for_facet).and_return('/')
         result = helper.render_refine_facet_value('simple_field', item, suppress_link: true)
         expect(result).to eq(expected_html)
       end
@@ -251,7 +254,7 @@ describe FacetsHelper do
       allow(helper).to receive(:facet_display_value).and_return('Z')
       allow(helper).to receive(:remove_facet_params).and_return({})
       allow(helper).to receive(:search_action_path) do |*args|
-        catalog_index_path *args
+        search_catalog_path *args
       end
     end
     it 'should use facet_display_value' do

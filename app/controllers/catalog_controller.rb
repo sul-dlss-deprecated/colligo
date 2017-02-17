@@ -166,15 +166,15 @@ class CatalogController < ApplicationController
   end
 
   def all_results
-    self.search_params_logic += [:all_search_filter]
-    self.search_params_logic -= [:add_manuscript_filter, :add_annotation_filter, :add_transcription_filter]
-    (@response_all, @document_list_all) = search_results(params || {}, self.search_params_logic)
+    (@response_all, @document_list_all) = search_results(params || {}) do |search_builder|
+      search_builder.append(:all_search_filter)
+    end
   end
 
   def manuscripts
-    self.search_params_logic += [:add_manuscript_filter]
-    self.search_params_logic -= [:all_search_filter, :add_annotation_filter, :add_transcription_filter]
-    (@response_m, @document_list_m) = search_results(params || {}, self.search_params_logic)
+    (@response_m, @document_list_m) = search_results(params || {}) do |search_builder|
+      search_builder.append(:add_manuscript_filter)
+    end
   end
 
   def session_save_manuscript_search
@@ -185,15 +185,15 @@ class CatalogController < ApplicationController
   end
 
   def annotations
-    self.search_params_logic += [:add_annotation_filter]
-    self.search_params_logic -= [:all_search_filter, :add_manuscript_filter, :add_transcription_filter]
-    (@response_a, @document_list_a) = search_results(params || {}, self.search_params_logic)
+    (@response_a, @document_list_a) = search_results(params || {}) do |search_builder|
+      search_builder.append(:add_annotation_filter)
+    end
   end
 
   def transcriptions
-    self.search_params_logic += [:add_transcription_filter]
-    self.search_params_logic -= [:all_search_filter, :add_manuscript_filter, :add_annotation_filter]
-    (@response_t, @document_list_t) = search_results(params || {}, self.search_params_logic)
+    (@response_t, @document_list_t) = search_results(params || {}) do |search_builder|
+      search_builder.append(:add_transcription_filter)
+    end
   end
 
   def plot_data

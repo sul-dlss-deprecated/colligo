@@ -52,13 +52,12 @@ end
 
 gem 'webmock', group: :test
 
-gem 'blacklight', '< 6.0'
+gem 'rsolr'
+gem 'blacklight', '~> 6.0'
 gem 'solr_wrapper'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
-gem 'rsolr'
 gem 'devise'
 gem 'devise-guests'
-gem 'blacklight-marc', '~> 5.0'
 gem 'config'
 gem 'mods_display', '0.3.4'
 gem 'coderay'

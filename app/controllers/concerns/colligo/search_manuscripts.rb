@@ -6,9 +6,9 @@ module Colligo::SearchManuscripts
     @related_annotations = {}
     @document_list_m.each do |doc|
       query_params = { q: "manuscript_search:\"#{doc['title_display']}\"", rows: 0 }
-      self.search_params_logic += [:add_annotation_filter]
-      self.search_params_logic -= [:all_search_filter, :add_manuscript_filter, :add_transcription_filter]
-      (resp, _doc_list) = search_results(query_params, self.search_params_logic)
+      (resp, _doc_list) = search_results(query_params) do |search_builder|
+        search_builder.append(:add_annotation_filter)
+      end
       @related_annotations[doc['druid']] = resp['response']['numFound']
     end
   end
@@ -17,9 +17,9 @@ module Colligo::SearchManuscripts
     @related_transcriptions = {}
     @document_list_m.each do |doc|
       query_params = { q: "manuscript_search:\"#{doc['title_display']}\"", rows: 0 }
-      self.search_params_logic += [:add_transcription_filter]
-      self.search_params_logic -= [:all_search_filter, :add_manuscript_filter, :add_annotation_filter]
-      (resp, _doc_list) = search_results(query_params, self.search_params_logic)
+      (resp, _doc_list) = search_results(query_params) do |search_builder|
+        search_builder.append(:add_transcription_filter)
+      end
       @related_transcriptions[doc['druid']] = resp['response']['numFound']
     end
   end

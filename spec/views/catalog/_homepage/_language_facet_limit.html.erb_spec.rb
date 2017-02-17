@@ -25,7 +25,8 @@ describe '/catalog/_homepage/_language_facet_limit.html.erb' do
       options: { sort: 'count', limit: -1 }
     )]
   end
-  before(:all) do
+  before do
+    expect(view).to receive(:path_for_facet).at_least(:once).and_return('/')
     @response = manuscript_resp
   end
   describe 'facet with more link' do

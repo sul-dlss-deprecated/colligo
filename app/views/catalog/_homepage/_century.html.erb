@@ -16,11 +16,10 @@
 </div>
 <div class="row">
   <div class="col-md-12">
-    <%= form_tag catalog_index_path, :method => :get, :class=> 'range_limit subsection range_pub_date_t form-inline' do %>
+    <%= form_tag search_catalog_path, :method => :get, :class=> 'range_limit subsection range_pub_date_t form-inline' do %>
       <%= hidden_field_tag('search_field', 'descriptions', id: 'search_descriptions_century') %>
       <%= render_range_input( 'pub_date_t', :begin, input_label_range_begin) %> – <%= render_range_input('pub_date_t', :end, input_label_range_end) %>
       <%= submit_tag t('blacklight.range_limit.submit_limit'), :class=>'submit btn btn-default' %>
     <% end %>
   </div>
 </div>
-
