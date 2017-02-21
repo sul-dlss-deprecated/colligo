@@ -37,6 +37,8 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.4.0)
+    airbrussh (1.1.2)
+      sshkit (>= 1.6.1, != 1.7.0)
     arel (6.0.4)
     autoprefixer-rails (6.7.3)
       execjs
@@ -64,17 +66,22 @@ GEM
       bundler (~> 1.2)
       thor (~> 0.18)
     byebug (8.2.0)
-    capistrano (3.4.0)
+    capistrano (3.7.2)
+      airbrussh (>= 1.0.0)
+      capistrano-harrow
       i18n
       rake (>= 10.0.0)
-      sshkit (~> 1.3)
+      sshkit (>= 1.9.0)
     capistrano-bundle_audit (0.0.5)
       bundler-audit
       capistrano (~> 3.0)
     capistrano-bundler (1.1.4)
       capistrano (~> 3.1)
       sshkit (~> 1.2)
+    capistrano-harrow (0.5.3)
     capistrano-one_time_key (0.0.1)
+      capistrano (~> 3.0)
+    capistrano-passenger (0.2.0)
       capistrano (~> 3.0)
     capistrano-rails (1.1.5)
       capistrano (~> 3.1)
@@ -99,7 +106,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.10.0)
-    colorize (0.7.7)
     concurrent-ruby (1.0.4)
     config (1.0.0)
       activesupport (>= 3.0)
@@ -127,6 +133,11 @@ GEM
     devise-guests (0.3.3)
       devise
     diff-lcs (1.2.5)
+    dlss-capistrano (3.2.0)
+      capistrano (~> 3.0)
+      capistrano-bundle_audit (>= 0.0.3)
+      capistrano-one_time_key
+      capistrano-releaseboard
     docile (1.1.5)
     domain_name (0.5.25)
       unf (>= 0.0.5, < 1.0.0)
@@ -164,11 +175,6 @@ GEM
     libv8 (3.16.14.13)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
-    lyberteam-capistrano-devel (3.2.0)
-      capistrano (~> 3.0)
-      capistrano-bundle_audit (>= 0.0.3)
-      capistrano-one_time_key
-      capistrano-releaseboard
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
     mime-types (2.99.3)
@@ -185,7 +191,7 @@ GEM
     multipart-post (2.0.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
-    net-ssh (3.0.1)
+    net-ssh (4.1.0)
     netrc (0.11.0)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
@@ -280,8 +286,7 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     sqlite3 (1.3.11)
-    sshkit (1.7.1)
-      colorize (>= 0.7.0)
+    sshkit (1.12.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
     stanford-mods (1.1.5)
@@ -333,6 +338,7 @@ DEPENDENCIES
   byebug
   capistrano (~> 3.0)
   capistrano-bundler
+  capistrano-passenger
   capistrano-rails
   capistrano-rvm
   capybara
@@ -342,9 +348,9 @@ DEPENDENCIES
   coveralls
   devise
   devise-guests
+  dlss-capistrano
   jbuilder
   jquery-rails
-  lyberteam-capistrano-devel
   mods_display (= 0.3.4)
   poltergeist
   rails (= 4.2.7.1)

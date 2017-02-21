@@ -64,9 +64,10 @@ gem 'coderay'
 gem 'blacklight_range_limit'
 
 group :deployment do
+  gem 'dlss-capistrano'
+  gem 'capistrano-passenger'
   gem 'capistrano', '~> 3.0'
   gem 'capistrano-rvm'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
-  gem 'lyberteam-capistrano-devel'
 end
