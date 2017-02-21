@@ -63,6 +63,8 @@ gem 'mods_display', '0.3.4'
 gem 'coderay'
 gem 'blacklight_range_limit'
 
+gem 'mysql2'
+
 group :deployment do
   gem 'dlss-capistrano'
   gem 'capistrano-passenger'
