@@ -42,7 +42,7 @@ GEM
     arel (6.0.4)
     autoprefixer-rails (6.7.3)
       execjs
-    bcrypt (3.1.10)
+    bcrypt (3.1.11)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     blacklight (6.7.3)
@@ -123,12 +123,11 @@ GEM
     deep_merge (1.0.1)
     deprecation (1.0.0)
       activesupport
-    devise (3.5.2)
+    devise (4.2.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
-      railties (>= 3.2.6, < 5)
+      railties (>= 4.1.0, < 5.1)
       responders
-      thread_safe (~> 0.1)
       warden (~> 1.2.3)
     devise-guests (0.3.3)
       devise
@@ -236,8 +235,8 @@ GEM
     rake (11.3.0)
     rdoc (4.2.0)
     ref (2.0.0)
-    responders (2.1.0)
-      railties (>= 4.2.0, < 5)
+    responders (2.3.0)
+      railties (>= 4.2.0, < 5.1)
     rest-client (1.8.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
@@ -313,7 +312,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.1)
-    warden (1.2.3)
+    warden (1.2.7)
       rack (>= 1.0)
     web-console (2.2.1)
       activemodel (>= 4.0)
