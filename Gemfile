@@ -1,15 +1,15 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.4'
+gem 'rails', '4.2.7.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
 
@@ -18,10 +18,12 @@ gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
+gem 'jbuilder'
 # bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'sdoc', group: :doc
 
+# Pinning rake until we can upgrade rspec
+gem 'rake', '11.3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -50,14 +52,13 @@ end
 
 gem 'webmock', group: :test
 
-gem 'blacklight', '>= 5.3.0'
+gem 'rsolr'
+gem 'blacklight', '~> 6.0'
 gem 'solr_wrapper'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
-gem 'rsolr', '~> 1.0.6'
 gem 'devise'
-gem 'devise-guests', '~> 0.3'
-gem 'blacklight-marc', '~> 5.0'
-gem 'config', '~> 1.0.0.beta3'
+gem 'devise-guests'
+gem 'config'
 gem 'mods_display', '0.3.4'
 gem 'coderay'
 gem 'blacklight_range_limit'

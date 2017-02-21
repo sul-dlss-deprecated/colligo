@@ -1,11 +1,19 @@
 require 'spec_helper'
 
 describe '/catalog/_search_form.html.erb' do
+  let(:search_fields) do
+    CatalogController.new.blacklight_config.search_fields.map do |sf|
+      [sf[1].label, sf[1].key]
+    end
+  end
+  before do
+    expect(view).to receive(:search_action_url).at_least(:once).and_return('/')
+    expect(view).to receive(:search_fields).at_least(:once).and_return(search_fields)
+  end
+
   describe 'it should have search form with descriptions selected' do
-    before(:each) do
-      allow(view).to receive(:search_action_url).and_return('/')
-      allow(view).to receive(:blacklight_config).and_return(CatalogController.new.blacklight_config)
-      allow(view).to receive(:params).and_return(search_field: 'descriptions')
+    before do
+      allow(view).to receive(:params).at_least(:once).and_return(search_field: 'descriptions')
       render
     end
     it 'should have select list' do
@@ -35,9 +43,7 @@ describe '/catalog/_search_form.html.erb' do
     end
   end
   describe 'it should have search form with transcriptions selected' do
-    before(:each) do
-      allow(view).to receive(:search_action_url).and_return('/')
-      allow(view).to receive(:blacklight_config).and_return(CatalogController.new.blacklight_config)
+    before do
       allow(view).to receive(:params).and_return(search_field: 'transcriptions')
       render
     end

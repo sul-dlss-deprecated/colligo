@@ -22,7 +22,7 @@ describe '/folio/_header.html.erb' do
     it 'should display the IIIF logo with manifest url' do
       href = @manuscript['manifest_urls'].first
       expect(rendered).to have_css('div.media div:nth-child(2).media-right div.iiif-logo a[href="' + href + '"]')
-      expect(rendered).to have_css('div.media div:nth-child(2).media-right div.iiif-logo a img[src="/assets/iiif-logo.png"]')
+      expect(rendered).to have_css('div.media div:nth-child(2).media-right div.iiif-logo a img[src^="/assets/iiif-logo"]')
     end
     it 'should display the breadcrumbs' do
       expect(rendered).to have_css('div:nth-child(2) div', text: 'Breadcrumbs')
