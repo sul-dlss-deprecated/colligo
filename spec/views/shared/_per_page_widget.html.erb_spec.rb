@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe '/shared/_per_page_widget.html.erb' do
   before do
@@ -11,8 +11,8 @@ describe '/shared/_per_page_widget.html.erb' do
     render
     expect(rendered).to have_css('span.sr-only', count: 1, text: 'Number of results to display per page')
     expect(rendered).to have_selector('div.page-count', count: 1) do |t|
-      expect t.text.should include('show')
-      expect t.text.should include('per page')
+      expect expect(t.text).to include('show')
+      expect expect(t.text).to include('per page')
     end
     expect(rendered).to have_css('div.page-count span', count: 4)
     expect(rendered).to have_css('div.page-count span a', count: 3)

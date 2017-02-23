@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe '/shared/_results_header.html.erb' do
   it 'should render the results header' do

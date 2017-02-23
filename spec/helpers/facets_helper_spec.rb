@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 # require 'equivalent-xml'
 
@@ -60,9 +60,9 @@ describe FacetsHelper do
       b = double(name: 'Language', items: %w(b c))
       empty = double(name: 'Topic', items: [])
 
-      c = allow(helper).to receive(:facet_configuration_for_field).with(a.name).and_return
-      d = allow(helper).to receive(:facet_configuration_for_field).with(b.name).and_return
-      e = allow(helper).to receive(:facet_configuration_for_field).with(empty.name).and_return
+      c = allow(helper).to receive(:facet_configuration_for_field).with(a.name)
+      d = allow(helper).to receive(:facet_configuration_for_field).with(b.name)
+      e = allow(helper).to receive(:facet_configuration_for_field).with(empty.name)
       allow(helper).to receive(:render_facet_tab).with(c, hash_including(locals: hash_including(index: 1)))
       allow(helper).to receive(:render_facet_tab).with(d, hash_including(locals: hash_including(index: 1)))
       allow(helper).to receive(:render_facet_tab).with(e, hash_including(locals: hash_including(index: 2)))

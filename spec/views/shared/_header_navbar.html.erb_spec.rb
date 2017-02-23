@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe '/shared/_header_navbar.html.erb' do
   it 'should have a header with a search form' do

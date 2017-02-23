@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'shared/_simple_constraints_element.html.erb' do
   it 'should render the label and value' do

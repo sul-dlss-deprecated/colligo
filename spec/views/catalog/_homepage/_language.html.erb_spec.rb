@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe '/catalog/_homepage/_language.html.erb' do
   let(:f1) { Blacklight::Solr::Response::Facets::FacetItem.new(value: 'Latin.', hits: '325') }
@@ -31,7 +31,7 @@ describe '/catalog/_homepage/_language.html.erb' do
   it 'should render headings' do
     allow(view).to receive(:render_facet_limit).and_return(raw('<div class="rendered_facet">Rendered facet</div>'))
     render
-    rendered.should match('<h3.*?>by language</h3>')
+    expect(rendered).to match('<h3.*?>by language</h3>')
   end
   it 'should call render_facet_limit' do
     allow(view).to receive(:render_facet_limit).and_return(raw('<div class="rendered_facet">Rendered facet</div>'))

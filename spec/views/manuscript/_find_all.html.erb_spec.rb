@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'manuscript/_find_all.html.erb' do
   before do

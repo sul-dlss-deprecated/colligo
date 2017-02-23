@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 class IiifManifestDataTestClass
   include IiifManifestData
@@ -123,7 +123,7 @@ describe IiifManifestData do
       expect(@document.annotation_lists.length).to eq(36)
     end
     it 'should be an array of hashes' do
-      expect(@document.annotation_lists.any? { |hash| hash.keys == %w(@id @type label img_info) }).to be_true
+      expect(@document.annotation_lists.any? { |hash| hash.keys == %w(@id @type label img_info) }).to be_truthy
     end
     it 'should have the correct data' do
       expected_hash_1 = {
@@ -163,8 +163,8 @@ describe IiifManifestData do
       expect(@document2.contents.length).to eq(2)
     end
     it 'should be an array of hashes' do
-      expect(@document.contents.any? { |hash| hash.keys == %w(@id label motivation @type img) }).to be_true
-      expect(@document2.contents.any? { |hash| hash.keys == %w(@id label motivation @type img) }).to be_true
+      expect(@document.contents.any? { |hash| hash.keys == %w(@id label motivation @type img) }).to be_truthy
+      expect(@document2.contents.any? { |hash| hash.keys == %w(@id label motivation @type img) }).to be_truthy
     end
     it 'should have the correct order' do
       expect(@document.contents[15]).to eq ({ '@id' => 'http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-16',

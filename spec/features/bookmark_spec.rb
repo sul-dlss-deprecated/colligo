@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'Bookmarks', type: :feature, js: true do
   it 'should add and remove bookmarks from search results' do

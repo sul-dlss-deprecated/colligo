@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe ManuscriptController do
   describe '#show manuscript page' do
@@ -40,10 +40,10 @@ describe ManuscriptController do
       expect(controller.instance_variable_get('@next_doc')).to be_a(Hash)
     end
     it 'should render blacklight layout' do
-      response.should render_template('layouts/blacklight')
+      expect(response).to render_template('layouts/blacklight')
     end
     it 'should render show template' do
-      response.should render_template('manuscript/show')
+      expect(response).to render_template('manuscript/show')
     end
   end
 
@@ -57,7 +57,7 @@ describe ManuscriptController do
         first_transcription: 'first line of transcription'
       }.to_json
       get :related_content, id: 'kq131cs7229', folio: '2r', format: 'json'
-      response.body.should eq(@expected)
+      expect(response.body).to eq(@expected)
     end
   end
 
@@ -68,7 +68,7 @@ describe ManuscriptController do
       query_params = { q: 'druid:kq131cs7229 AND folio:"f. 8r"', rows: 0 }
       expect(controller).to receive(:search_results).with(query_params).and_return([annotation_resp_003, annotation_docs_003])
       ans = controller.send(:folio_related_annotations)
-      ans.should eq(annotation_resp_003['response']['numFound'])
+      expect(ans).to eq(annotation_resp_003['response']['numFound'])
     end
   end
 
@@ -79,21 +79,21 @@ describe ManuscriptController do
       query_params = { q: 'druid:kq131cs7229 AND folio:"f. 8r"', rows: 1, sort: 'sort_index asc' }
       expect(controller).to receive(:search_results).with(query_params).and_return([transcription_resp_003, transcription_docs_003])
       ans = controller.send(:folio_related_transcriptions)
-      ans.should eq([transcription_resp_003['response']['numFound'], transcription_docs_003[0]['body_chars_display']])
+      expect(ans).to eq([transcription_resp_003['response']['numFound'], transcription_docs_003[0]['body_chars_display']])
     end
     it 'should not have a folio parameter' do
       allow(controller).to receive(:params).and_return(id: 'kq131cs7229')
       query_params = { q: 'druid:kq131cs7229', rows: 1, sort: 'sort_index asc' }
       expect(controller).to receive(:search_results).with(query_params).and_return([transcription_resp_003, transcription_docs_003])
       ans = controller.send(:folio_related_transcriptions)
-      ans.should eq([transcription_resp_003['response']['numFound'], transcription_docs_003[0]['body_chars_display']])
+      expect(ans).to eq([transcription_resp_003['response']['numFound'], transcription_docs_003[0]['body_chars_display']])
     end
     it 'should have a response and no transcription' do
       allow(controller).to receive(:params).and_return(id: 'some_unknown_id', folio: '12r')
       query_params = { q: 'druid:some_unknown_id AND folio:"12r"', rows: 1, sort: 'sort_index asc' }
       expect(controller).to receive(:search_results).with(query_params).and_return([transcription_resp_002, transcription_docs_002])
       ans = controller.send(:folio_related_transcriptions)
-      ans.should eq([transcription_resp_002['response']['numFound'], nil])
+      expect(ans).to eq([transcription_resp_002['response']['numFound'], nil])
     end
   end
 

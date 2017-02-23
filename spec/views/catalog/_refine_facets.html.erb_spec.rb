@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe '/catalog/_refine_facets.html.erb' do
   describe 'facet limits with facet constraints in query' do

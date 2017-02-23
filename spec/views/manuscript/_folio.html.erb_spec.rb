@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'manuscript/_folio.html.erb' do
   it 'should render the panel for folio' do

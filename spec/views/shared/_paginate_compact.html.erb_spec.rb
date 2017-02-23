@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'shared/_paginate_compact.html.erb' do
   describe 'with a real solr response' do

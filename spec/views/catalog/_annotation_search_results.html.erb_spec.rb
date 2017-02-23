@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe '/catalog/_annotation_search_results.html.erb' do
   include SolrDocumentFixtures

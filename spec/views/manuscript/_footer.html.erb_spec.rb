@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe '/manuscript/_footer.html.erb' do
   it 'should render the manuscript page footer' do

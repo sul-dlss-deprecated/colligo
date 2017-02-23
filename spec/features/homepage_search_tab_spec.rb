@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'Homepage search tab', type: :feature, js: true do
   it 'should set the class and focus on search' do

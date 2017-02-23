@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'manuscript/_description/_description.html.erb' do
   include SolrDocumentFixtures
@@ -23,21 +23,21 @@ describe 'manuscript/_description/_description.html.erb' do
     expect(rendered).to have_css('dl.dl-horizontal dd', count: 21)
     expect(rendered).to have_css('dl.dl-horizontal dt[title="Alternate titles"]:nth-child(1)', text: 'Alternate title')
     expect(rendered).to have_css('dl.dl-horizontal dd:nth-child(2)') do |t|
-      t.text.should include('Evangelia<br/>Other title')
+      expect(t.text).to include('Evangelia<br/>Other title')
     end
     expect(rendered).to have_css('dl.dl-horizontal dt[title="Subtitle"]:nth-child(3)', text: 'Subtitle')
     expect(rendered).to have_css('dl.dl-horizontal dd:nth-child(4)', text: 'Subtitle')
     expect(rendered).to have_css('dl.dl-horizontal dt[title="Corporate authors"]:nth-child(5)', text: 'Corporate authors')
     expect(rendered).to have_css('dl.dl-horizontal dd:nth-child(6)') do |t|
-      t.text.should include('St Albans<br/>Canterbury')
+      expect(t.text).to include('St Albans<br/>Canterbury')
     end
     expect(rendered).to have_css('dl.dl-horizontal dt[title="Personal authors"]:nth-child(7)', text: 'Personal authors')
     expect(rendered).to have_css('dl.dl-horizontal dd:nth-child(8)') do |t|
-      t.text.should include('Author 1<br/>Author 2')
+      expect(t.text).to include('Author 1<br/>Author 2')
     end
     expect(rendered).to have_css('dl.dl-horizontal dt[title="Other authors"]:nth-child(9)', text: 'Other authors')
     expect(rendered).to have_css('dl.dl-horizontal dd:nth-child(10)') do |t|
-      t.text.should include('Author 3<br/>Author 4')
+      expect(t.text).to include('Author 3<br/>Author 4')
     end
     expect(rendered).to have_css('dl.dl-horizontal dt[title="Repository"]:nth-child(11)', text: 'Repository')
     expect(rendered).to have_css('dl.dl-horizontal dd:nth-child(12)', text: 'Parker Manuscripts')
@@ -49,7 +49,7 @@ describe 'manuscript/_description/_description.html.erb' do
     expect(rendered).to have_css('dl.dl-horizontal dd:nth-child(18)', text: 'Great Britain')
     expect(rendered).to have_css('dl.dl-horizontal dt[title="Keyword"]:nth-child(19)', text: 'Keyword')
     expect(rendered).to have_css('dl.dl-horizontal dd:nth-child(20)') do |t|
-      t.text.should include('genre 1<br/>genre 2')
+      expect(t.text).to include('genre 1<br/>genre 2')
     end
     expect(rendered).to have_css('dl.dl-horizontal dt[title="Era"]:nth-child(21)', text: 'Era')
     expect(rendered).to have_css('dl.dl-horizontal dd:nth-child(22)', text: 'Early 1800s')
@@ -67,11 +67,11 @@ describe 'manuscript/_description/_description.html.erb' do
     expect(rendered).to have_css('dl.dl-horizontal dd:nth-child(34)', text: 'Format')
     expect(rendered).to have_css('dl.dl-horizontal dt[title="Publisher"]:nth-child(35)', text: 'Publisher')
     expect(rendered).to have_css('dl.dl-horizontal dd:nth-child(36)') do |t|
-      t.text.should include('Publisher 1<br/>Publisher 2')
+      expect(t.text).to include('Publisher 1<br/>Publisher 2')
     end
     expect(rendered).to have_css('dl.dl-horizontal dt[title="Type of resource"]:nth-child(37)', text: 'Type of resource')
     expect(rendered).to have_css('dl.dl-horizontal dd:nth-child(38)') do |t|
-      t.text.should include('manuscript<br/>text')
+      expect(t.text).to include('manuscript<br/>text')
     end
     expect(rendered).to have_css('dl.dl-horizontal dt[title="Manuscript location"]:nth-child(39)', text: 'Manuscript location')
     expect(rendered).to have_css('dl.dl-horizontal dd:nth-child(40)', text: 'Parker Library, Corpus Christi College, Cambridge, UK')
@@ -99,7 +99,7 @@ describe 'manuscript/_description/_description.html.erb' do
     expect(rendered).not_to have_css('dl.dl-horizontal dt[title="Subtitle"]', text: 'Subtitle')
     expect(rendered).to have_css('dl.dl-horizontal dt[title="Corporate authors"]:nth-child(3)', text: 'Corporate authors')
     expect(rendered).to have_css('dl.dl-horizontal dd:nth-child(4)') do |t|
-      t.text.should include('St Albans<br/>Canterbury')
+      expect(t.text).to include('St Albans<br/>Canterbury')
     end
     expect(rendered).not_to have_css('dl.dl-horizontal dt[title="Personal authors"]', text: 'Personal authors')
     expect(rendered).not_to have_css('dl.dl-horizontal dt[title="Other authors"]', text: 'Other authors')
@@ -121,7 +121,7 @@ describe 'manuscript/_description/_description.html.erb' do
     expect(rendered).not_to have_css('dl.dl-horizontal dt[title="Publisher"]', text: 'Publisher')
     expect(rendered).to have_css('dl.dl-horizontal dt[title="Type of resource"]:nth-child(13)', text: 'Type of resource')
     expect(rendered).to have_css('dl.dl-horizontal dd:nth-child(14)') do |t|
-      t.text.should include('manuscript<br/>text')
+      expect(t.text).to include('manuscript<br/>text')
     end
     expect(rendered).not_to have_css('dl.dl-horizontal dt[title="Format"]', text: 'Format')
     expect(rendered).to have_css('dl.dl-horizontal dt[title="Manuscript location"]:nth-child(15)', text: 'Manuscript location')
@@ -148,13 +148,13 @@ describe 'manuscript/_description/_description.html.erb' do
     expect(rendered).to have_css('dl.dl-horizontal dd', count: 9)
     expect(rendered).to have_css('dl.dl-horizontal dt[title="Alternate titles"]:nth-child(1)', text: 'Alternate title')
     expect(rendered).to have_css('dl.dl-horizontal dd:nth-child(2)') do |t|
-      t.text.should include('Letter from Eusebius to Carpianus<br/>Canon tables<br/>Gospels<br/>Gospel Book')
+      expect(t.text).to include('Letter from Eusebius to Carpianus<br/>Canon tables<br/>Gospels<br/>Gospel Book')
     end
     expect(rendered).not_to have_css('dl.dl-horizontal dt[title="Subtitle"]', text: 'Subtitle')
     expect(rendered).not_to have_css('dl.dl-horizontal dt[title="Corporate authors"]', text: 'Corporate authors')
     expect(rendered).to have_css('dl.dl-horizontal dt[title="Personal authors"]:nth-child(3)', text: 'Personal authors')
     expect(rendered).to have_css('dl.dl-horizontal dd:nth-child(4)') do |t|
-      t.text.should include('Eusebius, of Caesarea, Bishop of Caesarea, ca. 260-ca. 340.<br/>Cosmas, Indicopleustes, active 6th century')
+      expect(t.text).to include('Eusebius, of Caesarea, Bishop of Caesarea, ca. 260-ca. 340.<br/>Cosmas, Indicopleustes, active 6th century')
     end
     expect(rendered).not_to have_css('dl.dl-horizontal dt[title="Other authors"]', text: 'Other authors')
     expect(rendered).to have_css('dl.dl-horizontal dt[title="Repository"]:nth-child(5)', text: 'Repository')
@@ -176,13 +176,13 @@ describe 'manuscript/_description/_description.html.erb' do
     expect(rendered).to have_css('dl.dl-horizontal dd:nth-child(12)', text: 'Manuscript/Archive')
     expect(rendered).to have_css('dl.dl-horizontal dt[title="Type of resource"]:nth-child(13)', text: 'Type of resource')
     expect(rendered).to have_css('dl.dl-horizontal dd:nth-child(14)') do |t|
-      t.text.should include('manuscript<br/>mixed material')
+      expect(t.text).to include('manuscript<br/>mixed material')
     end
     expect(rendered).to have_css('dl.dl-horizontal dt[title="Manuscript location"]:nth-child(15)', text: 'Manuscript location')
     expect(rendered).to have_css('dl.dl-horizontal dd:nth-child(16)', text: 'The Walters Art Museum, 600 North Charles Street, Baltimore MD 21201.')
     expect(rendered).to have_css('dl.dl-horizontal dt[title="Access condition"]:nth-child(17)', text: 'Access condition')
     expect(rendered).to have_css('dl.dl-horizontal dd:nth-child(18)') do |t|
-      t.text.should include('Licensed for use under Creative Commons Attribution-ShareAlike 3.0 Unported Access Rights, http://creativecommons.org/licenses/by-sa/3.0/legalcode. Images are free for any use, provided you follow the terms of this license. You do not need to apply to the Walters prior to using the images. We ask only that you cite the source of the images as the Walters Art Museum (see citation style at http://www.thedigitalwalters.org/03_ReadMe.html). Additionally, we request that a copy of any work created using these materials be sent to the Curator of Manuscripts and Rare Books at the Walters Art Museum, 600 N. Charles Street, Baltimore, MD 21201, mss-curator@thewalters.org.All Walters manuscript images and descriptions provided here are copyrighted © The Walters Art Museum.CC by-sa: Attribution-ShareAlike 3.0 Unported')
+      expect(t.text).to include('Licensed for use under Creative Commons Attribution-ShareAlike 3.0 Unported Access Rights, http://creativecommons.org/licenses/by-sa/3.0/legalcode. Images are free for any use, provided you follow the terms of this license. You do not need to apply to the Walters prior to using the images. We ask only that you cite the source of the images as the Walters Art Museum (see citation style at http://www.thedigitalwalters.org/03_ReadMe.html). Additionally, we request that a copy of any work created using these materials be sent to the Curator of Manuscripts and Rare Books at the Walters Art Museum, 600 N. Charles Street, Baltimore, MD 21201, mss-curator@thewalters.org.All Walters manuscript images and descriptions provided here are copyrighted © The Walters Art Museum.CC by-sa: Attribution-ShareAlike 3.0 Unported')
     end
   end
 end

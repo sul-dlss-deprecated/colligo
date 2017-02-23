@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'shared/_bookmark_control.html.erb' do
   describe 'document is not bookmarked' do

@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe '/catalog/homepage.html.erb' do
   it 'should render the home partials' do

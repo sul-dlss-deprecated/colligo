@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'manuscript/_breadcrumbs.html.erb' do
   include SolrDocumentFixtures

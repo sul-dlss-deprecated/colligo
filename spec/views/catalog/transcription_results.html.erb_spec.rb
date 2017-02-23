@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe '/catalog/transcription_results.html.erb' do
   include SolrDocumentFixtures
@@ -21,9 +21,9 @@ describe '/catalog/transcription_results.html.erb' do
     render
   end
   it 'should show the headers' do
-    view.content_for(:head).should include('<meta name="startIndex" content="0">')
-    view.content_for(:head).should include(@link_tag_1)
-    view.content_for(:head).should include(@link_tag_2)
+    expect(view.content_for(:head)).to include('<meta name="startIndex" content="0">')
+    expect(view.content_for(:head)).to include(@link_tag_1)
+    expect(view.content_for(:head)).to include(@link_tag_2)
   end
   it 'should have a row for refine search' do
     expect(rendered).to have_selector 'div.row div.col-md-12 div.refine', count: 1

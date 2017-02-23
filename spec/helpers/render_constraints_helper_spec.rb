@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe RenderConstraintsHelper do
   let(:config) do
@@ -21,13 +21,13 @@ describe RenderConstraintsHelper do
     let(:ans2) { helper.query_has_search_constraints?(q: 'foobar') }
     let(:ans3) { helper.query_has_search_constraints?(f: { 'type' => [''] }) }
     it 'should render false for empty query' do
-      expect(ans1).to be_false
+      expect(ans1).to be_falsey
     end
     it 'should render true for query' do
-      expect(ans2).to be_true
+      expect(ans2).to be_truthy
     end
     it 'should render false for no query' do
-      expect(ans3).to be_false
+      expect(ans3).to be_falsey
     end
   end
 
@@ -38,15 +38,15 @@ describe RenderConstraintsHelper do
     let(:ans4) { helper.query_has_facet_constraints?(f: { 'type' => ['foo'], 'model' => ['bar'] }) }
     let(:ans5) { helper.query_has_facet_constraints?(q: 'foobar') }
     it 'should render false for empty facets' do
-      expect(ans1).to be_false
-      expect(ans2).to be_false
+      expect(ans1).to be_falsey
+      expect(ans2).to be_falsey
     end
     it 'should render true for facets' do
-      expect(ans3).to be_true
-      expect(ans4).to be_true
+      expect(ans3).to be_truthy
+      expect(ans4).to be_truthy
     end
     it 'should render false for no facets' do
-      expect(ans5).to be_false
+      expect(ans5).to be_falsey
     end
   end
 

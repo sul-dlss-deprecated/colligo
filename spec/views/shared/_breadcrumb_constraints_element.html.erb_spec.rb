@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'shared/_breadcrumb_constraints_element.html.erb' do
   let(:options) { { searchpath: '/?f[geographic_facet][]=Britain&search_field=descriptions', class: 'filter-geographic_facet' } }

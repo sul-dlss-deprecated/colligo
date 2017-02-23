@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe '/catalog/_search_form.html.erb' do
   let(:search_fields) do

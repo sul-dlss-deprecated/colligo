@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe '/catalog/_homepage/_language_facet_limit.html.erb' do
   include SolrDocumentFixtures

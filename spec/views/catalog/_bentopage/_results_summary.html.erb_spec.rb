@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'catalog/_bentopage/_results_summary.html.erb' do
   describe 'it should render form for results' do
@@ -14,7 +14,7 @@ describe 'catalog/_bentopage/_results_summary.html.erb' do
       render
     end
     it 'should render headings' do
-      rendered.should match('<h2.*?>Results summary</h2>')
+      expect(rendered).to match('<h2.*?>Results summary</h2>')
     end
     it 'should render links to manuscripts, transcriptions and annotations' do
       expect(rendered).to have_css('form', count: 3)

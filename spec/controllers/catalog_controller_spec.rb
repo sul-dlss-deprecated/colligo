@@ -1,10 +1,10 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe CatalogController do
   describe '#index home page' do
     before do
       allow(controller).to receive(:on_home_page).and_return(true)
-      controller.should_not_receive(:session_save_manuscript_search)
+      expect(controller).not_to receive(:session_save_manuscript_search)
       get :index
     end
     it 'should have collection facet if on home page' do
@@ -39,10 +39,10 @@ describe CatalogController do
       expect(controller.instance_variable_get('@boundaries').length).to eq(2)
     end
     it 'should render homepage layout' do
-      response.should render_template('layouts/homepage')
+      expect(response).to render_template('layouts/homepage')
     end
     it 'should render homepage template' do
-      response.should render_template('catalog/homepage')
+      expect(response).to render_template('catalog/homepage')
     end
   end
 
@@ -50,7 +50,7 @@ describe CatalogController do
     before do
       allow(controller).to receive(:on_home_page).and_return(false)
       allow(controller).to receive(:on_bento_page).and_return(true)
-      controller.should_receive(:session_save_manuscript_search)
+      expect(controller).to receive(:session_save_manuscript_search)
       get :index, params: { 'q': 'gospel', 'search_field': 'all_fields' }
     end
     it 'should have manuscripts' do
@@ -63,10 +63,10 @@ describe CatalogController do
       expect(controller.instance_variable_get('@response_t')).not_to be_nil
     end
     it 'should render blacklight layout' do
-      response.should render_template('layouts/blacklight')
+      expect(response).to render_template('layouts/blacklight')
     end
     it 'should render bentopage template' do
-      response.should render_template('catalog/bentopage')
+      expect(response).to render_template('catalog/bentopage')
     end
   end
 
@@ -75,7 +75,7 @@ describe CatalogController do
       allow(controller).to receive(:on_home_page).and_return(false)
       allow(controller).to receive(:on_bento_page).and_return(false)
       allow(controller).to receive(:on_manuscripts_page).and_return(true)
-      controller.should_receive(:session_save_manuscript_search)
+      expect(controller).to receive(:session_save_manuscript_search)
       get :index, params: { 'q': 'gospel', 'search_field': 'descriptions' }
     end
     it 'should have manuscripts' do
@@ -104,10 +104,10 @@ describe CatalogController do
       expect(controller.instance_variable_get('@response_t')).to be_nil
     end
     it 'should render blacklight layout' do
-      response.should render_template('layouts/blacklight')
+      expect(response).to render_template('layouts/blacklight')
     end
     it 'should render manuscript results template' do
-      response.should render_template('catalog/manuscript_results')
+      expect(response).to render_template('catalog/manuscript_results')
     end
   end
 
@@ -117,7 +117,7 @@ describe CatalogController do
       allow(controller).to receive(:on_bento_page).and_return(false)
       allow(controller).to receive(:on_manuscripts_page).and_return(false)
       allow(controller).to receive(:on_transcriptions_page).and_return(true)
-      controller.should_not_receive(:session_save_manuscript_search)
+      expect(controller).not_to receive(:session_save_manuscript_search)
       get :index, params: { 'q': 'gospel', 'search_field': 'transcriptions' }
     end
     it 'should have transcriptions' do
@@ -140,10 +140,10 @@ describe CatalogController do
       expect(controller.instance_variable_get('@response_a')).to be_nil
     end
     it 'should render blacklight layout' do
-      response.should render_template('layouts/blacklight')
+      expect(response).to render_template('layouts/blacklight')
     end
     it 'should render transcription results template' do
-      response.should render_template('catalog/transcription_results')
+      expect(response).to render_template('catalog/transcription_results')
     end
   end
 
@@ -154,7 +154,7 @@ describe CatalogController do
       allow(controller).to receive(:on_manuscripts_page).and_return(false)
       allow(controller).to receive(:on_transcriptions_page).and_return(false)
       allow(controller).to receive(:on_annotations_page).and_return(true)
-      controller.should_not_receive(:session_save_manuscript_search)
+      expect(controller).not_to receive(:session_save_manuscript_search)
       get :index, params: { 'q': 'gospel', 'search_field': 'annotations' }
     end
     it 'should have annotations' do
@@ -177,10 +177,10 @@ describe CatalogController do
       expect(controller.instance_variable_get('@response_t')).to be_nil
     end
     it 'should render blacklight layout' do
-      response.should render_template('layouts/blacklight')
+      expect(response).to render_template('layouts/blacklight')
     end
     it 'should render annotation results template' do
-      response.should render_template('catalog/annotation_results')
+      expect(response).to render_template('catalog/annotation_results')
     end
   end
 
@@ -285,7 +285,7 @@ describe CatalogController do
       controller.send(:session_save_manuscript_search)
     end
     it 'should save the session params' do
-      session[:m_last_search_query].should eq(@expected)
+      expect(session[:m_last_search_query]).to eq(@expected)
     end
   end
 

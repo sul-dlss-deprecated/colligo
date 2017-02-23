@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'Manuscript nav bar', type: :feature, js: true do
   it 'should have set the active navigation element' do
