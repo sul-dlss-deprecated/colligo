@@ -11,7 +11,7 @@ describe FolioController do
       stub_request(:get, 'http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/manifest.json')
         .with(headers: { 'Accept' => '*/*', 'User-Agent' => 'Ruby' })
         .to_return(status: 200, body: response1, headers: {})
-      get :show, manuscript_id: 'kq131cs7229', id: 'f. 8r'
+      get :show, params: { manuscript_id: 'kq131cs7229', id: 'f. 8r' }
     end
     it 'should have manuscript details' do
       expect(controller.instance_variable_get('@manuscript')).not_to be_nil
@@ -53,7 +53,12 @@ describe FolioController do
         .with(headers: { 'Accept' => '*/*', 'User-Agent' => 'Ruby' })
         .to_return(status: 200, body: response1, headers: {})
       @expected = { folio: 'f. 9r' }.to_json
-      get :folio_label, manuscript_id: 'kq131cs7229', id: 'f. 8r', canvas_id: 'http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-5', format: 'json'
+      get :folio_label, params: {
+        manuscript_id: 'kq131cs7229',
+        id: 'f. 8r',
+        canvas_id: 'http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-5',
+        format: 'json'
+      }
       expect(response.body).to eq(@expected)
     end
   end

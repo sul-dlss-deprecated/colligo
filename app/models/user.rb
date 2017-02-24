@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   if Blacklight::Utils.needs_attr_accessible?
 
     attr_accessible :email, :password, :password_confirmation

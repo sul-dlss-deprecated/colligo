@@ -12,7 +12,7 @@ describe ManuscriptController do
       stub_request(:get, 'http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/manifest.json')
         .with(headers: { 'Accept' => '*/*', 'User-Agent' => 'Ruby' })
         .to_return(status: 200, body: response1, headers: {})
-      get :show, id: 'kq131cs7229'
+      get :show, params: { id: 'kq131cs7229' }
     end
     it 'should have manuscript with all multivalued keys not nil' do
       expect(controller.instance_variable_get('@response')).not_to be_nil
@@ -56,7 +56,7 @@ describe ManuscriptController do
         transcriptions: 10,
         first_transcription: 'first line of transcription'
       }.to_json
-      get :related_content, id: 'kq131cs7229', folio: '2r', format: 'json'
+      get :related_content, params: { id: 'kq131cs7229', folio: '2r', format: 'json' }
       expect(response.body).to eq(@expected)
     end
   end

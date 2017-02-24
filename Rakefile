@@ -11,6 +11,7 @@ task ci: [:environment] do
     SolrWrapper.wrap(port: '8983') do |solr|
       solr.with_collection(name: 'blacklight-core', dir: File.join(File.expand_path(File.dirname(__FILE__)), 'config', 'solr_configs')) do
         Rake::Task['db:migrate'].invoke
+        WebMock.allow_net_connect!
         Rake::Task['colligo:fixtures'].invoke
         Rake::Task['spec'].invoke
       end
