@@ -41,7 +41,10 @@ describe '/catalog/_homepage/_century.html.erb' do
       expect(rendered).to have_css('form.range_limit')
       expect(rendered).to have_css('form.range_limit input#range_pub_date_t_begin')
       expect(rendered).to have_css('form.range_limit input#range_pub_date_t_end')
-      expect(rendered).to have_css('form.range_limit input#search_descriptions_century[type=hidden][value=descriptions]')
+      expect(rendered).to have_css(
+        'form.range_limit input#search_descriptions_century[type=hidden][value=descriptions]',
+        visible: false
+      )
     end
   end
 end

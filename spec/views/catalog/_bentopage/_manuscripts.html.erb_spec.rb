@@ -19,8 +19,8 @@ describe '/catalog/_bentopage/_manuscripts.html.erb' do
     it 'should render links to manuscripts' do
       expect(rendered).to have_css('form', count: 1)
       expect(rendered).to have_css('form button', count: 1)
-      expect(rendered).to have_css('input#search_field_descriptions[value=descriptions]')
-      expect(rendered).to have_css('input#q_descriptions[value=gospel]')
+      expect(rendered).to have_css('input#search_field_descriptions[value=descriptions]', visible: false)
+      expect(rendered).to have_css('input#q_descriptions[value=gospel]', visible: false)
       expect(rendered).to have_css('h4 span.glyphicon-forward')
       expect(rendered).to have_css('form button', text: "See all #{@response_m['response']['numFound']}")
     end

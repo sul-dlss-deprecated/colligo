@@ -39,7 +39,10 @@ describe '/catalog/_homepage/_home_search_form.html.erb' do
       expect(rendered).to have_css('form[role=search]')
     end
     it 'should have a search field with the value all fields' do
-      expect(rendered).to have_css('form[role=search] input[type=hidden][name=search_field][value=all_fields]')
+      expect(rendered).to have_css(
+        'form[role=search] input[type=hidden][name=search_field][value=all_fields]',
+        visible: false
+      )
     end
     it 'should have a text field' do
       expect(rendered).to have_css('form[role=search] input[type=text][name=q]')

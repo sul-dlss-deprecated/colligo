@@ -13,7 +13,10 @@ describe 'shared/_bookmark_control.html.erb' do
       expect(rendered).to have_css('form.bookmark_toggle.pull-right[method="post"][action="/bookmark/hp146pz7537"]')
     end
     it 'should have form method as put' do
-      expect(rendered).to have_css('form.bookmark_toggle.pull-right input[type="hidden"][name="_method"][value="put"]')
+      expect(rendered).to have_css(
+        'form.bookmark_toggle.pull-right input[type="hidden"][name="_method"][value="put"]',
+        visible: false
+      )
     end
     it 'should display a button with a glyphicon' do
       expect(rendered).to have_css('form.bookmark_toggle button.bookmark_add[id="bookmark_toggle_hp146pz7537"]', text: 'bookmark')
@@ -32,7 +35,10 @@ describe 'shared/_bookmark_control.html.erb' do
       expect(rendered).to have_css('form.bookmark_toggle.pull-right[method="post"][action="/bookmark/hp146pz7537"]')
     end
     it 'should have form method as delete' do
-      expect(rendered).to have_css('form.bookmark_toggle.pull-right input[type="hidden"][name="_method"][value="delete"]')
+      expect(rendered).to have_css(
+        'form.bookmark_toggle.pull-right input[type="hidden"][name="_method"][value="delete"]',
+        visible: false
+      )
     end
     it 'should display a button with a glyphicon' do
       expect(rendered).to have_css('form.bookmark_toggle button.bookmark_remove[id="bookmark_toggle_hp146pz7537"]', text: 'bookmarked')

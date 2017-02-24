@@ -21,19 +21,19 @@ describe 'catalog/_bentopage/_results_summary.html.erb' do
       expect(rendered).to have_css('form button', count: 3)
     end
     it 'should render links to manuscripts' do
-      expect(rendered).to have_css('input#search_field_descriptions_1[value=descriptions]')
-      expect(rendered).to have_css('input#q_descriptions_1[value=foobar]')
+      expect(rendered).to have_css('input#search_field_descriptions_1[value=descriptions]', visible: false)
+      expect(rendered).to have_css('input#q_descriptions_1[value=foobar]', visible: false)
       expect(rendered).to have_css('form button', text: '44 Manuscripts')
     end
     it 'should render links to transcriptions' do
       expect(rendered).to have_css('form button', text: '234 Transcriptions')
-      expect(rendered).to have_css('input#q_transcriptions_1[value=foobar]')
-      expect(rendered).to have_css('input#search_field_transcriptions_1[value=transcriptions]')
+      expect(rendered).to have_css('input#q_transcriptions_1[value=foobar]', visible: false)
+      expect(rendered).to have_css('input#search_field_transcriptions_1[value=transcriptions]', visible: false)
     end
     it 'should render links to annotations' do
       expect(rendered).to have_css('form button', text: '4 Annotations')
-      expect(rendered).to have_css('input#q_annotations_1[value=foobar]')
-      expect(rendered).to have_css('input#search_field_annotations_1[value=annotations]')
+      expect(rendered).to have_css('input#q_annotations_1[value=foobar]', visible: false)
+      expect(rendered).to have_css('input#search_field_annotations_1[value=annotations]', visible: false)
     end
   end
   describe 'it should not render form if no results' do
