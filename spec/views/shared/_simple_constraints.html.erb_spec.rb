@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'shared/_simple_constraints.html.erb' do
   it 'should render the query and facet constraints' do

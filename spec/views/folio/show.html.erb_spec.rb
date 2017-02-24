@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe '/folio/show.html.erb' do
   before(:each) do

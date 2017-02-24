@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'manuscript/_manifest.html.erb' do
   include SolrDocumentFixtures

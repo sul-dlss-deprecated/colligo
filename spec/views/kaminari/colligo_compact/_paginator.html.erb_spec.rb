@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe '/kaminari/colligo_compact/_paginator.html.erb' do
   describe 'display pagination' do

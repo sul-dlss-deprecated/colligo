@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe '/shared/_annotation.html.erb' do
   include SolrDocumentFixtures
@@ -28,7 +28,7 @@ describe '/shared/_annotation.html.erb' do
     end
     it 'should display authors' do
       expect(rendered).to have_selector('div.media div.media-body p strong') do |t|
-        t.text.should include('Joe Blogg<br/>John Smith')
+        expect(t.text).to include('Joe Blogg<br/>John Smith')
       end
     end
     it 'should display the language' do

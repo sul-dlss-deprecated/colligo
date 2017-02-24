@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'shared/_clear_all_element.html.erb' do
   describe 'there are no params to clear' do

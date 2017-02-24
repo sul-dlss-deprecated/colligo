@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'Homepage browse by century facet', type: :feature, js: true do
   it 'should have a slider and graph' do

@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'Search page top', type: :feature, js: true do
   it 'should have the top link for manuscripts with less than 10 results' do

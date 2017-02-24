@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe FolioController do
   describe '#show folio page' do
@@ -11,7 +11,7 @@ describe FolioController do
       stub_request(:get, 'http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/manifest.json')
         .with(headers: { 'Accept' => '*/*', 'User-Agent' => 'Ruby' })
         .to_return(status: 200, body: response1, headers: {})
-      get :show, manuscript_id: 'kq131cs7229', id: 'f. 8r'
+      get :show, params: { manuscript_id: 'kq131cs7229', id: 'f. 8r' }
     end
     it 'should have manuscript details' do
       expect(controller.instance_variable_get('@manuscript')).not_to be_nil
@@ -35,10 +35,10 @@ describe FolioController do
       expect(controller.instance_variable_get('@transcriptions').length).to eq(19)
     end
     it 'should render blacklight layout' do
-      response.should render_template('layouts/blacklight')
+      expect(response).to render_template('layouts/blacklight')
     end
     it 'should render show template' do
-      response.should render_template('folio/show')
+      expect(response).to render_template('folio/show')
     end
   end
 
@@ -53,8 +53,13 @@ describe FolioController do
         .with(headers: { 'Accept' => '*/*', 'User-Agent' => 'Ruby' })
         .to_return(status: 200, body: response1, headers: {})
       @expected = { folio: 'f. 9r' }.to_json
-      get :folio_label, manuscript_id: 'kq131cs7229', id: 'f. 8r', canvas_id: 'http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-5', format: 'json'
-      response.body.should eq(@expected)
+      get :folio_label, params: {
+        manuscript_id: 'kq131cs7229',
+        id: 'f. 8r',
+        canvas_id: 'http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-5',
+        format: 'json'
+      }
+      expect(response.body).to eq(@expected)
     end
   end
 
@@ -176,7 +181,7 @@ describe FolioController do
       allow(controller).to receive(:params).and_return(manuscript_id: 'kq131cs7229', id: 'f. 8r',
                                                        canvas_id: 'http://dms-data.stanford.edu/Stanford/kq131cs7229/canvas/canvas-30')
       ans = controller.send(:folio_from_canvas)
-      ans.should eq('f. 93v')
+      expect(ans).to eq('f. 93v')
     end
   end
 end

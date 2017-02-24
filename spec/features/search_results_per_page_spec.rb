@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'Search page sort', type: :feature, js: true do
   it 'should have the number of results per page option for manuscripts' do

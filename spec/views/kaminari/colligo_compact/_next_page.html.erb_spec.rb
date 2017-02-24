@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe '/kaminari/colligo_compact/_next_page.html.erb' do
   describe 'display next page' do

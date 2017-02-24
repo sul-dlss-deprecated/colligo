@@ -6,10 +6,10 @@
 
 <div id="century" class="row">
   <h3>by century</h3>
-  <%= content_tag :div, class: 'pull-left', id: 'century_slider', data: {boundaries: @boundaries, ticks: @slider_ticks} do %>
+  <%= content_tag :div, class: 'pull-left', id: 'century_slider', data: {boundaries: @boundaries || '', ticks: @slider_ticks || ''} do %>
   <% end %>
 
-  <%= content_tag :div, class: 'pull-left', id: 'century_panel', data: {rawdata: @data_array, ticks: @data_ticks, pointerlookup: @pointer_lookup} do %>
+  <%= content_tag :div, class: 'pull-left', id: 'century_panel', data: {rawdata: @data_array || '', ticks: @data_ticks || '', pointerlookup: @pointer_lookup || ''} do %>
     <div id="browse_century" class="panel-body" style="width:80%;height:100%;">
     </div>
   <% end %>

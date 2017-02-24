@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'shared/_next_record.html.erb' do
   it 'should render the next button with long text truncated' do

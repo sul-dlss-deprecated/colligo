@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'shared/_previous_record.html.erb' do
   it 'should render the previous button with long text truncated' do

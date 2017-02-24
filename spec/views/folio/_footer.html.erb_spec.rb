@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe '/folio/_footer.html.erb' do
   describe 'display for all form factors but extra small' do

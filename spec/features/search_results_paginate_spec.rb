@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe 'Search page paginate', type: :feature, js: true do
   it 'should not have pagination options if total is less than 10 manuscripts' do

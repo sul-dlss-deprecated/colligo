@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe '/shared/_sort_widget.html.erb' do
   before do
@@ -16,7 +16,7 @@ describe '/shared/_sort_widget.html.erb' do
     render
     expect(rendered).to have_css('div.btn-group.pull-right[id="sort-dropdown"]', count: 1)
     expect(rendered).to have_selector('div[id="sort-dropdown"] button.btn.btn-default.dropdown-toggle[type="button"]', count: 1) do |t|
-      expect t.text.should include('Sorted by')
+      expect expect(t.text).to include('Sorted by')
     end
     expect(rendered).to have_css('div[id="sort-dropdown"] button.btn.btn-default.dropdown-toggle[type="button"] span', count: 2)
     expect(rendered).to have_css('div[id="sort-dropdown"] button.btn.btn-default.dropdown-toggle[type="button"] span:nth-child(1).btn-value', text: 'title')

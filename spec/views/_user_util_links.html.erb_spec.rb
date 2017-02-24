@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe '_user_util_links' do
   let :blacklight_config do

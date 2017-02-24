@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe '/manuscript/_folios.html.erb' do
   it 'should render the folio partials' do

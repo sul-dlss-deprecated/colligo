@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe '/catalog/bentopage.html.erb' do
   it 'should render the bento page partials' do

@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe '/folio/_previous_folio.html.erb' do
   before(:all) do

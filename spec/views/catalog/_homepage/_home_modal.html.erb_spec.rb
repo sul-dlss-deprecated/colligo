@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe '/catalog/_homepage/_home_modal.html.erb' do
   let(:f1) { Blacklight::Solr::Response::Facets::FacetItem.new(value: 'Latin.', hits: '325') }

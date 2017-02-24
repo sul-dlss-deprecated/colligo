@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe '/catalog/_bentopage/_manuscripts.html.erb' do
   include SolrDocumentFixtures
@@ -14,13 +14,13 @@ describe '/catalog/_bentopage/_manuscripts.html.erb' do
       render
     end
     it 'should render headings' do
-      rendered.should match('<h2.*?>Manuscripts</h2>')
+      expect(rendered).to match('<h2.*?>Manuscripts</h2>')
     end
     it 'should render links to manuscripts' do
       expect(rendered).to have_css('form', count: 1)
       expect(rendered).to have_css('form button', count: 1)
-      expect(rendered).to have_css('input#search_field_descriptions[value=descriptions]')
-      expect(rendered).to have_css('input#q_descriptions[value=gospel]')
+      expect(rendered).to have_css('input#search_field_descriptions[value=descriptions]', visible: false)
+      expect(rendered).to have_css('input#q_descriptions[value=gospel]', visible: false)
       expect(rendered).to have_css('h4 span.glyphicon-forward')
       expect(rendered).to have_css('form button', text: "See all #{@response_m['response']['numFound']}")
     end
@@ -40,7 +40,7 @@ describe '/catalog/_bentopage/_manuscripts.html.erb' do
       render
     end
     it 'should render headings' do
-      rendered.should match('<h2.*?>Manuscripts</h2>')
+      expect(rendered).to match('<h2.*?>Manuscripts</h2>')
     end
     it 'should render no results text and no links' do
       expect(rendered).not_to have_css('form')

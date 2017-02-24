@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe '/folio/_description.html.erb' do
   include SolrDocumentFixtures
@@ -31,7 +31,7 @@ describe '/folio/_description.html.erb' do
       @annotations.each_with_index do |annotation, i|
         a_id = 'anno_' + annotation['id']
         expect(rendered).to have_css('div[id="annotations"] div:nth-child(' + (i + 1).to_s + ').annotation_text[id="' + a_id + '"]') do |t|
-          t.text.should include(annotation['body_chars_display'])
+          expect(t.text).to include(annotation['body_chars_display'])
         end
       end
     end
@@ -40,7 +40,7 @@ describe '/folio/_description.html.erb' do
       @transcriptions.each_with_index do |transcription, i|
         t_id = 'trans_' + transcription['id']
         expect(rendered).to have_css('div[id="transcriptions"] div:nth-child(' + (i + 1).to_s + ').transcription_text[id="' + t_id + '"]') do |t|
-          t.text.should include(transcription['body_chars_display'])
+          expect(t.text).to include(transcription['body_chars_display'])
         end
       end
     end

@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe '/catalog/_homepage/_home.html.erb' do
   before(:each) do
@@ -22,7 +22,7 @@ describe '/catalog/_homepage/_home.html.erb' do
     end
     it 'should render search heading' do
       render
-      rendered.should match('<h2.*?>Search</h2>')
+      expect(rendered).to match('<h2.*?>Search</h2>')
     end
     it 'should render the search box' do
       render
@@ -30,7 +30,7 @@ describe '/catalog/_homepage/_home.html.erb' do
     end
     it 'should not render the browse manuscript heading' do
       render
-      rendered.should_not match('<h2.*?>Browse manuscripts</h2>')
+      expect(rendered).not_to match('<h2.*?>Browse manuscripts</h2>')
     end
     it 'should not render the repository facet' do
       render
@@ -46,7 +46,7 @@ describe '/catalog/_homepage/_home.html.erb' do
     end
     it 'should not render the annotations heading' do
       render
-      rendered.should_not match('<h2.*?>& annotations</h2>')
+      expect(rendered).not_to match('<h2.*?>& annotations</h2>')
     end
     it 'should not render the recent annotations and facets for annotations' do
       render
@@ -66,7 +66,7 @@ describe '/catalog/_homepage/_home.html.erb' do
     end
     it 'should render search heading' do
       render
-      rendered.should match('<h2.*?>Search</h2>')
+      expect(rendered).to match('<h2.*?>Search</h2>')
     end
     it 'should render the search box' do
       render
@@ -74,7 +74,7 @@ describe '/catalog/_homepage/_home.html.erb' do
     end
     it 'should render the browse manuscript heading' do
       render
-      rendered.should match('<h2.*?>Browse manuscripts</h2>')
+      expect(rendered).to match('<h2.*?>Browse manuscripts</h2>')
     end
     it 'should render the repository facet' do
       render
@@ -90,7 +90,7 @@ describe '/catalog/_homepage/_home.html.erb' do
     end
     it 'should render the annotations heading' do
       render
-      rendered.should match('<h2.*?>& annotations</h2>')
+      expect(rendered).to match('<h2.*?>& annotations</h2>')
     end
     it 'should render the recent annotations and facets for annotations' do
       render

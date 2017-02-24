@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe '/catalog/_homepage/_century.html.erb' do
   before(:each) do
@@ -7,7 +7,7 @@ describe '/catalog/_homepage/_century.html.erb' do
   end
 
   it 'should render headings' do
-    rendered.should match('<h3.*?>by century</h3>')
+    expect(rendered).to match('<h3.*?>by century</h3>')
   end
 
   describe 'div tag for slider' do
@@ -41,7 +41,10 @@ describe '/catalog/_homepage/_century.html.erb' do
       expect(rendered).to have_css('form.range_limit')
       expect(rendered).to have_css('form.range_limit input#range_pub_date_t_begin')
       expect(rendered).to have_css('form.range_limit input#range_pub_date_t_end')
-      expect(rendered).to have_css('form.range_limit input#search_descriptions_century[type=hidden][value=descriptions]')
+      expect(rendered).to have_css(
+        'form.range_limit input#search_descriptions_century[type=hidden][value=descriptions]',
+        visible: false
+      )
     end
   end
 end

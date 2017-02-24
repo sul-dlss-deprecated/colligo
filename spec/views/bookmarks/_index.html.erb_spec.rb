@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe '/bookmarks/index.html.erb' do
   include SolrDocumentFixtures

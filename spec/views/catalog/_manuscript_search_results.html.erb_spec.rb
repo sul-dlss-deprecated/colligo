@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe '/catalog/_manuscript_search_results.html.erb' do
   include SolrDocumentFixtures
@@ -15,6 +15,8 @@ describe '/catalog/_manuscript_search_results.html.erb' do
       allow(view).to receive(:search_action_url).and_return('/')
       allow(view).to receive(:params).and_return(q: 'gospel')
       allow(view).to receive(:render_opensearch_response_metadata).and_return(raw('<span>open search response metadata</span>'))
+      allow(view).to receive(:rss_feed_link_tag).and_return('')
+      allow(view).to receive(:atom_feed_link_tag).and_return('')
       render
     end
     it 'should render headings' do
@@ -43,6 +45,8 @@ describe '/catalog/_manuscript_search_results.html.erb' do
       allow(view).to receive(:search_action_url).and_return('/')
       allow(view).to receive(:params).and_return(q: 'gospel')
       allow(view).to receive(:render_opensearch_response_metadata).and_return(raw('<span>open search response metadata</span>'))
+      allow(view).to receive(:rss_feed_link_tag).and_return('')
+      allow(view).to receive(:atom_feed_link_tag).and_return('')
       render
     end
     it 'should render headings' do

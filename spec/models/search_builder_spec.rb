@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe SearchBuilder do
   subject(:search_builder) { described_class.new(double) }
