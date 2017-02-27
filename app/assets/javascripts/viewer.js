@@ -16,6 +16,9 @@ $(function() {
         "mainMenuSettings" : {
             'show' : false
         },
+        "buildPath": "/assets/",
+        "i18nPath": "",
+        "imagesPath": "",
         'showAddFromURLBox' : false,
         "saveSession": false,
         "data": [
