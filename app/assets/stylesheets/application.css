@@ -12,7 +12,7 @@
  *
  * Used by blacklight_range_limit
  *= require 'blacklight_range_limit'
- *= require mirador-combined
+ *= require mirador
  *= require jquery-tablesorter
  *
  *= require_tree .

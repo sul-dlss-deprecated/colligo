@@ -14,6 +14,9 @@ $(function() {
     Mirador({
         "id": "folio_viewer",
         "layout": "1x1",
+        "buildPath": "/assets/",
+        "i18nPath": "",
+        "imagesPath": "",
         "mainMenuSettings" : {
             'show' : false
         },
