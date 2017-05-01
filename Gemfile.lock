@@ -143,8 +143,8 @@ GEM
     execjs (2.7.0)
     faraday (0.12.0.1)
       multipart-post (>= 1.2, < 3)
-    font-awesome-rails (4.7.0.1)
-      railties (>= 3.2, < 5.1)
+    font-awesome-rails (4.7.0.2)
+      railties (>= 3.2, < 5.2)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     hashdiff (0.3.2)
@@ -183,9 +183,12 @@ GEM
     mime-types (2.99.3)
     mini_portile2 (2.1.0)
     minitest (5.10.1)
-    mirador_rails (0.3.0)
+    mirador_rails (0.5.0)
       font-awesome-rails
+      jquery-rails
       material_icons
+      openseadragon
+      tinymce-rails
     mods (2.0.3)
       iso-639
       nokogiri
@@ -207,6 +210,8 @@ GEM
       activesupport (>= 3.2.18)
       i18n
       nokogiri
+    openseadragon (0.3.3)
+      rails (> 3.2.0)
     orm_adapter (0.5.0)
     poltergeist (1.13.0)
       capybara (~> 2.1)
@@ -317,6 +322,8 @@ GEM
     thread_safe (0.3.6)
     tilt (2.0.6)
     tins (1.6.0)
+    tinymce-rails (4.5.7)
+      railties (>= 3.1.1)
     twitter-typeahead-rails (0.11.1.pre.corejavascript)
       actionpack (>= 3.1)
       jquery-rails
