@@ -1,4 +1,4 @@
-$(function() {
+Blacklight.onLoad(function() {
     var refine_tabs = $("#myTabs");
     if (refine_tabs.length == 0) {
         return;
