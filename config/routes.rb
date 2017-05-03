@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'catalog#index'
 
   mount Blacklight::Engine => '/'
+  mount MiradorRails::Engine, at: MiradorRails::Engine.locales_mount_path
 
   concern :searchable, Blacklight::Routes::Searchable.new
   concern :exportable, Blacklight::Routes::Exportable.new
