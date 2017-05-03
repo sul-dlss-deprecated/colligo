@@ -1,4 +1,4 @@
-$(function() {
+Blacklight.onLoad(function() {
     var viewer = $("#folio_viewer");
     if (viewer.length == 0) {
         return;

@@ -1,4 +1,4 @@
-window.onload = function () {
+Blacklight.onLoad(function() {
   var century = $("#century");
   if (century.length == 0) {
     return;
@@ -202,4 +202,4 @@ window.onload = function () {
     return n % 1 === 0;
   }
   */
-};
+});
