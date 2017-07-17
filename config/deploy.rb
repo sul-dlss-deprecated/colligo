@@ -22,3 +22,5 @@ set :keep_releases, 5
 
 # all servers (even -dev) will be rails_env production
 set :rails_env, 'production'
+
+set :honeybadger_env, fetch(:stage)
