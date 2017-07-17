@@ -148,6 +148,7 @@ GEM
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     hashdiff (0.3.2)
+    honeybadger (3.1.2)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     i18n (0.8.1)
@@ -372,6 +373,7 @@ DEPENDENCIES
   devise
   devise-guests
   dlss-capistrano
+  honeybadger
   jbuilder
   jquery-rails
   mirador_rails (~> 0.3)
