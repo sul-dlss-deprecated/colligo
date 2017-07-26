@@ -37,3 +37,5 @@ coverage
 #Ignore all data files
 data/*
 !data/.keep
+
+.ruby-version
