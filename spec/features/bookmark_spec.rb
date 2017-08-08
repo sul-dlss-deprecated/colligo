@@ -25,7 +25,7 @@ describe 'Bookmarks', type: :feature, js: true do
   end
   it 'should add and remove bookmarks from manuscript' do
     response1 = File.open("#{::Rails.root}/spec/fixtures/iiif_manifest_records/manifest_001.json").read
-    stub_request(:get, 'http://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/manifest.json')
+    stub_request(:get, 'https://dms-data.stanford.edu/data/manifests/Stanford/kq131cs7229/manifest.json')
         .with(headers: { 'Accept' => '*/*', 'User-Agent' => 'Ruby' })
         .to_return(status: 200, body: response1, headers: {})
     # Page isn't getting loaded
