@@ -18,6 +18,30 @@ module IiifManifestData
     return nil unless manifest
     manifest['label']
   end
+  
+  # Get the description from the manifest
+  def description
+    return nil unless manifest_url
+    read_manifest unless manifest
+    return nil unless manifest
+    manifest['description']
+  end
+  
+  # Get the license from the manifest
+  def license
+    return nil unless manifest_url
+    read_manifest unless manifest
+    return nil unless manifest
+    manifest['license']
+  end
+  
+  # Get the attribution from the manifest
+  def attribution
+    return nil unless manifest_url
+    read_manifest unless manifest
+    return nil unless manifest
+    manifest['attribution']
+  end
 
   # Get the pid from the manifest
   def druid
@@ -28,14 +52,25 @@ module IiifManifestData
     manifest['@id'].match(%r{/([a-zA-Z0-9]{11})/}).to_s.delete('/')
   end
 
-  # Get the thumbnail for the resources desribed by the manifest
+  # Get the thumbnail for the resources described by the manifest
   def thumbnail
     return nil unless manifest_url
     read_manifest unless manifest
     return nil unless manifest
-    return nil unless manifest.key?('thumbnail')
-    manifest['thumbnail']['@id']
+    #return nil unless manifest.key?('thumbnail')
+    if manifest.key?('thumbnail')
+      thumbnail =  manifest['thumbnail']['@id']
+    else
+      sequence = manifest['sequences'].first
+      canvas = sequence['canvases'].first
+      i = canvas['images'].first
+      res = i['resource']
+      #thumbnail = res['@id']+"/full/!400,400/0/default.jpg"
+      thumbnail = sequence
+    return thumbnail
   end
+  end
+
 
   # Get the url for the mods metadata listed in the see also in the manifest
   def mods_url

@@ -3,6 +3,7 @@
 class SolrDocument
   include ModsData
   include AnnotationData
+  include NonModsData
   include Blacklight::Solr::Document
 
   attr_accessor :druid, :iiif_manifest, :collection, :mods_url, :manuscript, :thumbnail

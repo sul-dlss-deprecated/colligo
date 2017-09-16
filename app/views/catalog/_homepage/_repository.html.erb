@@ -11,6 +11,14 @@
           <% fname = 'parker.png' %>
         <% when r.include?('Walter') %>
           <% fname = 'walter.png' %>
+        <% when r.include?('Pathway A') %>
+          <% fname = 'other.png' %>
+        <% when r.include?('Pathway B') %>
+          <% fname = 'other.png' %>
+	    <% when r.include?('Pathway C') %>
+	      <% fname = 'other.png' %>
+	    <% when r.include?('Pathway D') %>
+	      <% fname = 'other.png' %>
         <% else %>
           <% fname = 'other.png' %>
         <% end %>
