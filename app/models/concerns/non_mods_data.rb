@@ -10,8 +10,8 @@ module NonModsData
   #   configure_mods_display do
   #   end
   # end
-  #
-  # # attr_accessor :id, :purl, :collection, :manifest
+  #attr_accessor :collection
+  # attr_accessor :id, :purl, :collection, :manifest
   #
   # # define_model_callbacks :save, :destroy
   # # after_save :add_to_index
@@ -36,7 +36,7 @@ module NonModsData
   #   @prettified_mods ||= CodeRay::Duo[:xml, :div].highlight(self['modsxml']).html_safe
   # end
 
-  # list of display fileds of interest to Colligo
+  # list of display fields of interest to Colligo
   def all_display_fields
     %w( title_display abstract_display img_info druid model manifest_urls
         title_alternate_display title_other_display subtitle_display corporate_authors_display
@@ -53,18 +53,42 @@ module NonModsData
   end
 
   # method to index the mods data
-  def iiif_to_solr(data_raw)
+
+  def iiif_to_solr(data_raw,collection)
     data = data_raw
     return {} unless data
     return {} unless data['@id']
+
+    # Add the following to a collection of data to expose:
+    data['metadata'].each do |element|
+      if element['label'] == 'Shelfmark'
+        @location = element['value']
+      elsif element['label'] == 'Title'
+        @other_title = element['value']
+      elsif element['label'] == 'Date'
+        @date = element['value'].first
+      elsif element['label'] == 'Language'
+        @language = element['value']
+      elsif element['label'] == 'Author'
+        @author = element['value']
+      elsif element['label'] == 'Place'
+        @place = element['value']
+      end
+    end
     solr_doc = {}
-    solr_doc['id'] = SecureRandom.uuid
-    solr_doc['druid'] = solr_doc['id']
+    uri = URI.parse(data['@id'])
+    ident = uri.path.split('/')[2]
+    ident = ident.gsub(".","_")
+    solr_doc['id'] = ident
+    solr_doc['druid'] = ident
     solr_doc['title_display'] = data['label']
     solr_doc['manifest_urls'] = data['@id']
-    solr_doc['collection'] = 'Pathway B'
+    solr_doc['collection'] = collection
+    #puts collection
     solr_doc['model'] = 'Manuscript'
-    solr_doc['img_info'] = data['sequences'].first['canvases'].first['images'].first['resource']['@id']
+    image = data['sequences'].first['canvases'].first['images'].first['resource']['service']['@id']
+    image = image.concat("/full/pct:10/0/default.jpg")
+    solr_doc['img_info'] = image
     solr_doc['abstract_search'] = data['description']
     # solr_doc['access_condition_search'] = data.accessCondition.text
     # solr_doc['genre_search'] = data.sw_genre
@@ -77,13 +101,13 @@ module NonModsData
     # end
     # solr_doc['type_of_resource_search'] = type_of_resource.uniq
     # solr_doc['corporate_authors_search'] = data.sw_corporate_authors.uniq
-    # solr_doc['personal_authors_search'] = data.sw_person_authors.uniq
-    # solr_doc['authors_all_search'] = (data.sw_person_authors + data.sw_impersonal_authors).uniq
-    # solr_doc['title_search'] = data.sort_title
-    # solr_doc['title_alternate_search'] = data.alternative_titles
+    solr_doc['personal_authors_search'] = @author
+    solr_doc['authors_all_search'] = @author
+    #solr_doc['title_search'] = data.sort_title
+    solr_doc['title_alternate_search'] = @other_title
     # solr_doc['title_other_search'] = data.full_titles - [data.sort_title] - data.alternative_titles
-    # solr_doc['language'] = data.languages
-    # solr_doc['physical_location_display'] = []
+    solr_doc['language'] = @language
+    solr_doc['physical_location_display'] = @location
     # data.location.physicalLocation.each do |p|
     #   solr_doc['physical_location_display'] << p.text
     # end
@@ -97,24 +121,22 @@ module NonModsData
     # # average of pub dates for sort
     # solr_doc['pub_date_sort'] = dates[:sort]
     # # pub date for display
-    # solr_doc['pub_date_display'] = display_date(data.pub_dates)
-    # solr_doc['place_search'] = data.place
+    solr_doc['pub_date_display'] = @date
+    solr_doc['place_search'] = @place
     # solr_doc['topic_search'] = data.topic_search
     # solr_doc['geographic_search'] = data.geographic_facet
     # solr_doc['era_search'] = data.era_facet
     # solr_doc['subject_other_search'] = data.subject_other_search
     # solr_doc['subject_all_search'] = data.subject_all_search
     # solr_doc['format'] = data.format
-    # # TODO: May need to extract the following data from MODS
     # # solr_doc["subtitle_search"] = data.subtitle
-    # # solr_doc["physical_description_extent_display"] = data.physical_description_extent
+    solr_doc["physical_description_extent_display"] = @format
     # # solr_doc["physical_description_form_search"] = data.physical_description_form
     # # solr_doc["physical_description_media_type_search"] = data.physical_description_media_type
-    # # solr_doc["location_url_display"] = data.location_url
-    # # solr_doc["relateditem_location_url_display"] = data.relateditem_location_url
+    solr_doc["location_url_display"] = @location
+    solr_doc["relateditem_location_url_display"] = data['seeAlso']
     # # solr_doc["relateditem_title_search"] = data.relateditem_title
     # # solr_doc["publishers_search"] = data.publishers
-    puts solr_doc
     solr_doc
   end
 

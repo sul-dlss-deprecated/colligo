@@ -6,7 +6,10 @@ namespace :colligo do
     require 'solr_wrapper'
     SolrWrapper.wrap(port: '8983') do |solr|
       solr.with_collection(name: 'blacklight-core', dir: File.join(File.expand_path('../..', File.dirname(__FILE__)), 'config', 'solr_configs')) do
-        Rake::Task['colligo:fixtures'].invoke
+        Rake::Task['colligo:pathway_a'].invoke
+        Rake::Task['colligo:pathway_b'].invoke
+        Rake::Task['colligo:pathway_c'].invoke
+        Rake::Task['colligo:pathway_d'].invoke
         system "bundle exec rails s #{args[:rails_server_args]}"
       end
     end

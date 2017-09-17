@@ -12,7 +12,7 @@ class DataIndexer
   #   DataIndexer.new('collection_name', nil, 'url').run
   #      to index one manifest at url
   def initialize(collection = nil, csv_file = nil, manifest_url = nil)
-    @collection = collection
+    @collection = collection_name
     @csv_file = csv_file
     @url = manifest_url
     @manifest = nil
