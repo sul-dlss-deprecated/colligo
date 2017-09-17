@@ -51,9 +51,9 @@ class VaticanDataIndexer
     return unless @url.present?
     fetch_manifest
     if define_doc
-      puts 'doc defined'
+      #puts 'doc defined'
       index_manifest
-      puts 'manifest indexed'
+      #puts 'manifest indexed'
 #      index_mods
 #      index_annotations
     end
@@ -96,10 +96,10 @@ class VaticanDataIndexer
 
   # index manifest data in solr
   def index_manifest
-    solr_doc = @doc.iiif_to_solr(@manifest)
+    solr_doc = @doc.iiif_to_solr(@manifest,@collection)
+    #puts 'building solr_doc'
     unless solr_doc.blank?
       @title = solr_doc['title_search'] if solr_doc.key?('title_search')
-      puts solr_doc
       @solr.add solr_doc
     end
   end
