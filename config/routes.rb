@@ -22,7 +22,7 @@ Rails.application.routes.draw do
       delete 'clear'
     end
   end
-
+  
   devise_for :users
 
   resources :manuscript, only: :show do
