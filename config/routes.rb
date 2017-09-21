@@ -4,6 +4,13 @@ Rails.application.routes.draw do
   mount Blacklight::Engine => '/'
   mount MiradorRails::Engine, at: MiradorRails::Engine.locales_mount_path
 
+  resources :manuscript, only: :show do
+    # adding constraint as folio may have dots and should not be considered as formatted route
+    resources :folio, only: :show, constraints: { id: /[^\/]+/ }
+    match 'folio/:id/folio_label', to: 'folio#folio_label', constraints: { id: /[^\/]+/ }, via: :get
+  end
+  get '/manuscript/:id/related_content', to: 'manuscript#related_content'
+
   concern :searchable, Blacklight::Routes::Searchable.new
   concern :exportable, Blacklight::Routes::Exportable.new
 
@@ -25,12 +32,7 @@ Rails.application.routes.draw do
   
   devise_for :users
 
-  resources :manuscript, only: :show do
-    # adding constraint as folio may have dots and should not be considered as formatted route
-    resources :folio, only: :show, constraints: { id: /[^\/]+/ }
-    match 'folio/:id/folio_label', to: 'folio#folio_label', constraints: { id: /[^\/]+/ }, via: :get
-  end
-  get '/manuscript/:id/related_content', to: 'manuscript#related_content'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

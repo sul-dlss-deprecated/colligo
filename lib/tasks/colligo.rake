@@ -14,6 +14,7 @@ namespace :colligo do
       end
     end
   end
+
   desc 'Index test fixtures'
   task fixtures: [:environment] do
     DataIndexer.new('Test collection', 'data/test_manifest_urls.csv').run

@@ -22,7 +22,7 @@
         <% else %>
           <% fname = 'other.png' %>
         <% end %>
-        <a href="<%="#{path_for_facet('collection', r)}"%>" class="btn btn-secondary">
+        <a href="<%="#{path_for_facet('collection', r)}&search_field=descriptions"%>" class="btn btn-secondary">
           <%= image_tag(fname) %>
           <%= r %>
         </a>
