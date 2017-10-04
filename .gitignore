@@ -35,7 +35,7 @@ config/environments/*.local.yml
 coverage
 
 #Ignore all data files
-data/*
-!data/.keep
+#data/*
+#!data/.keep
 
 .ruby-version
