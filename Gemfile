@@ -68,6 +68,7 @@ gem 'blacklight_range_limit'
 gem 'mysql2'
 
 gem 'honeybadger'
+gem 'whenever'
 
 group :deployment do
   gem 'dlss-capistrano'
