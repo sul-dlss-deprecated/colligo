@@ -73,6 +73,7 @@ gem 'honeybadger'
 gem 'annotot'
 gem 'rack-cors', :require => 'rack/cors'
 
+gem 'whenever'
 
 group :deployment do
   gem 'dlss-capistrano'
