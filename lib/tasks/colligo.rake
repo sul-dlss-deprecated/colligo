@@ -37,4 +37,12 @@ namespace :colligo do
   task pathway_d: [:environment] do
     VaticanDataIndexer.new('Pathway D', 'data/pathway_d.csv').run
   end
+
+  desc 'Run Vatican indexers'
+  task vatican: :environment do
+    Rake::Task['colligo:pathway_a'].invoke
+    Rake::Task['colligo:pathway_b'].invoke
+    Rake::Task['colligo:pathway_c'].invoke
+    Rake::Task['colligo:pathway_d'].invoke
+  end
 end
