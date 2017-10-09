@@ -63,6 +63,8 @@ class VaticanDataIndexer
   # Get the manifest data
   def fetch_manifest
     @manifest = JSON.parse(open(@url).read)
+  rescue OpenURI::HTTPError => e
+    puts "URL: #{@url} returned #{e}"
   end
 
   def define_doc
