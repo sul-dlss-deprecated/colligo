@@ -65,6 +65,8 @@ class VaticanDataIndexer
     @manifest = JSON.parse(open(@url).read)
   rescue OpenURI::HTTPError => e
     puts "URL: #{@url} returned #{e}"
+  rescue JSON::ParserError => j
+    puts "URL: #{@url} returned JSON error #{j}"
   end
 
   def define_doc
