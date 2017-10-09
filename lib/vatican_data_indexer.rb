@@ -50,13 +50,7 @@ class VaticanDataIndexer
   def index
     return unless @url.present?
     fetch_manifest
-    if define_doc
-      #puts 'doc defined'
-      index_manifest
-      #puts 'manifest indexed'
-#      index_mods
-#      index_annotations
-    end
+    index_manifest if define_doc
   end
 
   # Commit the data indexed in solr
@@ -68,18 +62,14 @@ class VaticanDataIndexer
 
   # Get the manifest data
   def fetch_manifest
-#    @manifest = IiifManifest.new(@url)
     @manifest = JSON.parse(open(@url).read)
   end
 
   def define_doc
     unless @manifest['label'].blank?
       @doc[:collection] = @collection
-#      @doc[:druid] = @manifest.druid
       @doc[:iiif_manifest] = @url
-#      @doc[:mods_url] = @manifest.mods_url
       @doc[:thumbnail] = @manifest['thumbnail']
-#      @doc[:modsxml] = @manifest.fetch_modsxml
       return true
     end
     false
@@ -96,8 +86,7 @@ class VaticanDataIndexer
 
   # index manifest data in solr
   def index_manifest
-    solr_doc = @doc.iiif_to_solr(@manifest,@collection)
-    #puts 'building solr_doc'
+    solr_doc = @doc.iiif_to_solr(@manifest, @collection)
     unless solr_doc.blank?
       @title = solr_doc['title_search'] if solr_doc.key?('title_search')
       @solr.add solr_doc
