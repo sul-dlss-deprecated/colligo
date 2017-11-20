@@ -141,7 +141,7 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     execjs (2.7.0)
-    faraday (0.12.0.1)
+    faraday (0.13.1)
       multipart-post (>= 1.2, < 3)
     font-awesome-rails (4.7.0.2)
       railties (>= 3.2, < 5.2)
@@ -259,6 +259,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
+    retriable (3.1.1)
     rsolr (1.1.2)
       builder (>= 2.1.2)
     rspec-core (3.5.4)
@@ -278,7 +279,7 @@ GEM
       rspec-mocks (~> 3.5.0)
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
-    ruby-progressbar (1.8.1)
+    ruby-progressbar (1.9.0)
     rubyzip (1.2.1)
     safe_yaml (1.0.4)
     sass (3.4.23)
@@ -296,8 +297,9 @@ GEM
       json (~> 1.8)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
-    solr_wrapper (0.21.0)
+    solr_wrapper (1.2.0)
       faraday
+      retriable
       ruby-progressbar
       rubyzip
     spring (1.4.3)
@@ -398,4 +400,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.15.1
+   1.15.4
