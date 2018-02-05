@@ -118,7 +118,9 @@ describe 'Search page sort', type: :feature, js: true do
     expect(page).to have_css('div.footer-per-page div.page-count span a', text: '50')
     expect(page).to have_css('div.footer-per-page div.page-count span a', text: '100')
     # select 20 per-page
-    click_link '20'
+    within '.footer-per-page' do
+      click_link('20')
+    end
     expect(page).to have_css('h2', text: '24 Transcriptions')
     expect(page).to have_css('div#content div.search-panel', count: 20)
     expect(page).to have_css('div.footer-per-page div.page-count span', count: 4)

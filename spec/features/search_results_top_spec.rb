@@ -12,7 +12,6 @@ describe 'Search page top', type: :feature, js: true do
     expect(page).to have_css('div.footer-top a.btn-top[href="#"]', text: 'Top')
     expect(page).to have_css('div.footer-top a.btn-top[href="#"] span.glyphicon-arrow-up')
     click_link 'Top'
-    page.evaluate_script("$('body.scrollTop()')") == 0
   end
   it 'should not have top link if no results for manuscripts' do
     visit root_path
@@ -33,31 +32,18 @@ describe 'Search page top', type: :feature, js: true do
     expect(page).to have_css('div#content div.search-panel', count: 10)
     expect(page).to have_css('div.footer-top a.btn-top[href="#"]', text: 'Top')
     expect(page).to have_css('div.footer-top a.btn-top[href="#"] span.glyphicon-arrow-up')
-    # go to the bottom of the page
-    visit current_url + '#nextpage'
-    # page.evaluate_script("$('body.scrollTop()')") > 0
-    click_link 'Top'
-    page.evaluate_script("$('body.scrollTop()')") == 0
     # select next page - should have top
     click_link '1 - 10'
     expect(page).to have_css('h2', text: '24 Transcriptions')
     expect(page).to have_css('div#content div.search-panel', count: 10)
     expect(page).to have_css('div.footer-top a.btn-top[href="#"]', text: 'Top')
     expect(page).to have_css('div.footer-top a.btn-top[href="#"] span.glyphicon-arrow-up')
-    visit current_url + '#previouspage'
-    # page.evaluate_script("$('body.scrollTop()')") > 0
-    click_link 'Top'
-    page.evaluate_script("$('body.scrollTop()')") == 0
     # select next page - should have top
     click_link '11 - 20'
     expect(page).to have_css('h2', text: '24 Transcriptions')
     expect(page).to have_css('div#content div.search-panel', count: 4)
     expect(page).to have_css('div.footer-top a.btn-top[href="#"]', text: 'Top')
     expect(page).to have_css('div.footer-top a.btn-top[href="#"] span.glyphicon-arrow-up')
-    visit current_url + '#previouspage'
-    # page.evaluate_script("$('body.scrollTop()')") > 0
-    click_link 'Top'
-    page.evaluate_script("$('body.scrollTop()')") == 0
   end
   it 'should not have top link if no results' do
     visit root_path
