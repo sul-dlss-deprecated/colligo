@@ -21,7 +21,7 @@ describe 'Search page paginate', type: :feature, js: true do
     visit '/?per_page=2&q=manuscript&search_field=descriptions'
     expect(page).to have_css('h2', text: '4 Manuscripts')
     expect(page).to have_css('div#content div.search-panel', count: 2)
-    expect(page).to have_css('div.prev-page', text: nil)
+    expect(page).to have_css('div.prev-page', visible: false)
     expect(page).to have_css('a.btn-paginate-next div span.glyphicon-arrow-right')
     expect(page).to have_css('a.btn-paginate-next div span.page_entries', text: '1 - 2 of')
     expect(page).to have_css('a.btn-paginate-next div span.page_entries', text: '4 results')
@@ -71,7 +71,7 @@ describe 'Search page paginate', type: :feature, js: true do
     # default pagination
     expect(page).to have_css('h2', text: '24 Transcriptions')
     expect(page).to have_css('div#content div.search-panel', count: 10)
-    expect(page).to have_css('div.prev-page', text: nil)
+    expect(page).to have_css('div.prev-page', visible: false)
     expect(page).to have_css('a.btn-paginate-next div span.glyphicon-arrow-right')
     expect(page).to have_css('a.btn-paginate-next div span.page_entries', text: '1 - 10 of')
     expect(page).to have_css('a.btn-paginate-next div span.page_entries', text: '24 results')
@@ -100,10 +100,12 @@ describe 'Search page paginate', type: :feature, js: true do
     expect(page).to have_css('a.btn-paginate-next div span.page_entries', text: '11 - 20 of')
     expect(page).to have_css('a.btn-paginate-next div span.page_entries', text: '24 results')
     # click on 20
-    click_link('20')
+    within '.footer-per-page' do
+      click_link('20')
+    end
     expect(page).to have_css('h2', text: '24 Transcriptions')
     expect(page).to have_css('div#content div.search-panel', count: 20)
-    expect(page).to have_css('div.prev-page', text: nil)
+    expect(page).to have_css('div.prev-page', visible: false)
     expect(page).not_to have_css('div.prev-page a.btn-paginate-prev span.glyphicon-arrow-left')
     expect(page).to have_css('a.btn-paginate-next div span.glyphicon-arrow-right')
     expect(page).to have_css('a.btn-paginate-next div span.page_entries', text: '1 - 20 of')

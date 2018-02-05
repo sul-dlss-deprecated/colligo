@@ -4,8 +4,8 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
-require 'capybara/poltergeist'
-# require 'support/capybara'
+require 'selenium/webdriver'
+
 require 'fixtures/mods_records/mods_fixtures'
 require 'fixtures/annotation_records/annotation_fixtures'
 require 'fixtures/iiif_manifest_records/iiif_manifest_fixtures'
@@ -14,11 +14,21 @@ require 'webmock/rspec'
 
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 
-Capybara.register_driver :poltergeist do |app|
-  # NOTE: bootstrap_slider.js is throwing js errors. So I set js_errors to false
-  Capybara::Poltergeist::Driver.new(app, timeout: 60, js_errors: false)
+Capybara.register_driver :chrome do |app|
+  Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
-Capybara.javascript_driver = :poltergeist
+
+Capybara.register_driver :headless_chrome do |app|
+  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
+    chromeOptions: { args: %w(headless disable-gpu lang=en) }
+  )
+
+  Capybara::Selenium::Driver.new app,
+    browser: :chrome,
+    desired_capabilities: capabilities
+end
+
+Capybara.javascript_driver = :headless_chrome
 
 Capybara.default_max_wait_time = 10
 

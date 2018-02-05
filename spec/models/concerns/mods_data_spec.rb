@@ -341,7 +341,7 @@ describe ModsData do
 
     it 'should have single publication date for sorting' do
       expect(data_with_id).to have_key('pub_date_sort')
-      expect(data_with_id['pub_date_sort']).to be_empty
+      expect(data_with_id['pub_date_sort']).to be_nil
       expect(data_with_id2['pub_date_sort']).to eq(1135)
       expect(data_with_id4['pub_date_sort']).to eq(1389)
       expect(data_with_id5['pub_date_sort']).to eq(1174)
