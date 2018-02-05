@@ -39,7 +39,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rails-controller-testing'
   gem 'capybara'
-  gem 'poltergeist'
+  gem 'capybara-selenium'
+  gem 'chromedriver-helper'
   gem 'coveralls', require: false
 end
 

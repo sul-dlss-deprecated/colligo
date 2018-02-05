@@ -42,6 +42,8 @@ GEM
       public_suffix (~> 2.0, >= 2.0.2)
     airbrussh (1.1.2)
       sshkit (>= 1.6.1, != 1.7.0)
+    archive-zip (0.7.0)
+      io-like (~> 0.3.0)
     arel (7.1.4)
     autoprefixer-rails (6.7.3)
       execjs
@@ -96,7 +98,14 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    cliver (0.3.2)
+    capybara-selenium (0.0.6)
+      capybara
+      selenium-webdriver
+    childprocess (0.8.0)
+      ffi (~> 1.0, >= 1.0.11)
+    chromedriver-helper (1.1.0)
+      archive-zip (~> 0.7.0)
+      nokogiri (~> 1.6)
     coderay (1.1.0)
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
@@ -144,6 +153,7 @@ GEM
     execjs (2.7.0)
     faraday (0.14.0)
       multipart-post (>= 1.2, < 3)
+    ffi (1.9.18)
     font-awesome-rails (4.7.0.3)
       railties (>= 3.2, < 5.2)
     globalid (0.4.1)
@@ -154,6 +164,7 @@ GEM
       domain_name (~> 0.5)
     i18n (0.9.3)
       concurrent-ruby (~> 1.0)
+    io-like (0.3.0)
     iso-639 (0.2.5)
     jbuilder (2.6.2)
       activesupport (>= 3.0.0, < 5.1)
@@ -218,10 +229,6 @@ GEM
     openseadragon (0.4.0)
       rails (> 3.2.0)
     orm_adapter (0.5.0)
-    poltergeist (1.13.0)
-      capybara (~> 2.1)
-      cliver (~> 0.3.1)
-      websocket-driver (>= 0.2.0)
     public_suffix (2.0.5)
     puma (3.7.0)
     rack (2.0.4)
@@ -297,6 +304,9 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    selenium-webdriver (3.8.0)
+      childprocess (~> 0.5)
+      rubyzip (~> 1.0)
     simplecov (0.10.0)
       docile (~> 1.1.0)
       json (~> 1.8)
@@ -373,6 +383,8 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rvm
   capybara
+  capybara-selenium
+  chromedriver-helper
   coderay
   coffee-rails
   config
@@ -386,7 +398,6 @@ DEPENDENCIES
   mirador_rails (~> 0.3)
   mods_display (= 0.3.4)
   mysql2
-  poltergeist
   puma
   rails (~> 5.0, >= 5.0.1)
   rails-controller-testing
