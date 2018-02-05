@@ -95,7 +95,7 @@ module ModsData
     # All the pub dates in int years
     solr_doc['pub_date_t'] = dates[:all_int]
     # average of pub dates for sort
-    solr_doc['pub_date_sort'] = dates[:sort]
+    solr_doc['pub_date_sort'] = dates[:sort].presence
     # pub date for display
     solr_doc['pub_date_display'] = display_date(data.pub_dates)
     solr_doc['place_search'] = data.place
