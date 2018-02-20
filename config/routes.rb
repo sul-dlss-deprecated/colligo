@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Annotot::Engine => '/'
   root to: 'catalog#index'
 
   mount Blacklight::Engine => '/'
