@@ -62,6 +62,8 @@ gem 'devise'
 gem 'devise-guests'
 gem 'config'
 gem 'mods_display', '0.3.4'
+gem 'stanford-mods', '1.1.5'
+
 gem 'coderay'
 gem 'blacklight_range_limit'
 
