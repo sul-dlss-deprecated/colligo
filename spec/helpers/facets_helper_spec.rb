@@ -7,6 +7,7 @@ describe FacetsHelper do
 
   before(:each) do
     allow(helper).to receive(:blacklight_config).and_return blacklight_config
+    allow(controller).to receive(:search_state_class).and_return(Blacklight::SearchState)
   end
 
   describe 'render_refine_facet_partials' do
