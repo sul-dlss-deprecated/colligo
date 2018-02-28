@@ -6,7 +6,7 @@
       <div class="row">
         <div class="col-xs-3">
           <% if query_has_facet_constraints?(params) %>
-            <div><%= render_clear_all(t('blacklight.search.filters.clear-all'), params) %></div>
+            <div><%= render_clear_all(t('blacklight.search.filters.clear-all'), params.to_unsafe_h) %></div>
           <% end %>
           <ul class="nav nav-tabs tabs-left">
             <%= render_facet_tabs %>
