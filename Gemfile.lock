@@ -42,7 +42,7 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     airbrussh (1.3.0)
       sshkit (>= 1.6.1, != 1.7.0)
-    annotot (0.2.1)
+    annotot (0.3.0)
       rails (~> 5.1.4)
     archive-zip (0.11.0)
       io-like (~> 0.3.0)
