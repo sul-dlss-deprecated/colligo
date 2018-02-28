@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180215190547) do
+ActiveRecord::Schema.define(version: 20180228230701) do
 
   create_table "annotot_annotations", force: :cascade do |t|
     t.string "uuid"
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(version: 20180215190547) do
     t.binary "data"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["canvas"], name: "index_annotot_annotations_on_canvas"
+    t.index ["uuid"], name: "index_annotot_annotations_on_uuid"
   end
 
   create_table "bookmarks", force: :cascade do |t|
