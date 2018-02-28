@@ -10,6 +10,7 @@ describe RenderConstraintsHelper do
   before do
     # the helper methods below infer paths from the current route
     controller.request.path_parameters[:controller] = 'catalog'
+    allow(controller).to receive(:search_state_class).and_return(Blacklight::SearchState)
     allow(helper).to receive(:search_action_path) do |*args|
       root_path *args
     end
