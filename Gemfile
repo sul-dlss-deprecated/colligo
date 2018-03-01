@@ -69,17 +69,15 @@ gem 'blacklight_range_limit'
 
 gem 'mysql2'
 
-gem 'honeybadger'
 gem 'annotot'
 gem 'rack-cors', :require => 'rack/cors'
 
 gem 'whenever'
 
 group :deployment do
-  gem 'dlss-capistrano'
-  gem 'capistrano-passenger'
   gem 'capistrano', '~> 3.0'
   gem 'capistrano-rvm'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
+  gem 'capistrano3-puma'
 end
