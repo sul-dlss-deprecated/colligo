@@ -71,6 +71,8 @@ gem 'mysql2'
 
 gem 'honeybadger'
 gem 'annotot'
+gem 'rack-cors', :require => 'rack/cors'
+
 
 group :deployment do
   gem 'dlss-capistrano'
