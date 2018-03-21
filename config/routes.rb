@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
   mount Annotot::Engine => '/'
+
+  resources :annotations,
+            controller: 'annotot/annotations',
+            except: %i[new edit show],
+            defaults: { format: :json },
+            constraints: { id: /.*/ } do
+    collection do
+      get 'lists'
+    end
+  end
+
   root to: 'catalog#index'
 
   mount Blacklight::Engine => '/'
