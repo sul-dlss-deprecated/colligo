@@ -14,6 +14,13 @@ class CatalogController < ApplicationController
       'facet.sort' => 'count'
     }
 
+    ## Default parameters to send on single-document requests to Solr. These settings are the Blacklight defaults (see SolrHelper#solr_doc_params) or
+    ## parameters included in the document requestHandler.
+    #
+    config.default_document_solr_params = {
+     :qt => 'document'
+    }
+
     # solr field configuration for search results/index views
     config.index.title_field = 'title_display'
     config.index.display_type_field = 'format'
